@@ -1,0 +1,20 @@
+{
+  "formatVersion": 1,
+  "family": "go",
+  "image": "golang@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d",
+  "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+  "recordingIndexSha256": "ff806fb5d2b230cb0bb415449876854a038f6ffb29c6b48505e7f11c5d10332d",
+  "recordedScenarios": 40,
+  "files": {
+    "cases.json": "ff7a5c0a7855efd30b9839e2062b35619bfe786f334db5991fa1277af6bf4e47",
+    "run.mjs": "671f5f3df1a1f839e397f3264907f6a9563c9ed5aea0b9672cb984df2d5c94c0",
+    "go.sh": "aa0c31a3da20bb7ccff48c55fc62c3ca3f19a99a7a745c124a8b5c7c87d57678",
+    "replay-server.mjs": "3f7b872956c781b087c07112eccfc3a1119f734b8e06a762cddbade8c6ad8dcd",
+    "stream-server.mjs": "a63f2c6c0d8a3f6ea7742301e0a173824c1a58cf6438a09cfb8115cdafeaccfe",
+    "recording.go": "58979b900efd394832ac54f2b3f54bcde69b3e9a5a97c920f6e1a73af4397838",
+    "stream.go": "3cf7013cb54aab6ed3dc708bd2c7124f39fb8ebfb34c3ddec898cdd08fdbeb82",
+    "operations.go": "05de4c08373619889a5e1aca2fbfdddcc8173d6b8f356f31200947021223d07e"
+  },
+  "evidence": "reviewed-response-replay-and-synthetic-streaming",
+  "publishable": false
+}
