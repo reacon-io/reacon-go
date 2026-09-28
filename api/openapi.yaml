@@ -18780,6 +18780,11 @@ components:
       - output
       - replay
       type: object
+    IntegrationCapabilityResponseOutputNonNull:
+      oneOf:
+      - $ref: "#/components/schemas/CapabilityEmailFound"
+      - $ref: "#/components/schemas/CapabilityEmailVerified"
+      - $ref: "#/components/schemas/CapabilityDomainSearch"
     IntegrationConnection:
       additionalProperties: true
       example:
@@ -31647,14 +31652,6 @@ components:
       - items
       type: object
     ProductCompanySummary:
-      example:
-        domain: domain
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        industry: industry
-        location: location
-        name: name
-        numberOfEmployees: 0
-        website: website
       properties:
         domain:
           nullable: true
@@ -32061,26 +32058,6 @@ components:
       - updatedAt
       type: object
     ProductDiscoverCompaniesExecution:
-      example:
-        executionId: executionId
-        output:
-          companies:
-          - domain: domain
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            industry: industry
-            location: location
-            name: name
-            numberOfEmployees: 0
-            website: website
-          - domain: domain
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            industry: industry
-            location: location
-            name: name
-            numberOfEmployees: 0
-            website: website
-        replay: true
-        tool: discover_companies
       properties:
         executionId:
           not:
@@ -32127,22 +32104,6 @@ components:
           type: string
       type: object
     ProductDiscoverCompaniesOutput:
-      example:
-        companies:
-        - domain: domain
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          industry: industry
-          location: location
-          name: name
-          numberOfEmployees: 0
-          website: website
-        - domain: domain
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          industry: industry
-          location: location
-          name: name
-          numberOfEmployees: 0
-          website: website
       properties:
         companies:
           items:
@@ -33910,6 +33871,8 @@ components:
           usage: "#/components/schemas/ProductUsageExecution"
           usage_history: "#/components/schemas/ProductUsageHistoryExecution"
         propertyName: tool
+      example:
+        tool: discover_companies
       oneOf:
       - $ref: "#/components/schemas/ProductDiscoverCompaniesExecution"
       - $ref: "#/components/schemas/ProductDiscoverPeopleExecution"
@@ -33959,6 +33922,60 @@ components:
       - $ref: "#/components/schemas/ProductTeamMembersExecution"
       - $ref: "#/components/schemas/ProductConnectedAppsExecution"
       - $ref: "#/components/schemas/ProductConnectedAppPushExecution"
+      properties:
+        tool:
+          enum:
+          - discover_companies
+          - discover_people
+          - domain_finder
+          - email_count
+          - person_enrich
+          - company_enrich
+          - combined_enrich
+          - saved_searches_list
+          - leads_list
+          - lead_get
+          - lead_create
+          - lead_update
+          - lead_upsert
+          - lead_delete
+          - lead_enrich
+          - lead_bulk_delete
+          - lead_tags_list
+          - lead_tag_create
+          - lead_tag_assign
+          - lead_tag_remove
+          - custom_attributes_list
+          - custom_attribute_create
+          - lead_lists_list
+          - lead_list_create
+          - lead_list_update
+          - lead_list_delete
+          - lead_list_add_lead
+          - lead_list_remove_lead
+          - companies_list
+          - company_track
+          - company_update
+          - company_delete
+          - company_lists_list
+          - company_list_create
+          - company_list_add
+          - company_list_remove
+          - sequences_list
+          - sequence_recipients_list
+          - sequence_recipients_add
+          - sequence_recipient_add
+          - sequence_recipient_cancel
+          - sequence_start
+          - account_info
+          - usage
+          - usage_history
+          - team_members
+          - connected_apps
+          - connected_app_push
+          type: string
+      required:
+      - tool
     ProductToolRequest:
       additionalProperties: false
       example:
@@ -36613,16 +36630,14 @@ components:
       - pipelines
       type: object
     IntegrationCapabilityResponse_output:
-      description: Null in preview mode; otherwise the result for the selected capability.
-      oneOf:
-      - $ref: "#/components/schemas/CapabilityEmailFound"
-      - $ref: "#/components/schemas/CapabilityEmailVerified"
-      - $ref: "#/components/schemas/CapabilityDomainSearch"
+      anyOf:
+      - $ref: "#/components/schemas/IntegrationCapabilityResponseOutputNonNull"
       - not:
           type: object
         nullable: true
         type: object
         x-reacon-null-only: true
+      description: Null in preview mode; otherwise the result for the selected capability.
     IntegrationConnection_health:
       additionalProperties: true
       example:

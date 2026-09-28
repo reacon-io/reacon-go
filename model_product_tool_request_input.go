@@ -49,391 +49,81 @@ type ProductToolRequestInput struct {
 	MapmapOfStringAny *map[string]interface{}
 }
 
-// Unmarshal JSON data into any of the pointers in the struct
 func (dst *ProductToolRequestInput) UnmarshalJSON(data []byte) error {
-	var err error
-	// try to unmarshal JSON data into ProductCompaniesListInput
-	err = json.Unmarshal(data, &dst.ProductCompaniesListInput);
-	if err == nil {
-		jsonProductCompaniesListInput, _ := json.Marshal(dst.ProductCompaniesListInput)
-		if string(jsonProductCompaniesListInput) == "{}" { // empty struct
-			dst.ProductCompaniesListInput = nil
-		} else {
-			return nil // data stored in dst.ProductCompaniesListInput, return on the first match
-		}
-	} else {
-		dst.ProductCompaniesListInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductCompanyDeleteInput
-	err = json.Unmarshal(data, &dst.ProductCompanyDeleteInput);
-	if err == nil {
-		jsonProductCompanyDeleteInput, _ := json.Marshal(dst.ProductCompanyDeleteInput)
-		if string(jsonProductCompanyDeleteInput) == "{}" { // empty struct
-			dst.ProductCompanyDeleteInput = nil
-		} else {
-			return nil // data stored in dst.ProductCompanyDeleteInput, return on the first match
-		}
-	} else {
-		dst.ProductCompanyDeleteInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductCompanyListAddInput
-	err = json.Unmarshal(data, &dst.ProductCompanyListAddInput);
-	if err == nil {
-		jsonProductCompanyListAddInput, _ := json.Marshal(dst.ProductCompanyListAddInput)
-		if string(jsonProductCompanyListAddInput) == "{}" { // empty struct
-			dst.ProductCompanyListAddInput = nil
-		} else {
-			return nil // data stored in dst.ProductCompanyListAddInput, return on the first match
-		}
-	} else {
-		dst.ProductCompanyListAddInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductCompanyTrackInput
-	err = json.Unmarshal(data, &dst.ProductCompanyTrackInput);
-	if err == nil {
-		jsonProductCompanyTrackInput, _ := json.Marshal(dst.ProductCompanyTrackInput)
-		if string(jsonProductCompanyTrackInput) == "{}" { // empty struct
-			dst.ProductCompanyTrackInput = nil
-		} else {
-			return nil // data stored in dst.ProductCompanyTrackInput, return on the first match
-		}
-	} else {
-		dst.ProductCompanyTrackInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductCompanyUpdateInput
-	err = json.Unmarshal(data, &dst.ProductCompanyUpdateInput);
-	if err == nil {
-		jsonProductCompanyUpdateInput, _ := json.Marshal(dst.ProductCompanyUpdateInput)
-		if string(jsonProductCompanyUpdateInput) == "{}" { // empty struct
-			dst.ProductCompanyUpdateInput = nil
-		} else {
-			return nil // data stored in dst.ProductCompanyUpdateInput, return on the first match
-		}
-	} else {
-		dst.ProductCompanyUpdateInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductConnectedAppPushInput
-	err = json.Unmarshal(data, &dst.ProductConnectedAppPushInput);
-	if err == nil {
-		jsonProductConnectedAppPushInput, _ := json.Marshal(dst.ProductConnectedAppPushInput)
-		if string(jsonProductConnectedAppPushInput) == "{}" { // empty struct
-			dst.ProductConnectedAppPushInput = nil
-		} else {
-			return nil // data stored in dst.ProductConnectedAppPushInput, return on the first match
-		}
-	} else {
-		dst.ProductConnectedAppPushInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductCustomAttributeCreateInput
-	err = json.Unmarshal(data, &dst.ProductCustomAttributeCreateInput);
-	if err == nil {
-		jsonProductCustomAttributeCreateInput, _ := json.Marshal(dst.ProductCustomAttributeCreateInput)
-		if string(jsonProductCustomAttributeCreateInput) == "{}" { // empty struct
-			dst.ProductCustomAttributeCreateInput = nil
-		} else {
-			return nil // data stored in dst.ProductCustomAttributeCreateInput, return on the first match
-		}
-	} else {
-		dst.ProductCustomAttributeCreateInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductDiscoverCompaniesInput
-	err = json.Unmarshal(data, &dst.ProductDiscoverCompaniesInput);
-	if err == nil {
-		jsonProductDiscoverCompaniesInput, _ := json.Marshal(dst.ProductDiscoverCompaniesInput)
-		if string(jsonProductDiscoverCompaniesInput) == "{}" { // empty struct
-			dst.ProductDiscoverCompaniesInput = nil
-		} else {
-			return nil // data stored in dst.ProductDiscoverCompaniesInput, return on the first match
-		}
-	} else {
-		dst.ProductDiscoverCompaniesInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductDiscoverPeopleInput
-	err = json.Unmarshal(data, &dst.ProductDiscoverPeopleInput);
-	if err == nil {
-		jsonProductDiscoverPeopleInput, _ := json.Marshal(dst.ProductDiscoverPeopleInput)
-		if string(jsonProductDiscoverPeopleInput) == "{}" { // empty struct
-			dst.ProductDiscoverPeopleInput = nil
-		} else {
-			return nil // data stored in dst.ProductDiscoverPeopleInput, return on the first match
-		}
-	} else {
-		dst.ProductDiscoverPeopleInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductDomainFinderInput
-	err = json.Unmarshal(data, &dst.ProductDomainFinderInput);
-	if err == nil {
-		jsonProductDomainFinderInput, _ := json.Marshal(dst.ProductDomainFinderInput)
-		if string(jsonProductDomainFinderInput) == "{}" { // empty struct
-			dst.ProductDomainFinderInput = nil
-		} else {
-			return nil // data stored in dst.ProductDomainFinderInput, return on the first match
-		}
-	} else {
-		dst.ProductDomainFinderInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductEmailCountInput
-	err = json.Unmarshal(data, &dst.ProductEmailCountInput);
-	if err == nil {
-		jsonProductEmailCountInput, _ := json.Marshal(dst.ProductEmailCountInput)
-		if string(jsonProductEmailCountInput) == "{}" { // empty struct
-			dst.ProductEmailCountInput = nil
-		} else {
-			return nil // data stored in dst.ProductEmailCountInput, return on the first match
-		}
-	} else {
-		dst.ProductEmailCountInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadBulkDeleteInput
-	err = json.Unmarshal(data, &dst.ProductLeadBulkDeleteInput);
-	if err == nil {
-		jsonProductLeadBulkDeleteInput, _ := json.Marshal(dst.ProductLeadBulkDeleteInput)
-		if string(jsonProductLeadBulkDeleteInput) == "{}" { // empty struct
-			dst.ProductLeadBulkDeleteInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadBulkDeleteInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadBulkDeleteInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadCreateInput
-	err = json.Unmarshal(data, &dst.ProductLeadCreateInput);
-	if err == nil {
-		jsonProductLeadCreateInput, _ := json.Marshal(dst.ProductLeadCreateInput)
-		if string(jsonProductLeadCreateInput) == "{}" { // empty struct
-			dst.ProductLeadCreateInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadCreateInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadCreateInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadDeleteInput
-	err = json.Unmarshal(data, &dst.ProductLeadDeleteInput);
-	if err == nil {
-		jsonProductLeadDeleteInput, _ := json.Marshal(dst.ProductLeadDeleteInput)
-		if string(jsonProductLeadDeleteInput) == "{}" { // empty struct
-			dst.ProductLeadDeleteInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadDeleteInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadDeleteInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadGetInput
-	err = json.Unmarshal(data, &dst.ProductLeadGetInput);
-	if err == nil {
-		jsonProductLeadGetInput, _ := json.Marshal(dst.ProductLeadGetInput)
-		if string(jsonProductLeadGetInput) == "{}" { // empty struct
-			dst.ProductLeadGetInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadGetInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadGetInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadListAddLeadInput
-	err = json.Unmarshal(data, &dst.ProductLeadListAddLeadInput);
-	if err == nil {
-		jsonProductLeadListAddLeadInput, _ := json.Marshal(dst.ProductLeadListAddLeadInput)
-		if string(jsonProductLeadListAddLeadInput) == "{}" { // empty struct
-			dst.ProductLeadListAddLeadInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadListAddLeadInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadListAddLeadInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadListDeleteInput
-	err = json.Unmarshal(data, &dst.ProductLeadListDeleteInput);
-	if err == nil {
-		jsonProductLeadListDeleteInput, _ := json.Marshal(dst.ProductLeadListDeleteInput)
-		if string(jsonProductLeadListDeleteInput) == "{}" { // empty struct
-			dst.ProductLeadListDeleteInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadListDeleteInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadListDeleteInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadListUpdateInput
-	err = json.Unmarshal(data, &dst.ProductLeadListUpdateInput);
-	if err == nil {
-		jsonProductLeadListUpdateInput, _ := json.Marshal(dst.ProductLeadListUpdateInput)
-		if string(jsonProductLeadListUpdateInput) == "{}" { // empty struct
-			dst.ProductLeadListUpdateInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadListUpdateInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadListUpdateInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadTagAssignInput
-	err = json.Unmarshal(data, &dst.ProductLeadTagAssignInput);
-	if err == nil {
-		jsonProductLeadTagAssignInput, _ := json.Marshal(dst.ProductLeadTagAssignInput)
-		if string(jsonProductLeadTagAssignInput) == "{}" { // empty struct
-			dst.ProductLeadTagAssignInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadTagAssignInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadTagAssignInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadTagCreateInput
-	err = json.Unmarshal(data, &dst.ProductLeadTagCreateInput);
-	if err == nil {
-		jsonProductLeadTagCreateInput, _ := json.Marshal(dst.ProductLeadTagCreateInput)
-		if string(jsonProductLeadTagCreateInput) == "{}" { // empty struct
-			dst.ProductLeadTagCreateInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadTagCreateInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadTagCreateInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadUpdateInput
-	err = json.Unmarshal(data, &dst.ProductLeadUpdateInput);
-	if err == nil {
-		jsonProductLeadUpdateInput, _ := json.Marshal(dst.ProductLeadUpdateInput)
-		if string(jsonProductLeadUpdateInput) == "{}" { // empty struct
-			dst.ProductLeadUpdateInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadUpdateInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadUpdateInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductLeadsListInput
-	err = json.Unmarshal(data, &dst.ProductLeadsListInput);
-	if err == nil {
-		jsonProductLeadsListInput, _ := json.Marshal(dst.ProductLeadsListInput)
-		if string(jsonProductLeadsListInput) == "{}" { // empty struct
-			dst.ProductLeadsListInput = nil
-		} else {
-			return nil // data stored in dst.ProductLeadsListInput, return on the first match
-		}
-	} else {
-		dst.ProductLeadsListInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductPersonEnrichInput
-	err = json.Unmarshal(data, &dst.ProductPersonEnrichInput);
-	if err == nil {
-		jsonProductPersonEnrichInput, _ := json.Marshal(dst.ProductPersonEnrichInput)
-		if string(jsonProductPersonEnrichInput) == "{}" { // empty struct
-			dst.ProductPersonEnrichInput = nil
-		} else {
-			return nil // data stored in dst.ProductPersonEnrichInput, return on the first match
-		}
-	} else {
-		dst.ProductPersonEnrichInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductSequenceRecipientAddInput
-	err = json.Unmarshal(data, &dst.ProductSequenceRecipientAddInput);
-	if err == nil {
-		jsonProductSequenceRecipientAddInput, _ := json.Marshal(dst.ProductSequenceRecipientAddInput)
-		if string(jsonProductSequenceRecipientAddInput) == "{}" { // empty struct
-			dst.ProductSequenceRecipientAddInput = nil
-		} else {
-			return nil // data stored in dst.ProductSequenceRecipientAddInput, return on the first match
-		}
-	} else {
-		dst.ProductSequenceRecipientAddInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductSequenceRecipientCancelInput
-	err = json.Unmarshal(data, &dst.ProductSequenceRecipientCancelInput);
-	if err == nil {
-		jsonProductSequenceRecipientCancelInput, _ := json.Marshal(dst.ProductSequenceRecipientCancelInput)
-		if string(jsonProductSequenceRecipientCancelInput) == "{}" { // empty struct
-			dst.ProductSequenceRecipientCancelInput = nil
-		} else {
-			return nil // data stored in dst.ProductSequenceRecipientCancelInput, return on the first match
-		}
-	} else {
-		dst.ProductSequenceRecipientCancelInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductSequenceRecipientsAddInput
-	err = json.Unmarshal(data, &dst.ProductSequenceRecipientsAddInput);
-	if err == nil {
-		jsonProductSequenceRecipientsAddInput, _ := json.Marshal(dst.ProductSequenceRecipientsAddInput)
-		if string(jsonProductSequenceRecipientsAddInput) == "{}" { // empty struct
-			dst.ProductSequenceRecipientsAddInput = nil
-		} else {
-			return nil // data stored in dst.ProductSequenceRecipientsAddInput, return on the first match
-		}
-	} else {
-		dst.ProductSequenceRecipientsAddInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductSequenceRecipientsListInput
-	err = json.Unmarshal(data, &dst.ProductSequenceRecipientsListInput);
-	if err == nil {
-		jsonProductSequenceRecipientsListInput, _ := json.Marshal(dst.ProductSequenceRecipientsListInput)
-		if string(jsonProductSequenceRecipientsListInput) == "{}" { // empty struct
-			dst.ProductSequenceRecipientsListInput = nil
-		} else {
-			return nil // data stored in dst.ProductSequenceRecipientsListInput, return on the first match
-		}
-	} else {
-		dst.ProductSequenceRecipientsListInput = nil
-	}
-
-	// try to unmarshal JSON data into ProductSequenceStartInput
-	err = json.Unmarshal(data, &dst.ProductSequenceStartInput);
-	if err == nil {
-		jsonProductSequenceStartInput, _ := json.Marshal(dst.ProductSequenceStartInput)
-		if string(jsonProductSequenceStartInput) == "{}" { // empty struct
-			dst.ProductSequenceStartInput = nil
-		} else {
-			return nil // data stored in dst.ProductSequenceStartInput, return on the first match
-		}
-	} else {
-		dst.ProductSequenceStartInput = nil
-	}
-
-	// try to unmarshal JSON data into MapmapOfStringAny
-	err = json.Unmarshal(data, &dst.MapmapOfStringAny);
-	if err == nil {
-		jsonMapmapOfStringAny, _ := json.Marshal(dst.MapmapOfStringAny)
-		if string(jsonMapmapOfStringAny) == "{}" { // empty struct
-			dst.MapmapOfStringAny = nil
-		} else {
-			return nil // data stored in dst.MapmapOfStringAny, return on the first match
-		}
-	} else {
-		dst.MapmapOfStringAny = nil
-	}
-
-	return fmt.Errorf("data failed to match schemas in anyOf(ProductToolRequestInput)")
+  *dst = ProductToolRequestInput{}
+  var fields map[string]json.RawMessage
+  if err := json.Unmarshal(data, &fields); err != nil { return err }
+  if fields == nil { return fmt.Errorf("product input must be an object") }
+  if len(fields) == 0 { empty := map[string]interface{}{}; dst.MapmapOfStringAny = &empty; return nil }
+  matches := func(allowed, required []string) bool {
+    for key := range fields { found := false; for _, candidate := range allowed { if key == candidate { found = true; break } }; if !found { return false } }
+    for _, key := range required { if _, ok := fields[key]; !ok { return false } }
+    return true
+  }
+  if matches([]string{"industry","limit","location","query"}, []string{}) { var value ProductDiscoverCompaniesInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductDiscoverCompaniesInput = &value; return nil } }
+  if matches([]string{"domain","jobTitle","limit","query"}, []string{}) { var value ProductDiscoverPeopleInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductDiscoverPeopleInput = &value; return nil } }
+  if matches([]string{"company"}, []string{"company"}) { var value ProductDomainFinderInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductDomainFinderInput = &value; return nil } }
+  if matches([]string{"domain"}, []string{"domain"}) { var value ProductEmailCountInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductEmailCountInput = &value; return nil } }
+  if matches([]string{"email"}, []string{"email"}) { var value ProductPersonEnrichInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductPersonEnrichInput = &value; return nil } }
+  if matches([]string{"limit","listId","offset"}, []string{}) { var value ProductLeadsListInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadsListInput = &value; return nil } }
+  if matches([]string{"leadId"}, []string{"leadId"}) { var value ProductLeadGetInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadGetInput = &value; return nil } }
+  if matches([]string{"attributes","company","email","firstName","idempotencyKey","lastName","position"}, []string{"email","idempotencyKey"}) { var value ProductLeadCreateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadCreateInput = &value; return nil } }
+  if matches([]string{"attributes","company","firstName","idempotencyKey","lastName","leadId","position"}, []string{"leadId","idempotencyKey"}) { var value ProductLeadUpdateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadUpdateInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","leadId"}, []string{"leadId","idempotencyKey"}) { var value ProductLeadDeleteInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadDeleteInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","leadIds"}, []string{"leadIds","idempotencyKey"}) { var value ProductLeadBulkDeleteInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadBulkDeleteInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","name"}, []string{"name","idempotencyKey"}) { var value ProductLeadTagCreateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadTagCreateInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","leadId","tagId"}, []string{"leadId","tagId","idempotencyKey"}) { var value ProductLeadTagAssignInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadTagAssignInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","key","name"}, []string{"name","key","idempotencyKey"}) { var value ProductCustomAttributeCreateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCustomAttributeCreateInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","listId","name"}, []string{"listId","name","idempotencyKey"}) { var value ProductLeadListUpdateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadListUpdateInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","listId"}, []string{"listId","idempotencyKey"}) { var value ProductLeadListDeleteInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadListDeleteInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","leadId","listId"}, []string{"listId","leadId","idempotencyKey"}) { var value ProductLeadListAddLeadInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductLeadListAddLeadInput = &value; return nil } }
+  if matches([]string{"limit","offset"}, []string{}) { var value ProductCompaniesListInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompaniesListInput = &value; return nil } }
+  if matches([]string{"domain","idempotencyKey","name"}, []string{"domain","idempotencyKey"}) { var value ProductCompanyTrackInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompanyTrackInput = &value; return nil } }
+  if matches([]string{"companyId","employeeRange","idempotencyKey","industry","name"}, []string{"companyId","idempotencyKey"}) { var value ProductCompanyUpdateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompanyUpdateInput = &value; return nil } }
+  if matches([]string{"companyId","idempotencyKey"}, []string{"companyId","idempotencyKey"}) { var value ProductCompanyDeleteInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompanyDeleteInput = &value; return nil } }
+  if matches([]string{"companyId","idempotencyKey","listId"}, []string{"listId","companyId","idempotencyKey"}) { var value ProductCompanyListAddInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompanyListAddInput = &value; return nil } }
+  if matches([]string{"sequenceId"}, []string{"sequenceId"}) { var value ProductSequenceRecipientsListInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientsListInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","recipients","sequenceId"}, []string{"sequenceId","recipients","idempotencyKey"}) { var value ProductSequenceRecipientsAddInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientsAddInput = &value; return nil } }
+  if matches([]string{"email","idempotencyKey","leadId","sequenceId"}, []string{"sequenceId","email","idempotencyKey"}) { var value ProductSequenceRecipientAddInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientAddInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","recipientId"}, []string{"recipientId","idempotencyKey"}) { var value ProductSequenceRecipientCancelInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientCancelInput = &value; return nil } }
+  if matches([]string{"idempotencyKey","sequenceId"}, []string{"sequenceId","idempotencyKey"}) { var value ProductSequenceStartInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceStartInput = &value; return nil } }
+  if matches([]string{"connectionId","idempotencyKey","leadIds"}, []string{"connectionId","leadIds","idempotencyKey"}) { var value ProductConnectedAppPushInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductConnectedAppPushInput = &value; return nil } }
+  return fmt.Errorf("product input does not match a declared object shape")
 }
-
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src ProductToolRequestInput) MarshalJSON() ([]byte, error) {
+  count := 0
+  if src.ProductDiscoverCompaniesInput != nil { count++ }
+  if src.ProductDiscoverPeopleInput != nil { count++ }
+  if src.ProductDomainFinderInput != nil { count++ }
+  if src.ProductEmailCountInput != nil { count++ }
+  if src.ProductPersonEnrichInput != nil { count++ }
+  if src.ProductLeadsListInput != nil { count++ }
+  if src.ProductLeadGetInput != nil { count++ }
+  if src.ProductLeadCreateInput != nil { count++ }
+  if src.ProductLeadUpdateInput != nil { count++ }
+  if src.ProductLeadDeleteInput != nil { count++ }
+  if src.ProductLeadBulkDeleteInput != nil { count++ }
+  if src.ProductLeadTagCreateInput != nil { count++ }
+  if src.ProductLeadTagAssignInput != nil { count++ }
+  if src.ProductCustomAttributeCreateInput != nil { count++ }
+  if src.ProductLeadListUpdateInput != nil { count++ }
+  if src.ProductLeadListDeleteInput != nil { count++ }
+  if src.ProductLeadListAddLeadInput != nil { count++ }
+  if src.ProductCompaniesListInput != nil { count++ }
+  if src.ProductCompanyTrackInput != nil { count++ }
+  if src.ProductCompanyUpdateInput != nil { count++ }
+  if src.ProductCompanyDeleteInput != nil { count++ }
+  if src.ProductCompanyListAddInput != nil { count++ }
+  if src.ProductSequenceRecipientsListInput != nil { count++ }
+  if src.ProductSequenceRecipientsAddInput != nil { count++ }
+  if src.ProductSequenceRecipientAddInput != nil { count++ }
+  if src.ProductSequenceRecipientCancelInput != nil { count++ }
+  if src.ProductSequenceStartInput != nil { count++ }
+  if src.ProductConnectedAppPushInput != nil { count++ }
+  if src.MapmapOfStringAny != nil { count++ }
+  if count != 1 { return nil, fmt.Errorf("product input requires exactly one selected alternative") }
+  if src.MapmapOfStringAny != nil && len(*src.MapmapOfStringAny) != 0 { return nil, fmt.Errorf("empty product input cannot contain keys") }
 	if src.ProductCompaniesListInput != nil {
 		return json.Marshal(&src.ProductCompaniesListInput)
 	}
