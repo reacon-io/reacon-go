@@ -154,6 +154,25 @@ func run(item Case, operations map[string][]string) (result Result) {
 	return
 }
 func main() {
+    // Closed anyOf dispatch must preserve all keys, including overlapping shapes.
+    for _, input := range []string{`{}`, `{"limit":2,"listId":"00000000-0000-4000-8000-000000000001"}`, `{"domain":"example.invalid"}`, `{"email":"sdk@example.invalid","idempotencyKey":"synthetic-regression-1","firstName":"SDK"}`, `{"sequenceId":"00000000-0000-4000-8000-000000000001","idempotencyKey":"synthetic-regression-2","recipients":[{"email":"sdk@example.invalid"}]}`} {
+        var value sdk.ProductToolRequestInput
+        must(json.Unmarshal([]byte(input), &value))
+        encoded, err := json.Marshal(value); must(err)
+        var want, got any; must(json.Unmarshal([]byte(input), &want)); must(json.Unmarshal(encoded, &got))
+        check(reflect.DeepEqual(want, got), "Product input union lost fields: " + input + " -> " + string(encoded))
+    }
+    for _, input := range []string{`null`, `[]`, `{"unknown":true}`, `{"domain":"example.invalid","unknown":true}`, `{"recipientId":"00000000-0000-4000-8000-000000000001"}`} {
+        var value sdk.ProductToolRequestInput
+        check(json.Unmarshal([]byte(input), &value) != nil, "Invalid product input accepted: " + input)
+    }
+    for _, tool := range []string{"team_members", "saved_searches_list", "leads_list"} {
+        // Actual success bodies are checked by the response corpus below.
+        var value sdk.ProductToolExecution
+        check(json.Unmarshal([]byte(`{"tool":"`+tool+`"}`), &value) != nil, "Discriminator bypassed required payload fields")
+    }
+    var unknown sdk.ProductToolExecution
+    check(json.Unmarshal([]byte(`{"tool":"unknown"}`), &unknown) != nil, "Unknown discriminator accepted")
 	var patch sdk.UpdateLeadRequest
 	must(json.Unmarshal([]byte(`{"company_addresses":null,"person_first_name":null}`), &patch))
 	encoded, err := json.Marshal(patch)

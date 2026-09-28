@@ -41,8 +41,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:03.392Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:30.995Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -93,7 +93,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99998",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
@@ -103,8 +103,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:04.600Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:31.951Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -157,7 +157,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99997",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
@@ -168,8 +168,656 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:04.633Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:31.984Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getDomainCatchAll--unknown-fixture-domain",
+    "apiClass": "DomainsApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/DomainCatchAll"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getDomainCatchAll",
+      "scenarioId": "unknown-fixture-domain",
+      "title": "Read absent catch-all evidence without starting an SMTP probe",
+      "pathTemplate": "/v1/domains/{domain}/catch-all",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/domains/sdk-fixtures.example.invalid/catch-all",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99996",
+          "x-ratelimit-reset": "59"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "catch_all": null
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:32.290Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getDomainCatchAll--missing-key",
+    "apiClass": "DomainsApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getDomainCatchAll",
+      "scenarioId": "missing-key",
+      "title": "Reject unauthenticated catch-all access",
+      "pathTemplate": "/v1/domains/{domain}/catch-all",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/domains/sdk-fixtures.example.invalid/catch-all",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99995",
+          "x-ratelimit-reset": "59"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "API key required",
+          "code": "API_KEY_REQUIRED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:32.591Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "executeIntegrationCapability--domain-search-preview",
+    "apiClass": "IntegrationsApi",
+    "parameters": {
+      "capability": "domain.search"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "ExecuteIntegrationCapabilityRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/IntegrationCapabilityResponse"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "executeIntegrationCapability",
+      "scenarioId": "domain-search-preview",
+      "title": "Preview a domain search without executing the capability",
+      "pathTemplate": "/v1/actions/{capability}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/actions/domain.search",
+        "query": {},
+        "body": {
+          "input": {
+            "domain": "sdk-fixtures.example.invalid",
+            "limit": 1
+          },
+          "mode": "preview",
+          "idempotencyKey": "reacon-sdk-documentation-domain-preview"
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99994",
+          "x-ratelimit-reset": "59"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "executionId": "00000000-0000-4000-8000-000000000100",
+          "capability": "domain.search",
+          "mode": "preview",
+          "estimatedCredits": 0,
+          "actualCredits": 0,
+          "charged": false,
+          "emulated": false,
+          "replay": false,
+          "output": null
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:32.618Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "executeIntegrationCapability--missing-key",
+    "apiClass": "IntegrationsApi",
+    "parameters": {
+      "capability": "domain.search"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "ExecuteIntegrationCapabilityRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "executeIntegrationCapability",
+      "scenarioId": "missing-key",
+      "title": "Reject unauthenticated capability preview",
+      "pathTemplate": "/v1/actions/{capability}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/actions/domain.search",
+        "query": {},
+        "body": {
+          "input": {
+            "domain": "sdk-fixtures.example.invalid",
+            "limit": 1
+          },
+          "mode": "preview",
+          "idempotencyKey": "reacon-sdk-documentation-domain-preview"
+        },
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99993",
+          "x-ratelimit-reset": "59"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "API key required",
+          "code": "API_KEY_REQUIRED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:32.847Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "executeProductTool--read-usage",
+    "apiClass": "ProductToolsApi",
+    "parameters": {
+      "tool": "usage"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "ProductToolRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ProductToolExecution"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "executeProductTool",
+      "scenarioId": "read-usage",
+      "title": "Read synthetic workspace data with usage",
+      "pathTemplate": "/v1/product/tools/{tool}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/product/tools/usage",
+        "query": {},
+        "body": {
+          "input": {}
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99992",
+          "x-ratelimit-reset": "59"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "executionId": null,
+          "tool": "usage",
+          "replay": false,
+          "output": {
+            "creditsAvailable": 0,
+            "creditsUsed": 0,
+            "requests": 0,
+            "nextExpiration": null
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:32.890Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "executeProductTool--read-team-members",
+    "apiClass": "ProductToolsApi",
+    "parameters": {
+      "tool": "team_members"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "ProductToolRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ProductToolExecution"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "executeProductTool",
+      "scenarioId": "read-team-members",
+      "title": "Read synthetic workspace data with team_members",
+      "pathTemplate": "/v1/product/tools/{tool}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/product/tools/team_members",
+        "query": {},
+        "body": {
+          "input": {}
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99991",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "executionId": null,
+          "tool": "team_members",
+          "replay": false,
+          "output": {
+            "items": [
+              {
+                "id": "00000000-0000-4000-8000-000000000002",
+                "email": "sdk-documentation@example.invalid",
+                "role": "OWNER"
+              }
+            ]
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:33.397Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "executeProductTool--read-saved-searches-list",
+    "apiClass": "ProductToolsApi",
+    "parameters": {
+      "tool": "saved_searches_list"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "ProductToolRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ProductToolExecution"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "executeProductTool",
+      "scenarioId": "read-saved-searches-list",
+      "title": "Read synthetic workspace data with saved_searches_list",
+      "pathTemplate": "/v1/product/tools/{tool}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/product/tools/saved_searches_list",
+        "query": {},
+        "body": {
+          "input": {}
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99990",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "executionId": null,
+          "tool": "saved_searches_list",
+          "replay": false,
+          "output": {
+            "items": []
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:33.838Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "executeProductTool--read-leads-list",
+    "apiClass": "ProductToolsApi",
+    "parameters": {
+      "tool": "leads_list"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "ProductToolRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ProductToolExecution"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "executeProductTool",
+      "scenarioId": "read-leads-list",
+      "title": "Read synthetic workspace data with leads_list",
+      "pathTemplate": "/v1/product/tools/{tool}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/product/tools/leads_list",
+        "query": {},
+        "body": {
+          "input": {}
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99989",
+          "x-ratelimit-reset": "57"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "executionId": null,
+          "tool": "leads_list",
+          "replay": false,
+          "output": {
+            "items": [],
+            "total": 0,
+            "offset": 0,
+            "limit": 25
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:34.183Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "executeProductTool--missing-key",
+    "apiClass": "ProductToolsApi",
+    "parameters": {
+      "tool": "usage"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "ProductToolRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "executeProductTool",
+      "scenarioId": "missing-key",
+      "title": "Reject unauthenticated product tool access",
+      "pathTemplate": "/v1/product/tools/{tool}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/product/tools/usage",
+        "query": {},
+        "body": {
+          "input": {}
+        },
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99988",
+          "x-ratelimit-reset": "57"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "API key required",
+          "code": "API_KEY_REQUIRED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:34.604Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -227,8 +875,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99996",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-remaining": "99987",
+          "x-ratelimit-reset": "57"
         },
         "mediaType": "application/json",
         "body": {
@@ -238,8 +886,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:04.937Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:34.643Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -297,8 +945,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99995",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-remaining": "99986",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -307,8 +955,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:05.409Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:35.116Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -366,8 +1014,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99994",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99985",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -377,8 +1025,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:05.725Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:35.422Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -430,8 +1078,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99993",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99984",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -441,8 +1089,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:05.750Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:35.446Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -494,8 +1142,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99992",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99983",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -505,8 +1153,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:06.069Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:35.750Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -564,8 +1212,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99991",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99982",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -595,8 +1243,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:06.092Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:35.774Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -654,8 +1302,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99990",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99981",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -665,8 +1313,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:06.308Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:35.987Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -716,8 +1364,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99989",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99980",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -1393,8 +2041,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:06.332Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:36.011Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -1444,8 +2092,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99988",
-          "x-ratelimit-reset": "57"
+          "x-ratelimit-remaining": "99979",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
@@ -1455,8 +2103,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:06.557Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:36.229Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -1506,8 +2154,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99987",
-          "x-ratelimit-reset": "57"
+          "x-ratelimit-remaining": "99978",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
@@ -1518,11 +2166,152 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:06.579Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:36.254Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "classifyMailReply--synthetic-text",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "MailPostCrmClassifyReplyRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCrmClassifyReplyResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "classifyMailReply",
+      "scenarioId": "synthetic-text",
+      "title": "Classify synthetic text without a contact, mailbox or delivery",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/classify-reply",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/classify-reply",
+        "query": {},
+        "body": {
+          "text": "Synthetic documentation example: thank you for the information."
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "285",
+          "x-ratelimit-reset": "12"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "classification": {
+            "label": "unknown",
+            "classifierVersion": "rules-2026-08-01",
+            "ruleId": "no-rule-match",
+            "evidence": [],
+            "confidence": 0
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:39.743Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "classifyMailReply--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "MailPostCrmClassifyReplyRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "classifyMailReply",
+      "scenarioId": "missing-key",
+      "title": "Reject unauthenticated reply classification",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/classify-reply",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/classify-reply",
+        "query": {},
+        "body": {
+          "text": "Synthetic documentation example: thank you for the information."
+        },
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "282",
+          "x-ratelimit-reset": "10"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:49:41.903Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1571,8 +2360,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99986",
-          "x-ratelimit-reset": "54"
+          "x-ratelimit-remaining": "99977",
+          "x-ratelimit-reset": "50"
         },
         "mediaType": "application/json",
         "body": {
@@ -1581,8 +2370,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:09.930Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:41.928Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -1634,8 +2423,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99985",
-          "x-ratelimit-reset": "54"
+          "x-ratelimit-remaining": "99976",
+          "x-ratelimit-reset": "49"
         },
         "mediaType": "application/json",
         "body": {
@@ -1645,8 +2434,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:10.310Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:42.338Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -1698,8 +2487,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99984",
-          "x-ratelimit-reset": "53"
+          "x-ratelimit-remaining": "99975",
+          "x-ratelimit-reset": "49"
         },
         "mediaType": "application/json",
         "body": {
@@ -1708,8 +2497,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:10.697Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:42.724Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -1761,8 +2550,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99983",
-          "x-ratelimit-reset": "53"
+          "x-ratelimit-remaining": "99974",
+          "x-ratelimit-reset": "49"
         },
         "mediaType": "application/json",
         "body": {
@@ -1771,8 +2560,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:10.998Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:43.022Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -1824,8 +2613,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "286",
-          "x-ratelimit-reset": "20"
+          "x-ratelimit-remaining": "281",
+          "x-ratelimit-reset": "8"
         },
         "mediaType": "application/json",
         "body": {
@@ -1834,8 +2623,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:11.465Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:43.485Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1887,8 +2676,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "285",
-          "x-ratelimit-reset": "18"
+          "x-ratelimit-remaining": "280",
+          "x-ratelimit-reset": "8"
         },
         "mediaType": "application/json",
         "body": {
@@ -1897,8 +2686,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:13.539Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:43.870Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1950,8 +2739,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "284",
-          "x-ratelimit-reset": "18"
+          "x-ratelimit-remaining": "279",
+          "x-ratelimit-reset": "7"
         },
         "mediaType": "application/json",
         "body": {
@@ -1960,8 +2749,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:13.927Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:44.257Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2013,18 +2802,42 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "283",
-          "x-ratelimit-reset": "17"
+          "x-ratelimit-remaining": "278",
+          "x-ratelimit-reset": "7"
         },
         "mediaType": "application/json",
         "body": {
-          "results": []
+          "results": [
+            {
+              "id": "reacon-sdk-documentation-inert-cadence",
+              "name": "REACON SDK DOCUMENTATION FIXTURE - inert draft cadence",
+              "nodes": [
+                {
+                  "id": "start",
+                  "kind": "start",
+                  "name": "Start",
+                  "nextNodeId": "stop"
+                },
+                {
+                  "id": "stop",
+                  "kind": "stop",
+                  "name": "Stop",
+                  "outcome": "Documentation fixture only"
+                }
+              ],
+              "status": "draft",
+              "version": 2,
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "createdAt": "2026-09-28T22:48:41.829Z",
+              "createdByActorId": "00000000-0000-4000-8000-000000000002"
+            }
+          ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:14.314Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:44.639Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2076,8 +2889,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "282",
-          "x-ratelimit-reset": "17"
+          "x-ratelimit-remaining": "277",
+          "x-ratelimit-reset": "6"
         },
         "mediaType": "application/json",
         "body": {
@@ -2086,8 +2899,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:14.718Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:45.030Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2139,8 +2952,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "281",
-          "x-ratelimit-reset": "16"
+          "x-ratelimit-remaining": "276",
+          "x-ratelimit-reset": "6"
         },
         "mediaType": "application/json",
         "body": {
@@ -2175,8 +2988,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:15.105Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:45.414Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2228,8 +3041,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "279",
-          "x-ratelimit-reset": "15"
+          "x-ratelimit-remaining": "274",
+          "x-ratelimit-reset": "5"
         },
         "mediaType": "application/json",
         "body": {
@@ -2238,8 +3051,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:16.263Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:46.476Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2291,8 +3104,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "278",
-          "x-ratelimit-reset": "15"
+          "x-ratelimit-remaining": "273",
+          "x-ratelimit-reset": "5"
         },
         "mediaType": "application/json",
         "body": {
@@ -2301,8 +3114,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:16.650Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:46.859Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2354,15 +3167,76 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "277",
-          "x-ratelimit-reset": "14"
+          "x-ratelimit-remaining": "272",
+          "x-ratelimit-reset": "4"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "id": "timeline_00000000000040008000000000000100",
+              "id": "timeline_00000000000040008000000000000101",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "reply.classified",
+              "occurredAt": "2026-09-28T22:49:41.790Z",
+              "payload": {
+                "label": "unknown",
+                "ruleId": "no-rule-match",
+                "evidence": [],
+                "confidence": 0,
+                "classifierVersion": "rules-2026-08-01"
+              }
+            },
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000102",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "contact.stage_changed",
+              "occurredAt": "2026-09-28T22:48:45.292Z",
+              "payload": {
+                "stage": "qualified",
+                "outcome": "Documentation fixture only"
+              }
+            },
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000103",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "reply.classified",
+              "occurredAt": "2026-09-28T22:48:14.222Z",
+              "payload": {
+                "label": "unknown",
+                "ruleId": "no-rule-match",
+                "evidence": [],
+                "confidence": 0,
+                "classifierVersion": "rules-2026-08-01"
+              }
+            },
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000104",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "contact.stage_changed",
+              "occurredAt": "2026-09-28T22:33:43.751Z",
+              "payload": {
+                "stage": "qualified",
+                "outcome": "Documentation fixture only"
+              }
+            },
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000105",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "contact.stage_changed",
+              "occurredAt": "2026-09-28T21:28:40.854Z",
+              "payload": {
+                "stage": "qualified",
+                "outcome": "Documentation fixture only"
+              }
+            },
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000106",
               "actorId": "00000000-0000-4000-8000-000000000002",
               "type": "contact.stage_changed",
               "occurredAt": "2026-09-28T20:39:52.831Z",
@@ -2373,7 +3247,7 @@
             },
             {
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "id": "timeline_00000000000040008000000000000101",
+              "id": "timeline_00000000000040008000000000000107",
               "actorId": "00000000-0000-4000-8000-000000000002",
               "type": "contact.stage_changed",
               "occurredAt": "2026-09-28T20:22:29.478Z",
@@ -2384,7 +3258,7 @@
             },
             {
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "id": "timeline_00000000000040008000000000000102",
+              "id": "timeline_00000000000040008000000000000108",
               "actorId": "00000000-0000-4000-8000-000000000002",
               "type": "contact.stage_changed",
               "occurredAt": "2026-09-28T17:05:22.473Z",
@@ -2398,8 +3272,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:17.036Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:47.239Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2451,8 +3325,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "276",
-          "x-ratelimit-reset": "14"
+          "x-ratelimit-remaining": "271",
+          "x-ratelimit-reset": "4"
         },
         "mediaType": "application/json",
         "body": {
@@ -2461,8 +3335,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:17.416Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:47.626Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2514,8 +3388,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "275",
-          "x-ratelimit-reset": "14"
+          "x-ratelimit-remaining": "270",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -2524,8 +3398,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:17.804Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:48.025Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2577,8 +3451,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "274",
-          "x-ratelimit-reset": "13"
+          "x-ratelimit-remaining": "269",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -2587,8 +3461,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:18.193Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:48.411Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2640,8 +3514,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "273",
-          "x-ratelimit-reset": "13"
+          "x-ratelimit-remaining": "268",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -2651,8 +3525,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:18.580Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:48.799Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2704,8 +3578,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "272",
-          "x-ratelimit-reset": "12"
+          "x-ratelimit-remaining": "266",
+          "x-ratelimit-reset": "1"
         },
         "mediaType": "application/json",
         "body": {
@@ -2715,8 +3589,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:19.810Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:50.123Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2768,8 +3642,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "270",
-          "x-ratelimit-reset": "11"
+          "x-ratelimit-remaining": "265",
+          "x-ratelimit-reset": "1"
         },
         "mediaType": "application/json",
         "body": {
@@ -2778,8 +3652,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:20.279Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:50.593Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2831,16 +3705,16 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "269",
-          "x-ratelimit-reset": "11"
+          "x-ratelimit-remaining": "298",
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
           "mailboxes": [],
           "connections": [],
           "analytics": {
-            "from": "2026-08-29T21:28:20.943Z",
-            "to": "2026-09-28T21:28:20.943Z",
+            "from": "2026-08-29T22:49:51.253Z",
+            "to": "2026-09-28T22:49:51.253Z",
             "total": 0,
             "counts": {},
             "acceptanceRate": 0,
@@ -2865,8 +3739,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:20.670Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:50.981Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2918,8 +3792,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "267",
-          "x-ratelimit-reset": "9"
+          "x-ratelimit-remaining": "297",
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -2933,8 +3807,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:22.335Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:52.477Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2986,8 +3860,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "266",
-          "x-ratelimit-reset": "9"
+          "x-ratelimit-remaining": "296",
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -2996,8 +3870,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:22.720Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:52.864Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3049,8 +3923,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "265",
-          "x-ratelimit-reset": "8"
+          "x-ratelimit-remaining": "295",
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
@@ -3059,8 +3933,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:23.102Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:53.244Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3112,8 +3986,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "264",
-          "x-ratelimit-reset": "8"
+          "x-ratelimit-remaining": "294",
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
@@ -3130,8 +4004,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:23.502Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:53.637Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3183,8 +4057,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "263",
-          "x-ratelimit-reset": "8"
+          "x-ratelimit-remaining": "293",
+          "x-ratelimit-reset": "57"
         },
         "mediaType": "application/json",
         "body": {
@@ -3196,9 +4070,9 @@
               "status": "draft",
               "channel": "email",
               "subject": "Hello {{first_name}}",
-              "version": 5,
+              "version": 8,
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "createdAt": "2026-09-28T20:39:42.563Z",
+              "createdAt": "2026-09-28T22:48:33.474Z",
               "variables": [
                 "first_name"
               ],
@@ -3209,8 +4083,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:23.887Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:54.014Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3262,8 +4136,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "262",
-          "x-ratelimit-reset": "7"
+          "x-ratelimit-remaining": "292",
+          "x-ratelimit-reset": "57"
         },
         "mediaType": "application/json",
         "body": {
@@ -3272,8 +4146,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:24.275Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:54.394Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3325,8 +4199,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "261",
-          "x-ratelimit-reset": "7"
+          "x-ratelimit-remaining": "291",
+          "x-ratelimit-reset": "57"
         },
         "mediaType": "application/json",
         "body": {
@@ -3336,8 +4210,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:24.656Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:54.776Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3389,8 +4263,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "260",
-          "x-ratelimit-reset": "6"
+          "x-ratelimit-remaining": "290",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -3399,8 +4273,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:25.128Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:55.246Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3479,17 +4353,17 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "259",
-          "x-ratelimit-reset": "6"
+          "x-ratelimit-remaining": "289",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000103",
+            "id": "campaign_00000000000040008000000000000109",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
             "steps": [
               {
-                "id": "step_00000000000040008000000000000104",
+                "id": "step_00000000000040008000000000000110",
                 "text": "This is a documentation fixture. It is never sent.",
                 "delayMs": 0,
                 "subject": "Synthetic documentation example"
@@ -3506,8 +4380,8 @@
             "status": "draft",
             "version": 1,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T21:28:25.788Z",
-            "updatedAt": "2026-09-28T21:28:25.788Z",
+            "createdAt": "2026-09-28T22:49:55.911Z",
+            "updatedAt": "2026-09-28T22:49:55.911Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -3515,8 +4389,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:25.515Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:55.634Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3540,7 +4414,7 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000103"
+      "campaignId": "campaign_00000000000040008000000000000109"
     },
     "requestEquivalence": {
       "dates": [],
@@ -3559,7 +4433,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000109",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -3569,17 +4443,17 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "258",
-          "x-ratelimit-reset": "6"
+          "x-ratelimit-remaining": "287",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000103",
+            "id": "campaign_00000000000040008000000000000109",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
             "steps": [
               {
-                "id": "step_00000000000040008000000000000104",
+                "id": "step_00000000000040008000000000000110",
                 "text": "This is a documentation fixture. It is never sent.",
                 "delayMs": 0,
                 "subject": "Synthetic documentation example"
@@ -3596,8 +4470,8 @@
             "status": "draft",
             "version": 1,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T21:28:25.788Z",
-            "updatedAt": "2026-09-28T21:28:25.788Z",
+            "createdAt": "2026-09-28T22:49:55.911Z",
+            "updatedAt": "2026-09-28T22:49:55.911Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -3605,8 +4479,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:25.904Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:56.026Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3630,7 +4504,7 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000103"
+      "campaignId": "campaign_00000000000040008000000000000109"
     },
     "requestEquivalence": {
       "dates": [],
@@ -3664,7 +4538,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "PATCH",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000109",
         "query": {},
         "body": {
           "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
@@ -3681,13 +4555,13 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "256",
-          "x-ratelimit-reset": "5"
+          "x-ratelimit-remaining": "286",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000103",
+            "id": "campaign_00000000000040008000000000000109",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
             "steps": [],
             "policy": {
@@ -3701,8 +4575,8 @@
             "status": "draft",
             "version": 2,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T21:28:25.788Z",
-            "updatedAt": "2026-09-28T21:28:26.565Z",
+            "createdAt": "2026-09-28T22:49:55.911Z",
+            "updatedAt": "2026-09-28T22:49:56.686Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -3710,8 +4584,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:26.291Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:56.411Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3735,7 +4609,7 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000103"
+      "campaignId": "campaign_00000000000040008000000000000109"
     },
     "requestEquivalence": {
       "dates": [],
@@ -3787,7 +4661,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "PATCH",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000109",
         "query": {},
         "body": {
           "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
@@ -3801,20 +4675,20 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "255",
-          "x-ratelimit-reset": "5"
+          "x-ratelimit-remaining": "285",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
           "error": "CAMPAIGN_VERSION_CONFLICT",
           "code": "CAMPAIGN_VERSION_CONFLICT",
-          "requestId": "req-4bm"
+          "requestId": "req-5qm"
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:26.765Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:56.887Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3838,7 +4712,7 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000103"
+      "campaignId": "campaign_00000000000040008000000000000109"
     },
     "requestEquivalence": {
       "dates": [],
@@ -3857,7 +4731,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103/duplicate",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000109/duplicate",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -3867,13 +4741,13 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "254",
-          "x-ratelimit-reset": "4"
+          "x-ratelimit-remaining": "284",
+          "x-ratelimit-reset": "54"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000105",
+            "id": "campaign_00000000000040008000000000000111",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign copy",
             "steps": [],
             "policy": {
@@ -3887,8 +4761,8 @@
             "status": "draft",
             "version": 1,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T21:28:27.501Z",
-            "updatedAt": "2026-09-28T21:28:27.501Z",
+            "createdAt": "2026-09-28T22:49:57.623Z",
+            "updatedAt": "2026-09-28T22:49:57.623Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -3896,8 +4770,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:27.147Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:57.269Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3921,7 +4795,7 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000105"
+      "campaignId": "campaign_00000000000040008000000000000111"
     },
     "requestEquivalence": {
       "dates": [],
@@ -3941,7 +4815,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "DELETE",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000105",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000111",
         "query": {},
         "body": {
           "expectedVersion": 1
@@ -3954,8 +4828,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "253",
-          "x-ratelimit-reset": "4"
+          "x-ratelimit-remaining": "283",
+          "x-ratelimit-reset": "54"
         },
         "mediaType": "application/json",
         "body": {
@@ -3964,8 +4838,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:27.613Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:57.734Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3989,7 +4863,7 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000103"
+      "campaignId": "campaign_00000000000040008000000000000109"
     },
     "requestEquivalence": {
       "dates": [],
@@ -4009,7 +4883,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "DELETE",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000109",
         "query": {},
         "body": {
           "expectedVersion": 2
@@ -4022,8 +4896,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "252",
-          "x-ratelimit-reset": "3"
+          "x-ratelimit-remaining": "282",
+          "x-ratelimit-reset": "53"
         },
         "mediaType": "application/json",
         "body": {
@@ -4032,8 +4906,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:27.994Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:58.116Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4057,7 +4931,7 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000103"
+      "campaignId": "campaign_00000000000040008000000000000109"
     },
     "requestEquivalence": {
       "dates": [],
@@ -4076,7 +4950,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000109",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -4086,20 +4960,20 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "251",
-          "x-ratelimit-reset": "3"
+          "x-ratelimit-remaining": "281",
+          "x-ratelimit-reset": "53"
         },
         "mediaType": "application/json",
         "body": {
           "error": "CAMPAIGN_NOT_FOUND",
           "code": "CAMPAIGN_NOT_FOUND",
-          "requestId": "req-4bq"
+          "requestId": "req-5qq"
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:28.376Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:58.507Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4151,8 +5025,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "250",
-          "x-ratelimit-reset": "3"
+          "x-ratelimit-remaining": "280",
+          "x-ratelimit-reset": "53"
         },
         "mediaType": "application/json",
         "body": {
@@ -4161,8 +5035,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:28.758Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:58.886Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4219,8 +5093,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "249",
-          "x-ratelimit-reset": "2"
+          "x-ratelimit-remaining": "279",
+          "x-ratelimit-reset": "52"
         },
         "mediaType": "application/json",
         "body": {
@@ -4250,8 +5124,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:29.141Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:59.264Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4316,8 +5190,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "248",
-          "x-ratelimit-reset": "2"
+          "x-ratelimit-remaining": "278",
+          "x-ratelimit-reset": "52"
         },
         "mediaType": "application/json",
         "body": {
@@ -4330,8 +5204,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:29.694Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:49:59.821Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4396,20 +5270,20 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "246",
-          "x-ratelimit-reset": "1"
+          "x-ratelimit-remaining": "276",
+          "x-ratelimit-reset": "51"
         },
         "mediaType": "application/json",
         "body": {
           "error": "INVALID_ANALYTICS_RANGE",
           "code": "INVALID_ANALYTICS_RANGE",
-          "requestId": "req-4bv"
+          "requestId": "req-5qv"
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:30.075Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:00.205Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4466,8 +5340,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "245",
-          "x-ratelimit-reset": "1"
+          "x-ratelimit-remaining": "275",
+          "x-ratelimit-reset": "51"
         },
         "mediaType": "application/json",
         "body": {
@@ -4477,8 +5351,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:30.375Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:00.499Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4539,8 +5413,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "244",
-          "x-ratelimit-reset": "1"
+          "x-ratelimit-remaining": "274",
+          "x-ratelimit-reset": "51"
         },
         "mediaType": "application/json",
         "body": {
@@ -4549,7 +5423,7 @@
             "tenantId": "00000000-0000-4000-8000-000000000001",
             "name": "REACON SDK DOCUMENTATION FIXTURE",
             "channel": "email",
-            "version": 6,
+            "version": 9,
             "status": "draft",
             "subject": "Hello {{first_name}}",
             "body": "Hello {{first_name}}, this is an unsent documentation example.",
@@ -4557,14 +5431,14 @@
               "first_name"
             ],
             "createdByActorId": "00000000-0000-4000-8000-000000000002",
-            "createdAt": "2026-09-28T21:28:30.762Z"
+            "createdAt": "2026-09-28T22:50:00.883Z"
           }
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:30.404Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:00.522Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4616,8 +5490,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "243",
-          "x-ratelimit-reset": "1"
+          "x-ratelimit-remaining": "272",
+          "x-ratelimit-reset": "50"
         },
         "mediaType": "application/json",
         "body": {
@@ -4629,9 +5503,9 @@
               "status": "draft",
               "channel": "email",
               "subject": "Hello {{first_name}}",
-              "version": 6,
+              "version": 9,
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "createdAt": "2026-09-28T21:28:30.762Z",
+              "createdAt": "2026-09-28T22:50:00.883Z",
               "variables": [
                 "first_name"
               ],
@@ -4642,8 +5516,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:30.957Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:01.080Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4700,8 +5574,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "298",
-          "x-ratelimit-reset": "60"
+          "x-ratelimit-remaining": "271",
+          "x-ratelimit-reset": "50"
         },
         "mediaType": "application/json",
         "body": {
@@ -4710,8 +5584,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:31.336Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:01.461Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4763,8 +5637,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "297",
-          "x-ratelimit-reset": "60"
+          "x-ratelimit-remaining": "270",
+          "x-ratelimit-reset": "50"
         },
         "mediaType": "application/json",
         "body": {
@@ -4781,8 +5655,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:31.720Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:01.841Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4840,8 +5714,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "296",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-remaining": "269",
+          "x-ratelimit-reset": "49"
         },
         "mediaType": "application/json",
         "body": {
@@ -4850,8 +5724,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:32.107Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:02.219Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4909,8 +5783,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "295",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-remaining": "268",
+          "x-ratelimit-reset": "49"
         },
         "mediaType": "application/json",
         "body": {
@@ -4919,8 +5793,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:32.503Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:02.602Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -4972,8 +5846,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "294",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-remaining": "267",
+          "x-ratelimit-reset": "48"
         },
         "mediaType": "application/json",
         "body": {
@@ -4982,8 +5856,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:32.879Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:02.983Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5035,8 +5909,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "293",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "266",
+          "x-ratelimit-reset": "48"
         },
         "mediaType": "application/json",
         "body": {
@@ -5047,8 +5921,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:33.424Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:03.535Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5105,20 +5979,20 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "292",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "265",
+          "x-ratelimit-reset": "48"
         },
         "mediaType": "application/json",
         "body": {
           "error": "CONTACT_NOT_FOUND",
           "code": "CONTACT_NOT_FOUND",
-          "requestId": "req-4c6"
+          "requestId": "req-5r6"
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:33.814Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:03.916Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5170,8 +6044,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "285",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "257",
+          "x-ratelimit-reset": "45"
         },
         "mediaType": "application/json",
         "body": {
@@ -5181,8 +6055,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:35.980Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:06.085Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5234,8 +6108,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "283",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "256",
+          "x-ratelimit-reset": "45"
         },
         "mediaType": "application/json",
         "body": {
@@ -5245,8 +6119,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:36.002Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:06.109Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5298,8 +6172,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "282",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "255",
+          "x-ratelimit-reset": "45"
         },
         "mediaType": "application/json",
         "body": {
@@ -5309,8 +6183,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:36.030Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:06.131Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5362,8 +6236,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "281",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "254",
+          "x-ratelimit-reset": "45"
         },
         "mediaType": "application/json",
         "body": {
@@ -5372,8 +6246,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:36.061Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:06.154Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5444,8 +6318,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "280",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "253",
+          "x-ratelimit-reset": "45"
         },
         "mediaType": "application/json",
         "body": {
@@ -5461,15 +6335,15 @@
             "actions": {
               "stopCadences": false
             },
-            "createdAt": "2026-09-28T21:28:36.713Z",
-            "updatedAt": "2026-09-28T21:28:36.713Z"
+            "createdAt": "2026-09-28T22:50:06.803Z",
+            "updatedAt": "2026-09-28T22:50:06.803Z"
           }
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:36.441Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:06.529Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5521,8 +6395,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "279",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "252",
+          "x-ratelimit-reset": "44"
         },
         "mediaType": "application/json",
         "body": {
@@ -5539,16 +6413,16 @@
               "actions": {
                 "stopCadences": false
               },
-              "createdAt": "2026-09-28T21:28:36.713Z",
-              "updatedAt": "2026-09-28T21:28:36.713Z"
+              "createdAt": "2026-09-28T22:50:06.803Z",
+              "updatedAt": "2026-09-28T22:50:06.803Z"
             }
           ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:36.908Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:07.003Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5600,8 +6474,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "278",
-          "x-ratelimit-reset": "54"
+          "x-ratelimit-remaining": "251",
+          "x-ratelimit-reset": "44"
         },
         "mediaType": "application/json",
         "body": {
@@ -5618,16 +6492,16 @@
               "actions": {
                 "stopCadences": false
               },
-              "createdAt": "2026-09-28T21:28:36.713Z",
-              "updatedAt": "2026-09-28T21:28:36.713Z"
+              "createdAt": "2026-09-28T22:50:06.803Z",
+              "updatedAt": "2026-09-28T22:50:06.803Z"
             }
           ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:37.286Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:07.379Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5680,8 +6554,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "277",
-          "x-ratelimit-reset": "54"
+          "x-ratelimit-remaining": "250",
+          "x-ratelimit-reset": "44"
         },
         "mediaType": "application/json",
         "body": {
@@ -5690,8 +6564,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:37.662Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:07.759Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5743,8 +6617,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "275",
-          "x-ratelimit-reset": "53"
+          "x-ratelimit-remaining": "248",
+          "x-ratelimit-reset": "43"
         },
         "mediaType": "application/json",
         "body": {
@@ -5754,8 +6628,500 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:38.339Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:08.433Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailCadences--before-inert-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetCadencesResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailCadences",
+      "scenarioId": "before-inert-draft",
+      "title": "Inspect the inert documentation cadence",
+      "pathTemplate": "/v1/teams/{teamId}/mail/cadences",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadences",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "247",
+          "x-ratelimit-reset": "43"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "id": "reacon-sdk-documentation-inert-cadence",
+              "name": "REACON SDK DOCUMENTATION FIXTURE - inert draft cadence",
+              "nodes": [
+                {
+                  "id": "start",
+                  "kind": "start",
+                  "name": "Start",
+                  "nextNodeId": "stop"
+                },
+                {
+                  "id": "stop",
+                  "kind": "stop",
+                  "name": "Stop",
+                  "outcome": "Documentation fixture only"
+                }
+              ],
+              "status": "draft",
+              "version": 2,
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "createdAt": "2026-09-28T22:48:41.829Z",
+              "createdByActorId": "00000000-0000-4000-8000-000000000002"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:50:08.458Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "saveMailCadence--inert-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "MailPostCadencesRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCadencesResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "saveMailCadence",
+      "scenarioId": "inert-draft",
+      "title": "Save a draft cadence that immediately stops without any action",
+      "pathTemplate": "/v1/teams/{teamId}/mail/cadences",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadences",
+        "query": {},
+        "body": {
+          "id": "reacon-sdk-documentation-inert-cadence",
+          "name": "REACON SDK DOCUMENTATION FIXTURE - inert draft cadence",
+          "status": "draft",
+          "nodes": [
+            {
+              "id": "start",
+              "name": "Start",
+              "kind": "start",
+              "nextNodeId": "stop"
+            },
+            {
+              "id": "stop",
+              "name": "Stop",
+              "kind": "stop",
+              "outcome": "Documentation fixture only"
+            }
+          ]
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "246",
+          "x-ratelimit-reset": "43"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "cadence": {
+            "id": "reacon-sdk-documentation-inert-cadence",
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - inert draft cadence",
+            "version": 3,
+            "status": "draft",
+            "nodes": [
+              {
+                "id": "start",
+                "name": "Start",
+                "kind": "start",
+                "nextNodeId": "stop"
+              },
+              {
+                "id": "stop",
+                "name": "Stop",
+                "kind": "stop",
+                "outcome": "Documentation fixture only"
+              }
+            ],
+            "createdByActorId": "00000000-0000-4000-8000-000000000002",
+            "createdAt": "2026-09-28T22:50:09.203Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:50:08.850Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailCadences--inert-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetCadencesResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailCadences",
+      "scenarioId": "inert-draft",
+      "title": "Read the persistent inert draft fixture",
+      "pathTemplate": "/v1/teams/{teamId}/mail/cadences",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadences",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "245",
+          "x-ratelimit-reset": "42"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "id": "reacon-sdk-documentation-inert-cadence",
+              "name": "REACON SDK DOCUMENTATION FIXTURE - inert draft cadence",
+              "nodes": [
+                {
+                  "id": "start",
+                  "kind": "start",
+                  "name": "Start",
+                  "nextNodeId": "stop"
+                },
+                {
+                  "id": "stop",
+                  "kind": "stop",
+                  "name": "Stop",
+                  "outcome": "Documentation fixture only"
+                }
+              ],
+              "status": "draft",
+              "version": 3,
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "createdAt": "2026-09-28T22:50:09.203Z",
+              "createdByActorId": "00000000-0000-4000-8000-000000000002"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:50:09.406Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "saveMailCadence--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "MailPostCadencesRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "saveMailCadence",
+      "scenarioId": "missing-key",
+      "title": "Reject an unauthenticated draft save",
+      "pathTemplate": "/v1/teams/{teamId}/mail/cadences",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadences",
+        "query": {},
+        "body": {
+          "id": "reacon-sdk-documentation-inert-cadence",
+          "name": "REACON SDK DOCUMENTATION FIXTURE - inert draft cadence",
+          "status": "draft",
+          "nodes": [
+            {
+              "id": "start",
+              "name": "Start",
+              "kind": "start",
+              "nextNodeId": "stop"
+            },
+            {
+              "id": "stop",
+              "name": "Stop",
+              "kind": "stop",
+              "outcome": "Documentation fixture only"
+            }
+          ]
+        },
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "244",
+          "x-ratelimit-reset": "42"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:50:09.791Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailDeliverability--empty-fixture-team",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetDeliverabilityResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailDeliverability",
+      "scenarioId": "empty-fixture-team",
+      "title": "Read deliverability for a synthetic team with no connected mailboxes",
+      "pathTemplate": "/v1/teams/{teamId}/mail/deliverability",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/deliverability",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "243",
+          "x-ratelimit-reset": "42"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "mailboxes": [],
+          "health": [],
+          "pools": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:50:09.820Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailDeliverability--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailDeliverability",
+      "scenarioId": "missing-key",
+      "title": "Reject unauthenticated deliverability access",
+      "pathTemplate": "/v1/teams/{teamId}/mail/deliverability",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/deliverability",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "241",
+          "x-ratelimit-reset": "41"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T22:50:10.375Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5819,13 +7185,13 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99982",
-          "x-ratelimit-reset": "26"
+          "x-ratelimit-remaining": "99973",
+          "x-ratelimit-reset": "21"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000106",
+            "id": "00000000-0000-4000-8000-000000000112",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid"
           }
@@ -5833,8 +7199,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:38.367Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:10.400Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -5881,7 +7247,7 @@
         "query": {},
         "body": {
           "contactIds": [
-            "00000000-0000-4000-8000-000000000106"
+            "00000000-0000-4000-8000-000000000112"
           ]
         },
         "authentication": "X-API-Key (omitted)",
@@ -5892,14 +7258,14 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "273",
-          "x-ratelimit-reset": "51"
+          "x-ratelimit-remaining": "239",
+          "x-ratelimit-reset": "39"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
-              "id": "00000000-0000-4000-8000-000000000106",
+              "id": "00000000-0000-4000-8000-000000000112",
               "tenantId": "00000000-0000-4000-8000-000000000001",
               "email": "ada.sdk@example.invalid",
               "name": "Ada Example",
@@ -5907,16 +7273,16 @@
                 "position": "Developer",
                 "tags": "sdk-documentation-fixture"
               },
-              "createdAt": "2026-09-28T21:28:39.454Z",
-              "updatedAt": "2026-09-28T21:28:39.454Z"
+              "createdAt": "2026-09-28T22:50:11.406Z",
+              "updatedAt": "2026-09-28T22:50:11.406Z"
             }
           ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:40.114Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:12.074Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -5962,7 +7328,7 @@
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/states",
         "query": {},
         "body": {
-          "contactId": "00000000-0000-4000-8000-000000000106",
+          "contactId": "00000000-0000-4000-8000-000000000112",
           "stage": "qualified",
           "outcome": "Documentation fixture only"
         },
@@ -5974,24 +7340,24 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "272",
-          "x-ratelimit-reset": "51"
+          "x-ratelimit-remaining": "238",
+          "x-ratelimit-reset": "39"
         },
         "mediaType": "application/json",
         "body": {
           "state": {
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "contactId": "00000000-0000-4000-8000-000000000106",
+            "contactId": "00000000-0000-4000-8000-000000000112",
             "stage": "qualified",
             "outcome": "Documentation fixture only",
-            "updatedAt": "2026-09-28T21:28:40.854Z"
+            "updatedAt": "2026-09-28T22:50:12.817Z"
           }
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:40.496Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:12.458Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -6038,7 +7404,7 @@
         "query": {},
         "body": {
           "contactIds": [
-            "00000000-0000-4000-8000-000000000106"
+            "00000000-0000-4000-8000-000000000112"
           ]
         },
         "authentication": "X-API-Key (omitted)",
@@ -6049,26 +7415,26 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "270",
-          "x-ratelimit-reset": "50"
+          "x-ratelimit-remaining": "237",
+          "x-ratelimit-reset": "38"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "contactId": "00000000-0000-4000-8000-000000000106",
+              "contactId": "00000000-0000-4000-8000-000000000112",
               "stage": "qualified",
               "outcome": "Documentation fixture only",
-              "updatedAt": "2026-09-28T21:28:40.854Z"
+              "updatedAt": "2026-09-28T22:50:12.817Z"
             }
           ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:41.213Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:13.176Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -6091,7 +7457,7 @@
     "id": "getLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000106"
+      "leadId": "00000000-0000-4000-8000-000000000112"
     },
     "requestEquivalence": {
       "dates": [],
@@ -6110,7 +7476,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000106",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000112",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -6120,18 +7486,18 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99981",
-          "x-ratelimit-reset": "22"
+          "x-ratelimit-remaining": "99972",
+          "x-ratelimit-reset": "18"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000106",
+            "id": "00000000-0000-4000-8000-000000000112",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-28T21:28:39.454Z",
-            "updated_at": "2026-09-28T21:28:39.454Z",
+            "created_at": "2026-09-28T22:50:11.406Z",
+            "updated_at": "2026-09-28T22:50:11.406Z",
             "company_id": null,
             "person": {
               "first_name": "Ada",
@@ -6173,8 +7539,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:41.590Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:13.554Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -6197,7 +7563,7 @@
     "id": "updateLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000106"
+      "leadId": "00000000-0000-4000-8000-000000000112"
     },
     "requestEquivalence": {
       "dates": [],
@@ -6217,7 +7583,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000106/update",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000112/update",
         "query": {},
         "body": {
           "person_position": "API developer",
@@ -6234,18 +7600,18 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99980",
-          "x-ratelimit-reset": "22"
+          "x-ratelimit-remaining": "99971",
+          "x-ratelimit-reset": "18"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000106",
+            "id": "00000000-0000-4000-8000-000000000112",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-28T21:28:39.454Z",
-            "updated_at": "2026-09-28T21:28:42.300Z",
+            "created_at": "2026-09-28T22:50:11.406Z",
+            "updated_at": "2026-09-28T22:50:14.259Z",
             "company_id": null,
             "person": {
               "first_name": null,
@@ -6288,8 +7654,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:41.980Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:13.950Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -6346,19 +7712,19 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99979",
-          "x-ratelimit-reset": "21"
+          "x-ratelimit-remaining": "99970",
+          "x-ratelimit-reset": "17"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
-              "id": "00000000-0000-4000-8000-000000000106",
+              "id": "00000000-0000-4000-8000-000000000112",
               "team_id": "00000000-0000-4000-8000-000000000001",
               "email": "ada.sdk@example.invalid",
               "created_by": "00000000-0000-4000-8000-000000000002",
-              "created_at": "2026-09-28T21:28:39.454Z",
-              "updated_at": "2026-09-28T21:28:42.300Z",
+              "created_at": "2026-09-28T22:50:11.406Z",
+              "updated_at": "2026-09-28T22:50:14.259Z",
               "company_id": null,
               "person": {
                 "first_name": null,
@@ -6400,15 +7766,15 @@
           ],
           "totalCount": 1,
           "groupTotals": null,
-          "nextCursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIxOjI4OjM5LjQ1NFoiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDYifQ",
+          "nextCursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIyOjUwOjExLjQwNloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMTIifQ",
           "nextGroupCursor": null,
           "lastGroupCursor": null
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:42.720Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:14.678Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -6433,7 +7799,7 @@
     "parameters": {
       "limit": 1,
       "search": "ada.sdk@example.invalid",
-      "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIxOjI4OjM5LjQ1NFoiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDYifQ",
+      "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIyOjUwOjExLjQwNloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMTIifQ",
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
     "requestEquivalence": {
@@ -6457,7 +7823,7 @@
         "query": {
           "limit": 1,
           "search": "ada.sdk@example.invalid",
-          "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIxOjI4OjM5LjQ1NFoiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDYifQ"
+          "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIyOjUwOjExLjQwNloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMTIifQ"
         },
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -6467,8 +7833,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99978",
-          "x-ratelimit-reset": "21"
+          "x-ratelimit-remaining": "99969",
+          "x-ratelimit-reset": "16"
         },
         "mediaType": "application/json",
         "body": {
@@ -6482,8 +7848,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:43.108Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:15.074Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -6532,7 +7898,7 @@
         "body": {
           "format": "json",
           "selectedLeadIds": [
-            "00000000-0000-4000-8000-000000000106"
+            "00000000-0000-4000-8000-000000000112"
           ],
           "selectionScopes": [
             {
@@ -6549,18 +7915,18 @@
           "content-type": "application/json; charset=utf-8",
           "content-disposition": "attachment; filename=\"leads-export.json\"",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99977",
-          "x-ratelimit-reset": "20"
+          "x-ratelimit-remaining": "99968",
+          "x-ratelimit-reset": "16"
         },
         "mediaType": "application/json",
         "body": [
           {
-            "id": "00000000-0000-4000-8000-000000000106",
+            "id": "00000000-0000-4000-8000-000000000112",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-28T21:28:39.454Z",
-            "updated_at": "2026-09-28T21:28:42.300Z",
+            "created_at": "2026-09-28T22:50:11.406Z",
+            "updated_at": "2026-09-28T22:50:14.259Z",
             "person": {
               "first_name": null,
               "last_name": null,
@@ -6594,8 +7960,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:43.501Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:15.470Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -6644,7 +8010,7 @@
         "body": {
           "format": "csv",
           "selectedLeadIds": [
-            "00000000-0000-4000-8000-000000000106"
+            "00000000-0000-4000-8000-000000000112"
           ],
           "selectionScopes": [
             {
@@ -6661,16 +8027,16 @@
           "content-type": "text/csv",
           "content-disposition": "attachment; filename=\"leads-export.csv\"",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99976",
-          "x-ratelimit-reset": "20"
+          "x-ratelimit-remaining": "99967",
+          "x-ratelimit-reset": "16"
         },
         "mediaType": "text/csv",
-        "body": "id,team_id,email,company_id,created_by,person_first_name,person_last_name,person_position,person_linkedin,person_twitter,person_phone_number,person_lead_location,company_name,company_website,company_location,company_linkedin,company_twitter,company_type,company_addresses,company_stock,company_industry,company_number_of_employees,company_founded_on,verification_status,confidence_score,sync_status,crm_configured,tags,last_activity_at,last_contacted_at,created_at,updated_at\n00000000-0000-4000-8000-000000000106,00000000-0000-4000-8000-000000000001,ada.sdk@example.invalid,,00000000-0000-4000-8000-000000000002,,,API developer,,,,,,,,,,,,,,,,,,,,sdk-documentation-fixture;example,,,Mon Sep 28 2026 21:28:39 GMT+0000 (Coordinated Universal Time),Mon Sep 28 2026 21:28:42 GMT+0000 (Coordinated Universal Time)"
+        "body": "id,team_id,email,company_id,created_by,person_first_name,person_last_name,person_position,person_linkedin,person_twitter,person_phone_number,person_lead_location,company_name,company_website,company_location,company_linkedin,company_twitter,company_type,company_addresses,company_stock,company_industry,company_number_of_employees,company_founded_on,verification_status,confidence_score,sync_status,crm_configured,tags,last_activity_at,last_contacted_at,created_at,updated_at\n00000000-0000-4000-8000-000000000112,00000000-0000-4000-8000-000000000001,ada.sdk@example.invalid,,00000000-0000-4000-8000-000000000002,,,API developer,,,,,,,,,,,,,,,,,,,,sdk-documentation-fixture;example,,,Mon Sep 28 2026 22:50:11 GMT+0000 (Coordinated Universal Time),Mon Sep 28 2026 22:50:14 GMT+0000 (Coordinated Universal Time)"
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:43.972Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:15.946Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -6693,7 +8059,7 @@
     "id": "deleteLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000106"
+      "leadId": "00000000-0000-4000-8000-000000000112"
     },
     "requestEquivalence": {
       "dates": [],
@@ -6712,7 +8078,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "DELETE",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000106",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000112",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -6722,8 +8088,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99975",
-          "x-ratelimit-reset": "19"
+          "x-ratelimit-remaining": "99966",
+          "x-ratelimit-reset": "15"
         },
         "mediaType": "application/json",
         "body": {
@@ -6732,8 +8098,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:44.448Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:16.410Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -6756,7 +8122,7 @@
     "id": "getLead--deleted-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000106"
+      "leadId": "00000000-0000-4000-8000-000000000112"
     },
     "requestEquivalence": {
       "dates": [],
@@ -6775,7 +8141,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000106",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000112",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -6785,8 +8151,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99974",
-          "x-ratelimit-reset": "19"
+          "x-ratelimit-remaining": "99965",
+          "x-ratelimit-reset": "14"
         },
         "mediaType": "application/json",
         "body": {
@@ -6796,8 +8162,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T21:28:45.254Z",
-        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "capturedAt": "2026-09-28T22:50:17.214Z",
+        "recorderSha256": "202633c2407ba55e4c322dde5e5f11e086706ae379ac0d7fb53fd80eff1d5eb8",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",

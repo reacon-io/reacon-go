@@ -11,206 +11,34 @@ API version: 0.1.0
 package reacon
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
-	"gopkg.in/validator.v2"
 )
 
-// IntegrationCapabilityResponseOutput - Null in preview mode; otherwise the result for the selected capability.
+
+// IntegrationCapabilityResponseOutput Null in preview mode; otherwise the result for the selected capability.
 type IntegrationCapabilityResponseOutput struct {
-	CapabilityDomainSearch *CapabilityDomainSearch
-	CapabilityEmailFound *CapabilityEmailFound
-	CapabilityEmailVerified *CapabilityEmailVerified
-	MapmapOfStringAny *map[string]interface{}
+	IntegrationCapabilityResponseOutputNonNull *IntegrationCapabilityResponseOutputNonNull
+	reaconNull bool
 }
 
-// CapabilityDomainSearchAsIntegrationCapabilityResponseOutput is a convenience function that returns CapabilityDomainSearch wrapped in IntegrationCapabilityResponseOutput
-func CapabilityDomainSearchAsIntegrationCapabilityResponseOutput(v *CapabilityDomainSearch) IntegrationCapabilityResponseOutput {
-	return IntegrationCapabilityResponseOutput{
-		CapabilityDomainSearch: v,
-	}
-}
-
-// CapabilityEmailFoundAsIntegrationCapabilityResponseOutput is a convenience function that returns CapabilityEmailFound wrapped in IntegrationCapabilityResponseOutput
-func CapabilityEmailFoundAsIntegrationCapabilityResponseOutput(v *CapabilityEmailFound) IntegrationCapabilityResponseOutput {
-	return IntegrationCapabilityResponseOutput{
-		CapabilityEmailFound: v,
-	}
-}
-
-// CapabilityEmailVerifiedAsIntegrationCapabilityResponseOutput is a convenience function that returns CapabilityEmailVerified wrapped in IntegrationCapabilityResponseOutput
-func CapabilityEmailVerifiedAsIntegrationCapabilityResponseOutput(v *CapabilityEmailVerified) IntegrationCapabilityResponseOutput {
-	return IntegrationCapabilityResponseOutput{
-		CapabilityEmailVerified: v,
-	}
-}
-
-// map[string]interface{}AsIntegrationCapabilityResponseOutput is a convenience function that returns map[string]interface{} wrapped in IntegrationCapabilityResponseOutput
-func MapmapOfStringAnyAsIntegrationCapabilityResponseOutput(v *map[string]interface{}) IntegrationCapabilityResponseOutput {
-	return IntegrationCapabilityResponseOutput{
-		MapmapOfStringAny: v,
-	}
-}
-
-
-// Unmarshal JSON data into one of the pointers in the struct
+// UnmarshalJSON accepts the declared record or an explicit null.
 func (dst *IntegrationCapabilityResponseOutput) UnmarshalJSON(data []byte) error {
-	var err error
-	match := 0
-	// try to unmarshal data into CapabilityDomainSearch
-	err = newStrictDecoder(data).Decode(&dst.CapabilityDomainSearch)
-	if err == nil {
-		jsonCapabilityDomainSearch, _ := json.Marshal(dst.CapabilityDomainSearch)
-		if string(jsonCapabilityDomainSearch) == "{}" { // empty struct
-			dst.CapabilityDomainSearch = nil
-		} else {
-			if err = validator.Validate(dst.CapabilityDomainSearch); err != nil {
-				dst.CapabilityDomainSearch = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.CapabilityDomainSearch = nil
-	}
-
-	// try to unmarshal data into CapabilityEmailFound
-	err = newStrictDecoder(data).Decode(&dst.CapabilityEmailFound)
-	if err == nil {
-		jsonCapabilityEmailFound, _ := json.Marshal(dst.CapabilityEmailFound)
-		if string(jsonCapabilityEmailFound) == "{}" { // empty struct
-			dst.CapabilityEmailFound = nil
-		} else {
-			if err = validator.Validate(dst.CapabilityEmailFound); err != nil {
-				dst.CapabilityEmailFound = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.CapabilityEmailFound = nil
-	}
-
-	// try to unmarshal data into CapabilityEmailVerified
-	err = newStrictDecoder(data).Decode(&dst.CapabilityEmailVerified)
-	if err == nil {
-		jsonCapabilityEmailVerified, _ := json.Marshal(dst.CapabilityEmailVerified)
-		if string(jsonCapabilityEmailVerified) == "{}" { // empty struct
-			dst.CapabilityEmailVerified = nil
-		} else {
-			if err = validator.Validate(dst.CapabilityEmailVerified); err != nil {
-				dst.CapabilityEmailVerified = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.CapabilityEmailVerified = nil
-	}
-
-	// try to unmarshal data into MapmapOfStringAny
-	err = newStrictDecoder(data).Decode(&dst.MapmapOfStringAny)
-	if err == nil {
-		jsonMapmapOfStringAny, _ := json.Marshal(dst.MapmapOfStringAny)
-		if string(jsonMapmapOfStringAny) == "{}" { // empty struct
-			dst.MapmapOfStringAny = nil
-		} else {
-			if err = validator.Validate(dst.MapmapOfStringAny); err != nil {
-				dst.MapmapOfStringAny = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.MapmapOfStringAny = nil
-	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.CapabilityDomainSearch = nil
-		dst.CapabilityEmailFound = nil
-		dst.CapabilityEmailVerified = nil
-		dst.MapmapOfStringAny = nil
-
-		return fmt.Errorf("data matches more than one schema in oneOf(IntegrationCapabilityResponseOutput)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		if err != nil {
-			return fmt.Errorf("data failed to match schemas in oneOf(IntegrationCapabilityResponseOutput): %v", err)
-		}
-
-		return fmt.Errorf("data failed to match schemas in oneOf(IntegrationCapabilityResponseOutput)")
-	}
+    *dst = IntegrationCapabilityResponseOutput{}
+    if bytes.Equal(bytes.TrimSpace(data), []byte("null")) { dst.reaconNull = true; return nil }
+    var value IntegrationCapabilityResponseOutputNonNull
+    if err := json.Unmarshal(data, &value); err != nil { return err }
+    dst.IntegrationCapabilityResponseOutputNonNull = &value
+    return nil
 }
-
-// Marshal data from the first non-nil pointers in the struct to JSON
 func (src IntegrationCapabilityResponseOutput) MarshalJSON() ([]byte, error) {
-	if src.CapabilityDomainSearch != nil {
-		return json.Marshal(&src.CapabilityDomainSearch)
-	}
-
-	if src.CapabilityEmailFound != nil {
-		return json.Marshal(&src.CapabilityEmailFound)
-	}
-
-	if src.CapabilityEmailVerified != nil {
-		return json.Marshal(&src.CapabilityEmailVerified)
-	}
-
-	if src.MapmapOfStringAny != nil {
-		return json.Marshal(&src.MapmapOfStringAny)
-	}
-
-	return nil, nil // no data in oneOf schemas
+    if src.IntegrationCapabilityResponseOutputNonNull != nil { return json.Marshal(src.IntegrationCapabilityResponseOutputNonNull) }
+    if src.reaconNull { return []byte("null"), nil }
+    return nil, fmt.Errorf("IntegrationCapabilityResponseOutput requires a record or an explicit null")
 }
-
-// Get the actual instance
-func (obj *IntegrationCapabilityResponseOutput) GetActualInstance() (interface{}) {
-	if obj == nil {
-		return nil
-	}
-	if obj.CapabilityDomainSearch != nil {
-		return obj.CapabilityDomainSearch
-	}
-
-	if obj.CapabilityEmailFound != nil {
-		return obj.CapabilityEmailFound
-	}
-
-	if obj.CapabilityEmailVerified != nil {
-		return obj.CapabilityEmailVerified
-	}
-
-	if obj.MapmapOfStringAny != nil {
-		return obj.MapmapOfStringAny
-	}
-
-	// all schemas are nil
-	return nil
-}
-
-// Get the actual instance value
-func (obj IntegrationCapabilityResponseOutput) GetActualInstanceValue() (interface{}) {
-	if obj.CapabilityDomainSearch != nil {
-		return *obj.CapabilityDomainSearch
-	}
-
-	if obj.CapabilityEmailFound != nil {
-		return *obj.CapabilityEmailFound
-	}
-
-	if obj.CapabilityEmailVerified != nil {
-		return *obj.CapabilityEmailVerified
-	}
-
-	if obj.MapmapOfStringAny != nil {
-		return *obj.MapmapOfStringAny
-	}
-
-	// all schemas are nil
-	return nil
-}
+func (dst *IntegrationCapabilityResponseOutput) SetNull() { dst.IntegrationCapabilityResponseOutputNonNull = nil; dst.reaconNull = true }
+func (src IntegrationCapabilityResponseOutput) IsNull() bool { return src.reaconNull && src.IntegrationCapabilityResponseOutputNonNull == nil }
 
 type NullableIntegrationCapabilityResponseOutput struct {
 	value *IntegrationCapabilityResponseOutput
