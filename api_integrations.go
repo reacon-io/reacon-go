@@ -878,10 +878,7 @@ func (a *IntegrationsAPIService) BindTypeformFormExecute(r ApiBindTypeformFormRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1091,10 +1088,7 @@ func (a *IntegrationsAPIService) BindWebflowFormExecute(r ApiBindWebflowFormRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1297,10 +1291,7 @@ func (a *IntegrationsAPIService) CancelIntegrationJobExecute(r ApiCancelIntegrat
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1514,10 +1505,7 @@ func (a *IntegrationsAPIService) ConfigureAirtableMappingExecute(r ApiConfigureA
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1727,10 +1715,7 @@ func (a *IntegrationsAPIService) ConfigureCodaExecute(r ApiConfigureCodaRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1944,10 +1929,7 @@ func (a *IntegrationsAPIService) ConfigureCrmMappingExecute(r ApiConfigureCrmMap
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2161,10 +2143,7 @@ func (a *IntegrationsAPIService) ConfigureCrmSyncExecute(r ApiConfigureCrmSyncRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2374,10 +2353,7 @@ func (a *IntegrationsAPIService) ConfigureFreshsalesExecute(r ApiConfigureFreshs
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2591,10 +2567,7 @@ func (a *IntegrationsAPIService) ConfigureNotificationRoutesExecute(r ApiConfigu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2808,10 +2781,7 @@ func (a *IntegrationsAPIService) ConfigureSlackDestinationExecute(r ApiConfigure
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3021,10 +2991,7 @@ func (a *IntegrationsAPIService) ConfigureTeamsWorkflowExecute(r ApiConfigureTea
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3234,10 +3201,7 @@ func (a *IntegrationsAPIService) ConfigureTypeformFormExecute(r ApiConfigureType
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3447,10 +3411,7 @@ func (a *IntegrationsAPIService) ConfigureWarehouseExecute(r ApiConfigureWarehou
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3660,10 +3621,7 @@ func (a *IntegrationsAPIService) ConfigureWebflowFormExecute(r ApiConfigureWebfl
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4107,10 +4065,7 @@ func (a *IntegrationsAPIService) ExecuteIntegrationCapabilityExecute(r ApiExecut
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4322,10 +4277,7 @@ func (a *IntegrationsAPIService) GetAirtableMappingOptionsExecute(r ApiGetAirtab
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4537,10 +4489,7 @@ func (a *IntegrationsAPIService) GetCrmMappingOptionsExecute(r ApiGetCrmMappingO
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4743,10 +4692,7 @@ func (a *IntegrationsAPIService) GetHubSpotConfigurationOptionsExecute(r ApiGetH
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4949,10 +4895,7 @@ func (a *IntegrationsAPIService) GetIntegrationJobExecute(r ApiGetIntegrationJob
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5162,10 +5105,7 @@ func (a *IntegrationsAPIService) InspectCodaTableExecute(r ApiInspectCodaTableRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5375,10 +5315,7 @@ func (a *IntegrationsAPIService) InspectExcelWorkbookExecute(r ApiInspectExcelWo
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5588,10 +5525,7 @@ func (a *IntegrationsAPIService) InspectGoogleSheetExecute(r ApiInspectGoogleShe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5798,10 +5732,7 @@ func (a *IntegrationsAPIService) LinkMcpIdentityExecute(r ApiLinkMcpIdentityRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6000,10 +5931,7 @@ func (a *IntegrationsAPIService) ListIntegrationConnectionsExecute(r ApiListInte
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6238,10 +6166,7 @@ func (a *IntegrationsAPIService) ListIntegrationJobsExecute(r ApiListIntegration
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6414,10 +6339,7 @@ func (a *IntegrationsAPIService) ListIntegrationProvidersExecute(r ApiListIntegr
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6594,10 +6516,7 @@ func (a *IntegrationsAPIService) ListMcpIdentitiesExecute(r ApiListMcpIdentities
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6796,10 +6715,7 @@ func (a *IntegrationsAPIService) ListSheetWorkflowsExecute(r ApiListSheetWorkflo
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7016,10 +6932,7 @@ func (a *IntegrationsAPIService) PreviewSheetWorkflowExecute(r ApiPreviewSheetWo
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7230,10 +7143,7 @@ func (a *IntegrationsAPIService) QueueIntegrationLeadExportExecute(r ApiQueueInt
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7444,10 +7354,7 @@ func (a *IntegrationsAPIService) QueueNotificationTestExecute(r ApiQueueNotifica
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7661,10 +7568,7 @@ func (a *IntegrationsAPIService) RotateCodaCredentialExecute(r ApiRotateCodaCred
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7878,10 +7782,7 @@ func (a *IntegrationsAPIService) RotateFreshsalesCredentialExecute(r ApiRotateFr
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8098,10 +7999,7 @@ func (a *IntegrationsAPIService) RunSheetWorkflowExecute(r ApiRunSheetWorkflowRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8311,10 +8209,7 @@ func (a *IntegrationsAPIService) SaveSheetWorkflowExecute(r ApiSaveSheetWorkflow
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8521,10 +8416,7 @@ func (a *IntegrationsAPIService) StartAttioOAuthExecute(r ApiStartAttioOAuthRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8731,10 +8623,7 @@ func (a *IntegrationsAPIService) StartGoogleSheetsOAuthExecute(r ApiStartGoogleS
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8945,10 +8834,7 @@ func (a *IntegrationsAPIService) StartIntegrationOAuthExecute(r ApiStartIntegrat
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9151,10 +9037,7 @@ func (a *IntegrationsAPIService) TestIntegrationConnectionExecute(r ApiTestInteg
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9368,10 +9251,7 @@ func (a *IntegrationsAPIService) UpdateIntegrationConnectionStateExecute(r ApiUp
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9591,10 +9471,7 @@ func (a *IntegrationsAPIService) UpdateSheetWorkflowStateExecute(r ApiUpdateShee
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

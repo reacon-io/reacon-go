@@ -45,6 +45,7 @@ var (
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
+	ownedTransport *http.Transport
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// API Services
@@ -83,11 +84,9 @@ type service struct {
 // NewAPIClient creates a new API client. Requires a userAgent string describing your application.
 // optionally a custom http.Client to allow for advanced features such as caching.
 func NewAPIClient(cfg *Configuration) *APIClient {
-	if cfg.HTTPClient == nil {
-		cfg.HTTPClient = http.DefaultClient
-	}
-
-	c := &APIClient{}
+	private, transport := configureHTTPPolicy(cfg)
+	cfg = private
+	c := &APIClient{ownedTransport: transport}
 	c.cfg = cfg
 	c.common.client = c
 
@@ -290,7 +289,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 		log.Printf("\n%s\n", string(dump))
 	}
 
-	resp, err := c.cfg.HTTPClient.Do(request)
+	resp, err := c.requestWithPolicy(request)
 	if err != nil {
 		return resp, err
 	}
@@ -469,7 +468,7 @@ func (c *APIClient) prepareRequest(
 
 func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err error) {
 	if len(b) == 0 {
-		return nil
+		return errors.New("empty response body")
 	}
 	if s, ok := v.(*string); ok {
 		*s = string(b)
@@ -662,6 +661,7 @@ func strlen(s string) int {
 
 // GenericOpenAPIError Provides access to the body, error and model on returned errors.
 type GenericOpenAPIError struct {
+	response *http.Response
 	body  []byte
 	error string
 	model interface{}

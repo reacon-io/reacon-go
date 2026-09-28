@@ -1,4 +1,4 @@
-import { readFile, mkdir, realpath, writeFile } from 'node:fs/promises';
+import { readFile, mkdir, realpath, writeFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
@@ -11,6 +11,19 @@ const suite = dirname(fileURLToPath(import.meta.url));
 const root = await realpath(resolve(process.env.REACON_SDK_SOURCE ?? '.'));
 const output = resolve(process.env.REACON_CI_OUTPUT ?? 'sdk-ci-results');
 const manifest = JSON.parse(await readFile(resolve(suite, 'manifest.json')));
+const sourceFiles = {};
+async function sourceTree(directory, prefix = '') {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    if (!prefix && ['.git', '.github', 'sdk-ci-results'].includes(entry.name)) continue;
+    const path = resolve(directory, entry.name), name = prefix + entry.name;
+    if (path === output) continue;
+    if (entry.isDirectory()) await sourceTree(path, name + '/');
+    else if (entry.isFile()) sourceFiles[name] = hash(await readFile(path));
+    else throw new Error('Source contains an unsupported file type');
+  }
+}
+await sourceTree(root);
+const sourceSha256 = hash(JSON.stringify(Object.fromEntries(Object.entries(sourceFiles).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0))));
 if (manifest.formatVersion !== 1 || !['php', 'go'].includes(manifest.family) ||
     !/^(composer|golang)@sha256:[a-f0-9]{64}$/.test(manifest.image)) throw new Error('Expected pinned SDK CI bundle');
 for (const [name, expected] of Object.entries(manifest.files)) {
@@ -41,6 +54,7 @@ try {
   try { results = JSON.parse(await readFile(resolve(output, 'responses.json'))); } catch {}
   const passed = exitCode === 0 && !recordingFailure && !streamingFailure && results.length === cases.length && results.every(item => item.passed);
   const report = { formatVersion: 1, kind: 'sdk-repository-source-ci', family, passed, exitCode,
+    sourceSha256, ...(manifest.packageVersion ? { packageVersion: manifest.packageVersion } : {}),
     sourceRevision: process.env.REACON_SOURCE_REVISION ?? null, image: manifest.image, contractSha256: manifest.contractSha256,
     recordedResponses: { scenarios: cases.length, results, failure: recordingFailure, requests: server.observations.get(family) },
     streaming: { evidence: 'synthetic-http-streaming-subset', scenarios: streamScenarios, failure: streamingFailure, requests: streams.observations.get(family) },

@@ -1659,10 +1659,7 @@ func (a *MailAPIService) AddMailPortfolioTeamExecute(r ApiAddMailPortfolioTeamRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1876,10 +1873,7 @@ func (a *MailAPIService) ArchiveMailExperimentExecute(r ApiArchiveMailExperiment
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2093,10 +2087,7 @@ func (a *MailAPIService) CancelMailMessageExecute(r ApiCancelMailMessageRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2321,10 +2312,7 @@ func (a *MailAPIService) ChangeMailCadenceCampaignStateExecute(r ApiChangeMailCa
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2549,10 +2537,7 @@ func (a *MailAPIService) ChangeMailCadenceRunStateExecute(r ApiChangeMailCadence
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2777,10 +2762,7 @@ func (a *MailAPIService) ChangeMailCampaignStateExecute(r ApiChangeMailCampaignS
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3001,10 +2983,7 @@ func (a *MailAPIService) ClassifyMailReplyExecute(r ApiClassifyMailReplyRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3229,10 +3208,7 @@ func (a *MailAPIService) CompleteMailCrmTaskExecute(r ApiCompleteMailCrmTaskRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3457,10 +3433,7 @@ func (a *MailAPIService) ConfigureMailDeliverabilityExecute(r ApiConfigureMailDe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3681,10 +3654,7 @@ func (a *MailAPIService) ConfigureMailTrackingDomainExecute(r ApiConfigureMailTr
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3909,10 +3879,7 @@ func (a *MailAPIService) CopyMailCadenceExecute(r ApiCopyMailCadenceRequest) (*M
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4137,10 +4104,7 @@ func (a *MailAPIService) CopyMailTemplateExecute(r ApiCopyMailTemplateRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4361,10 +4325,7 @@ func (a *MailAPIService) CreateMailCampaignDraftExecute(r ApiCreateMailCampaignD
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4585,10 +4546,7 @@ func (a *MailAPIService) CreateMailCrmNoteExecute(r ApiCreateMailCrmNoteRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4809,10 +4767,7 @@ func (a *MailAPIService) CreateMailCrmTaskExecute(r ApiCreateMailCrmTaskRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5033,10 +4988,7 @@ func (a *MailAPIService) CreateMailMailboxPoolExecute(r ApiCreateMailMailboxPool
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5257,10 +5209,7 @@ func (a *MailAPIService) CreateMailPortfolioExecute(r ApiCreateMailPortfolioRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5481,10 +5430,7 @@ func (a *MailAPIService) CreateMailPortfolioSuppressionExecute(r ApiCreateMailPo
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5705,10 +5651,7 @@ func (a *MailAPIService) CreateMailSuppressionExecute(r ApiCreateMailSuppression
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5929,10 +5872,7 @@ func (a *MailAPIService) CreateMailWebhookExecute(r ApiCreateMailWebhookRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6157,10 +6097,7 @@ func (a *MailAPIService) DecideMailExperimentExecute(r ApiDecideMailExperimentRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6385,10 +6322,7 @@ func (a *MailAPIService) DeleteMailCampaignDraftExecute(r ApiDeleteMailCampaignD
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6602,10 +6536,7 @@ func (a *MailAPIService) DeleteMailReplyAutomationExecute(r ApiDeleteMailReplyAu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6815,10 +6746,7 @@ func (a *MailAPIService) DeleteMailTrackingDomainExecute(r ApiDeleteMailTracking
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7032,10 +6960,7 @@ func (a *MailAPIService) DeleteMailWebhookExecute(r ApiDeleteMailWebhookRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7249,10 +7174,7 @@ func (a *MailAPIService) DisconnectMailMailboxExecute(r ApiDisconnectMailMailbox
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7466,10 +7388,7 @@ func (a *MailAPIService) DuplicateMailCampaignDraftExecute(r ApiDuplicateMailCam
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7690,10 +7609,7 @@ func (a *MailAPIService) EnqueueMailMessageExecute(r ApiEnqueueMailMessageReques
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7914,10 +7830,7 @@ func (a *MailAPIService) EnrollMailCadenceExecute(r ApiEnrollMailCadenceRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8138,10 +8051,7 @@ func (a *MailAPIService) ExportMailAnalyticsExecute(r ApiExportMailAnalyticsRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8369,10 +8279,7 @@ func (a *MailAPIService) ExportMailPortfolioExecute(r ApiExportMailPortfolioRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8600,10 +8507,7 @@ func (a *MailAPIService) GetMailAnalyticsExecute(r ApiGetMailAnalyticsRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8817,10 +8721,7 @@ func (a *MailAPIService) GetMailCampaignDraftExecute(r ApiGetMailCampaignDraftRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9030,10 +8931,7 @@ func (a *MailAPIService) GetMailCampaignProgressExecute(r ApiGetMailCampaignProg
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9243,10 +9141,7 @@ func (a *MailAPIService) GetMailChannelsExecute(r ApiGetMailChannelsRequest) (*M
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9467,10 +9362,7 @@ func (a *MailAPIService) GetMailContactStatesExecute(r ApiGetMailContactStatesRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9691,10 +9583,7 @@ func (a *MailAPIService) GetMailContactsExecute(r ApiGetMailContactsRequest) (*M
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9904,10 +9793,7 @@ func (a *MailAPIService) GetMailDeliverabilityExecute(r ApiGetMailDeliverability
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10143,10 +10029,7 @@ func (a *MailAPIService) GetMailExperimentReportExecute(r ApiGetMailExperimentRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10356,10 +10239,7 @@ func (a *MailAPIService) GetMailExperimentsOverviewExecute(r ApiGetMailExperimen
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10587,10 +10467,7 @@ func (a *MailAPIService) GetMailOverviewExecute(r ApiGetMailOverviewRequest) (*M
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10800,10 +10677,7 @@ func (a *MailAPIService) GetMailPortfolioExecute(r ApiGetMailPortfolioRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11031,10 +10905,7 @@ func (a *MailAPIService) GetMailPortfolioOverviewExecute(r ApiGetMailPortfolioOv
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11244,10 +11115,7 @@ func (a *MailAPIService) GetMailQueueExecute(r ApiGetMailQueueRequest) (*MailGet
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11457,10 +11325,7 @@ func (a *MailAPIService) GetMailTrackingDomainExecute(r ApiGetMailTrackingDomain
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11681,10 +11546,7 @@ func (a *MailAPIService) InspectMailDomainHealthExecute(r ApiInspectMailDomainHe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11905,10 +11767,7 @@ func (a *MailAPIService) LaunchMailCadenceCampaignExecute(r ApiLaunchMailCadence
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12133,10 +11992,7 @@ func (a *MailAPIService) LaunchMailCampaignDraftExecute(r ApiLaunchMailCampaignD
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12346,10 +12202,7 @@ func (a *MailAPIService) ListMailAudienceListsExecute(r ApiListMailAudienceLists
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12559,10 +12412,7 @@ func (a *MailAPIService) ListMailCadenceCampaignsExecute(r ApiListMailCadenceCam
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12772,10 +12622,7 @@ func (a *MailAPIService) ListMailCadenceRunsExecute(r ApiListMailCadenceRunsRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12985,10 +12832,7 @@ func (a *MailAPIService) ListMailCadencesExecute(r ApiListMailCadencesRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13198,10 +13042,7 @@ func (a *MailAPIService) ListMailCampaignDraftsExecute(r ApiListMailCampaignDraf
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13411,10 +13252,7 @@ func (a *MailAPIService) ListMailContactStatesExecute(r ApiListMailContactStates
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13642,10 +13480,7 @@ func (a *MailAPIService) ListMailCrmTasksExecute(r ApiListMailCrmTasksRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13873,10 +13708,7 @@ func (a *MailAPIService) ListMailCrmTimelineExecute(r ApiListMailCrmTimelineRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14086,10 +13918,7 @@ func (a *MailAPIService) ListMailExperimentsExecute(r ApiListMailExperimentsRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14335,10 +14164,7 @@ func (a *MailAPIService) ListMailInboxExecute(r ApiListMailInboxRequest) (*MailG
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14593,10 +14419,7 @@ func (a *MailAPIService) ListMailInboxThreadsExecute(r ApiListMailInboxThreadsRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14806,10 +14629,7 @@ func (a *MailAPIService) ListMailMailboxesExecute(r ApiListMailMailboxesRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15037,10 +14857,7 @@ func (a *MailAPIService) ListMailMessagesExecute(r ApiListMailMessagesRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15250,10 +15067,7 @@ func (a *MailAPIService) ListMailReplyAutomationsExecute(r ApiListMailReplyAutom
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15481,10 +15295,7 @@ func (a *MailAPIService) ListMailSignaturesExecute(r ApiListMailSignaturesReques
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15694,10 +15505,7 @@ func (a *MailAPIService) ListMailSuppressionsExecute(r ApiListMailSuppressionsRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15907,10 +15715,7 @@ func (a *MailAPIService) ListMailTemplatesExecute(r ApiListMailTemplatesRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -16120,10 +15925,7 @@ func (a *MailAPIService) ListMailWebhooksExecute(r ApiListMailWebhooksRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -16337,10 +16139,7 @@ func (a *MailAPIService) PauseMailExperimentExecute(r ApiPauseMailExperimentRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -16565,10 +16364,7 @@ func (a *MailAPIService) PauseMailMailboxExecute(r ApiPauseMailMailboxRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -16789,10 +16585,7 @@ func (a *MailAPIService) PreflightMailCadenceEnrollmentExecute(r ApiPreflightMai
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -17013,10 +16806,7 @@ func (a *MailAPIService) ProvisionMailMailboxExecute(r ApiProvisionMailMailboxRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -17230,10 +17020,7 @@ func (a *MailAPIService) ReconcileMailMailboxHealthExecute(r ApiReconcileMailMai
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -17447,10 +17234,7 @@ func (a *MailAPIService) ReconcileMailWebhookExecute(r ApiReconcileMailWebhookRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -17675,10 +17459,7 @@ func (a *MailAPIService) RecordMailExperimentConversionExecute(r ApiRecordMailEx
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -17896,10 +17677,7 @@ func (a *MailAPIService) RemoveMailMailboxPoolMemberExecute(r ApiRemoveMailMailb
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -18113,10 +17891,7 @@ func (a *MailAPIService) RemoveMailPortfolioTeamExecute(r ApiRemoveMailPortfolio
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -18330,10 +18105,7 @@ func (a *MailAPIService) ReplayMailWebhookDeliveryExecute(r ApiReplayMailWebhook
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -18558,10 +18330,7 @@ func (a *MailAPIService) ReplyToMailInboxMessageExecute(r ApiReplyToMailInboxMes
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -18775,10 +18544,7 @@ func (a *MailAPIService) ResumeMailExperimentExecute(r ApiResumeMailExperimentRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -18992,10 +18758,7 @@ func (a *MailAPIService) ResumeMailMailboxExecute(r ApiResumeMailMailboxRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -19209,10 +18972,7 @@ func (a *MailAPIService) RetryMailMessageExecute(r ApiRetryMailMessageRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -19426,10 +19186,7 @@ func (a *MailAPIService) RotateMailWebhookSecretExecute(r ApiRotateMailWebhookSe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -19650,10 +19407,7 @@ func (a *MailAPIService) SaveMailCadenceExecute(r ApiSaveMailCadenceRequest) (*M
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -19874,10 +19628,7 @@ func (a *MailAPIService) SaveMailReplyAutomationExecute(r ApiSaveMailReplyAutoma
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -20098,10 +19849,7 @@ func (a *MailAPIService) SaveMailTemplateExecute(r ApiSaveMailTemplateRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -20322,10 +20070,7 @@ func (a *MailAPIService) SetMailContactStateExecute(r ApiSetMailContactStateRequ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -20554,10 +20299,7 @@ func (a *MailAPIService) SetMailMailboxPoolMemberExecute(r ApiSetMailMailboxPool
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -20782,10 +20524,7 @@ func (a *MailAPIService) SetMailWebhookStatusExecute(r ApiSetMailWebhookStatusRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -21006,10 +20745,7 @@ func (a *MailAPIService) StartMailOAuthExecute(r ApiStartMailOAuthRequest) (*Mai
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -21234,10 +20970,7 @@ func (a *MailAPIService) UpdateMailCampaignDraftExecute(r ApiUpdateMailCampaignD
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -21462,10 +21195,7 @@ func (a *MailAPIService) UpdateMailInboxMessageExecute(r ApiUpdateMailInboxMessa
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -21690,10 +21420,7 @@ func (a *MailAPIService) UpdateMailWebhookExecute(r ApiUpdateMailWebhookRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -21903,10 +21630,7 @@ func (a *MailAPIService) VerifyMailTrackingDomainExecute(r ApiVerifyMailTracking
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
