@@ -13,7 +13,7 @@
       "title": "Identify the test key and team",
       "pathTemplate": "/v1/whoami",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/whoami",
@@ -37,11 +37,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:55.827Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:53.271Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -49,7 +49,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -71,7 +71,7 @@
       "title": "Missing API key",
       "pathTemplate": "/v1/whoami",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/whoami",
@@ -85,7 +85,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99998",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
@@ -95,11 +95,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:56.989Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:54.146Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -107,7 +107,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -131,7 +131,7 @@
       "title": "No known emails for a reserved fixture domain",
       "pathTemplate": "/v1/domains/{domain}/counts",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/domains/sdk-fixtures.example.invalid/counts",
@@ -145,7 +145,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99997",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
@@ -156,11 +156,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:57.011Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:54.182Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -168,7 +168,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -194,7 +194,7 @@
       "title": "List a reserved fixture domain without spending credits",
       "pathTemplate": "/v1/emails",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/emails",
@@ -222,11 +222,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:57.303Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:54.492Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -234,7 +234,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -258,7 +258,7 @@
       "title": "Empty documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/integrations/connections",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/integrations/connections",
@@ -281,11 +281,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:57.772Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:54.972Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -293,7 +293,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -317,7 +317,7 @@
       "title": "Empty documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/integrations/jobs",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/integrations/jobs",
@@ -341,11 +341,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:58.177Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:55.359Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -353,7 +353,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -377,7 +377,7 @@
       "title": "Empty documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/integrations/mcp-identities",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/integrations/mcp-identities",
@@ -400,11 +400,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:58.568Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:55.753Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -412,7 +412,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -436,7 +436,7 @@
       "title": "Empty documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/integrations/spreadsheet-workflows",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/integrations/spreadsheet-workflows",
@@ -450,7 +450,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99992",
-          "x-ratelimit-reset": "57"
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
@@ -459,11 +459,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:58.859Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:56.058Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -471,7 +471,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -480,7 +480,7 @@
     }
   },
   {
-    "id": "listMailAudienceLists--empty-fixture-team",
+    "id": "listMailAudienceLists--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -491,11 +491,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailAudienceLists",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/audience-lists",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/audience-lists",
@@ -508,8 +508,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "293",
-          "x-ratelimit-reset": "43"
+          "x-ratelimit-remaining": "280",
+          "x-ratelimit-reset": "10"
         },
         "mediaType": "application/json",
         "body": {
@@ -518,11 +518,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:22:59.314Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:56.529Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -530,7 +530,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -539,7 +539,7 @@
     }
   },
   {
-    "id": "listMailCadenceCampaigns--empty-fixture-team",
+    "id": "listMailCadenceCampaigns--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -550,11 +550,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailCadenceCampaigns",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/cadence-campaigns",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadence-campaigns",
@@ -567,8 +567,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "292",
-          "x-ratelimit-reset": "41"
+          "x-ratelimit-remaining": "279",
+          "x-ratelimit-reset": "8"
         },
         "mediaType": "application/json",
         "body": {
@@ -577,11 +577,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:01.285Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:58.619Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -589,7 +589,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -598,7 +598,7 @@
     }
   },
   {
-    "id": "listMailCadenceRuns--empty-fixture-team",
+    "id": "listMailCadenceRuns--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -609,11 +609,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailCadenceRuns",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/cadence-runs",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadence-runs",
@@ -626,8 +626,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "290",
-          "x-ratelimit-reset": "40"
+          "x-ratelimit-remaining": "278",
+          "x-ratelimit-reset": "7"
         },
         "mediaType": "application/json",
         "body": {
@@ -636,11 +636,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:01.659Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:59.013Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -648,7 +648,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -657,7 +657,7 @@
     }
   },
   {
-    "id": "listMailCadences--empty-fixture-team",
+    "id": "listMailCadences--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -668,11 +668,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailCadences",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/cadences",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadences",
@@ -685,8 +685,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "289",
-          "x-ratelimit-reset": "40"
+          "x-ratelimit-remaining": "277",
+          "x-ratelimit-reset": "7"
         },
         "mediaType": "application/json",
         "body": {
@@ -695,11 +695,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:02.030Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:59.399Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -707,7 +707,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -716,7 +716,7 @@
     }
   },
   {
-    "id": "listMailCampaignDrafts--empty-fixture-team",
+    "id": "listMailCampaignDrafts--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -727,11 +727,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailCampaignDrafts",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/campaigns",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns",
@@ -744,8 +744,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "288",
-          "x-ratelimit-reset": "40"
+          "x-ratelimit-remaining": "276",
+          "x-ratelimit-reset": "7"
         },
         "mediaType": "application/json",
         "body": {
@@ -754,11 +754,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:02.409Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:04:59.811Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -766,7 +766,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -775,7 +775,7 @@
     }
   },
   {
-    "id": "getMailChannels--empty-fixture-team",
+    "id": "getMailChannels--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -786,11 +786,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "getMailChannels",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/channels",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/channels",
@@ -803,8 +803,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "287",
-          "x-ratelimit-reset": "39"
+          "x-ratelimit-remaining": "274",
+          "x-ratelimit-reset": "6"
         },
         "mediaType": "application/json",
         "body": {
@@ -839,11 +839,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:02.789Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:00.199Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -851,7 +851,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -860,7 +860,7 @@
     }
   },
   {
-    "id": "listMailContactStates--empty-fixture-team",
+    "id": "listMailContactStates--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -871,11 +871,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailContactStates",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/crm/states",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/states",
@@ -888,8 +888,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "286",
-          "x-ratelimit-reset": "38"
+          "x-ratelimit-remaining": "272",
+          "x-ratelimit-reset": "5"
         },
         "mediaType": "application/json",
         "body": {
@@ -898,11 +898,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:03.854Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:01.502Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -910,7 +910,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -919,7 +919,7 @@
     }
   },
   {
-    "id": "listMailCrmTasks--empty-fixture-team",
+    "id": "listMailCrmTasks--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -930,11 +930,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailCrmTasks",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/crm/tasks",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/tasks",
@@ -947,8 +947,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "285",
-          "x-ratelimit-reset": "38"
+          "x-ratelimit-remaining": "271",
+          "x-ratelimit-reset": "4"
         },
         "mediaType": "application/json",
         "body": {
@@ -957,11 +957,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:04.221Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:01.892Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -969,7 +969,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -978,7 +978,7 @@
     }
   },
   {
-    "id": "listMailCrmTimeline--empty-fixture-team",
+    "id": "listMailCrmTimeline--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -989,11 +989,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailCrmTimeline",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/crm/timeline",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/timeline",
@@ -1006,8 +1006,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "284",
-          "x-ratelimit-reset": "38"
+          "x-ratelimit-remaining": "270",
+          "x-ratelimit-reset": "4"
         },
         "mediaType": "application/json",
         "body": {
@@ -1016,11 +1016,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:04.587Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:02.274Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1028,7 +1028,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1037,7 +1037,7 @@
     }
   },
   {
-    "id": "listMailExperiments--empty-fixture-team",
+    "id": "listMailExperiments--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1048,11 +1048,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailExperiments",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/experiments",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments",
@@ -1065,8 +1065,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "283",
-          "x-ratelimit-reset": "37"
+          "x-ratelimit-remaining": "269",
+          "x-ratelimit-reset": "4"
         },
         "mediaType": "application/json",
         "body": {
@@ -1075,11 +1075,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:04.958Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:02.655Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1087,7 +1087,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1096,7 +1096,7 @@
     }
   },
   {
-    "id": "getMailExperimentsOverview--empty-fixture-team",
+    "id": "getMailExperimentsOverview--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1107,11 +1107,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "getMailExperimentsOverview",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/experiments-overview",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments-overview",
@@ -1124,8 +1124,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "282",
-          "x-ratelimit-reset": "37"
+          "x-ratelimit-remaining": "268",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -1134,11 +1134,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:05.330Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:03.044Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1146,7 +1146,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1155,7 +1155,7 @@
     }
   },
   {
-    "id": "listMailInbox--empty-fixture-team",
+    "id": "listMailInbox--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1166,11 +1166,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailInbox",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/inbox",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/inbox",
@@ -1183,8 +1183,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "281",
-          "x-ratelimit-reset": "36"
+          "x-ratelimit-remaining": "267",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -1193,11 +1193,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:05.704Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:03.432Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1205,7 +1205,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1214,7 +1214,7 @@
     }
   },
   {
-    "id": "listMailInboxThreads--empty-fixture-team",
+    "id": "listMailInboxThreads--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1225,11 +1225,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailInboxThreads",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/inbox/threads",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/inbox/threads",
@@ -1242,8 +1242,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "280",
-          "x-ratelimit-reset": "36"
+          "x-ratelimit-remaining": "266",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -1253,11 +1253,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:06.074Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:03.822Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1265,7 +1265,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1274,7 +1274,7 @@
     }
   },
   {
-    "id": "listMailMailboxes--empty-fixture-team",
+    "id": "listMailMailboxes--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1285,11 +1285,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailMailboxes",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/mailboxes",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/mailboxes",
@@ -1302,8 +1302,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "278",
-          "x-ratelimit-reset": "35"
+          "x-ratelimit-remaining": "265",
+          "x-ratelimit-reset": "1"
         },
         "mediaType": "application/json",
         "body": {
@@ -1313,11 +1313,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:07.195Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:05.057Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1325,7 +1325,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1334,7 +1334,7 @@
     }
   },
   {
-    "id": "listMailMessages--empty-fixture-team",
+    "id": "listMailMessages--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1345,11 +1345,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailMessages",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/messages",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/messages",
@@ -1362,8 +1362,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "276",
-          "x-ratelimit-reset": "34"
+          "x-ratelimit-remaining": "264",
+          "x-ratelimit-reset": "1"
         },
         "mediaType": "application/json",
         "body": {
@@ -1372,11 +1372,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:07.657Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:05.529Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1384,7 +1384,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1393,7 +1393,7 @@
     }
   },
   {
-    "id": "getMailOverview--empty-fixture-team",
+    "id": "getMailOverview--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1404,11 +1404,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "getMailOverview",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/overview",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/overview",
@@ -1421,16 +1421,16 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "275",
-          "x-ratelimit-reset": "34"
+          "x-ratelimit-remaining": "299",
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
           "mailboxes": [],
           "connections": [],
           "analytics": {
-            "from": "2026-08-28T10:23:08.375Z",
-            "to": "2026-09-27T10:23:08.375Z",
+            "from": "2026-08-29T17:05:06.200Z",
+            "to": "2026-09-28T17:05:06.200Z",
             "total": 0,
             "counts": {},
             "acceptanceRate": 0,
@@ -1455,11 +1455,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:08.038Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:05.928Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1467,7 +1467,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1476,7 +1476,7 @@
     }
   },
   {
-    "id": "getMailQueue--empty-fixture-team",
+    "id": "getMailQueue--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1487,11 +1487,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "getMailQueue",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/queue",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/queue",
@@ -1504,8 +1504,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "274",
-          "x-ratelimit-reset": "33"
+          "x-ratelimit-remaining": "297",
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -1519,11 +1519,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:09.607Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:07.680Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1531,7 +1531,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1540,7 +1540,7 @@
     }
   },
   {
-    "id": "listMailReplyAutomations--empty-fixture-team",
+    "id": "listMailReplyAutomations--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1551,11 +1551,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailReplyAutomations",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/reply-automations",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/reply-automations",
@@ -1568,8 +1568,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "273",
-          "x-ratelimit-reset": "32"
+          "x-ratelimit-remaining": "296",
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
@@ -1578,11 +1578,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:09.982Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:08.076Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1590,7 +1590,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1599,7 +1599,7 @@
     }
   },
   {
-    "id": "listMailSignatures--empty-fixture-team",
+    "id": "listMailSignatures--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1610,11 +1610,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailSignatures",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/signatures",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/signatures",
@@ -1627,8 +1627,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "272",
-          "x-ratelimit-reset": "32"
+          "x-ratelimit-remaining": "295",
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
@@ -1637,11 +1637,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:10.357Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:08.460Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1649,7 +1649,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1658,7 +1658,7 @@
     }
   },
   {
-    "id": "listMailSuppressions--empty-fixture-team",
+    "id": "listMailSuppressions--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1669,11 +1669,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailSuppressions",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/suppressions",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/suppressions",
@@ -1686,21 +1686,29 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "271",
-          "x-ratelimit-reset": "31"
+          "x-ratelimit-remaining": "294",
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
-          "results": []
+          "results": [
+            {
+              "scope": "email",
+              "value": "suppressed.sdk@example.invalid",
+              "reason": "manual",
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "createdAt": "2026-09-28T16:57:14.834Z"
+            }
+          ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:10.727Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:08.850Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1708,7 +1716,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1717,7 +1725,7 @@
     }
   },
   {
-    "id": "listMailTemplates--empty-fixture-team",
+    "id": "listMailTemplates--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1728,11 +1736,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailTemplates",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/templates",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/templates",
@@ -1745,21 +1753,37 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "270",
-          "x-ratelimit-reset": "31"
+          "x-ratelimit-remaining": "293",
+          "x-ratelimit-reset": "57"
         },
         "mediaType": "application/json",
         "body": {
-          "results": []
+          "results": [
+            {
+              "id": "reacon-sdk-documentation-template",
+              "body": "Hello {{first_name}}, this is an unsent documentation example.",
+              "name": "REACON SDK DOCUMENTATION FIXTURE",
+              "status": "draft",
+              "channel": "email",
+              "subject": "Hello {{first_name}}",
+              "version": 2,
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "createdAt": "2026-09-28T17:02:27.603Z",
+              "variables": [
+                "first_name"
+              ],
+              "createdByActorId": "00000000-0000-4000-8000-000000000002"
+            }
+          ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:11.089Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:09.233Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1767,7 +1791,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1776,7 +1800,7 @@
     }
   },
   {
-    "id": "getMailTrackingDomain--empty-fixture-team",
+    "id": "getMailTrackingDomain--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1787,11 +1811,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "getMailTrackingDomain",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/tracking-domain",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/tracking-domain",
@@ -1804,8 +1828,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "269",
-          "x-ratelimit-reset": "31"
+          "x-ratelimit-remaining": "292",
+          "x-ratelimit-reset": "57"
         },
         "mediaType": "application/json",
         "body": {
@@ -1814,11 +1838,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:11.461Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:09.625Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1826,7 +1850,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1835,7 +1859,7 @@
     }
   },
   {
-    "id": "listMailWebhooks--empty-fixture-team",
+    "id": "listMailWebhooks--fixture-team",
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
@@ -1846,11 +1870,11 @@
     "record": {
       "formatVersion": 1,
       "operationId": "listMailWebhooks",
-      "scenarioId": "empty-fixture-team",
-      "title": "Empty documentation test team",
+      "scenarioId": "fixture-team",
+      "title": "Documentation test team",
       "pathTemplate": "/v1/teams/{teamId}/mail/webhooks",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/webhooks",
@@ -1863,8 +1887,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "267",
-          "x-ratelimit-reset": "30"
+          "x-ratelimit-remaining": "290",
+          "x-ratelimit-reset": "56"
         },
         "mediaType": "application/json",
         "body": {
@@ -1874,11 +1898,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:11.824Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:10.007Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "993c43c7bc520a91a4a0090d1f8cf17c1d2d2a4147cd112d933e1adbe9374d12",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1886,7 +1910,1516 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailCampaignDrafts--before-fixture-cleanup",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetCampaignsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailCampaignDrafts",
+      "scenarioId": "before-fixture-cleanup",
+      "title": "Inspect disposable unsent documentation drafts",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "289",
+          "x-ratelimit-reset": "56"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:10.476Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "createMailCampaignDraft--unsent-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPostCampaignsRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCampaignsResponse201"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "createMailCampaignDraft",
+      "scenarioId": "unsent-draft",
+      "title": "Create an unsent draft without mailboxes or an audience",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns",
+        "query": {},
+        "body": {
+          "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
+          "mailboxIds": [],
+          "audienceListIds": [],
+          "steps": [
+            {
+              "delayMs": 0,
+              "subject": "Synthetic documentation example",
+              "text": "This is a documentation fixture. It is never sent."
+            }
+          ]
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "288",
+          "x-ratelimit-reset": "56"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "campaign": {
+            "id": "campaign_00000000000040008000000000000100",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
+            "steps": [
+              {
+                "id": "step_00000000000040008000000000000101",
+                "text": "This is a documentation fixture. It is never sent.",
+                "delayMs": 0,
+                "subject": "Synthetic documentation example"
+              }
+            ],
+            "policy": {
+              "timeZone": "UTC",
+              "domainQuotas": [],
+              "tenantQuotas": [],
+              "mailboxQuotas": [],
+              "sendingWindows": [],
+              "recipientQuotas": []
+            },
+            "status": "draft",
+            "version": 1,
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "createdAt": "2026-09-28T17:05:11.136Z",
+            "updatedAt": "2026-09-28T17:05:11.136Z",
+            "mailboxIds": [],
+            "audienceListIds": []
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:10.862Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailCampaignDraft--unsent-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "campaignId": "campaign_00000000000040008000000000000100"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetCampaignsByCampaignIdResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailCampaignDraft",
+      "scenarioId": "unsent-draft",
+      "title": "Read an unsent campaign draft",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns/{campaignId}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "286",
+          "x-ratelimit-reset": "55"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "campaign": {
+            "id": "campaign_00000000000040008000000000000100",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
+            "steps": [
+              {
+                "id": "step_00000000000040008000000000000101",
+                "text": "This is a documentation fixture. It is never sent.",
+                "delayMs": 0,
+                "subject": "Synthetic documentation example"
+              }
+            ],
+            "policy": {
+              "timeZone": "UTC",
+              "domainQuotas": [],
+              "tenantQuotas": [],
+              "mailboxQuotas": [],
+              "sendingWindows": [],
+              "recipientQuotas": []
+            },
+            "status": "draft",
+            "version": 1,
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "createdAt": "2026-09-28T17:05:11.136Z",
+            "updatedAt": "2026-09-28T17:05:11.136Z",
+            "mailboxIds": [],
+            "audienceListIds": []
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:11.256Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "updateMailCampaignDraft--unsent-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "campaignId": "campaign_00000000000040008000000000000100"
+    },
+    "requestModel": "MailPatchCampaignsByCampaignIdRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPatchCampaignsByCampaignIdResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "updateMailCampaignDraft",
+      "scenarioId": "unsent-draft",
+      "title": "Update a draft using its current version",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns/{campaignId}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "query": {},
+        "body": {
+          "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
+          "expectedVersion": 1,
+          "mailboxIds": [],
+          "audienceListIds": [],
+          "steps": []
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "285",
+          "x-ratelimit-reset": "55"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "campaign": {
+            "id": "campaign_00000000000040008000000000000100",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
+            "steps": [],
+            "policy": {
+              "timeZone": "UTC",
+              "domainQuotas": [],
+              "tenantQuotas": [],
+              "mailboxQuotas": [],
+              "sendingWindows": [],
+              "recipientQuotas": []
+            },
+            "status": "draft",
+            "version": 2,
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "createdAt": "2026-09-28T17:05:11.136Z",
+            "updatedAt": "2026-09-28T17:05:11.915Z",
+            "mailboxIds": [],
+            "audienceListIds": []
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:11.643Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "updateMailCampaignDraft--stale-version",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "campaignId": "campaign_00000000000040008000000000000100"
+    },
+    "requestModel": "MailPatchCampaignsByCampaignIdRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "updateMailCampaignDraft",
+      "scenarioId": "stale-version",
+      "title": "Reject an update using a stale campaign version",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns/{campaignId}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "query": {},
+        "body": {
+          "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
+          "expectedVersion": 1
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 409,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "284",
+          "x-ratelimit-reset": "54"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "CAMPAIGN_VERSION_CONFLICT",
+          "code": "CAMPAIGN_VERSION_CONFLICT",
+          "requestId": "req-1g"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:12.112Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "duplicateMailCampaignDraft--unsent-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "campaignId": "campaign_00000000000040008000000000000100"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCampaignsByCampaignIdDuplicateResponse201"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "duplicateMailCampaignDraft",
+      "scenarioId": "unsent-draft",
+      "title": "Duplicate a draft without launching it",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns/{campaignId}/duplicate",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100/duplicate",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "283",
+          "x-ratelimit-reset": "54"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "campaign": {
+            "id": "campaign_00000000000040008000000000000102",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign copy",
+            "steps": [],
+            "policy": {
+              "timeZone": "UTC",
+              "domainQuotas": [],
+              "tenantQuotas": [],
+              "mailboxQuotas": [],
+              "sendingWindows": [],
+              "recipientQuotas": []
+            },
+            "status": "draft",
+            "version": 1,
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "createdAt": "2026-09-28T17:05:12.856Z",
+            "updatedAt": "2026-09-28T17:05:12.856Z",
+            "mailboxIds": [],
+            "audienceListIds": []
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:12.500Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "deleteMailCampaignDraft--unsent-copy",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "campaignId": "campaign_00000000000040008000000000000102"
+    },
+    "requestModel": "MailDeleteCampaignsByCampaignIdRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailDeleteCampaignsByCampaignIdResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "deleteMailCampaignDraft",
+      "scenarioId": "unsent-copy",
+      "title": "Delete the disposable copy",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns/{campaignId}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000102",
+        "query": {},
+        "body": {
+          "expectedVersion": 1
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "282",
+          "x-ratelimit-reset": "53"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "deleted": true
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:12.969Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "deleteMailCampaignDraft--unsent-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "campaignId": "campaign_00000000000040008000000000000100"
+    },
+    "requestModel": "MailDeleteCampaignsByCampaignIdRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailDeleteCampaignsByCampaignIdResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "deleteMailCampaignDraft",
+      "scenarioId": "unsent-draft",
+      "title": "Delete the disposable draft",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns/{campaignId}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "query": {},
+        "body": {
+          "expectedVersion": 2
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "281",
+          "x-ratelimit-reset": "53"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "deleted": true
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:13.352Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailCampaignDraft--deleted-draft",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "campaignId": "campaign_00000000000040008000000000000100"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailCampaignDraft",
+      "scenarioId": "deleted-draft",
+      "title": "A deleted draft is not found",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns/{campaignId}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "280",
+          "x-ratelimit-reset": "53"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "CAMPAIGN_NOT_FOUND",
+          "code": "CAMPAIGN_NOT_FOUND",
+          "requestId": "req-1k"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:13.734Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailCampaignDrafts--after-fixture-cleanup",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetCampaignsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailCampaignDrafts",
+      "scenarioId": "after-fixture-cleanup",
+      "title": "Inspect disposable unsent documentation drafts",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "279",
+          "x-ratelimit-reset": "52"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:14.117Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "saveMailTemplate--draft-template",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPostTemplatesRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostTemplatesResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "saveMailTemplate",
+      "scenarioId": "draft-template",
+      "title": "Save a reusable synthetic draft template",
+      "pathTemplate": "/v1/teams/{teamId}/mail/templates",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/templates",
+        "query": {},
+        "body": {
+          "id": "reacon-sdk-documentation-template",
+          "name": "REACON SDK DOCUMENTATION FIXTURE",
+          "channel": "email",
+          "status": "draft",
+          "subject": "Hello {{first_name}}",
+          "body": "Hello {{first_name}}, this is an unsent documentation example."
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "278",
+          "x-ratelimit-reset": "52"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "template": {
+            "id": "reacon-sdk-documentation-template",
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "name": "REACON SDK DOCUMENTATION FIXTURE",
+            "channel": "email",
+            "version": 3,
+            "status": "draft",
+            "subject": "Hello {{first_name}}",
+            "body": "Hello {{first_name}}, this is an unsent documentation example.",
+            "variables": [
+              "first_name"
+            ],
+            "createdByActorId": "00000000-0000-4000-8000-000000000002",
+            "createdAt": "2026-09-28T17:05:14.855Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:14.495Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailTemplates--draft-template",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetTemplatesResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailTemplates",
+      "scenarioId": "draft-template",
+      "title": "List the synthetic draft template",
+      "pathTemplate": "/v1/teams/{teamId}/mail/templates",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/templates",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "277",
+          "x-ratelimit-reset": "51"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "id": "reacon-sdk-documentation-template",
+              "body": "Hello {{first_name}}, this is an unsent documentation example.",
+              "name": "REACON SDK DOCUMENTATION FIXTURE",
+              "status": "draft",
+              "channel": "email",
+              "subject": "Hello {{first_name}}",
+              "version": 3,
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "createdAt": "2026-09-28T17:05:14.855Z",
+              "variables": [
+                "first_name"
+              ],
+              "createdByActorId": "00000000-0000-4000-8000-000000000002"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:15.048Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "createMailSuppression--reserved-address",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPostSuppressionsRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostSuppressionsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "createMailSuppression",
+      "scenarioId": "reserved-address",
+      "title": "Suppress a reserved synthetic address",
+      "pathTemplate": "/v1/teams/{teamId}/mail/suppressions",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/suppressions",
+        "query": {},
+        "body": {
+          "scope": "email",
+          "value": "suppressed.sdk@example.invalid"
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "276",
+          "x-ratelimit-reset": "51"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "created": true
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:15.430Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailSuppressions--reserved-address",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetSuppressionsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailSuppressions",
+      "scenarioId": "reserved-address",
+      "title": "List the synthetic suppression",
+      "pathTemplate": "/v1/teams/{teamId}/mail/suppressions",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/suppressions",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "275",
+          "x-ratelimit-reset": "51"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "scope": "email",
+              "value": "suppressed.sdk@example.invalid",
+              "reason": "manual",
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "createdAt": "2026-09-28T16:57:14.834Z"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:15.815Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailContacts--missing-synthetic-contact",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPostCrmContactsBatchRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCrmContactsBatchResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailContacts",
+      "scenarioId": "missing-synthetic-contact",
+      "title": "Batch lookup with no matching synthetic contact",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/contacts/batch",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/contacts/batch",
+        "query": {},
+        "body": {
+          "contactIds": [
+            "00000000-0000-4000-8000-000000000099"
+          ]
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "273",
+          "x-ratelimit-reset": "50"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:16.195Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailContactStates--missing-synthetic-contact",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPostCrmStatesBatchRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCrmStatesBatchResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailContactStates",
+      "scenarioId": "missing-synthetic-contact",
+      "title": "Batch lookup with no matching synthetic contact",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/states/batch",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/states/batch",
+        "query": {},
+        "body": {
+          "contactIds": [
+            "00000000-0000-4000-8000-000000000099"
+          ]
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "272",
+          "x-ratelimit-reset": "50"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:16.588Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailCampaignProgress--fixture-team",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetCampaignProgressResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailCampaignProgress",
+      "scenarioId": "fixture-team",
+      "title": "Inspect the documentation team without starting delivery",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaign-progress",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaign-progress",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "271",
+          "x-ratelimit-reset": "49"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:16.966Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailPortfolio--fixture-team",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetPortfolioResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailPortfolio",
+      "scenarioId": "fixture-team",
+      "title": "Inspect the documentation team without starting delivery",
+      "pathTemplate": "/v1/teams/{teamId}/mail/portfolio",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/portfolio",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "270",
+          "x-ratelimit-reset": "49"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "portfolio": null,
+          "teams": [],
+          "suppressions": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:17.516Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "setMailContactState--missing-contact",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPutCrmStatesRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "setMailContactState",
+      "scenarioId": "missing-contact",
+      "title": "Reject a state change for a missing contact",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/states",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "PUT",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/states",
+        "query": {},
+        "body": {
+          "contactId": "00000000-0000-4000-8000-000000000099",
+          "stage": "new"
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "269",
+          "x-ratelimit-reset": "49"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "CONTACT_NOT_FOUND",
+          "code": "CONTACT_NOT_FOUND",
+          "requestId": "req-1v"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:17.907Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailTemplates--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailTemplates",
+      "scenarioId": "missing-key",
+      "title": "Reject an unauthenticated mail request",
+      "pathTemplate": "/v1/teams/{teamId}/mail/templates",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/templates",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "261",
+          "x-ratelimit-reset": "46"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:20.066Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailCampaignDrafts--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailCampaignDrafts",
+      "scenarioId": "missing-key",
+      "title": "Reject an unauthenticated mail request",
+      "pathTemplate": "/v1/teams/{teamId}/mail/campaigns",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "260",
+          "x-ratelimit-reset": "46"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:20.089Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailSuppressions--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailSuppressions",
+      "scenarioId": "missing-key",
+      "title": "Reject an unauthenticated mail request",
+      "pathTemplate": "/v1/teams/{teamId}/mail/suppressions",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/suppressions",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "259",
+          "x-ratelimit-reset": "46"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:20.117Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1911,7 +3444,7 @@
       "title": "Create a synthetic contact",
       "pathTemplate": "/v1/teams/{teamId}/leads",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/leads",
@@ -1936,12 +3469,12 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99991",
-          "x-ratelimit-reset": "44"
+          "x-ratelimit-reset": "34"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000100",
+            "id": "00000000-0000-4000-8000-000000000103",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid"
           }
@@ -1949,11 +3482,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:12.277Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:20.141Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -1961,7 +3494,229 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailContacts--synthetic-contact",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPostCrmContactsBatchRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCrmContactsBatchResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailContacts",
+      "scenarioId": "synthetic-contact",
+      "title": "Read the synthetic lead through the mail contact API",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/contacts/batch",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/contacts/batch",
+        "query": {},
+        "body": {
+          "contactIds": [
+            "00000000-0000-4000-8000-000000000103"
+          ]
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "257",
+          "x-ratelimit-reset": "45"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "id": "00000000-0000-4000-8000-000000000103",
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "email": "ada.sdk@example.invalid",
+              "name": "Ada Example",
+              "customFields": {
+                "position": "Developer",
+                "tags": "sdk-documentation-fixture"
+              },
+              "createdAt": "2026-09-28T17:05:21.062Z",
+              "updatedAt": "2026-09-28T17:05:21.062Z"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:21.736Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "setMailContactState--synthetic-contact",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPutCrmStatesRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPutCrmStatesResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "setMailContactState",
+      "scenarioId": "synthetic-contact",
+      "title": "Set the synthetic contact stage without sending a message",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/states",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "PUT",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/states",
+        "query": {},
+        "body": {
+          "contactId": "00000000-0000-4000-8000-000000000103",
+          "stage": "qualified",
+          "outcome": "Documentation fixture only"
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "256",
+          "x-ratelimit-reset": "44"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "state": {
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "contactId": "00000000-0000-4000-8000-000000000103",
+            "stage": "qualified",
+            "outcome": "Documentation fixture only",
+            "updatedAt": "2026-09-28T17:05:22.473Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:22.114Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailContactStates--synthetic-contact",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestModel": "MailPostCrmStatesBatchRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCrmStatesBatchResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailContactStates",
+      "scenarioId": "synthetic-contact",
+      "title": "Read the synthetic contact stage",
+      "pathTemplate": "/v1/teams/{teamId}/mail/crm/states/batch",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/states/batch",
+        "query": {},
+        "body": {
+          "contactIds": [
+            "00000000-0000-4000-8000-000000000103"
+          ]
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "255",
+          "x-ratelimit-reset": "44"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "contactId": "00000000-0000-4000-8000-000000000103",
+              "stage": "qualified",
+              "outcome": "Documentation fixture only",
+              "updatedAt": "2026-09-28T17:05:22.473Z"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T17:05:22.837Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -1973,7 +3728,7 @@
     "id": "getLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000100"
+      "leadId": "00000000-0000-4000-8000-000000000103"
     },
     "responseSchema": {
       "$ref": "#/components/schemas/GetLeadResponse"
@@ -1985,10 +3740,10 @@
       "title": "Read the synthetic contact",
       "pathTemplate": "/v1/leads/{leadId}",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000100",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000103",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -1999,17 +3754,17 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99990",
-          "x-ratelimit-reset": "42"
+          "x-ratelimit-reset": "31"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000100",
+            "id": "00000000-0000-4000-8000-000000000103",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-27T10:23:13.337Z",
-            "updated_at": "2026-09-27T10:23:13.337Z",
+            "created_at": "2026-09-28T17:05:21.062Z",
+            "updated_at": "2026-09-28T17:05:21.062Z",
             "company_id": null,
             "person": {
               "first_name": "Ada",
@@ -2051,11 +3806,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:14.071Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:23.213Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2063,7 +3818,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -2075,7 +3830,7 @@
     "id": "updateLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000100"
+      "leadId": "00000000-0000-4000-8000-000000000103"
     },
     "requestModel": "UpdateLeadRequest",
     "responseSchema": {
@@ -2088,10 +3843,10 @@
       "title": "Update the synthetic contact",
       "pathTemplate": "/v1/leads/{leadId}/update",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000100/update",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000103/update",
         "query": {},
         "body": {
           "person_position": "API developer",
@@ -2109,17 +3864,17 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99989",
-          "x-ratelimit-reset": "42"
+          "x-ratelimit-reset": "30"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000100",
+            "id": "00000000-0000-4000-8000-000000000103",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-27T10:23:13.337Z",
-            "updated_at": "2026-09-27T10:23:14.742Z",
+            "created_at": "2026-09-28T17:05:21.062Z",
+            "updated_at": "2026-09-28T17:05:23.918Z",
             "company_id": null,
             "person": {
               "first_name": null,
@@ -2162,11 +3917,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:14.444Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:23.602Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2174,7 +3929,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -2200,7 +3955,7 @@
       "title": "List the synthetic contact",
       "pathTemplate": "/v1/teams/{teamId}/leads",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/leads",
@@ -2217,18 +3972,18 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99988",
-          "x-ratelimit-reset": "41"
+          "x-ratelimit-reset": "29"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
-              "id": "00000000-0000-4000-8000-000000000100",
+              "id": "00000000-0000-4000-8000-000000000103",
               "team_id": "00000000-0000-4000-8000-000000000001",
               "email": "ada.sdk@example.invalid",
               "created_by": "00000000-0000-4000-8000-000000000002",
-              "created_at": "2026-09-27T10:23:13.337Z",
-              "updated_at": "2026-09-27T10:23:14.742Z",
+              "created_at": "2026-09-28T17:05:21.062Z",
+              "updated_at": "2026-09-28T17:05:23.918Z",
               "company_id": null,
               "person": {
                 "first_name": null,
@@ -2270,18 +4025,18 @@
           ],
           "totalCount": 1,
           "groupTotals": null,
-          "nextCursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI3VDEwOjIzOjEzLjMzN1oiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDAifQ",
+          "nextCursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDE3OjA1OjIxLjA2MloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDMifQ",
           "nextGroupCursor": null,
           "lastGroupCursor": null
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:15.138Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:24.330Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2289,7 +4044,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -2303,7 +4058,7 @@
     "parameters": {
       "limit": 1,
       "search": "ada.sdk@example.invalid",
-      "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI3VDEwOjIzOjEzLjMzN1oiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDAifQ",
+      "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDE3OjA1OjIxLjA2MloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDMifQ",
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
     "responseSchema": {
@@ -2316,14 +4071,14 @@
       "title": "Read the next page with the returned cursor",
       "pathTemplate": "/v1/teams/{teamId}/leads",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/leads",
         "query": {
           "limit": 1,
           "search": "ada.sdk@example.invalid",
-          "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI3VDEwOjIzOjEzLjMzN1oiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDAifQ"
+          "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDE3OjA1OjIxLjA2MloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDMifQ"
         },
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -2334,7 +4089,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99987",
-          "x-ratelimit-reset": "41"
+          "x-ratelimit-reset": "29"
         },
         "mediaType": "application/json",
         "body": {
@@ -2348,11 +4103,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:15.511Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:24.726Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2360,7 +4115,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -2386,7 +4141,7 @@
       "title": "Download the synthetic contact as JSON",
       "pathTemplate": "/v1/teams/{teamId}/leads/export",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/leads/export",
@@ -2394,7 +4149,7 @@
         "body": {
           "format": "json",
           "selectedLeadIds": [
-            "00000000-0000-4000-8000-000000000100"
+            "00000000-0000-4000-8000-000000000103"
           ],
           "selectionScopes": [
             {
@@ -2412,17 +4167,17 @@
           "content-disposition": "attachment; filename=\"leads-export.json\"",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99986",
-          "x-ratelimit-reset": "40"
+          "x-ratelimit-reset": "29"
         },
         "mediaType": "application/json",
         "body": [
           {
-            "id": "00000000-0000-4000-8000-000000000100",
+            "id": "00000000-0000-4000-8000-000000000103",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-27T10:23:13.337Z",
-            "updated_at": "2026-09-27T10:23:14.742Z",
+            "created_at": "2026-09-28T17:05:21.062Z",
+            "updated_at": "2026-09-28T17:05:23.918Z",
             "person": {
               "first_name": null,
               "last_name": null,
@@ -2456,11 +4211,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:15.877Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:25.112Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2468,7 +4223,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -2494,7 +4249,7 @@
       "title": "Download the synthetic contact as CSV",
       "pathTemplate": "/v1/teams/{teamId}/leads/export",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/leads/export",
@@ -2502,7 +4257,7 @@
         "body": {
           "format": "csv",
           "selectedLeadIds": [
-            "00000000-0000-4000-8000-000000000100"
+            "00000000-0000-4000-8000-000000000103"
           ],
           "selectionScopes": [
             {
@@ -2520,18 +4275,18 @@
           "content-disposition": "attachment; filename=\"leads-export.csv\"",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99985",
-          "x-ratelimit-reset": "40"
+          "x-ratelimit-reset": "28"
         },
         "mediaType": "text/csv",
-        "body": "id,team_id,email,company_id,created_by,person_first_name,person_last_name,person_position,person_linkedin,person_twitter,person_phone_number,person_lead_location,company_name,company_website,company_location,company_linkedin,company_twitter,company_type,company_addresses,company_stock,company_industry,company_number_of_employees,company_founded_on,verification_status,confidence_score,sync_status,crm_configured,tags,last_activity_at,last_contacted_at,created_at,updated_at\n00000000-0000-4000-8000-000000000100,00000000-0000-4000-8000-000000000001,ada.sdk@example.invalid,,00000000-0000-4000-8000-000000000002,,,API developer,,,,,,,,,,,,,,,,,,,,sdk-documentation-fixture;example,,,Sun Sep 27 2026 10:23:13 GMT+0000 (Coordinated Universal Time),Sun Sep 27 2026 10:23:14 GMT+0000 (Coordinated Universal Time)"
+        "body": "id,team_id,email,company_id,created_by,person_first_name,person_last_name,person_position,person_linkedin,person_twitter,person_phone_number,person_lead_location,company_name,company_website,company_location,company_linkedin,company_twitter,company_type,company_addresses,company_stock,company_industry,company_number_of_employees,company_founded_on,verification_status,confidence_score,sync_status,crm_configured,tags,last_activity_at,last_contacted_at,created_at,updated_at\n00000000-0000-4000-8000-000000000103,00000000-0000-4000-8000-000000000001,ada.sdk@example.invalid,,00000000-0000-4000-8000-000000000002,,,API developer,,,,,,,,,,,,,,,,,,,,sdk-documentation-fixture;example,,,Mon Sep 28 2026 17:05:21 GMT+0000 (Coordinated Universal Time),Mon Sep 28 2026 17:05:23 GMT+0000 (Coordinated Universal Time)"
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:16.328Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:25.588Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2539,7 +4294,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -2551,7 +4306,7 @@
     "id": "deleteLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000100"
+      "leadId": "00000000-0000-4000-8000-000000000103"
     },
     "responseSchema": {
       "$ref": "#/components/schemas/DeleteLeadResponse"
@@ -2563,10 +4318,10 @@
       "title": "Delete the disposable synthetic contact",
       "pathTemplate": "/v1/leads/{leadId}",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "DELETE",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000100",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000103",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -2577,7 +4332,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99984",
-          "x-ratelimit-reset": "40"
+          "x-ratelimit-reset": "28"
         },
         "mediaType": "application/json",
         "body": {
@@ -2586,11 +4341,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:16.793Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:26.053Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2598,7 +4353,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
@@ -2610,7 +4365,7 @@
     "id": "getLead--deleted-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000100"
+      "leadId": "00000000-0000-4000-8000-000000000103"
     },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiError"
@@ -2622,10 +4377,10 @@
       "title": "A deleted contact is not found",
       "pathTemplate": "/v1/leads/{leadId}",
       "class": "seeded-api-recording",
-      "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000100",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000103",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -2636,7 +4391,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99983",
-          "x-ratelimit-reset": "39"
+          "x-ratelimit-reset": "27"
         },
         "mediaType": "application/json",
         "body": {
@@ -2646,11 +4401,11 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-27T10:23:17.582Z",
-        "recorderSha256": "debca8ba6b52cfb6581806e05cd6b372e5bffe4a7b79d0b2adef21d1e2ad13b2",
+        "capturedAt": "2026-09-28T17:05:26.871Z",
+        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
         "apiRevision": {
           "kind": "observed-private-runtime",
-          "fingerprint": "b325ad67174c10e7a803bf2d16d9f94fa984cdf2a081d5f2a7f88d8c5efbbed8",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
           "sourceRevisionVerified": false
         },
         "validation": {
@@ -2658,7 +4413,7 @@
           "sanitized": true
         },
         "transformations": [
-          "Fixture and actor UUIDs replaced consistently with example UUIDs; timestamps and response structure preserved.",
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
           "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
           "Only reviewed response headers retained; request credentials omitted."
         ],
