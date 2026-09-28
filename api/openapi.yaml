@@ -410,8 +410,10 @@ paths:
       x-reacon-service: public-api
   /v1/domains/{domain}/counts:
     get:
-      description: "Returns personal, generic and total email counts for the domain.\
-        \ Authenticate with X-API-Key."
+      description: "Returns personal, generic and total known email counts for the\
+        \ domain. Authenticate with X-API-Key. This endpoint reports counts only;\
+        \ it does not reveal email addresses. The recorded example uses a reserved\
+        \ example.invalid domain with zero known emails."
       operationId: getDomainCounts
       parameters:
       - explode: false
@@ -24156,6 +24158,56 @@ components:
       anyOf:
       - $ref: "#/components/schemas/MailGetPortfolioResponse200_anyOf"
       - $ref: "#/components/schemas/MailGetPortfolioResponse200_anyOf_1"
+      example:
+        portfolio:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          createdByActorId: createdByActorId
+          id: id
+          name: name
+          ownerTeamId: ownerTeamId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        suppressions:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          createdByActorId: createdByActorId
+          id: id
+          portfolioId: portfolioId
+          reason: reason
+          scope: scope
+          value: value
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          createdByActorId: createdByActorId
+          id: id
+          portfolioId: portfolioId
+          reason: reason
+          scope: scope
+          value: value
+        teams:
+        - addedAt: 2000-01-23T04:56:07.000+00:00
+          addedByActorId: addedByActorId
+          portfolioId: portfolioId
+          teamId: teamId
+          teamName: teamName
+        - addedAt: 2000-01-23T04:56:07.000+00:00
+          addedByActorId: addedByActorId
+          portfolioId: portfolioId
+          teamId: teamId
+          teamName: teamName
+      properties:
+        portfolio:
+          $ref: "#/components/schemas/MailGetPortfolioResponse200_portfolio"
+        suppressions:
+          items:
+            $ref: "#/components/schemas/MailMailPortfolioSuppression"
+          type: array
+        teams:
+          items:
+            $ref: "#/components/schemas/MailMailPortfolioTeam"
+          type: array
+      required:
+      - portfolio
+      - suppressions
+      - teams
+      type: object
     MailGetQueueResponse200:
       example:
         queue:
@@ -27047,6 +27099,164 @@ components:
       anyOf:
       - $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_anyOf"
       - $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_1"
+      example:
+        campaign:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          id: id
+          messageCounts:
+            auto_replied: 5.637376656633329
+            bounced: 2.3021358869347655
+            cancelled: 7.061401241503109
+            complained: 9.301444243932576
+            delivered: 3.616076749251911
+            failed: 2.027123023002322
+            provider_accepted: 4.145608029883936
+            queued: 7.386281948385884
+            replied: 1.2315135367772556
+            retry_scheduled: 1.0246457001441578
+            sending: 1.4894159098541704
+            suppressed: 6.84685269835264
+            unsubscribed: 7.457744773683766
+          name: name
+          recipientCount: 0.8008281904610115
+          sequenceRunIds:
+          - sequenceRunIds
+          - sequenceRunIds
+          status: status
+          tenantId: tenantId
+          totalMessages: 6.027456183070403
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        draft:
+          audienceListIds:
+          - audienceListIds
+          - audienceListIds
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          id: id
+          launchedAt: 2000-01-23T04:56:07.000+00:00
+          mailboxIds:
+          - mailboxIds
+          - mailboxIds
+          mailboxPoolId: mailboxPoolId
+          name: name
+          policy:
+            domainQuotas:
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            mailboxQuotas:
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            recipientCooldownMs: 1.4658129805029452
+            recipientQuotas:
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            sendingWindows:
+            - endMinute: 5.962133916683182
+              startMinute: 5.637376656633329
+              weekdays:
+              - weekdays
+              - weekdays
+            - endMinute: 5.962133916683182
+              startMinute: 5.637376656633329
+              weekdays:
+              - weekdays
+              - weekdays
+            tenantQuotas:
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            - maxAccepted: 0.8008281904610115
+              windowMs: 6.027456183070403
+            timeZone: timeZone
+          scheduledAt: 2000-01-23T04:56:07.000+00:00
+          status: status
+          steps:
+          - delayMs: 2.3021358869347655
+            html: html
+            id: id
+            subject: subject
+            text: text
+            variants:
+            - html: html
+              id: id
+              subject: subject
+              text: text
+              variables: "{}"
+              weight: 7.061401241503109
+            - html: html
+              id: id
+              subject: subject
+              text: text
+              variables: "{}"
+              weight: 7.061401241503109
+          - delayMs: 2.3021358869347655
+            html: html
+            id: id
+            subject: subject
+            text: text
+            variants:
+            - html: html
+              id: id
+              subject: subject
+              text: text
+              variables: "{}"
+              weight: 7.061401241503109
+            - html: html
+              id: id
+              subject: subject
+              text: text
+              variables: "{}"
+              weight: 7.061401241503109
+          tenantId: tenantId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          version: 9.301444243932576
+        sequences:
+        - campaignId: campaignId
+          campaignName: campaignName
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          id: id
+          mailboxId: mailboxId
+          messageIds:
+          - messageIds
+          - messageIds
+          recipient:
+            email: email
+            name: name
+          status: status
+          tenantId: tenantId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - campaignId: campaignId
+          campaignName: campaignName
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          id: id
+          mailboxId: mailboxId
+          messageIds:
+          - messageIds
+          - messageIds
+          recipient:
+            email: email
+            name: name
+          status: status
+          tenantId: tenantId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        campaign:
+          $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_campaign"
+        draft:
+          $ref: "#/components/schemas/MailCampaignDraftRecord"
+        sequences:
+          items:
+            $ref: "#/components/schemas/MailSequenceRunRecord"
+          type: array
+      required:
+      - campaign
+      - draft
+      - sequences
+      type: object
     MailPostCampaignsByCampaignIdStateRequest:
       additionalProperties: false
       example:
@@ -28952,6 +29162,27 @@ components:
       anyOf:
       - $ref: "#/components/schemas/MailPostPortfolioSuppressionsRequest_anyOf"
       - $ref: "#/components/schemas/MailPostPortfolioSuppressionsRequest_anyOf_1"
+      example:
+        reason: agency policy
+        scope: email
+        value: value
+      properties:
+        reason:
+          default: agency policy
+          maxLength: 500
+          minLength: 1
+          type: string
+        scope:
+          enum:
+          - email
+          - domain
+          type: string
+        value:
+          type: string
+      required:
+      - scope
+      - value
+      type: object
     MailPostPortfolioSuppressionsResponse200:
       example:
         appliedTeamIds:
@@ -29091,6 +29322,21 @@ components:
       anyOf:
       - $ref: "#/components/schemas/MailPostSuppressionsRequest_anyOf"
       - $ref: "#/components/schemas/MailPostSuppressionsRequest_anyOf_1"
+      example:
+        scope: email
+        value: value
+      properties:
+        scope:
+          enum:
+          - email
+          - domain
+          type: string
+        value:
+          type: string
+      required:
+      - scope
+      - value
+      type: object
     MailPostSuppressionsResponse200:
       example:
         created: true
@@ -29770,6 +30016,21 @@ components:
       - weekdays
       type: object
     MailSequenceRunRecord:
+      example:
+        campaignId: campaignId
+        campaignName: campaignName
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        id: id
+        mailboxId: mailboxId
+        messageIds:
+        - messageIds
+        - messageIds
+        recipient:
+          email: email
+          name: name
+        status: status
+        tenantId: tenantId
+        updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         campaignId:
           type: string
@@ -37426,11 +37687,15 @@ components:
       - recent
       - unread
       type: object
+    MailGetPortfolioResponse200_portfolio:
+      anyOf:
+      - $ref: "#/components/schemas/MailMailPortfolio"
+      - not:
+          type: object
+        nullable: true
+        type: object
+        x-reacon-null-only: true
     MailGetPortfolioResponse200_anyOf:
-      example:
-        portfolio: "{}"
-        suppressions: []
-        teams: []
       properties:
         portfolio:
           not:
@@ -38672,7 +38937,7 @@ components:
       - positiveReply
       - unknownHumanReply
       type: object
-    MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_campaign:
+    MailPostCampaignsByCampaignIdLaunchResponse200_campaign:
       anyOf:
       - $ref: "#/components/schemas/MailCampaignProgress"
       - not:
@@ -38681,125 +38946,9 @@ components:
         type: object
         x-reacon-null-only: true
     MailPostCampaignsByCampaignIdLaunchResponse200_anyOf:
-      example:
-        campaign:
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          id: id
-          messageCounts:
-            auto_replied: 5.637376656633329
-            bounced: 2.3021358869347655
-            cancelled: 7.061401241503109
-            complained: 9.301444243932576
-            delivered: 3.616076749251911
-            failed: 2.027123023002322
-            provider_accepted: 4.145608029883936
-            queued: 7.386281948385884
-            replied: 1.2315135367772556
-            retry_scheduled: 1.0246457001441578
-            sending: 1.4894159098541704
-            suppressed: 6.84685269835264
-            unsubscribed: 7.457744773683766
-          name: name
-          recipientCount: 0.8008281904610115
-          sequenceRunIds:
-          - sequenceRunIds
-          - sequenceRunIds
-          status: status
-          tenantId: tenantId
-          totalMessages: 6.027456183070403
-          updatedAt: 2000-01-23T04:56:07.000+00:00
-        draft:
-          audienceListIds:
-          - audienceListIds
-          - audienceListIds
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          id: id
-          launchedAt: 2000-01-23T04:56:07.000+00:00
-          mailboxIds:
-          - mailboxIds
-          - mailboxIds
-          mailboxPoolId: mailboxPoolId
-          name: name
-          policy:
-            domainQuotas:
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            mailboxQuotas:
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            recipientCooldownMs: 1.4658129805029452
-            recipientQuotas:
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            sendingWindows:
-            - endMinute: 5.962133916683182
-              startMinute: 5.637376656633329
-              weekdays:
-              - weekdays
-              - weekdays
-            - endMinute: 5.962133916683182
-              startMinute: 5.637376656633329
-              weekdays:
-              - weekdays
-              - weekdays
-            tenantQuotas:
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            - maxAccepted: 0.8008281904610115
-              windowMs: 6.027456183070403
-            timeZone: timeZone
-          scheduledAt: 2000-01-23T04:56:07.000+00:00
-          status: status
-          steps:
-          - delayMs: 2.3021358869347655
-            html: html
-            id: id
-            subject: subject
-            text: text
-            variants:
-            - html: html
-              id: id
-              subject: subject
-              text: text
-              variables: "{}"
-              weight: 7.061401241503109
-            - html: html
-              id: id
-              subject: subject
-              text: text
-              variables: "{}"
-              weight: 7.061401241503109
-          - delayMs: 2.3021358869347655
-            html: html
-            id: id
-            subject: subject
-            text: text
-            variants:
-            - html: html
-              id: id
-              subject: subject
-              text: text
-              variables: "{}"
-              weight: 7.061401241503109
-            - html: html
-              id: id
-              subject: subject
-              text: text
-              variables: "{}"
-              weight: 7.061401241503109
-          tenantId: tenantId
-          updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 9.301444243932576
-        sequences: []
       properties:
         campaign:
-          $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_campaign"
+          $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_campaign"
         draft:
           $ref: "#/components/schemas/MailCampaignDraftRecord"
         sequences:
@@ -38816,7 +38965,7 @@ components:
     MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_1:
       properties:
         campaign:
-          $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_campaign"
+          $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_campaign"
         draft:
           $ref: "#/components/schemas/MailCampaignDraftRecord"
         sequences:
@@ -39061,10 +39210,6 @@ components:
       type: object
     MailPostPortfolioSuppressionsRequest_anyOf:
       additionalProperties: false
-      example:
-        reason: agency policy
-        scope: email
-        value: value
       properties:
         reason:
           default: agency policy
@@ -39154,9 +39299,6 @@ components:
       type: object
     MailPostSuppressionsRequest_anyOf:
       additionalProperties: false
-      example:
-        scope: email
-        value: value
       properties:
         scope:
           enum:
