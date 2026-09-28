@@ -14,6 +14,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"time"
 	"strings"
 )
 
@@ -86,13 +87,15 @@ type Configuration struct {
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
+	// Total JSON/CSV deadline including body reads. Zero defaults to 30 seconds.
+	RequestTimeout time.Duration
 }
 
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.0-beta.1/go",
+		UserAgent:        "OpenAPI-Generator/0.1.0-beta.4/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

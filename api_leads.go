@@ -298,10 +298,7 @@ func (a *LeadsAPIService) CreateLeadExecute(r ApiCreateLeadRequest) (*CreateLead
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -489,10 +486,7 @@ func (a *LeadsAPIService) DeleteLeadExecute(r ApiDeleteLeadRequest) (*DeleteLead
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -540,7 +534,7 @@ func (a *LeadsAPIService) ExportLeadsExecute(r ApiExportLeadsRequest) ([]LeadExp
     if err != nil { return nil, response, err }
     var value []LeadExportInner
     if err = a.client.decode(&value, body, response.Header.Get("Content-Type")); err != nil {
-        return nil, response, &GenericOpenAPIError{body: body, error: err.Error()}
+        return nil, response, newResponseDecodeError(response, body, err)
     }
     return value, response, nil
 }
@@ -900,10 +894,7 @@ func (a *LeadsAPIService) GetLeadExecute(r ApiGetLeadRequest) (*GetLeadResponse,
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1170,10 +1161,7 @@ func (a *LeadsAPIService) ListLeadsExecute(r ApiListLeadsRequest) (*LeadPage, *h
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1369,10 +1357,7 @@ func (a *LeadsAPIService) UpdateLeadExecute(r ApiUpdateLeadRequest) (*UpdateLead
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

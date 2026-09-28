@@ -241,10 +241,7 @@ func (a *DomainsAPIService) GetDomainCatchAllExecute(r ApiGetDomainCatchAllReque
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -421,10 +418,7 @@ func (a *DomainsAPIService) GetDomainCompanyContextExecute(r ApiGetDomainCompany
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -590,10 +584,7 @@ func (a *DomainsAPIService) GetDomainCountsExecute(r ApiGetDomainCountsRequest) 
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

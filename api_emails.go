@@ -270,10 +270,7 @@ func (a *EmailsAPIService) DeleteEmailExecute(r ApiDeleteEmailRequest) (*DeleteE
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -488,10 +485,7 @@ func (a *EmailsAPIService) ListEmailMentionsExecute(r ApiListEmailMentionsReques
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -739,10 +733,7 @@ func (a *EmailsAPIService) ListEmailsExecute(r ApiListEmailsRequest) (*EmailPage
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -960,10 +951,7 @@ func (a *EmailsAPIService) RevealEmailExecute(r ApiRevealEmailRequest) (*EmailRe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1181,10 +1169,7 @@ func (a *EmailsAPIService) RevealEmailByIdExecute(r ApiRevealEmailByIdRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
+		newErr := newResponseDecodeError(localVarHTTPResponse, localVarBody, err)
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
