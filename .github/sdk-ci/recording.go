@@ -202,6 +202,7 @@ func main() {
 	must(os.WriteFile(os.Getenv("REACON_RESULTS_FILE"), data, 0600))
 	fmt.Printf("%d/%d recorded responses passed through Go methods\n", passed, len(cases))
 	if passed != len(cases) {
+		for _, result := range results { if !result.Passed { detail, _ := json.Marshal(result); fmt.Fprintln(os.Stderr, string(detail)) } }
 		os.Exit(1)
 	}
 }

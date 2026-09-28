@@ -38302,10 +38302,11 @@ components:
       - createdAt
       - id
       type: object
-    MailPostAnalyticsExportResponse200_nextCursor_anyOf:
+    MailPostAnalyticsExportResponse200_nextCursor:
       example:
         createdAt: createdAt
         id: id
+      nullable: true
       properties:
         createdAt:
           type: string
@@ -38315,14 +38316,6 @@ components:
       - createdAt
       - id
       type: object
-    MailPostAnalyticsExportResponse200_nextCursor:
-      anyOf:
-      - $ref: "#/components/schemas/MailPostAnalyticsExportResponse200_nextCursor_anyOf"
-      - not:
-          type: object
-        nullable: true
-        type: object
-        x-reacon-null-only: true
     MailPostCadenceCampaignsByCampaignIdStateResponse200_anyOf:
       example:
         action: action

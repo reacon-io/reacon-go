@@ -3,6 +3,10 @@
     "id": "getApiKeyIdentity--fixture-key",
     "apiClass": "IdentityApi",
     "parameters": {},
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiKeyIdentity"
     },
@@ -37,8 +41,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:53.271Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:03.392Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -61,6 +65,10 @@
     "id": "getApiKeyIdentity--missing-key",
     "apiClass": "IdentityApi",
     "parameters": {},
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiError"
     },
@@ -85,7 +93,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99998",
-          "x-ratelimit-reset": "60"
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -95,8 +103,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:54.146Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:04.600Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -120,6 +128,10 @@
     "apiClass": "DomainsApi",
     "parameters": {
       "domain": "sdk-fixtures.example.invalid"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/DomainCounts"
@@ -145,7 +157,7 @@
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
           "x-ratelimit-remaining": "99997",
-          "x-ratelimit-reset": "60"
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -156,8 +168,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:54.182Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:04.633Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -183,6 +195,10 @@
       "domain": "sdk-fixtures.example.invalid",
       "limit": 1,
       "onlyIfFree": "true"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/EmailPage"
@@ -222,8 +238,1288 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:54.492Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:04.937Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listCompanies--empty-domain",
+    "apiClass": "CompaniesApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid",
+      "limit": 1,
+      "offset": 0
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/CompanyList"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listCompanies",
+      "scenarioId": "empty-domain",
+      "title": "List companies for a reserved fixture domain",
+      "pathTemplate": "/v1/companies",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/companies",
+        "query": {
+          "domain": "sdk-fixtures.example.invalid",
+          "limit": 1,
+          "offset": 0
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99995",
+          "x-ratelimit-reset": "59"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:05.409Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listCompanies--missing-key",
+    "apiClass": "CompaniesApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid",
+      "limit": 1,
+      "offset": 0
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listCompanies",
+      "scenarioId": "missing-key",
+      "title": "Missing API key",
+      "pathTemplate": "/v1/companies",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/companies",
+        "query": {
+          "domain": "sdk-fixtures.example.invalid",
+          "limit": 1,
+          "offset": 0
+        },
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99994",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "API key required",
+          "code": "API_KEY_REQUIRED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:05.725Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getDomainCompanyContext--empty-domain",
+    "apiClass": "DomainsApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/DomainCompanyContext"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getDomainCompanyContext",
+      "scenarioId": "empty-domain",
+      "title": "Company context for a reserved fixture domain",
+      "pathTemplate": "/v1/domains/{domain}/company-context",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/domains/sdk-fixtures.example.invalid/company-context",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99993",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "domain": "sdk-fixtures.example.invalid",
+          "company": null
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:05.750Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getDomainCompanyContext--missing-key",
+    "apiClass": "DomainsApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getDomainCompanyContext",
+      "scenarioId": "missing-key",
+      "title": "Missing API key",
+      "pathTemplate": "/v1/domains/{domain}/company-context",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/domains/sdk-fixtures.example.invalid/company-context",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99992",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "API key required",
+          "code": "API_KEY_REQUIRED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:06.069Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listNamePatterns--synthetic-name",
+    "apiClass": "NamesApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid",
+      "first": "Ada",
+      "last": "Example"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/NamePatternsResponse"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listNamePatterns",
+      "scenarioId": "synthetic-name",
+      "title": "Name patterns for a synthetic person",
+      "pathTemplate": "/v1/name/schemas",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/name/schemas",
+        "query": {
+          "domain": "sdk-fixtures.example.invalid",
+          "first": "Ada",
+          "last": "Example"
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99991",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "items": [
+            {
+              "pattern": "first.last",
+              "score": 92
+            },
+            {
+              "pattern": "firstlast",
+              "score": 85
+            },
+            {
+              "pattern": "last.first",
+              "score": 80
+            },
+            {
+              "pattern": "f.last",
+              "score": 70
+            },
+            {
+              "pattern": "first.l",
+              "score": 65
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:06.092Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listNamePatterns--missing-key",
+    "apiClass": "NamesApi",
+    "parameters": {
+      "domain": "sdk-fixtures.example.invalid",
+      "first": "Ada",
+      "last": "Example"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listNamePatterns",
+      "scenarioId": "missing-key",
+      "title": "Missing API key",
+      "pathTemplate": "/v1/name/schemas",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/name/schemas",
+        "query": {
+          "domain": "sdk-fixtures.example.invalid",
+          "first": "Ada",
+          "last": "Example"
+        },
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99990",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "API key required",
+          "code": "API_KEY_REQUIRED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:06.308Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listIntegrationProviders--provider-catalog",
+    "apiClass": "IntegrationsApi",
+    "parameters": {},
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/IntegrationProviderList"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listIntegrationProviders",
+      "scenarioId": "provider-catalog",
+      "title": "Integration provider capabilities and readiness",
+      "pathTemplate": "/v1/integrations/providers",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/integrations/providers",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99989",
+          "x-ratelimit-reset": "58"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "providers": [
+            {
+              "provider": "google_sheets",
+              "name": "Google Sheets",
+              "category": "spreadsheet",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "registration_required",
+                "code": "OAUTH_REDIRECT_NOT_REGISTERED"
+              }
+            },
+            {
+              "provider": "microsoft_excel",
+              "name": "Microsoft Excel",
+              "category": "spreadsheet",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_configured",
+                "code": "OAUTH_CLIENT_NOT_CONFIGURED"
+              }
+            },
+            {
+              "provider": "airtable",
+              "name": "Airtable",
+              "category": "spreadsheet",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "registration_required",
+                "code": "OAUTH_REDIRECT_NOT_REGISTERED"
+              }
+            },
+            {
+              "provider": "salesforce",
+              "name": "Salesforce",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "registration_required",
+                "code": "OAUTH_REDIRECT_NOT_REGISTERED"
+              }
+            },
+            {
+              "provider": "hubspot",
+              "name": "HubSpot",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "available",
+                "code": "OAUTH_CONNECT_AVAILABLE"
+              }
+            },
+            {
+              "provider": "pipedrive",
+              "name": "Pipedrive",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "available",
+                "code": "OAUTH_CONNECT_AVAILABLE"
+              }
+            },
+            {
+              "provider": "zoho",
+              "name": "Zoho CRM",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "available",
+                "code": "OAUTH_CONNECT_AVAILABLE"
+              }
+            },
+            {
+              "provider": "close",
+              "name": "Close CRM",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "available",
+                "code": "OAUTH_CONNECT_AVAILABLE"
+              }
+            },
+            {
+              "provider": "attio",
+              "name": "Attio",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_configured",
+                "code": "OAUTH_CLIENT_NOT_CONFIGURED"
+              }
+            },
+            {
+              "provider": "dynamics",
+              "name": "Microsoft Dynamics 365 Sales",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_configured",
+                "code": "OAUTH_CLIENT_NOT_CONFIGURED"
+              }
+            },
+            {
+              "provider": "copper",
+              "name": "Copper CRM",
+              "category": "crm",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "not_configured",
+                "code": "OAUTH_CLIENT_NOT_CONFIGURED"
+              }
+            },
+            {
+              "provider": "notion",
+              "name": "Notion databases",
+              "category": "spreadsheet",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "available",
+                "code": "OAUTH_CONNECT_AVAILABLE"
+              }
+            },
+            {
+              "provider": "coda",
+              "name": "Coda tables",
+              "category": "spreadsheet",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "freshsales",
+              "name": "Freshsales",
+              "category": "crm",
+              "auth": "api_key",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "rows",
+              "name": "Rows",
+              "category": "spreadsheet",
+              "auth": "api_key",
+              "implemented": false,
+              "readiness": {
+                "implementation": "retired",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "not_applicable",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "postgresql",
+              "name": "PostgreSQL warehouse",
+              "category": "warehouse",
+              "auth": "database_credentials",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "bigquery",
+              "name": "Google BigQuery",
+              "category": "warehouse",
+              "auth": "service_account",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "snowflake",
+              "name": "Snowflake",
+              "category": "warehouse",
+              "auth": "key_pair",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "redshift",
+              "name": "Amazon Redshift",
+              "category": "warehouse",
+              "auth": "aws_iam",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "slack",
+              "name": "Slack",
+              "category": "notification",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "available",
+                "code": "OAUTH_CONNECT_AVAILABLE"
+              }
+            },
+            {
+              "provider": "microsoft_teams",
+              "name": "Microsoft Teams",
+              "category": "notification",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "webflow",
+              "name": "Webflow Forms",
+              "category": "form",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "registration_required",
+                "code": "OAUTH_REDIRECT_NOT_REGISTERED"
+              }
+            },
+            {
+              "provider": "typeform",
+              "name": "Typeform",
+              "category": "form",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "complete",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "private_ready"
+              },
+              "connectability": {
+                "state": "available",
+                "code": "OAUTH_CONNECT_AVAILABLE"
+              }
+            },
+            {
+              "provider": "make",
+              "name": "Make",
+              "category": "automation",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "zapier",
+              "name": "Zapier",
+              "category": "automation",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "n8n",
+              "name": "n8n",
+              "category": "automation",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "clay",
+              "name": "Clay",
+              "category": "enrichment",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "power_platform",
+              "name": "Microsoft Power Platform",
+              "category": "automation",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "segment",
+              "name": "Twilio Segment",
+              "category": "automation",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "rudderstack",
+              "name": "RudderStack",
+              "category": "automation",
+              "auth": "api_token",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "chatgpt",
+              "name": "ChatGPT & Codex plugin",
+              "category": "ai",
+              "auth": "api_key",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "claude",
+              "name": "Claude",
+              "category": "ai",
+              "auth": "api_key",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "perplexity",
+              "name": "Perplexity",
+              "category": "ai",
+              "auth": "oauth2",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_configured",
+                "code": "OAUTH_CONNECT_NOT_IMPLEMENTED"
+              }
+            },
+            {
+              "provider": "llm",
+              "name": "LLM & MCP",
+              "category": "ai",
+              "auth": "api_key",
+              "implemented": true,
+              "readiness": {
+                "implementation": "complete",
+                "productSurface": "external",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "passed",
+                "distribution": "external_gate"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            },
+            {
+              "provider": "gmail",
+              "name": "Gmail",
+              "category": "email",
+              "auth": "oauth2",
+              "implemented": false,
+              "readiness": {
+                "implementation": "partial",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_configured",
+                "code": "OAUTH_CONNECT_NOT_IMPLEMENTED"
+              }
+            },
+            {
+              "provider": "outlook",
+              "name": "Microsoft Outlook",
+              "category": "email",
+              "auth": "oauth2",
+              "implemented": false,
+              "readiness": {
+                "implementation": "partial",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_configured",
+                "code": "OAUTH_CONNECT_NOT_IMPLEMENTED"
+              }
+            },
+            {
+              "provider": "smtp_imap",
+              "name": "SMTP & IMAP",
+              "category": "email",
+              "auth": "mailbox_credentials",
+              "implemented": false,
+              "readiness": {
+                "implementation": "partial",
+                "productSurface": "partial",
+                "deterministicAcceptance": "passed",
+                "liveAcceptance": "external_blocked",
+                "distribution": "not_applicable"
+              },
+              "connectability": {
+                "state": "not_applicable",
+                "code": "OAUTH_NOT_APPLICABLE"
+              }
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:06.332Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listIntegrationProviders--missing-key",
+    "apiClass": "IntegrationsApi",
+    "parameters": {},
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listIntegrationProviders",
+      "scenarioId": "missing-key",
+      "title": "Missing API key",
+      "pathTemplate": "/v1/integrations/providers",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/integrations/providers",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99988",
+          "x-ratelimit-reset": "57"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "API key required",
+          "code": "API_KEY_REQUIRED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:06.557Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getStats--public-metadata",
+    "apiClass": "StatsApi",
+    "parameters": {},
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/PublicStats"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getStats",
+      "scenarioId": "public-metadata",
+      "title": "Public API metadata without an API key",
+      "pathTemplate": "/v1/stats",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/stats",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "100000",
+          "x-ratelimit-remaining": "99987",
+          "x-ratelimit-reset": "57"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "emails": 101778220,
+          "mentions": 27384697,
+          "version": "v5"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:06.579Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -248,6 +1544,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/IntegrationConnectionList"
     },
@@ -271,8 +1571,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99995",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-remaining": "99986",
+          "x-ratelimit-reset": "54"
         },
         "mediaType": "application/json",
         "body": {
@@ -281,8 +1581,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:54.972Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:09.930Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -307,6 +1607,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/IntegrationJobPage"
     },
@@ -330,8 +1634,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99994",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99985",
+          "x-ratelimit-reset": "54"
         },
         "mediaType": "application/json",
         "body": {
@@ -341,8 +1645,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:55.359Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:10.310Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -367,6 +1671,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/McpIdentityList"
     },
@@ -390,8 +1698,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99993",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99984",
+          "x-ratelimit-reset": "53"
         },
         "mediaType": "application/json",
         "body": {
@@ -400,8 +1708,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:55.753Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:10.697Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -426,6 +1734,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/SheetWorkflowList"
     },
@@ -449,8 +1761,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99992",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "99983",
+          "x-ratelimit-reset": "53"
         },
         "mediaType": "application/json",
         "body": {
@@ -459,8 +1771,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:56.058Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:10.998Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -485,6 +1797,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetAudienceListsResponse200"
     },
@@ -508,8 +1824,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "280",
-          "x-ratelimit-reset": "10"
+          "x-ratelimit-remaining": "286",
+          "x-ratelimit-reset": "20"
         },
         "mediaType": "application/json",
         "body": {
@@ -518,8 +1834,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:56.529Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:11.465Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -544,6 +1860,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCadenceCampaignsResponse200"
     },
@@ -567,8 +1887,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "279",
-          "x-ratelimit-reset": "8"
+          "x-ratelimit-remaining": "285",
+          "x-ratelimit-reset": "18"
         },
         "mediaType": "application/json",
         "body": {
@@ -577,8 +1897,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:58.619Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:13.539Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -603,6 +1923,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCadenceRunsResponse200"
     },
@@ -626,8 +1950,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "278",
-          "x-ratelimit-reset": "7"
+          "x-ratelimit-remaining": "284",
+          "x-ratelimit-reset": "18"
         },
         "mediaType": "application/json",
         "body": {
@@ -636,8 +1960,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:59.013Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:13.927Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -662,6 +1986,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCadencesResponse200"
     },
@@ -685,8 +2013,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "277",
-          "x-ratelimit-reset": "7"
+          "x-ratelimit-remaining": "283",
+          "x-ratelimit-reset": "17"
         },
         "mediaType": "application/json",
         "body": {
@@ -695,8 +2023,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:59.399Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:14.314Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -721,6 +2049,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCampaignsResponse200"
     },
@@ -744,8 +2076,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "276",
-          "x-ratelimit-reset": "7"
+          "x-ratelimit-remaining": "282",
+          "x-ratelimit-reset": "17"
         },
         "mediaType": "application/json",
         "body": {
@@ -754,8 +2086,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:04:59.811Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:14.718Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -780,6 +2112,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetChannelsResponse200"
     },
@@ -803,8 +2139,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "274",
-          "x-ratelimit-reset": "6"
+          "x-ratelimit-remaining": "281",
+          "x-ratelimit-reset": "16"
         },
         "mediaType": "application/json",
         "body": {
@@ -839,8 +2175,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:00.199Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:15.105Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -865,6 +2201,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCrmStatesResponse200"
     },
@@ -888,8 +2228,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "272",
-          "x-ratelimit-reset": "5"
+          "x-ratelimit-remaining": "279",
+          "x-ratelimit-reset": "15"
         },
         "mediaType": "application/json",
         "body": {
@@ -898,8 +2238,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:01.502Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:16.263Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -924,6 +2264,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCrmTasksResponse200"
     },
@@ -947,8 +2291,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "271",
-          "x-ratelimit-reset": "4"
+          "x-ratelimit-remaining": "278",
+          "x-ratelimit-reset": "15"
         },
         "mediaType": "application/json",
         "body": {
@@ -957,8 +2301,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:01.892Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:16.650Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -983,6 +2327,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCrmTimelineResponse200"
     },
@@ -1006,18 +2354,52 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "270",
-          "x-ratelimit-reset": "4"
+          "x-ratelimit-remaining": "277",
+          "x-ratelimit-reset": "14"
         },
         "mediaType": "application/json",
         "body": {
-          "results": []
+          "results": [
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000100",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "contact.stage_changed",
+              "occurredAt": "2026-09-28T20:39:52.831Z",
+              "payload": {
+                "stage": "qualified",
+                "outcome": "Documentation fixture only"
+              }
+            },
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000101",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "contact.stage_changed",
+              "occurredAt": "2026-09-28T20:22:29.478Z",
+              "payload": {
+                "stage": "qualified",
+                "outcome": "Documentation fixture only"
+              }
+            },
+            {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "id": "timeline_00000000000040008000000000000102",
+              "actorId": "00000000-0000-4000-8000-000000000002",
+              "type": "contact.stage_changed",
+              "occurredAt": "2026-09-28T17:05:22.473Z",
+              "payload": {
+                "stage": "qualified",
+                "outcome": "Documentation fixture only"
+              }
+            }
+          ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:02.274Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:17.036Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1042,6 +2424,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetExperimentsResponse200"
     },
@@ -1065,8 +2451,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "269",
-          "x-ratelimit-reset": "4"
+          "x-ratelimit-remaining": "276",
+          "x-ratelimit-reset": "14"
         },
         "mediaType": "application/json",
         "body": {
@@ -1075,8 +2461,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:02.655Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:17.416Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1101,6 +2487,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetExperimentsOverviewResponse200"
     },
@@ -1124,8 +2514,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "268",
-          "x-ratelimit-reset": "3"
+          "x-ratelimit-remaining": "275",
+          "x-ratelimit-reset": "14"
         },
         "mediaType": "application/json",
         "body": {
@@ -1134,8 +2524,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:03.044Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:17.804Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1160,6 +2550,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetInboxResponse200"
     },
@@ -1183,8 +2577,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "267",
-          "x-ratelimit-reset": "3"
+          "x-ratelimit-remaining": "274",
+          "x-ratelimit-reset": "13"
         },
         "mediaType": "application/json",
         "body": {
@@ -1193,8 +2587,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:03.432Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:18.193Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1219,6 +2613,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetInboxThreadsResponse200"
     },
@@ -1242,8 +2640,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "266",
-          "x-ratelimit-reset": "3"
+          "x-ratelimit-remaining": "273",
+          "x-ratelimit-reset": "13"
         },
         "mediaType": "application/json",
         "body": {
@@ -1253,8 +2651,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:03.822Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:18.580Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1279,6 +2677,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetMailboxesResponse200"
     },
@@ -1302,8 +2704,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "265",
-          "x-ratelimit-reset": "1"
+          "x-ratelimit-remaining": "272",
+          "x-ratelimit-reset": "12"
         },
         "mediaType": "application/json",
         "body": {
@@ -1313,8 +2715,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:05.057Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:19.810Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1339,6 +2741,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetMessagesResponse200"
     },
@@ -1362,8 +2768,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "264",
-          "x-ratelimit-reset": "1"
+          "x-ratelimit-remaining": "270",
+          "x-ratelimit-reset": "11"
         },
         "mediaType": "application/json",
         "body": {
@@ -1372,8 +2778,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:05.529Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:20.279Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1398,6 +2804,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetOverviewResponse200"
     },
@@ -1421,16 +2831,16 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "299",
-          "x-ratelimit-reset": "60"
+          "x-ratelimit-remaining": "269",
+          "x-ratelimit-reset": "11"
         },
         "mediaType": "application/json",
         "body": {
           "mailboxes": [],
           "connections": [],
           "analytics": {
-            "from": "2026-08-29T17:05:06.200Z",
-            "to": "2026-09-28T17:05:06.200Z",
+            "from": "2026-08-29T21:28:20.943Z",
+            "to": "2026-09-28T21:28:20.943Z",
             "total": 0,
             "counts": {},
             "acceptanceRate": 0,
@@ -1455,8 +2865,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:05.928Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:20.670Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1481,6 +2891,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetQueueResponse200"
     },
@@ -1504,8 +2918,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "297",
-          "x-ratelimit-reset": "59"
+          "x-ratelimit-remaining": "267",
+          "x-ratelimit-reset": "9"
         },
         "mediaType": "application/json",
         "body": {
@@ -1519,8 +2933,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:07.680Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:22.335Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1545,6 +2959,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetReplyAutomationsResponse200"
     },
@@ -1568,8 +2986,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "296",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "266",
+          "x-ratelimit-reset": "9"
         },
         "mediaType": "application/json",
         "body": {
@@ -1578,8 +2996,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:08.076Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:22.720Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1604,6 +3022,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetSignaturesResponse200"
     },
@@ -1627,8 +3049,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "295",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "265",
+          "x-ratelimit-reset": "8"
         },
         "mediaType": "application/json",
         "body": {
@@ -1637,8 +3059,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:08.460Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:23.102Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1663,6 +3085,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetSuppressionsResponse200"
     },
@@ -1686,8 +3112,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "294",
-          "x-ratelimit-reset": "58"
+          "x-ratelimit-remaining": "264",
+          "x-ratelimit-reset": "8"
         },
         "mediaType": "application/json",
         "body": {
@@ -1704,8 +3130,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:08.850Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:23.502Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1730,6 +3156,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetTemplatesResponse200"
     },
@@ -1753,8 +3183,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "293",
-          "x-ratelimit-reset": "57"
+          "x-ratelimit-remaining": "263",
+          "x-ratelimit-reset": "8"
         },
         "mediaType": "application/json",
         "body": {
@@ -1766,9 +3196,9 @@
               "status": "draft",
               "channel": "email",
               "subject": "Hello {{first_name}}",
-              "version": 2,
+              "version": 5,
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "createdAt": "2026-09-28T17:02:27.603Z",
+              "createdAt": "2026-09-28T20:39:42.563Z",
               "variables": [
                 "first_name"
               ],
@@ -1779,8 +3209,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:09.233Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:23.887Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1805,6 +3235,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetTrackingDomainResponse200"
     },
@@ -1828,8 +3262,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "292",
-          "x-ratelimit-reset": "57"
+          "x-ratelimit-remaining": "262",
+          "x-ratelimit-reset": "7"
         },
         "mediaType": "application/json",
         "body": {
@@ -1838,8 +3272,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:09.625Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:24.275Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1864,6 +3298,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetWebhooksResponse200"
     },
@@ -1887,8 +3325,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "290",
-          "x-ratelimit-reset": "56"
+          "x-ratelimit-remaining": "261",
+          "x-ratelimit-reset": "7"
         },
         "mediaType": "application/json",
         "body": {
@@ -1898,8 +3336,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:10.007Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:24.656Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1924,6 +3362,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCampaignsResponse200"
     },
@@ -1947,8 +3389,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "289",
-          "x-ratelimit-reset": "56"
+          "x-ratelimit-remaining": "260",
+          "x-ratelimit-reset": "6"
         },
         "mediaType": "application/json",
         "body": {
@@ -1957,8 +3399,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:10.476Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:25.128Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -1982,6 +3424,24 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": [
+        {
+          "path": [
+            "policy"
+          ],
+          "value": {
+            "domainQuotas": [],
+            "mailboxQuotas": [],
+            "recipientQuotas": [],
+            "sendingWindows": [],
+            "tenantQuotas": [],
+            "timeZone": "UTC"
+          }
+        }
+      ]
     },
     "requestModel": "MailPostCampaignsRequest",
     "responseSchema": {
@@ -2019,17 +3479,17 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "288",
-          "x-ratelimit-reset": "56"
+          "x-ratelimit-remaining": "259",
+          "x-ratelimit-reset": "6"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000100",
+            "id": "campaign_00000000000040008000000000000103",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
             "steps": [
               {
-                "id": "step_00000000000040008000000000000101",
+                "id": "step_00000000000040008000000000000104",
                 "text": "This is a documentation fixture. It is never sent.",
                 "delayMs": 0,
                 "subject": "Synthetic documentation example"
@@ -2046,8 +3506,8 @@
             "status": "draft",
             "version": 1,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T17:05:11.136Z",
-            "updatedAt": "2026-09-28T17:05:11.136Z",
+            "createdAt": "2026-09-28T21:28:25.788Z",
+            "updatedAt": "2026-09-28T21:28:25.788Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -2055,8 +3515,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:10.862Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:25.515Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2080,7 +3540,11 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000100"
+      "campaignId": "campaign_00000000000040008000000000000103"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCampaignsByCampaignIdResponse200"
@@ -2095,7 +3559,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -2105,17 +3569,17 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "286",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "258",
+          "x-ratelimit-reset": "6"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000100",
+            "id": "campaign_00000000000040008000000000000103",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
             "steps": [
               {
-                "id": "step_00000000000040008000000000000101",
+                "id": "step_00000000000040008000000000000104",
                 "text": "This is a documentation fixture. It is never sent.",
                 "delayMs": 0,
                 "subject": "Synthetic documentation example"
@@ -2132,8 +3596,8 @@
             "status": "draft",
             "version": 1,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T17:05:11.136Z",
-            "updatedAt": "2026-09-28T17:05:11.136Z",
+            "createdAt": "2026-09-28T21:28:25.788Z",
+            "updatedAt": "2026-09-28T21:28:25.788Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -2141,8 +3605,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:11.256Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:25.904Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2166,7 +3630,25 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000100"
+      "campaignId": "campaign_00000000000040008000000000000103"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": [
+        {
+          "path": [
+            "policy"
+          ],
+          "value": {
+            "domainQuotas": [],
+            "mailboxQuotas": [],
+            "recipientQuotas": [],
+            "sendingWindows": [],
+            "tenantQuotas": [],
+            "timeZone": "UTC"
+          }
+        }
+      ]
     },
     "requestModel": "MailPatchCampaignsByCampaignIdRequest",
     "responseSchema": {
@@ -2182,7 +3664,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "PATCH",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
         "query": {},
         "body": {
           "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
@@ -2199,13 +3681,13 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "285",
-          "x-ratelimit-reset": "55"
+          "x-ratelimit-remaining": "256",
+          "x-ratelimit-reset": "5"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000100",
+            "id": "campaign_00000000000040008000000000000103",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
             "steps": [],
             "policy": {
@@ -2219,8 +3701,8 @@
             "status": "draft",
             "version": 2,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T17:05:11.136Z",
-            "updatedAt": "2026-09-28T17:05:11.915Z",
+            "createdAt": "2026-09-28T21:28:25.788Z",
+            "updatedAt": "2026-09-28T21:28:26.565Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -2228,8 +3710,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:11.643Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:26.291Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2253,7 +3735,43 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000100"
+      "campaignId": "campaign_00000000000040008000000000000103"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": [
+        {
+          "path": [
+            "audienceListIds"
+          ],
+          "value": []
+        },
+        {
+          "path": [
+            "mailboxIds"
+          ],
+          "value": []
+        },
+        {
+          "path": [
+            "policy"
+          ],
+          "value": {
+            "domainQuotas": [],
+            "mailboxQuotas": [],
+            "recipientQuotas": [],
+            "sendingWindows": [],
+            "tenantQuotas": [],
+            "timeZone": "UTC"
+          }
+        },
+        {
+          "path": [
+            "steps"
+          ],
+          "value": []
+        }
+      ]
     },
     "requestModel": "MailPatchCampaignsByCampaignIdRequest",
     "responseSchema": {
@@ -2269,7 +3787,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "PATCH",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
         "query": {},
         "body": {
           "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign",
@@ -2283,20 +3801,20 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "284",
-          "x-ratelimit-reset": "54"
+          "x-ratelimit-remaining": "255",
+          "x-ratelimit-reset": "5"
         },
         "mediaType": "application/json",
         "body": {
           "error": "CAMPAIGN_VERSION_CONFLICT",
           "code": "CAMPAIGN_VERSION_CONFLICT",
-          "requestId": "req-1g"
+          "requestId": "req-4bm"
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:12.112Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:26.765Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2320,7 +3838,11 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000100"
+      "campaignId": "campaign_00000000000040008000000000000103"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/MailPostCampaignsByCampaignIdDuplicateResponse201"
@@ -2335,7 +3857,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100/duplicate",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103/duplicate",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -2345,13 +3867,13 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "283",
-          "x-ratelimit-reset": "54"
+          "x-ratelimit-remaining": "254",
+          "x-ratelimit-reset": "4"
         },
         "mediaType": "application/json",
         "body": {
           "campaign": {
-            "id": "campaign_00000000000040008000000000000102",
+            "id": "campaign_00000000000040008000000000000105",
             "name": "REACON SDK DOCUMENTATION FIXTURE - unsent campaign copy",
             "steps": [],
             "policy": {
@@ -2365,8 +3887,8 @@
             "status": "draft",
             "version": 1,
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "createdAt": "2026-09-28T17:05:12.856Z",
-            "updatedAt": "2026-09-28T17:05:12.856Z",
+            "createdAt": "2026-09-28T21:28:27.501Z",
+            "updatedAt": "2026-09-28T21:28:27.501Z",
             "mailboxIds": [],
             "audienceListIds": []
           }
@@ -2374,8 +3896,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:12.500Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:27.147Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2399,7 +3921,11 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000102"
+      "campaignId": "campaign_00000000000040008000000000000105"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "MailDeleteCampaignsByCampaignIdRequest",
     "responseSchema": {
@@ -2415,7 +3941,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "DELETE",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000102",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000105",
         "query": {},
         "body": {
           "expectedVersion": 1
@@ -2428,8 +3954,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "282",
-          "x-ratelimit-reset": "53"
+          "x-ratelimit-remaining": "253",
+          "x-ratelimit-reset": "4"
         },
         "mediaType": "application/json",
         "body": {
@@ -2438,8 +3964,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:12.969Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:27.613Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2463,7 +3989,11 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000100"
+      "campaignId": "campaign_00000000000040008000000000000103"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "MailDeleteCampaignsByCampaignIdRequest",
     "responseSchema": {
@@ -2479,7 +4009,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "DELETE",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
         "query": {},
         "body": {
           "expectedVersion": 2
@@ -2492,8 +4022,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "281",
-          "x-ratelimit-reset": "53"
+          "x-ratelimit-remaining": "252",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -2502,8 +4032,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:13.352Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:27.994Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2527,7 +4057,11 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001",
-      "campaignId": "campaign_00000000000040008000000000000100"
+      "campaignId": "campaign_00000000000040008000000000000103"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiError"
@@ -2542,7 +4076,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000100",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/campaigns/campaign_00000000000040008000000000000103",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -2552,20 +4086,20 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "280",
-          "x-ratelimit-reset": "53"
+          "x-ratelimit-remaining": "251",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
           "error": "CAMPAIGN_NOT_FOUND",
           "code": "CAMPAIGN_NOT_FOUND",
-          "requestId": "req-1k"
+          "requestId": "req-4bq"
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:13.734Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:28.376Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2590,6 +4124,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCampaignsResponse200"
     },
@@ -2613,8 +4151,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "279",
-          "x-ratelimit-reset": "52"
+          "x-ratelimit-remaining": "250",
+          "x-ratelimit-reset": "3"
         },
         "mediaType": "application/json",
         "body": {
@@ -2623,8 +4161,324 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:14.117Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:28.758Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailAnalytics--empty-fixture-range",
+    "apiClass": "MailApi",
+    "parameters": {
+      "from": "2026-09-01T00:00:00.000Z",
+      "to": "2026-09-02T00:00:00.000Z",
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetAnalyticsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailAnalytics",
+      "scenarioId": "empty-fixture-range",
+      "title": "Read analytics for the synthetic team over a fixed date range",
+      "pathTemplate": "/v1/teams/{teamId}/mail/analytics",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/analytics",
+        "query": {
+          "from": "2026-09-01T00:00:00.000Z",
+          "to": "2026-09-02T00:00:00.000Z"
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "249",
+          "x-ratelimit-reset": "2"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "messages": {
+            "from": "2026-09-01T00:00:00.000Z",
+            "to": "2026-09-02T00:00:00.000Z",
+            "total": 0,
+            "counts": {},
+            "acceptanceRate": 0,
+            "deliveryRate": 0,
+            "replyRate": 0,
+            "bounceRate": 0,
+            "complaintRate": 0,
+            "averageAcceptanceLatencyMs": null,
+            "daily": [],
+            "mailboxes": [],
+            "variants": []
+          },
+          "operational": {
+            "replyLabels": {},
+            "stages": {},
+            "taskOutcomes": {},
+            "cadenceSteps": [],
+            "sampleLimited": true
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:29.141Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "exportMailAnalytics--empty-fixture-range",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [
+        [
+          "from"
+        ],
+        [
+          "to"
+        ]
+      ],
+      "defaults": []
+    },
+    "requestModel": "MailPostAnalyticsExportRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostAnalyticsExportResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "exportMailAnalytics",
+      "scenarioId": "empty-fixture-range",
+      "title": "Export the synthetic team as a CSV envelope",
+      "pathTemplate": "/v1/teams/{teamId}/mail/analytics/export",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/analytics/export",
+        "query": {},
+        "body": {
+          "from": "2026-09-01T00:00:00.000Z",
+          "to": "2026-09-02T00:00:00.000Z",
+          "limit": 10
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "248",
+          "x-ratelimit-reset": "2"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "filename": "reacon-messages-2026-09-01-2026-09-02.csv",
+          "contentType": "text/csv; charset=utf-8",
+          "content": "message_id,mailbox_id,recipients,status,created_at,accepted_at,updated_at",
+          "rowCount": 0,
+          "nextCursor": null
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:29.694Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "exportMailAnalytics--reversed-range",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [
+        [
+          "from"
+        ],
+        [
+          "to"
+        ]
+      ],
+      "defaults": []
+    },
+    "requestModel": "MailPostAnalyticsExportRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "exportMailAnalytics",
+      "scenarioId": "reversed-range",
+      "title": "Reject an export whose end precedes its start",
+      "pathTemplate": "/v1/teams/{teamId}/mail/analytics/export",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/analytics/export",
+        "query": {},
+        "body": {
+          "from": "2026-09-02T00:00:00.000Z",
+          "to": "2026-09-01T00:00:00.000Z",
+          "limit": 10
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "246",
+          "x-ratelimit-reset": "1"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "INVALID_ANALYTICS_RANGE",
+          "code": "INVALID_ANALYTICS_RANGE",
+          "requestId": "req-4bv"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:30.075Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailAnalytics--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "from": "2026-09-01T00:00:00.000Z",
+      "to": "2026-09-02T00:00:00.000Z",
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailAnalytics",
+      "scenarioId": "missing-key",
+      "title": "Reject unauthenticated analytics access",
+      "pathTemplate": "/v1/teams/{teamId}/mail/analytics",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/analytics",
+        "query": {
+          "from": "2026-09-01T00:00:00.000Z",
+          "to": "2026-09-02T00:00:00.000Z"
+        },
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "245",
+          "x-ratelimit-reset": "1"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:30.375Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2648,6 +4502,10 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "MailPostTemplatesRequest",
     "responseSchema": {
@@ -2681,8 +4539,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "278",
-          "x-ratelimit-reset": "52"
+          "x-ratelimit-remaining": "244",
+          "x-ratelimit-reset": "1"
         },
         "mediaType": "application/json",
         "body": {
@@ -2691,7 +4549,7 @@
             "tenantId": "00000000-0000-4000-8000-000000000001",
             "name": "REACON SDK DOCUMENTATION FIXTURE",
             "channel": "email",
-            "version": 3,
+            "version": 6,
             "status": "draft",
             "subject": "Hello {{first_name}}",
             "body": "Hello {{first_name}}, this is an unsent documentation example.",
@@ -2699,14 +4557,14 @@
               "first_name"
             ],
             "createdByActorId": "00000000-0000-4000-8000-000000000002",
-            "createdAt": "2026-09-28T17:05:14.855Z"
+            "createdAt": "2026-09-28T21:28:30.762Z"
           }
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:14.495Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:30.404Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2731,6 +4589,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetTemplatesResponse200"
     },
@@ -2754,8 +4616,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "277",
-          "x-ratelimit-reset": "51"
+          "x-ratelimit-remaining": "243",
+          "x-ratelimit-reset": "1"
         },
         "mediaType": "application/json",
         "body": {
@@ -2767,9 +4629,9 @@
               "status": "draft",
               "channel": "email",
               "subject": "Hello {{first_name}}",
-              "version": 3,
+              "version": 6,
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "createdAt": "2026-09-28T17:05:14.855Z",
+              "createdAt": "2026-09-28T21:28:30.762Z",
               "variables": [
                 "first_name"
               ],
@@ -2780,8 +4642,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:15.048Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:30.957Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2805,6 +4667,10 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "MailPostSuppressionsRequest",
     "responseSchema": {
@@ -2834,8 +4700,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "276",
-          "x-ratelimit-reset": "51"
+          "x-ratelimit-remaining": "298",
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
@@ -2844,8 +4710,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:15.430Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:31.336Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2870,6 +4736,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetSuppressionsResponse200"
     },
@@ -2893,8 +4763,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "275",
-          "x-ratelimit-reset": "51"
+          "x-ratelimit-remaining": "297",
+          "x-ratelimit-reset": "60"
         },
         "mediaType": "application/json",
         "body": {
@@ -2911,8 +4781,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:15.815Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:31.720Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -2936,6 +4806,10 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "MailPostCrmContactsBatchRequest",
     "responseSchema": {
@@ -2966,8 +4840,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "273",
-          "x-ratelimit-reset": "50"
+          "x-ratelimit-remaining": "296",
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -2976,8 +4850,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:16.195Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:32.107Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3001,6 +4875,10 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "MailPostCrmStatesBatchRequest",
     "responseSchema": {
@@ -3031,8 +4909,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "272",
-          "x-ratelimit-reset": "50"
+          "x-ratelimit-remaining": "295",
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -3041,8 +4919,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:16.588Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:32.503Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3067,6 +4945,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetCampaignProgressResponse200"
     },
@@ -3090,8 +4972,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "271",
-          "x-ratelimit-reset": "49"
+          "x-ratelimit-remaining": "294",
+          "x-ratelimit-reset": "59"
         },
         "mediaType": "application/json",
         "body": {
@@ -3100,8 +4982,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:16.966Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:32.879Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3126,6 +5008,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/MailGetPortfolioResponse200"
     },
@@ -3149,8 +5035,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "270",
-          "x-ratelimit-reset": "49"
+          "x-ratelimit-remaining": "293",
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
@@ -3161,8 +5047,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:17.516Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:33.424Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3186,6 +5072,10 @@
     "apiClass": "MailApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "MailPutCrmStatesRequest",
     "responseSchema": {
@@ -3215,20 +5105,20 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "269",
-          "x-ratelimit-reset": "49"
+          "x-ratelimit-remaining": "292",
+          "x-ratelimit-reset": "58"
         },
         "mediaType": "application/json",
         "body": {
           "error": "CONTACT_NOT_FOUND",
           "code": "CONTACT_NOT_FOUND",
-          "requestId": "req-1v"
+          "requestId": "req-4c6"
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:17.907Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:33.814Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3253,6 +5143,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiError"
     },
@@ -3276,8 +5170,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "261",
-          "x-ratelimit-reset": "46"
+          "x-ratelimit-remaining": "285",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
@@ -3287,8 +5181,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:20.066Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:35.980Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3313,6 +5207,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiError"
     },
@@ -3336,8 +5234,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "260",
-          "x-ratelimit-reset": "46"
+          "x-ratelimit-remaining": "283",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
@@ -3347,8 +5245,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:20.089Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:36.002Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3373,6 +5271,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiError"
     },
@@ -3396,8 +5298,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "259",
-          "x-ratelimit-reset": "46"
+          "x-ratelimit-remaining": "282",
+          "x-ratelimit-reset": "55"
         },
         "mediaType": "application/json",
         "body": {
@@ -3407,8 +5309,453 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:20.117Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:36.030Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailReplyAutomations--before-disabled-rule",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetReplyAutomationsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailReplyAutomations",
+      "scenarioId": "before-disabled-rule",
+      "title": "Inspect the disabled documentation reply rule",
+      "pathTemplate": "/v1/teams/{teamId}/mail/reply-automations",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/reply-automations",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "281",
+          "x-ratelimit-reset": "55"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": []
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:36.061Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "saveMailReplyAutomation--disabled-rule",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": [
+        {
+          "path": [
+            "priority"
+          ],
+          "value": 100
+        }
+      ]
+    },
+    "requestModel": "MailPostReplyAutomationsRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostReplyAutomationsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "saveMailReplyAutomation",
+      "scenarioId": "disabled-rule",
+      "title": "Save a disabled reply rule without tasks or contact changes",
+      "pathTemplate": "/v1/teams/{teamId}/mail/reply-automations",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/reply-automations",
+        "query": {},
+        "body": {
+          "id": "reacon-sdk-documentation-reply-rule",
+          "name": "REACON SDK DOCUMENTATION FIXTURE - disabled reply rule",
+          "enabled": false,
+          "labels": [
+            "unknown"
+          ],
+          "actions": {
+            "stopCadences": false
+          }
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "280",
+          "x-ratelimit-reset": "55"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "automation": {
+            "id": "reacon-sdk-documentation-reply-rule",
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - disabled reply rule",
+            "enabled": false,
+            "priority": 100,
+            "labels": [
+              "unknown"
+            ],
+            "actions": {
+              "stopCadences": false
+            },
+            "createdAt": "2026-09-28T21:28:36.713Z",
+            "updatedAt": "2026-09-28T21:28:36.713Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:36.441Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailReplyAutomations--disabled-rule",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetReplyAutomationsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailReplyAutomations",
+      "scenarioId": "disabled-rule",
+      "title": "Read the disabled synthetic reply rule",
+      "pathTemplate": "/v1/teams/{teamId}/mail/reply-automations",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/reply-automations",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "279",
+          "x-ratelimit-reset": "55"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "id": "reacon-sdk-documentation-reply-rule",
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "name": "REACON SDK DOCUMENTATION FIXTURE - disabled reply rule",
+              "enabled": false,
+              "priority": 100,
+              "labels": [
+                "unknown"
+              ],
+              "actions": {
+                "stopCadences": false
+              },
+              "createdAt": "2026-09-28T21:28:36.713Z",
+              "updatedAt": "2026-09-28T21:28:36.713Z"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:36.908Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailReplyAutomations--after-disabled-rule",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetReplyAutomationsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailReplyAutomations",
+      "scenarioId": "after-disabled-rule",
+      "title": "Inspect the disabled documentation reply rule",
+      "pathTemplate": "/v1/teams/{teamId}/mail/reply-automations",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/reply-automations",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "278",
+          "x-ratelimit-reset": "54"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "id": "reacon-sdk-documentation-reply-rule",
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "name": "REACON SDK DOCUMENTATION FIXTURE - disabled reply rule",
+              "enabled": false,
+              "priority": 100,
+              "labels": [
+                "unknown"
+              ],
+              "actions": {
+                "stopCadences": false
+              },
+              "createdAt": "2026-09-28T21:28:36.713Z",
+              "updatedAt": "2026-09-28T21:28:36.713Z"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:37.286Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "deleteMailReplyAutomation--after-disabled-rule",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "automationId": "reacon-sdk-documentation-reply-rule"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailDeleteReplyAutomationsByAutomationIdResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "deleteMailReplyAutomation",
+      "scenarioId": "after-disabled-rule",
+      "title": "Remove the disabled documentation reply rule",
+      "pathTemplate": "/v1/teams/{teamId}/mail/reply-automations/{automationId}",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/reply-automations/reacon-sdk-documentation-reply-rule",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "277",
+          "x-ratelimit-reset": "54"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "deleted": true
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:37.662Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture and actor UUIDs and random campaign/step/template/timeline IDs replaced consistently with example identifiers; timestamps and response structure preserved.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailReplyAutomations--missing-key",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailReplyAutomations",
+      "scenarioId": "missing-key",
+      "title": "Reject an unauthenticated reply-rule request",
+      "pathTemplate": "/v1/teams/{teamId}/mail/reply-automations",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/reply-automations",
+        "query": {},
+        "authentication": "none",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "275",
+          "x-ratelimit-reset": "53"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "Unauthorized",
+          "code": "UNAUTHORIZED"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-28T21:28:38.339Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3432,6 +5779,10 @@
     "apiClass": "LeadsApi",
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "CreateLeadRequest",
     "responseSchema": {
@@ -3468,13 +5819,13 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99991",
-          "x-ratelimit-reset": "34"
+          "x-ratelimit-remaining": "99982",
+          "x-ratelimit-reset": "26"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000103",
+            "id": "00000000-0000-4000-8000-000000000106",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid"
           }
@@ -3482,8 +5833,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:20.141Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:38.367Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -3508,6 +5859,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "requestModel": "MailPostCrmContactsBatchRequest",
     "responseSchema": {
       "$ref": "#/components/schemas/MailPostCrmContactsBatchResponse200"
@@ -3526,7 +5881,7 @@
         "query": {},
         "body": {
           "contactIds": [
-            "00000000-0000-4000-8000-000000000103"
+            "00000000-0000-4000-8000-000000000106"
           ]
         },
         "authentication": "X-API-Key (omitted)",
@@ -3537,14 +5892,14 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "257",
-          "x-ratelimit-reset": "45"
+          "x-ratelimit-remaining": "273",
+          "x-ratelimit-reset": "51"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
-              "id": "00000000-0000-4000-8000-000000000103",
+              "id": "00000000-0000-4000-8000-000000000106",
               "tenantId": "00000000-0000-4000-8000-000000000001",
               "email": "ada.sdk@example.invalid",
               "name": "Ada Example",
@@ -3552,16 +5907,16 @@
                 "position": "Developer",
                 "tags": "sdk-documentation-fixture"
               },
-              "createdAt": "2026-09-28T17:05:21.062Z",
-              "updatedAt": "2026-09-28T17:05:21.062Z"
+              "createdAt": "2026-09-28T21:28:39.454Z",
+              "updatedAt": "2026-09-28T21:28:39.454Z"
             }
           ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:21.736Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:40.114Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3586,6 +5941,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "requestModel": "MailPutCrmStatesRequest",
     "responseSchema": {
       "$ref": "#/components/schemas/MailPutCrmStatesResponse200"
@@ -3603,7 +5962,7 @@
         "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/crm/states",
         "query": {},
         "body": {
-          "contactId": "00000000-0000-4000-8000-000000000103",
+          "contactId": "00000000-0000-4000-8000-000000000106",
           "stage": "qualified",
           "outcome": "Documentation fixture only"
         },
@@ -3615,24 +5974,24 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "256",
-          "x-ratelimit-reset": "44"
+          "x-ratelimit-remaining": "272",
+          "x-ratelimit-reset": "51"
         },
         "mediaType": "application/json",
         "body": {
           "state": {
             "tenantId": "00000000-0000-4000-8000-000000000001",
-            "contactId": "00000000-0000-4000-8000-000000000103",
+            "contactId": "00000000-0000-4000-8000-000000000106",
             "stage": "qualified",
             "outcome": "Documentation fixture only",
-            "updatedAt": "2026-09-28T17:05:22.473Z"
+            "updatedAt": "2026-09-28T21:28:40.854Z"
           }
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:22.114Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:40.496Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3657,6 +6016,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "requestModel": "MailPostCrmStatesBatchRequest",
     "responseSchema": {
       "$ref": "#/components/schemas/MailPostCrmStatesBatchResponse200"
@@ -3675,7 +6038,7 @@
         "query": {},
         "body": {
           "contactIds": [
-            "00000000-0000-4000-8000-000000000103"
+            "00000000-0000-4000-8000-000000000106"
           ]
         },
         "authentication": "X-API-Key (omitted)",
@@ -3686,26 +6049,26 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "300",
-          "x-ratelimit-remaining": "255",
-          "x-ratelimit-reset": "44"
+          "x-ratelimit-remaining": "270",
+          "x-ratelimit-reset": "50"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
               "tenantId": "00000000-0000-4000-8000-000000000001",
-              "contactId": "00000000-0000-4000-8000-000000000103",
+              "contactId": "00000000-0000-4000-8000-000000000106",
               "stage": "qualified",
               "outcome": "Documentation fixture only",
-              "updatedAt": "2026-09-28T17:05:22.473Z"
+              "updatedAt": "2026-09-28T21:28:40.854Z"
             }
           ]
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:22.837Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:41.213Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "ac660654f9b8a67072070dc06bd6862ed4b156013ae527ba6d604c7797f3b750",
@@ -3728,7 +6091,11 @@
     "id": "getLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000103"
+      "leadId": "00000000-0000-4000-8000-000000000106"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/GetLeadResponse"
@@ -3743,7 +6110,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000103",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000106",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -3753,18 +6120,18 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99990",
-          "x-ratelimit-reset": "31"
+          "x-ratelimit-remaining": "99981",
+          "x-ratelimit-reset": "22"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000103",
+            "id": "00000000-0000-4000-8000-000000000106",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-28T17:05:21.062Z",
-            "updated_at": "2026-09-28T17:05:21.062Z",
+            "created_at": "2026-09-28T21:28:39.454Z",
+            "updated_at": "2026-09-28T21:28:39.454Z",
             "company_id": null,
             "person": {
               "first_name": "Ada",
@@ -3806,8 +6173,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:23.213Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:41.590Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -3830,7 +6197,11 @@
     "id": "updateLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000103"
+      "leadId": "00000000-0000-4000-8000-000000000106"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "requestModel": "UpdateLeadRequest",
     "responseSchema": {
@@ -3846,7 +6217,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "POST",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000103/update",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000106/update",
         "query": {},
         "body": {
           "person_position": "API developer",
@@ -3863,18 +6234,18 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99989",
-          "x-ratelimit-reset": "30"
+          "x-ratelimit-remaining": "99980",
+          "x-ratelimit-reset": "22"
         },
         "mediaType": "application/json",
         "body": {
           "lead": {
-            "id": "00000000-0000-4000-8000-000000000103",
+            "id": "00000000-0000-4000-8000-000000000106",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-28T17:05:21.062Z",
-            "updated_at": "2026-09-28T17:05:23.918Z",
+            "created_at": "2026-09-28T21:28:39.454Z",
+            "updated_at": "2026-09-28T21:28:42.300Z",
             "company_id": null,
             "person": {
               "first_name": null,
@@ -3917,8 +6288,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:23.602Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:41.980Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -3944,6 +6315,10 @@
       "limit": 1,
       "search": "ada.sdk@example.invalid",
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/LeadPage"
@@ -3971,19 +6346,19 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99988",
-          "x-ratelimit-reset": "29"
+          "x-ratelimit-remaining": "99979",
+          "x-ratelimit-reset": "21"
         },
         "mediaType": "application/json",
         "body": {
           "results": [
             {
-              "id": "00000000-0000-4000-8000-000000000103",
+              "id": "00000000-0000-4000-8000-000000000106",
               "team_id": "00000000-0000-4000-8000-000000000001",
               "email": "ada.sdk@example.invalid",
               "created_by": "00000000-0000-4000-8000-000000000002",
-              "created_at": "2026-09-28T17:05:21.062Z",
-              "updated_at": "2026-09-28T17:05:23.918Z",
+              "created_at": "2026-09-28T21:28:39.454Z",
+              "updated_at": "2026-09-28T21:28:42.300Z",
               "company_id": null,
               "person": {
                 "first_name": null,
@@ -4025,15 +6400,15 @@
           ],
           "totalCount": 1,
           "groupTotals": null,
-          "nextCursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDE3OjA1OjIxLjA2MloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDMifQ",
+          "nextCursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIxOjI4OjM5LjQ1NFoiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDYifQ",
           "nextGroupCursor": null,
           "lastGroupCursor": null
         }
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:24.330Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:42.720Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -4058,8 +6433,12 @@
     "parameters": {
       "limit": 1,
       "search": "ada.sdk@example.invalid",
-      "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDE3OjA1OjIxLjA2MloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDMifQ",
+      "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIxOjI4OjM5LjQ1NFoiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDYifQ",
       "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/LeadPage"
@@ -4078,7 +6457,7 @@
         "query": {
           "limit": 1,
           "search": "ada.sdk@example.invalid",
-          "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDE3OjA1OjIxLjA2MloiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDMifQ"
+          "cursor": "eyJzb3J0IjoiZGVmYXVsdCIsImNyZWF0ZWRfYXQiOiIyMDI2LTA5LTI4VDIxOjI4OjM5LjQ1NFoiLCJlbWFpbCI6ImFkYS5zZGtAZXhhbXBsZS5pbnZhbGlkIiwiaWQiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAxMDYifQ"
         },
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -4088,8 +6467,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99987",
-          "x-ratelimit-reset": "29"
+          "x-ratelimit-remaining": "99978",
+          "x-ratelimit-reset": "21"
         },
         "mediaType": "application/json",
         "body": {
@@ -4103,8 +6482,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:24.726Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:43.108Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -4129,6 +6508,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "requestModel": "ExportLeadsRequest",
     "responseSchema": {
       "$ref": "#/components/schemas/LeadExport"
@@ -4149,7 +6532,7 @@
         "body": {
           "format": "json",
           "selectedLeadIds": [
-            "00000000-0000-4000-8000-000000000103"
+            "00000000-0000-4000-8000-000000000106"
           ],
           "selectionScopes": [
             {
@@ -4166,18 +6549,18 @@
           "content-type": "application/json; charset=utf-8",
           "content-disposition": "attachment; filename=\"leads-export.json\"",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99986",
-          "x-ratelimit-reset": "29"
+          "x-ratelimit-remaining": "99977",
+          "x-ratelimit-reset": "20"
         },
         "mediaType": "application/json",
         "body": [
           {
-            "id": "00000000-0000-4000-8000-000000000103",
+            "id": "00000000-0000-4000-8000-000000000106",
             "team_id": "00000000-0000-4000-8000-000000000001",
             "email": "ada.sdk@example.invalid",
             "created_by": "00000000-0000-4000-8000-000000000002",
-            "created_at": "2026-09-28T17:05:21.062Z",
-            "updated_at": "2026-09-28T17:05:23.918Z",
+            "created_at": "2026-09-28T21:28:39.454Z",
+            "updated_at": "2026-09-28T21:28:42.300Z",
             "person": {
               "first_name": null,
               "last_name": null,
@@ -4211,8 +6594,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:25.112Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:43.501Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -4237,6 +6620,10 @@
     "parameters": {
       "teamId": "00000000-0000-4000-8000-000000000001"
     },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
     "requestModel": "ExportLeadsRequest",
     "responseSchema": {
       "description": "UTF-8 CSV selected with body.format = csv.",
@@ -4257,7 +6644,7 @@
         "body": {
           "format": "csv",
           "selectedLeadIds": [
-            "00000000-0000-4000-8000-000000000103"
+            "00000000-0000-4000-8000-000000000106"
           ],
           "selectionScopes": [
             {
@@ -4274,16 +6661,16 @@
           "content-type": "text/csv",
           "content-disposition": "attachment; filename=\"leads-export.csv\"",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99985",
-          "x-ratelimit-reset": "28"
+          "x-ratelimit-remaining": "99976",
+          "x-ratelimit-reset": "20"
         },
         "mediaType": "text/csv",
-        "body": "id,team_id,email,company_id,created_by,person_first_name,person_last_name,person_position,person_linkedin,person_twitter,person_phone_number,person_lead_location,company_name,company_website,company_location,company_linkedin,company_twitter,company_type,company_addresses,company_stock,company_industry,company_number_of_employees,company_founded_on,verification_status,confidence_score,sync_status,crm_configured,tags,last_activity_at,last_contacted_at,created_at,updated_at\n00000000-0000-4000-8000-000000000103,00000000-0000-4000-8000-000000000001,ada.sdk@example.invalid,,00000000-0000-4000-8000-000000000002,,,API developer,,,,,,,,,,,,,,,,,,,,sdk-documentation-fixture;example,,,Mon Sep 28 2026 17:05:21 GMT+0000 (Coordinated Universal Time),Mon Sep 28 2026 17:05:23 GMT+0000 (Coordinated Universal Time)"
+        "body": "id,team_id,email,company_id,created_by,person_first_name,person_last_name,person_position,person_linkedin,person_twitter,person_phone_number,person_lead_location,company_name,company_website,company_location,company_linkedin,company_twitter,company_type,company_addresses,company_stock,company_industry,company_number_of_employees,company_founded_on,verification_status,confidence_score,sync_status,crm_configured,tags,last_activity_at,last_contacted_at,created_at,updated_at\n00000000-0000-4000-8000-000000000106,00000000-0000-4000-8000-000000000001,ada.sdk@example.invalid,,00000000-0000-4000-8000-000000000002,,,API developer,,,,,,,,,,,,,,,,,,,,sdk-documentation-fixture;example,,,Mon Sep 28 2026 21:28:39 GMT+0000 (Coordinated Universal Time),Mon Sep 28 2026 21:28:42 GMT+0000 (Coordinated Universal Time)"
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:25.588Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:43.972Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -4306,7 +6693,11 @@
     "id": "deleteLead--synthetic-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000103"
+      "leadId": "00000000-0000-4000-8000-000000000106"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/DeleteLeadResponse"
@@ -4321,7 +6712,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "DELETE",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000103",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000106",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -4331,8 +6722,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99984",
-          "x-ratelimit-reset": "28"
+          "x-ratelimit-remaining": "99975",
+          "x-ratelimit-reset": "19"
         },
         "mediaType": "application/json",
         "body": {
@@ -4341,8 +6732,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:26.053Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:44.448Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -4365,7 +6756,11 @@
     "id": "getLead--deleted-contact",
     "apiClass": "LeadsApi",
     "parameters": {
-      "leadId": "00000000-0000-4000-8000-000000000103"
+      "leadId": "00000000-0000-4000-8000-000000000106"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
     },
     "responseSchema": {
       "$ref": "#/components/schemas/ApiError"
@@ -4380,7 +6775,7 @@
       "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
       "request": {
         "method": "GET",
-        "path": "/v1/leads/00000000-0000-4000-8000-000000000103",
+        "path": "/v1/leads/00000000-0000-4000-8000-000000000106",
         "query": {},
         "authentication": "X-API-Key (omitted)",
         "validation": "validated"
@@ -4390,8 +6785,8 @@
         "headers": {
           "content-type": "application/json; charset=utf-8",
           "x-ratelimit-limit": "100000",
-          "x-ratelimit-remaining": "99983",
-          "x-ratelimit-reset": "27"
+          "x-ratelimit-remaining": "99974",
+          "x-ratelimit-reset": "19"
         },
         "mediaType": "application/json",
         "body": {
@@ -4401,8 +6796,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-28T17:05:26.871Z",
-        "recorderSha256": "976f120b8028544163151fbb85179ae0a08f7095568ecc2f2cbfe4e1382713fd",
+        "capturedAt": "2026-09-28T21:28:45.254Z",
+        "recorderSha256": "830841f3aff68d1aa04cbd3d1adf651ddb4c020c6f3765096b68a18f46fc1592",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",

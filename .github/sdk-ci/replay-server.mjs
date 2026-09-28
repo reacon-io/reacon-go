@@ -1,4 +1,5 @@
 import http from 'node:http';
+import { canonicalRequest } from './request-equivalence.mjs';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 export async function startRecordingServer(cases) {
@@ -19,12 +20,13 @@ export async function startRecordingServer(cases) {
       assert.equal(request.headers.cookie, undefined, 'Unexpected ambient cookie');
       assert.deepEqual([...url.searchParams].sort(), Object.entries(record.request.query).map(([k,v])=>[k,String(v)]).sort(), 'SDK query serialization');
       let body = ''; for await (const chunk of request) { body += chunk; assert.ok(body.length < 2*1024*1024); }
-      assert.deepEqual(body ? JSON.parse(body) : undefined, record.request.body, 'SDK request body serialization');
+      assert.deepEqual(canonicalRequest(body ? JSON.parse(body) : undefined, item.requestEquivalence), canonicalRequest(record.request.body, item.requestEquivalence), 'SDK request body serialization');
       response.writeHead(record.response.status, record.response.headers);
       response.end(typeof record.response.body === 'string' ? record.response.body : JSON.stringify(record.response.body));
       seen.passed = true;
     } catch (error) {
       seen.passed = false; seen.error = error.message;
+      if (process.env.REACON_REPLAY_DIAGNOSTICS === '1') console.error(JSON.stringify({kind:'sdk-replay-mismatch',language,...seen}));
       response.writeHead(599, { 'content-type': 'application/json' }); response.end(JSON.stringify({error:'Replay request mismatch'}));
     }
   });
