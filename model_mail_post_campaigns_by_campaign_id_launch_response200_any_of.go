@@ -20,7 +20,7 @@ var _ MappedNullable = &MailPostCampaignsByCampaignIdLaunchResponse200AnyOf{}
 
 // MailPostCampaignsByCampaignIdLaunchResponse200AnyOf struct for MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
 type MailPostCampaignsByCampaignIdLaunchResponse200AnyOf struct {
-	Campaign MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign `json:"campaign"`
+	Campaign MailPostCampaignsByCampaignIdLaunchResponse200Campaign `json:"campaign"`
 	Draft MailCampaignDraftRecord `json:"draft"`
 	Sequences []map[string]interface{} `json:"sequences"`
 	AdditionalProperties map[string]interface{}
@@ -32,7 +32,7 @@ type _MailPostCampaignsByCampaignIdLaunchResponse200AnyOf MailPostCampaignsByCam
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailPostCampaignsByCampaignIdLaunchResponse200AnyOf(campaign MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign, draft MailCampaignDraftRecord, sequences []map[string]interface{}) *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf {
+func NewMailPostCampaignsByCampaignIdLaunchResponse200AnyOf(campaign MailPostCampaignsByCampaignIdLaunchResponse200Campaign, draft MailCampaignDraftRecord, sequences []map[string]interface{}) *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf {
 	this := MailPostCampaignsByCampaignIdLaunchResponse200AnyOf{}
 	this.Campaign = campaign
 	this.Draft = draft
@@ -49,9 +49,9 @@ func NewMailPostCampaignsByCampaignIdLaunchResponse200AnyOfWithDefaults() *MailP
 }
 
 // GetCampaign returns the Campaign field value
-func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) GetCampaign() MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign {
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) GetCampaign() MailPostCampaignsByCampaignIdLaunchResponse200Campaign {
 	if o == nil {
-		var ret MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+		var ret MailPostCampaignsByCampaignIdLaunchResponse200Campaign
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) GetCampaign() Mail
 
 // GetCampaignOk returns a tuple with the Campaign field value
 // and a boolean to check if the value has been set.
-func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) GetCampaignOk() (*MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign, bool) {
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) GetCampaignOk() (*MailPostCampaignsByCampaignIdLaunchResponse200Campaign, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) GetCampaignOk() (*
 }
 
 // SetCampaign sets field value
-func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) SetCampaign(v MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign) {
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) SetCampaign(v MailPostCampaignsByCampaignIdLaunchResponse200Campaign) {
 	o.Campaign = v
 }
 
