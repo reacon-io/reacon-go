@@ -23,7 +23,7 @@ type MailPostAnalyticsExportResponse200 struct {
 	Content string `json:"content"`
 	ContentType string `json:"contentType"`
 	Filename string `json:"filename"`
-	NextCursor MailPostAnalyticsExportResponse200NextCursor `json:"nextCursor"`
+	NextCursor NullableMailPostAnalyticsExportResponse200NextCursor `json:"nextCursor"`
 	RowCount float32 `json:"rowCount"`
 	AdditionalProperties map[string]interface{}
 }
@@ -34,7 +34,7 @@ type _MailPostAnalyticsExportResponse200 MailPostAnalyticsExportResponse200
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailPostAnalyticsExportResponse200(content string, contentType string, filename string, nextCursor MailPostAnalyticsExportResponse200NextCursor, rowCount float32) *MailPostAnalyticsExportResponse200 {
+func NewMailPostAnalyticsExportResponse200(content string, contentType string, filename string, nextCursor NullableMailPostAnalyticsExportResponse200NextCursor, rowCount float32) *MailPostAnalyticsExportResponse200 {
 	this := MailPostAnalyticsExportResponse200{}
 	this.Content = content
 	this.ContentType = contentType
@@ -125,27 +125,29 @@ func (o *MailPostAnalyticsExportResponse200) SetFilename(v string) {
 }
 
 // GetNextCursor returns the NextCursor field value
+// If the value is explicit nil, the zero value for MailPostAnalyticsExportResponse200NextCursor will be returned
 func (o *MailPostAnalyticsExportResponse200) GetNextCursor() MailPostAnalyticsExportResponse200NextCursor {
-	if o == nil {
+	if o == nil || o.NextCursor.Get() == nil {
 		var ret MailPostAnalyticsExportResponse200NextCursor
 		return ret
 	}
 
-	return o.NextCursor
+	return *o.NextCursor.Get()
 }
 
 // GetNextCursorOk returns a tuple with the NextCursor field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MailPostAnalyticsExportResponse200) GetNextCursorOk() (*MailPostAnalyticsExportResponse200NextCursor, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.NextCursor, true
+	return o.NextCursor.Get(), o.NextCursor.IsSet()
 }
 
 // SetNextCursor sets field value
 func (o *MailPostAnalyticsExportResponse200) SetNextCursor(v MailPostAnalyticsExportResponse200NextCursor) {
-	o.NextCursor = v
+	o.NextCursor.Set(&v)
 }
 
 // GetRowCount returns the RowCount field value
@@ -185,7 +187,7 @@ func (o MailPostAnalyticsExportResponse200) ToMap() (map[string]interface{}, err
 	toSerialize["content"] = o.Content
 	toSerialize["contentType"] = o.ContentType
 	toSerialize["filename"] = o.Filename
-	toSerialize["nextCursor"] = o.NextCursor
+	toSerialize["nextCursor"] = o.NextCursor.Get()
 	toSerialize["rowCount"] = o.RowCount
 
 	for key, value := range o.AdditionalProperties {
