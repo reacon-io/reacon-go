@@ -14,7 +14,9 @@ export async function startRecordingServer(cases) {
     try {
       const item = byId.get(caseId); assert.ok(item, 'Unknown recording case');
       const record = item.record;
-      assert.equal(seen.path, record.request.path, 'SDK path differs from recorded request');
+      // Compare parameter values without treating equivalent percent encodings
+      // as different routes. Split first so encoded slashes cannot add segments.
+      assert.deepEqual(seen.path.split('/').map(decodeURIComponent), record.request.path.split('/').map(decodeURIComponent), 'SDK path differs from recorded request');
       assert.equal(request.method, record.request.method, 'SDK HTTP method');
       assert.equal(request.headers['x-api-key'], record.request.authentication === 'none' ? undefined : `recording-${language}`, 'SDK authentication');
       assert.equal(request.headers.cookie, undefined, 'Unexpected ambient cookie');
@@ -22,7 +24,7 @@ export async function startRecordingServer(cases) {
       let body = ''; for await (const chunk of request) { body += chunk; assert.ok(body.length < 2*1024*1024); }
       assert.deepEqual(canonicalRequest(body ? JSON.parse(body) : undefined, item.requestEquivalence), canonicalRequest(record.request.body, item.requestEquivalence), 'SDK request body serialization');
       response.writeHead(record.response.status, record.response.headers);
-      response.end(typeof record.response.body === 'string' ? record.response.body : JSON.stringify(record.response.body));
+      response.end(record.response.status===204 ? undefined : typeof record.response.body === 'string' ? record.response.body : JSON.stringify(record.response.body));
       seen.passed = true;
     } catch (error) {
       seen.passed = false; seen.error = error.message;
