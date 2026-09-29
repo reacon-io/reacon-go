@@ -129,12 +129,17 @@ func run(item Case, operations map[string][]string) (result Result) {
 		execute = "ExecuteCSV"
 	}
 	executed := request.MethodByName(execute).Call(nil)
+	// Native void operations return only (*http.Response, error).
+	if len(executed) == 2 {
+		executed = append([]reflect.Value{reflect.ValueOf((*interface{})(nil))}, executed...)
+	}
 	if csvInput != nil {
 		check(csvInput.GetFormat() == "json", "CSV export mutated caller input")
 	}
 	check(len(executed) == 3, "Unexpected execute result")
 	if !executed[1].IsNil() {
 		defer executed[1].Interface().(*http.Response).Body.Close()
+		check(executed[1].Interface().(*http.Response).StatusCode == item.Record.Response.Status, "HTTP status differs")
 	}
 	if !executed[2].IsNil() {
 		err := executed[2].Interface().(error)
@@ -154,6 +159,22 @@ func run(item Case, operations map[string][]string) (result Result) {
 	return
 }
 func main() {
+    for _, addresses := range []interface{}{nil, map[string]interface{}{}, []interface{}{}, "example", false, 1.25, map[string]interface{}{"city":"Example","lines":[]interface{}{nil,"Synthetic street"}}} {
+        input := map[string]interface{}{"addresses":addresses,"id":"00000000-0000-4000-8000-000000000001","name":"Synthetic company","domain":"example.invalid","website":"https://example.invalid","location":nil,"industry":nil,"numberOfEmployees":nil,"type":nil,"foundedOn":nil,"linkedin":nil,"twitter":nil}
+        encoded, err := json.Marshal(input); must(err)
+        var company sdk.ProductCompany; must(json.Unmarshal(encoded,&company))
+        _, present := company.GetAddressesOk(); check(present,"Required JSON null was treated as absent")
+        actual, err := json.Marshal(company); must(err)
+        check(equalJSON(actual,encoded),"Required arbitrary JSON value was lost")
+        company.SetAddresses(nil)
+        nulled, err := json.Marshal(company); must(err)
+        var nulledMap map[string]interface{}; must(json.Unmarshal(nulled,&nulledMap))
+        _, exists := nulledMap["addresses"]; check(exists && nulledMap["addresses"] == nil,"Setter lost explicit JSON null")
+        delete(input,"addresses"); missing, err := json.Marshal(input); must(err)
+        check(json.Unmarshal(missing,&company)!=nil,"Missing required JSON field was accepted")
+    }
+    var missingCompany *sdk.ProductCompany
+    _, missingPresent := missingCompany.GetAddressesOk(); check(!missingPresent,"Nil model reports a present JSON field")
     // Closed anyOf dispatch must preserve all keys, including overlapping shapes.
     for _, input := range []string{`{}`, `{"limit":2,"listId":"00000000-0000-4000-8000-000000000001"}`, `{"domain":"example.invalid"}`, `{"email":"sdk@example.invalid","idempotencyKey":"synthetic-regression-1","firstName":"SDK"}`, `{"sequenceId":"00000000-0000-4000-8000-000000000001","idempotencyKey":"synthetic-regression-2","recipients":[{"email":"sdk@example.invalid"}]}`} {
         var value sdk.ProductToolRequestInput

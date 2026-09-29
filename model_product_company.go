@@ -82,7 +82,7 @@ func (o *ProductCompany) GetAddresses() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProductCompany) GetAddressesOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.Addresses) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Addresses, true
@@ -387,9 +387,7 @@ func (o ProductCompany) MarshalJSON() ([]byte, error) {
 
 func (o ProductCompany) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Addresses != nil {
-		toSerialize["addresses"] = o.Addresses
-	}
+	toSerialize["addresses"] = o.Addresses
 	toSerialize["domain"] = o.Domain.Get()
 	toSerialize["foundedOn"] = o.FoundedOn.Get()
 	toSerialize["id"] = o.Id
