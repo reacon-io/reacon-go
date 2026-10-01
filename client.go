@@ -400,16 +400,6 @@ func (c *APIClient) prepareRequest(
 		return nil, err
 	}
 
-	// Override request host, if applicable
-	if c.cfg.Host != "" {
-		url.Host = c.cfg.Host
-	}
-
-	// Override request scheme, if applicable
-	if c.cfg.Scheme != "" {
-		url.Scheme = c.cfg.Scheme
-	}
-
 	// Adding Query Param
 	query := url.Query()
 	for k, v := range queryParams {

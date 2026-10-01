@@ -30,17 +30,11 @@ type VerificationStreamClient struct {
 // its pool. Streaming uses fresh HTTP/1 connections: Go's transparent replay of GETs on
 // a reused connection is inappropriate for a potentially billed verification request.
 // TLS verification remains enabled. The normal generated JSON transport is unaffected.
-func NewVerificationStreamClient(apiKey, baseURL string, transport *http.Transport) (*VerificationStreamClient, error) {
+func NewVerificationStreamClient(apiKey string, transport *http.Transport) (*VerificationStreamClient, error) {
 	if strings.TrimSpace(apiKey) == "" {
 		return nil, errors.New("apiKey is required")
 	}
-	if baseURL == "" {
-		baseURL = "https://api.reacon.io"
-	}
-	parsed, err := url.Parse(baseURL)
-	if err != nil || parsed.Host == "" || (parsed.Scheme != "http" && parsed.Scheme != "https") {
-		return nil, errors.New("invalid base URL")
-	}
+	const baseURL = "https://api.reacon.io"
 	if transport == nil {
 		transport = http.DefaultTransport.(*http.Transport)
 	}

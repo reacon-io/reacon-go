@@ -1,3 +1,4 @@
+import { acquireFixtureProxy } from './fixed-origin/proxy.mjs';
 import { createServer } from 'node:http';
 import assert from 'node:assert/strict';
 
@@ -82,6 +83,7 @@ export async function startStreamServer() {
     }
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const releaseProxy = await acquireFixtureProxy();
   return {
     url: `http://127.0.0.1:${server.address().port}`, observations,
     async assertComplete(language) {
@@ -97,6 +99,6 @@ export async function startStreamServer() {
         assert.equal(records[scenario].closed, true, `${scenario}: response connection closed`);
       }
     },
-    async close() { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); },
+    async close() { await releaseProxy(); server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); },
   };
 }

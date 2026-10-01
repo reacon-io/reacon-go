@@ -2,10 +2,14 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
+	"crypto/x509"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	sdk "github.com/reacon-io/reacon-go"
 	"net/http"
+	"net/url"
 	"os"
 	"reflect"
 	"strings"
@@ -84,7 +88,7 @@ func run(item Case, operations map[string][]string) (result Result) {
 		}
 	}()
 	cfg := sdk.NewConfiguration()
-	cfg.Servers = sdk.ServerConfigurations{{URL: os.Getenv("REACON_TEST_URL") + "/" + item.ID}}
+	cfg.HTTPClient = &http.Client{Transport: fixtureTransport(os.Getenv("REACON_TEST_URL")+"/"+item.ID, nil)}
 	client := sdk.NewAPIClient(cfg)
 	ctx := context.Background()
 	if item.Record.Request.Authentication != "none" {
@@ -159,41 +163,54 @@ func run(item Case, operations map[string][]string) (result Result) {
 	return
 }
 func main() {
-    for _, addresses := range []interface{}{nil, map[string]interface{}{}, []interface{}{}, "example", false, 1.25, map[string]interface{}{"city":"Example","lines":[]interface{}{nil,"Synthetic street"}}} {
-        input := map[string]interface{}{"addresses":addresses,"id":"00000000-0000-4000-8000-000000000001","name":"Synthetic company","domain":"example.invalid","website":"https://example.invalid","location":nil,"industry":nil,"numberOfEmployees":nil,"type":nil,"foundedOn":nil,"linkedin":nil,"twitter":nil}
-        encoded, err := json.Marshal(input); must(err)
-        var company sdk.ProductCompany; must(json.Unmarshal(encoded,&company))
-        _, present := company.GetAddressesOk(); check(present,"Required JSON null was treated as absent")
-        actual, err := json.Marshal(company); must(err)
-        check(equalJSON(actual,encoded),"Required arbitrary JSON value was lost")
-        company.SetAddresses(nil)
-        nulled, err := json.Marshal(company); must(err)
-        var nulledMap map[string]interface{}; must(json.Unmarshal(nulled,&nulledMap))
-        _, exists := nulledMap["addresses"]; check(exists && nulledMap["addresses"] == nil,"Setter lost explicit JSON null")
-        delete(input,"addresses"); missing, err := json.Marshal(input); must(err)
-        check(json.Unmarshal(missing,&company)!=nil,"Missing required JSON field was accepted")
-    }
-    var missingCompany *sdk.ProductCompany
-    _, missingPresent := missingCompany.GetAddressesOk(); check(!missingPresent,"Nil model reports a present JSON field")
-    // Closed anyOf dispatch must preserve all keys, including overlapping shapes.
-    for _, input := range []string{`{}`, `{"limit":2,"listId":"00000000-0000-4000-8000-000000000001"}`, `{"domain":"example.invalid"}`, `{"email":"sdk@example.invalid","idempotencyKey":"synthetic-regression-1","firstName":"SDK"}`, `{"sequenceId":"00000000-0000-4000-8000-000000000001","idempotencyKey":"synthetic-regression-2","recipients":[{"email":"sdk@example.invalid"}]}`} {
-        var value sdk.ProductToolRequestInput
-        must(json.Unmarshal([]byte(input), &value))
-        encoded, err := json.Marshal(value); must(err)
-        var want, got any; must(json.Unmarshal([]byte(input), &want)); must(json.Unmarshal(encoded, &got))
-        check(reflect.DeepEqual(want, got), "Product input union lost fields: " + input + " -> " + string(encoded))
-    }
-    for _, input := range []string{`null`, `[]`, `{"unknown":true}`, `{"domain":"example.invalid","unknown":true}`, `{"recipientId":"00000000-0000-4000-8000-000000000001"}`} {
-        var value sdk.ProductToolRequestInput
-        check(json.Unmarshal([]byte(input), &value) != nil, "Invalid product input accepted: " + input)
-    }
-    for _, tool := range []string{"team_members", "saved_searches_list", "leads_list"} {
-        // Actual success bodies are checked by the response corpus below.
-        var value sdk.ProductToolExecution
-        check(json.Unmarshal([]byte(`{"tool":"`+tool+`"}`), &value) != nil, "Discriminator bypassed required payload fields")
-    }
-    var unknown sdk.ProductToolExecution
-    check(json.Unmarshal([]byte(`{"tool":"unknown"}`), &unknown) != nil, "Unknown discriminator accepted")
+	for _, addresses := range []interface{}{nil, map[string]interface{}{}, []interface{}{}, "example", false, 1.25, map[string]interface{}{"city": "Example", "lines": []interface{}{nil, "Synthetic street"}}} {
+		input := map[string]interface{}{"addresses": addresses, "id": "00000000-0000-4000-8000-000000000001", "name": "Synthetic company", "domain": "example.invalid", "website": "https://example.invalid", "location": nil, "industry": nil, "numberOfEmployees": nil, "type": nil, "foundedOn": nil, "linkedin": nil, "twitter": nil}
+		encoded, err := json.Marshal(input)
+		must(err)
+		var company sdk.ProductCompany
+		must(json.Unmarshal(encoded, &company))
+		_, present := company.GetAddressesOk()
+		check(present, "Required JSON null was treated as absent")
+		actual, err := json.Marshal(company)
+		must(err)
+		check(equalJSON(actual, encoded), "Required arbitrary JSON value was lost")
+		company.SetAddresses(nil)
+		nulled, err := json.Marshal(company)
+		must(err)
+		var nulledMap map[string]interface{}
+		must(json.Unmarshal(nulled, &nulledMap))
+		_, exists := nulledMap["addresses"]
+		check(exists && nulledMap["addresses"] == nil, "Setter lost explicit JSON null")
+		delete(input, "addresses")
+		missing, err := json.Marshal(input)
+		must(err)
+		check(json.Unmarshal(missing, &company) != nil, "Missing required JSON field was accepted")
+	}
+	var missingCompany *sdk.ProductCompany
+	_, missingPresent := missingCompany.GetAddressesOk()
+	check(!missingPresent, "Nil model reports a present JSON field")
+	// Closed anyOf dispatch must preserve all keys, including overlapping shapes.
+	for _, input := range []string{`{}`, `{"limit":2,"listId":"00000000-0000-4000-8000-000000000001"}`, `{"domain":"example.invalid"}`, `{"email":"sdk@example.invalid","idempotencyKey":"synthetic-regression-1","firstName":"SDK"}`, `{"sequenceId":"00000000-0000-4000-8000-000000000001","idempotencyKey":"synthetic-regression-2","recipients":[{"email":"sdk@example.invalid"}]}`} {
+		var value sdk.ProductToolRequestInput
+		must(json.Unmarshal([]byte(input), &value))
+		encoded, err := json.Marshal(value)
+		must(err)
+		var want, got any
+		must(json.Unmarshal([]byte(input), &want))
+		must(json.Unmarshal(encoded, &got))
+		check(reflect.DeepEqual(want, got), "Product input union lost fields: "+input+" -> "+string(encoded))
+	}
+	for _, input := range []string{`null`, `[]`, `{"unknown":true}`, `{"domain":"example.invalid","unknown":true}`, `{"recipientId":"00000000-0000-4000-8000-000000000001"}`} {
+		var value sdk.ProductToolRequestInput
+		check(json.Unmarshal([]byte(input), &value) != nil, "Invalid product input accepted: "+input)
+	}
+	for _, tool := range []string{"team_members", "saved_searches_list", "leads_list"} {
+		// Actual success bodies are checked by the response corpus below.
+		var value sdk.ProductToolExecution
+		check(json.Unmarshal([]byte(`{"tool":"`+tool+`"}`), &value) != nil, "Discriminator bypassed required payload fields")
+	}
+	var unknown sdk.ProductToolExecution
+	check(json.Unmarshal([]byte(`{"tool":"unknown"}`), &unknown) != nil, "Unknown discriminator accepted")
 	var patch sdk.UpdateLeadRequest
 	must(json.Unmarshal([]byte(`{"company_addresses":null,"person_first_name":null}`), &patch))
 	encoded, err := json.Marshal(patch)
@@ -242,7 +259,55 @@ func main() {
 	must(os.WriteFile(os.Getenv("REACON_RESULTS_FILE"), data, 0600))
 	fmt.Printf("%d/%d recorded responses passed through Go methods\n", passed, len(cases))
 	if passed != len(cases) {
-		for _, result := range results { if !result.Passed { detail, _ := json.Marshal(result); fmt.Fprintln(os.Stderr, string(detail)) } }
+		for _, result := range results {
+			if !result.Passed {
+				detail, _ := json.Marshal(result)
+				fmt.Fprintln(os.Stderr, string(detail))
+			}
+		}
 		os.Exit(1)
 	}
+}
+
+// fixtureTransport preserves the SDK's fixed origin and redirects only at the test HTTP transport.
+func fixtureTransport(target string, original *http.Transport) *http.Transport {
+	if original == nil {
+		original = http.DefaultTransport.(*http.Transport)
+	}
+	transport := original.Clone()
+	fixture, err := url.Parse(target)
+	if err != nil {
+		panic(err)
+	}
+	if fixture.Hostname() != "127.0.0.1" && fixture.Hostname() != "localhost" {
+		panic("Loopback fixtures only")
+	}
+	proxy, err := url.Parse(os.Getenv("REACON_FIXTURE_PROXY_ENDPOINT"))
+	if err != nil || proxy.Host == "" {
+		panic("Fixture proxy required")
+	}
+	password, _ := proxy.User.Password()
+	proxy.User = url.UserPassword(base64.RawURLEncoding.EncodeToString([]byte(target)), password)
+	transport.Proxy = http.ProxyURL(proxy)
+	if transport.TLSClientConfig == nil {
+		transport.TLSClientConfig = &tls.Config{}
+	}
+	if fixture.Scheme == "https" {
+		transport.TLSClientConfig.ServerName = fixture.Hostname()
+	} else {
+		if transport.TLSClientConfig.RootCAs == nil {
+			transport.TLSClientConfig.RootCAs, _ = x509.SystemCertPool()
+			if transport.TLSClientConfig.RootCAs == nil {
+				transport.TLSClientConfig.RootCAs = x509.NewCertPool()
+			}
+		}
+		transport.TLSClientConfig.RootCAs = transport.TLSClientConfig.RootCAs.Clone()
+		if !transport.TLSClientConfig.RootCAs.AppendCertsFromPEM([]byte(os.Getenv("REACON_FIXTURE_CA_PEM"))) {
+			panic("Fixture CA required")
+		}
+	}
+	if transport.TLSClientConfig.InsecureSkipVerify {
+		panic("Fixture TLS verification is required")
+	}
+	return transport
 }

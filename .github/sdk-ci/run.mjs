@@ -1,3 +1,4 @@
+import { fixtureProxyDockerArgs } from './fixed-origin/proxy.mjs';
 import { readFile, mkdir, realpath, writeFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
@@ -27,7 +28,8 @@ const sourceSha256 = hash(JSON.stringify(Object.fromEntries(Object.entries(sourc
 if (manifest.formatVersion !== 1 || !['php', 'go'].includes(manifest.family) ||
     !/^(composer|golang)@sha256:[a-f0-9]{64}$/.test(manifest.image)) throw new Error('Expected pinned SDK CI bundle');
 for (const [name, expected] of Object.entries(manifest.files)) {
-  if (!/^[a-zA-Z0-9_.-]+$/.test(name) || hash(await readFile(resolve(suite, name))) !== expected) throw new Error('SDK CI bundle changed');
+  if (!/^[a-zA-Z0-9_./-]+$/.test(name) || name.split('/').some(part => !part || part === '.' || part === '..') ||
+      hash(await readFile(resolve(suite, name))) !== expected) throw new Error('SDK CI bundle changed');
 }
 const cases = JSON.parse(await readFile(resolve(suite, 'cases.json')));
 if (cases.length !== manifest.recordedScenarios || new Set(cases.map(item => item.id)).size !== cases.length) throw new Error('Recording inventory mismatch');
@@ -36,7 +38,7 @@ const run = await import('node:fs').then(({ createWriteStream }) => createWriteS
 const server = await startRecordingServer(cases), streams = await startStreamServer();
 try {
   const family = manifest.family;
-  const args = ['run', '--rm', '--network', 'host', '--user', `${process.getuid()}:${process.getgid()}`,
+  const args = ['run', '--rm', '--network', 'host', ...fixtureProxyDockerArgs(), '--user', `${process.getuid()}:${process.getgid()}`,
     '-v', `${root}:/sdk:ro`, '-v', `${suite}:/suite:ro`, '-v', `${output}:/results`, '-w', '/results',
     '-e', `REACON_TEST_URL=${server.url}/${family}`, '-e', `REACON_STREAM_TEST_URL=${streams.url}/${family}`,
     '-e', 'REACON_CASES_FILE=/suite/cases.json', '-e', 'REACON_RESULTS_FILE=/results/responses.json',

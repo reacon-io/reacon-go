@@ -79,13 +79,9 @@ type ServerConfigurations []ServerConfiguration
 
 // Configuration stores the configuration of the API client
 type Configuration struct {
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
 	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
 	UserAgent        string            `json:"userAgent,omitempty"`
 	Debug            bool              `json:"debug,omitempty"`
-	Servers          ServerConfigurations
-	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
 	// Total JSON/CSV deadline including body reads. Zero defaults to 30 seconds.
 	RequestTimeout time.Duration
@@ -95,16 +91,9 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.4.0-beta.2/go",
+		UserAgent:        "OpenAPI-Generator/0.5.0-beta.1/go",
 		Debug:            false,
-		Servers:          ServerConfigurations{
-			{
-				URL: "https://api.reacon.io",
-				Description: "No description provided",
-			},
-		},
-		OperationServers: map[string]ServerConfigurations{
-		},
+
 	}
 	return cfg
 }
@@ -144,7 +133,7 @@ func (sc ServerConfigurations) URL(index int, variables map[string]string) (stri
 
 // ServerURL returns URL based on server settings
 func (c *Configuration) ServerURL(index int, variables map[string]string) (string, error) {
-	return c.Servers.URL(index, variables)
+	return "https://api.reacon.io", nil
 }
 
 func getServerIndex(ctx context.Context) (int, error) {
@@ -201,24 +190,5 @@ func getServerOperationVariables(ctx context.Context, endpoint string) (map[stri
 
 // ServerURLWithContext returns a new server URL given an endpoint
 func (c *Configuration) ServerURLWithContext(ctx context.Context, endpoint string) (string, error) {
-	sc, ok := c.OperationServers[endpoint]
-	if !ok {
-		sc = c.Servers
-	}
-
-	if ctx == nil {
-		return sc.URL(0, nil)
-	}
-
-	index, err := getServerOperationIndex(ctx, endpoint)
-	if err != nil {
-		return "", err
-	}
-
-	variables, err := getServerOperationVariables(ctx, endpoint)
-	if err != nil {
-		return "", err
-	}
-
-	return sc.URL(index, variables)
+	return "https://api.reacon.io", nil
 }
