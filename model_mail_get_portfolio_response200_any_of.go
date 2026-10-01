@@ -21,8 +21,8 @@ var _ MappedNullable = &MailGetPortfolioResponse200AnyOf{}
 // MailGetPortfolioResponse200AnyOf struct for MailGetPortfolioResponse200AnyOf
 type MailGetPortfolioResponse200AnyOf struct {
 	Portfolio map[string]interface{} `json:"portfolio"`
-	Suppressions []map[string]interface{} `json:"suppressions"`
-	Teams []map[string]interface{} `json:"teams"`
+	Suppressions []MailMailPortfolioSuppression `json:"suppressions"`
+	Teams []MailMailPortfolioTeam `json:"teams"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -32,7 +32,7 @@ type _MailGetPortfolioResponse200AnyOf MailGetPortfolioResponse200AnyOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailGetPortfolioResponse200AnyOf(portfolio map[string]interface{}, suppressions []map[string]interface{}, teams []map[string]interface{}) *MailGetPortfolioResponse200AnyOf {
+func NewMailGetPortfolioResponse200AnyOf(portfolio map[string]interface{}, suppressions []MailMailPortfolioSuppression, teams []MailMailPortfolioTeam) *MailGetPortfolioResponse200AnyOf {
 	this := MailGetPortfolioResponse200AnyOf{}
 	this.Portfolio = portfolio
 	this.Suppressions = suppressions
@@ -75,9 +75,9 @@ func (o *MailGetPortfolioResponse200AnyOf) SetPortfolio(v map[string]interface{}
 }
 
 // GetSuppressions returns the Suppressions field value
-func (o *MailGetPortfolioResponse200AnyOf) GetSuppressions() []map[string]interface{} {
+func (o *MailGetPortfolioResponse200AnyOf) GetSuppressions() []MailMailPortfolioSuppression {
 	if o == nil {
-		var ret []map[string]interface{}
+		var ret []MailMailPortfolioSuppression
 		return ret
 	}
 
@@ -86,7 +86,7 @@ func (o *MailGetPortfolioResponse200AnyOf) GetSuppressions() []map[string]interf
 
 // GetSuppressionsOk returns a tuple with the Suppressions field value
 // and a boolean to check if the value has been set.
-func (o *MailGetPortfolioResponse200AnyOf) GetSuppressionsOk() ([]map[string]interface{}, bool) {
+func (o *MailGetPortfolioResponse200AnyOf) GetSuppressionsOk() ([]MailMailPortfolioSuppression, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -94,14 +94,14 @@ func (o *MailGetPortfolioResponse200AnyOf) GetSuppressionsOk() ([]map[string]int
 }
 
 // SetSuppressions sets field value
-func (o *MailGetPortfolioResponse200AnyOf) SetSuppressions(v []map[string]interface{}) {
+func (o *MailGetPortfolioResponse200AnyOf) SetSuppressions(v []MailMailPortfolioSuppression) {
 	o.Suppressions = v
 }
 
 // GetTeams returns the Teams field value
-func (o *MailGetPortfolioResponse200AnyOf) GetTeams() []map[string]interface{} {
+func (o *MailGetPortfolioResponse200AnyOf) GetTeams() []MailMailPortfolioTeam {
 	if o == nil {
-		var ret []map[string]interface{}
+		var ret []MailMailPortfolioTeam
 		return ret
 	}
 
@@ -110,7 +110,7 @@ func (o *MailGetPortfolioResponse200AnyOf) GetTeams() []map[string]interface{} {
 
 // GetTeamsOk returns a tuple with the Teams field value
 // and a boolean to check if the value has been set.
-func (o *MailGetPortfolioResponse200AnyOf) GetTeamsOk() ([]map[string]interface{}, bool) {
+func (o *MailGetPortfolioResponse200AnyOf) GetTeamsOk() ([]MailMailPortfolioTeam, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,7 +118,7 @@ func (o *MailGetPortfolioResponse200AnyOf) GetTeamsOk() ([]map[string]interface{
 }
 
 // SetTeams sets field value
-func (o *MailGetPortfolioResponse200AnyOf) SetTeams(v []map[string]interface{}) {
+func (o *MailGetPortfolioResponse200AnyOf) SetTeams(v []MailMailPortfolioTeam) {
 	o.Teams = v
 }
 
