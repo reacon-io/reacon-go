@@ -22,7 +22,7 @@ var _ MappedNullable = &MailContactRecord{}
 // MailContactRecord struct for MailContactRecord
 type MailContactRecord struct {
 	CreatedAt time.Time `json:"createdAt"`
-	CustomFields map[string]interface{} `json:"customFields"`
+	CustomFields map[string]string `json:"customFields"`
 	Email string `json:"email"`
 	Id string `json:"id"`
 	Name *string `json:"name,omitempty"`
@@ -37,7 +37,7 @@ type _MailContactRecord MailContactRecord
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailContactRecord(createdAt time.Time, customFields map[string]interface{}, email string, id string, tenantId string, updatedAt time.Time) *MailContactRecord {
+func NewMailContactRecord(createdAt time.Time, customFields map[string]string, email string, id string, tenantId string, updatedAt time.Time) *MailContactRecord {
 	this := MailContactRecord{}
 	this.CreatedAt = createdAt
 	this.CustomFields = customFields
@@ -81,9 +81,9 @@ func (o *MailContactRecord) SetCreatedAt(v time.Time) {
 }
 
 // GetCustomFields returns the CustomFields field value
-func (o *MailContactRecord) GetCustomFields() map[string]interface{} {
+func (o *MailContactRecord) GetCustomFields() map[string]string {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]string
 		return ret
 	}
 
@@ -92,15 +92,15 @@ func (o *MailContactRecord) GetCustomFields() map[string]interface{} {
 
 // GetCustomFieldsOk returns a tuple with the CustomFields field value
 // and a boolean to check if the value has been set.
-func (o *MailContactRecord) GetCustomFieldsOk() (map[string]interface{}, bool) {
+func (o *MailContactRecord) GetCustomFieldsOk() (*map[string]string, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.CustomFields, true
+	return &o.CustomFields, true
 }
 
 // SetCustomFields sets field value
-func (o *MailContactRecord) SetCustomFields(v map[string]interface{}) {
+func (o *MailContactRecord) SetCustomFields(v map[string]string) {
 	o.CustomFields = v
 }
 

@@ -33,7 +33,7 @@ type MailMessageRecord struct {
 	LeaseExpiresAt *time.Time `json:"leaseExpiresAt,omitempty"`
 	LeaseOwner *string `json:"leaseOwner,omitempty"`
 	MailboxId string `json:"mailboxId"`
-	Metadata map[string]interface{} `json:"metadata"`
+	Metadata map[string]string `json:"metadata"`
 	NextAttemptAt time.Time `json:"nextAttemptAt"`
 	ParentMessageId *string `json:"parentMessageId,omitempty"`
 	Policy MailMessagePolicy `json:"policy"`
@@ -59,7 +59,7 @@ type _MailMessageRecord MailMessageRecord
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailMessageRecord(attemptCount float32, bcc []MailMailAddress, cc []MailMailAddress, createdAt time.Time, id string, idempotencyKey string, mailboxId string, metadata map[string]interface{}, nextAttemptAt time.Time, policy MailMessagePolicy, rendered MailRenderedMessage, replyTo MailMailAddress, scheduledAt time.Time, status string, tenantId string, to []MailMailAddress, updatedAt time.Time, version float32) *MailMessageRecord {
+func NewMailMessageRecord(attemptCount float32, bcc []MailMailAddress, cc []MailMailAddress, createdAt time.Time, id string, idempotencyKey string, mailboxId string, metadata map[string]string, nextAttemptAt time.Time, policy MailMessagePolicy, rendered MailRenderedMessage, replyTo MailMailAddress, scheduledAt time.Time, status string, tenantId string, to []MailMailAddress, updatedAt time.Time, version float32) *MailMessageRecord {
 	this := MailMessageRecord{}
 	this.AttemptCount = attemptCount
 	this.Bcc = bcc
@@ -419,9 +419,9 @@ func (o *MailMessageRecord) SetMailboxId(v string) {
 }
 
 // GetMetadata returns the Metadata field value
-func (o *MailMessageRecord) GetMetadata() map[string]interface{} {
+func (o *MailMessageRecord) GetMetadata() map[string]string {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]string
 		return ret
 	}
 
@@ -430,15 +430,15 @@ func (o *MailMessageRecord) GetMetadata() map[string]interface{} {
 
 // GetMetadataOk returns a tuple with the Metadata field value
 // and a boolean to check if the value has been set.
-func (o *MailMessageRecord) GetMetadataOk() (map[string]interface{}, bool) {
+func (o *MailMessageRecord) GetMetadataOk() (*map[string]string, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Metadata, true
+	return &o.Metadata, true
 }
 
 // SetMetadata sets field value
-func (o *MailMessageRecord) SetMetadata(v map[string]interface{}) {
+func (o *MailMessageRecord) SetMetadata(v map[string]string) {
 	o.Metadata = v
 }
 

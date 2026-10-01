@@ -7,6 +7,13 @@ import { fileURLToPath } from 'node:url';
 import { startRecordingServer } from './replay-server.mjs';
 import { startStreamServer, streamScenarios } from './stream-server.mjs';
 
+const resourceArgs = [];
+if (process.env.REACON_BUILD_CPUS || process.env.REACON_BUILD_MEMORY_BYTES) {
+  const cpus = Number(process.env.REACON_BUILD_CPUS), memory = Number(process.env.REACON_BUILD_MEMORY_BYTES);
+  if (!Number.isSafeInteger(cpus) || cpus < 1 || cpus > 32 || !Number.isSafeInteger(memory) || memory < 512 * 1024 ** 2) throw Error('Invalid scheduled compiler resources');
+  resourceArgs.push('--cpus', String(cpus), '--memory', String(memory));
+}
+
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const suite = dirname(fileURLToPath(import.meta.url));
 const root = await realpath(resolve(process.env.REACON_SDK_SOURCE ?? '.'));
@@ -38,7 +45,7 @@ const run = await import('node:fs').then(({ createWriteStream }) => createWriteS
 const server = await startRecordingServer(cases), streams = await startStreamServer();
 try {
   const family = manifest.family;
-  const args = ['run', '--rm', '--network', 'host', ...fixtureProxyDockerArgs(), '--user', `${process.getuid()}:${process.getgid()}`,
+  const args = ['run', '--rm', ...resourceArgs, '--network', 'host', ...fixtureProxyDockerArgs(), '--user', `${process.getuid()}:${process.getgid()}`,
     '-v', `${root}:/sdk:ro`, '-v', `${suite}:/suite:ro`, '-v', `${output}:/results`, '-w', '/results',
     '-e', `REACON_TEST_URL=${server.url}/${family}`, '-e', `REACON_STREAM_TEST_URL=${streams.url}/${family}`,
     '-e', 'REACON_CASES_FILE=/suite/cases.json', '-e', 'REACON_RESULTS_FILE=/results/responses.json',

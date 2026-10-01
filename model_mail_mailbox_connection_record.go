@@ -23,7 +23,7 @@ var _ MappedNullable = &MailMailboxConnectionRecord{}
 type MailMailboxConnectionRecord struct {
 	CreatedAt time.Time `json:"createdAt"`
 	CredentialId *string `json:"credentialId,omitempty"`
-	Cursors map[string]interface{} `json:"cursors"`
+	Cursors map[string]MailImapCursor `json:"cursors"`
 	Imap *MailStoredImapSettings `json:"imap,omitempty"`
 	IntegrationConnectionId string `json:"integrationConnectionId"`
 	LastErrorCode *string `json:"lastErrorCode,omitempty"`
@@ -46,7 +46,7 @@ type _MailMailboxConnectionRecord MailMailboxConnectionRecord
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailMailboxConnectionRecord(createdAt time.Time, cursors map[string]interface{}, integrationConnectionId string, lastVerifiedAt time.Time, mailboxId string, nextPollAt time.Time, status string, tenantId string, updatedAt time.Time, version float32) *MailMailboxConnectionRecord {
+func NewMailMailboxConnectionRecord(createdAt time.Time, cursors map[string]MailImapCursor, integrationConnectionId string, lastVerifiedAt time.Time, mailboxId string, nextPollAt time.Time, status string, tenantId string, updatedAt time.Time, version float32) *MailMailboxConnectionRecord {
 	this := MailMailboxConnectionRecord{}
 	this.CreatedAt = createdAt
 	this.Cursors = cursors
@@ -126,9 +126,9 @@ func (o *MailMailboxConnectionRecord) SetCredentialId(v string) {
 }
 
 // GetCursors returns the Cursors field value
-func (o *MailMailboxConnectionRecord) GetCursors() map[string]interface{} {
+func (o *MailMailboxConnectionRecord) GetCursors() map[string]MailImapCursor {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]MailImapCursor
 		return ret
 	}
 
@@ -137,15 +137,15 @@ func (o *MailMailboxConnectionRecord) GetCursors() map[string]interface{} {
 
 // GetCursorsOk returns a tuple with the Cursors field value
 // and a boolean to check if the value has been set.
-func (o *MailMailboxConnectionRecord) GetCursorsOk() (map[string]interface{}, bool) {
+func (o *MailMailboxConnectionRecord) GetCursorsOk() (*map[string]MailImapCursor, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Cursors, true
+	return &o.Cursors, true
 }
 
 // SetCursors sets field value
-func (o *MailMailboxConnectionRecord) SetCursors(v map[string]interface{}) {
+func (o *MailMailboxConnectionRecord) SetCursors(v map[string]MailImapCursor) {
 	o.Cursors = v
 }
 

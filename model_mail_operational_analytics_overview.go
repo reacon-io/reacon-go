@@ -21,10 +21,10 @@ var _ MappedNullable = &MailOperationalAnalyticsOverview{}
 // MailOperationalAnalyticsOverview struct for MailOperationalAnalyticsOverview
 type MailOperationalAnalyticsOverview struct {
 	CadenceSteps []MailOperationalAnalyticsOverviewCadenceStepsInner `json:"cadenceSteps"`
-	ReplyLabels map[string]interface{} `json:"replyLabels"`
+	ReplyLabels map[string]float32 `json:"replyLabels"`
 	SampleLimited bool `json:"sampleLimited"`
-	Stages map[string]interface{} `json:"stages"`
-	TaskOutcomes map[string]interface{} `json:"taskOutcomes"`
+	Stages map[string]float32 `json:"stages"`
+	TaskOutcomes map[string]float32 `json:"taskOutcomes"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -34,7 +34,7 @@ type _MailOperationalAnalyticsOverview MailOperationalAnalyticsOverview
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailOperationalAnalyticsOverview(cadenceSteps []MailOperationalAnalyticsOverviewCadenceStepsInner, replyLabels map[string]interface{}, sampleLimited bool, stages map[string]interface{}, taskOutcomes map[string]interface{}) *MailOperationalAnalyticsOverview {
+func NewMailOperationalAnalyticsOverview(cadenceSteps []MailOperationalAnalyticsOverviewCadenceStepsInner, replyLabels map[string]float32, sampleLimited bool, stages map[string]float32, taskOutcomes map[string]float32) *MailOperationalAnalyticsOverview {
 	this := MailOperationalAnalyticsOverview{}
 	this.CadenceSteps = cadenceSteps
 	this.ReplyLabels = replyLabels
@@ -77,9 +77,9 @@ func (o *MailOperationalAnalyticsOverview) SetCadenceSteps(v []MailOperationalAn
 }
 
 // GetReplyLabels returns the ReplyLabels field value
-func (o *MailOperationalAnalyticsOverview) GetReplyLabels() map[string]interface{} {
+func (o *MailOperationalAnalyticsOverview) GetReplyLabels() map[string]float32 {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]float32
 		return ret
 	}
 
@@ -88,15 +88,15 @@ func (o *MailOperationalAnalyticsOverview) GetReplyLabels() map[string]interface
 
 // GetReplyLabelsOk returns a tuple with the ReplyLabels field value
 // and a boolean to check if the value has been set.
-func (o *MailOperationalAnalyticsOverview) GetReplyLabelsOk() (map[string]interface{}, bool) {
+func (o *MailOperationalAnalyticsOverview) GetReplyLabelsOk() (*map[string]float32, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.ReplyLabels, true
+	return &o.ReplyLabels, true
 }
 
 // SetReplyLabels sets field value
-func (o *MailOperationalAnalyticsOverview) SetReplyLabels(v map[string]interface{}) {
+func (o *MailOperationalAnalyticsOverview) SetReplyLabels(v map[string]float32) {
 	o.ReplyLabels = v
 }
 
@@ -125,9 +125,9 @@ func (o *MailOperationalAnalyticsOverview) SetSampleLimited(v bool) {
 }
 
 // GetStages returns the Stages field value
-func (o *MailOperationalAnalyticsOverview) GetStages() map[string]interface{} {
+func (o *MailOperationalAnalyticsOverview) GetStages() map[string]float32 {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]float32
 		return ret
 	}
 
@@ -136,22 +136,22 @@ func (o *MailOperationalAnalyticsOverview) GetStages() map[string]interface{} {
 
 // GetStagesOk returns a tuple with the Stages field value
 // and a boolean to check if the value has been set.
-func (o *MailOperationalAnalyticsOverview) GetStagesOk() (map[string]interface{}, bool) {
+func (o *MailOperationalAnalyticsOverview) GetStagesOk() (*map[string]float32, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Stages, true
+	return &o.Stages, true
 }
 
 // SetStages sets field value
-func (o *MailOperationalAnalyticsOverview) SetStages(v map[string]interface{}) {
+func (o *MailOperationalAnalyticsOverview) SetStages(v map[string]float32) {
 	o.Stages = v
 }
 
 // GetTaskOutcomes returns the TaskOutcomes field value
-func (o *MailOperationalAnalyticsOverview) GetTaskOutcomes() map[string]interface{} {
+func (o *MailOperationalAnalyticsOverview) GetTaskOutcomes() map[string]float32 {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]float32
 		return ret
 	}
 
@@ -160,15 +160,15 @@ func (o *MailOperationalAnalyticsOverview) GetTaskOutcomes() map[string]interfac
 
 // GetTaskOutcomesOk returns a tuple with the TaskOutcomes field value
 // and a boolean to check if the value has been set.
-func (o *MailOperationalAnalyticsOverview) GetTaskOutcomesOk() (map[string]interface{}, bool) {
+func (o *MailOperationalAnalyticsOverview) GetTaskOutcomesOk() (*map[string]float32, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.TaskOutcomes, true
+	return &o.TaskOutcomes, true
 }
 
 // SetTaskOutcomes sets field value
-func (o *MailOperationalAnalyticsOverview) SetTaskOutcomes(v map[string]interface{}) {
+func (o *MailOperationalAnalyticsOverview) SetTaskOutcomes(v map[string]float32) {
 	o.TaskOutcomes = v
 }
 
