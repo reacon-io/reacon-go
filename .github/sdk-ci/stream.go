@@ -2,11 +2,15 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
+	"crypto/x509"
+	"encoding/base64"
 	"encoding/json"
 	"errors"
 	"fmt"
 	reacon "github.com/reacon-io/reacon-go"
 	"net/http"
+	"net/url"
 	"os"
 	"sync"
 	"time"
@@ -32,11 +36,11 @@ func collect(client *reacon.VerificationStreamClient, scenario string, settings 
 }
 func main() {
 	url := os.Getenv("REACON_TEST_URL")
-	client, err := reacon.NewVerificationStreamClient("synthetic-go", url, nil)
+	client, err := reacon.NewVerificationStreamClient("synthetic-go", fixtureTransport(url, nil))
 	if err != nil {
 		panic(err)
 	}
-	isolated, err := reacon.NewVerificationStreamClient("isolated-go", url, nil)
+	isolated, err := reacon.NewVerificationStreamClient("isolated-go", fixtureTransport(url, nil))
 	if err != nil {
 		panic(err)
 	}
@@ -115,4 +119,47 @@ func main() {
 	defer response.Body.Close()
 	check(response.StatusCode == 200, "closure while client remains alive")
 	fmt.Println("Go streaming protocol, cancellation and live closure assertions passed")
+}
+
+// fixtureTransport preserves the SDK's fixed origin and redirects only at the test HTTP transport.
+func fixtureTransport(target string, original *http.Transport) *http.Transport {
+	if original == nil {
+		original = http.DefaultTransport.(*http.Transport)
+	}
+	transport := original.Clone()
+	fixture, err := url.Parse(target)
+	if err != nil {
+		panic(err)
+	}
+	if fixture.Hostname() != "127.0.0.1" && fixture.Hostname() != "localhost" {
+		panic("Loopback fixtures only")
+	}
+	proxy, err := url.Parse(os.Getenv("REACON_FIXTURE_PROXY_ENDPOINT"))
+	if err != nil || proxy.Host == "" {
+		panic("Fixture proxy required")
+	}
+	password, _ := proxy.User.Password()
+	proxy.User = url.UserPassword(base64.RawURLEncoding.EncodeToString([]byte(target)), password)
+	transport.Proxy = http.ProxyURL(proxy)
+	if transport.TLSClientConfig == nil {
+		transport.TLSClientConfig = &tls.Config{}
+	}
+	if fixture.Scheme == "https" {
+		transport.TLSClientConfig.ServerName = fixture.Hostname()
+	} else {
+		if transport.TLSClientConfig.RootCAs == nil {
+			transport.TLSClientConfig.RootCAs, _ = x509.SystemCertPool()
+			if transport.TLSClientConfig.RootCAs == nil {
+				transport.TLSClientConfig.RootCAs = x509.NewCertPool()
+			}
+		}
+		transport.TLSClientConfig.RootCAs = transport.TLSClientConfig.RootCAs.Clone()
+		if !transport.TLSClientConfig.RootCAs.AppendCertsFromPEM([]byte(os.Getenv("REACON_FIXTURE_CA_PEM"))) {
+			panic("Fixture CA required")
+		}
+	}
+	if transport.TLSClientConfig.InsecureSkipVerify {
+		panic("Fixture TLS verification is required")
+	}
+	return transport
 }

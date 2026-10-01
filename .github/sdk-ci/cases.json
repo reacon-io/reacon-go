@@ -41,8 +41,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-29T04:24:52.648Z",
-        "recorderSha256": "efcae6b61a69d73e6eb1d78338509da0ff2c2fff9916b62c53f27ebc513302e0",
+        "capturedAt": "2026-09-29T10:22:54.857Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -105,8 +105,8 @@
       },
       "provenance": {
         "environment": "private-development",
-        "capturedAt": "2026-09-29T04:24:53.759Z",
-        "recorderSha256": "efcae6b61a69d73e6eb1d78338509da0ff2c2fff9916b62c53f27ebc513302e0",
+        "capturedAt": "2026-09-29T10:22:55.908Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
@@ -19308,6 +19308,1091 @@
         "apiRevision": {
           "kind": "observed-private-runtime",
           "fingerprint": "9f2fa121020ca4e71608ea25f4a5505847c88b8470a7168d89c980951b3df2ca",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "saveMailCadence--inert-experiment",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "MailPostCadencesRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostCadencesResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "saveMailCadence",
+      "scenarioId": "inert-experiment",
+      "title": "Register a workflow experiment whose two branches immediately stop; no enrollment or delivery",
+      "pathTemplate": "/v1/teams/{teamId}/mail/cadences",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/cadences",
+        "query": {},
+        "body": {
+          "id": "reacon-sdk-documentation-experiment-cadence",
+          "name": "REACON SDK DOCUMENTATION FIXTURE - experiment with immediate stops",
+          "status": "published",
+          "nodes": [
+            {
+              "id": "start",
+              "name": "Start",
+              "kind": "start",
+              "nextNodeId": "split"
+            },
+            {
+              "id": "split",
+              "name": "Synthetic experiment",
+              "kind": "experiment_split",
+              "experiment": {
+                "id": "fixture",
+                "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+                "assignmentUnit": "contact",
+                "primaryMetric": "custom",
+                "variants": [
+                  {
+                    "id": "A",
+                    "name": "Control stop",
+                    "weight": 50,
+                    "nextNodeId": "stop-a"
+                  },
+                  {
+                    "id": "B",
+                    "name": "Alternative stop",
+                    "weight": 50,
+                    "nextNodeId": "stop-b"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "stop-a",
+              "name": "Control stop",
+              "kind": "stop",
+              "outcome": "Documentation fixture only"
+            },
+            {
+              "id": "stop-b",
+              "name": "Alternative stop",
+              "kind": "stop",
+              "outcome": "Documentation fixture only"
+            }
+          ]
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "296",
+          "x-ratelimit-reset": "39"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "cadence": {
+            "id": "reacon-sdk-documentation-experiment-cadence",
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - experiment with immediate stops",
+            "version": 1,
+            "status": "published",
+            "nodes": [
+              {
+                "id": "start",
+                "name": "Start",
+                "kind": "start",
+                "nextNodeId": "split"
+              },
+              {
+                "id": "split",
+                "name": "Synthetic experiment",
+                "kind": "experiment_split",
+                "experiment": {
+                  "id": "fixture",
+                  "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+                  "assignmentUnit": "contact",
+                  "primaryMetric": "custom",
+                  "variants": [
+                    {
+                      "id": "A",
+                      "name": "Control stop",
+                      "weight": 50,
+                      "nextNodeId": "stop-a"
+                    },
+                    {
+                      "id": "B",
+                      "name": "Alternative stop",
+                      "weight": 50,
+                      "nextNodeId": "stop-b"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "stop-a",
+                "name": "Control stop",
+                "kind": "stop",
+                "outcome": "Documentation fixture only"
+              },
+              {
+                "id": "stop-b",
+                "name": "Alternative stop",
+                "kind": "stop",
+                "outcome": "Documentation fixture only"
+              }
+            ],
+            "createdByActorId": "00000000-0000-4000-8000-000000000002",
+            "createdAt": "2026-09-29T10:23:00.004Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:22:58.084Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "listMailExperiments--inert-experiment",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetExperimentsResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "listMailExperiments",
+      "scenarioId": "inert-experiment",
+      "title": "Read the actual experiment registered by saving the synthetic cadence",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "295",
+          "x-ratelimit-reset": "37"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "results": [
+            {
+              "definition": {
+                "tenantId": "00000000-0000-4000-8000-000000000001",
+                "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+                "experimentId": "fixture",
+                "cadenceId": "reacon-sdk-documentation-experiment-cadence",
+                "stepId": "split",
+                "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+                "assignmentUnit": "contact",
+                "status": "running",
+                "primaryMetric": "custom",
+                "guardrailMetrics": [
+                  "bounce",
+                  "complaint",
+                  "unsubscribe",
+                  "permanent_failure"
+                ],
+                "attributionWindowMs": 1209600000,
+                "minimumSampleSize": 200,
+                "minimumRuntimeMs": 604800000,
+                "createdByActorId": "00000000-0000-4000-8000-000000000002",
+                "createdAt": "2026-09-29T10:23:00.004Z",
+                "updatedAt": "2026-09-29T10:23:00.004Z"
+              },
+              "revisions": [
+                {
+                  "tenantId": "00000000-0000-4000-8000-000000000001",
+                  "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+                  "revision": 1,
+                  "cadenceVersion": 1,
+                  "definitionHash": "cf11498b036ce3255f0f00c5cb548ee1240116039ab9d3b67fc231eb87155cc4",
+                  "variants": [
+                    {
+                      "id": "A",
+                      "name": "Control stop",
+                      "weight": 50,
+                      "nextNodeId": "stop-a"
+                    },
+                    {
+                      "id": "B",
+                      "name": "Alternative stop",
+                      "weight": 50,
+                      "nextNodeId": "stop-b"
+                    }
+                  ],
+                  "primaryMetric": "custom",
+                  "guardrailMetrics": [
+                    "bounce",
+                    "complaint",
+                    "unsubscribe",
+                    "permanent_failure"
+                  ],
+                  "attributionWindowMs": 1209600000,
+                  "minimumSampleSize": 200,
+                  "minimumRuntimeMs": 604800000,
+                  "createdAt": "2026-09-29T10:23:00.004Z"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:00.412Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "getMailExperimentReport--no-observations",
+    "apiClass": "MailApi",
+    "parameters": {
+      "revision": 1,
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailGetExperimentsByExperimentKeyReportResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "getMailExperimentReport",
+      "scenarioId": "no-observations",
+      "title": "Report an experiment with no assignments or measured outcomes",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments/{experimentKey}/report",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "GET",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments/reacon-sdk-documentation-experiment-cadence%3Asplit%3Afixture/report",
+        "query": {
+          "revision": 1
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "294",
+          "x-ratelimit-reset": "36"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "report": {
+            "definition": {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+              "experimentId": "fixture",
+              "cadenceId": "reacon-sdk-documentation-experiment-cadence",
+              "stepId": "split",
+              "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+              "assignmentUnit": "contact",
+              "status": "running",
+              "primaryMetric": "custom",
+              "guardrailMetrics": [
+                "bounce",
+                "complaint",
+                "unsubscribe",
+                "permanent_failure"
+              ],
+              "attributionWindowMs": 1209600000,
+              "minimumSampleSize": 200,
+              "minimumRuntimeMs": 604800000,
+              "createdByActorId": "00000000-0000-4000-8000-000000000002",
+              "createdAt": "2026-09-29T10:23:00.004Z",
+              "updatedAt": "2026-09-29T10:23:00.004Z"
+            },
+            "revision": {
+              "tenantId": "00000000-0000-4000-8000-000000000001",
+              "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+              "revision": 1,
+              "cadenceVersion": 1,
+              "definitionHash": "cf11498b036ce3255f0f00c5cb548ee1240116039ab9d3b67fc231eb87155cc4",
+              "variants": [
+                {
+                  "id": "A",
+                  "name": "Control stop",
+                  "weight": 50,
+                  "nextNodeId": "stop-a"
+                },
+                {
+                  "id": "B",
+                  "name": "Alternative stop",
+                  "weight": 50,
+                  "nextNodeId": "stop-b"
+                }
+              ],
+              "primaryMetric": "custom",
+              "guardrailMetrics": [
+                "bounce",
+                "complaint",
+                "unsubscribe",
+                "permanent_failure"
+              ],
+              "attributionWindowMs": 1209600000,
+              "minimumSampleSize": 200,
+              "minimumRuntimeMs": 604800000,
+              "createdAt": "2026-09-29T10:23:00.004Z"
+            },
+            "decision": null,
+            "variants": [
+              {
+                "variantId": "A",
+                "weight": 50,
+                "assigned": 0,
+                "exposed": 0,
+                "matured": 0,
+                "conversions": 0,
+                "intentionToTreatRate": 0,
+                "matureExposureRate": 0,
+                "confidenceInterval95": {
+                  "low": 0,
+                  "high": 1
+                },
+                "differenceConfidenceInterval95": {
+                  "low": 0,
+                  "high": 0
+                },
+                "absoluteLiftFromControl": 0,
+                "relativeLiftFromControl": null,
+                "guardrails": {
+                  "bounce": 0,
+                  "complaint": 0,
+                  "unsubscribe": 0,
+                  "permanent_failure": 0
+                },
+                "guardrailRegressions": []
+              },
+              {
+                "variantId": "B",
+                "weight": 50,
+                "assigned": 0,
+                "exposed": 0,
+                "matured": 0,
+                "conversions": 0,
+                "intentionToTreatRate": 0,
+                "matureExposureRate": 0,
+                "confidenceInterval95": {
+                  "low": 0,
+                  "high": 1
+                },
+                "differenceConfidenceInterval95": {
+                  "low": -1,
+                  "high": 1
+                },
+                "absoluteLiftFromControl": 0,
+                "relativeLiftFromControl": null,
+                "guardrails": {
+                  "bounce": 0,
+                  "complaint": 0,
+                  "unsubscribe": 0,
+                  "permanent_failure": 0
+                },
+                "guardrailRegressions": []
+              }
+            ],
+            "assigned": 0,
+            "exposed": 0,
+            "matured": 0,
+            "pendingMaturity": 0,
+            "assignmentSampleRatioMismatch": false,
+            "exposureSampleRatioMismatch": false,
+            "eligibleForDecision": false,
+            "decisionBlockers": [
+              "minimum_sample_not_reached",
+              "minimum_runtime_not_reached",
+              "variant_without_mature_observations"
+            ],
+            "automaticDecisionEligible": false,
+            "automaticDecisionBlockers": [
+              "minimum_sample_not_reached",
+              "minimum_runtime_not_reached",
+              "variant_without_mature_observations",
+              "no_statistically_reliable_winner"
+            ],
+            "recommendedWinnerVariantId": null,
+            "generatedAt": "2026-09-29T10:23:01.182Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:00.899Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "pauseMailExperiment--pause",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostExperimentsByExperimentKeyPauseResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "pauseMailExperiment",
+      "scenarioId": "pause",
+      "title": "Change only the inert experiment status; no cadence is enrolled",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments/{experimentKey}/pause",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments/reacon-sdk-documentation-experiment-cadence%3Asplit%3Afixture/pause",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "293",
+          "x-ratelimit-reset": "35"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "experiment": {
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+            "experimentId": "fixture",
+            "cadenceId": "reacon-sdk-documentation-experiment-cadence",
+            "stepId": "split",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+            "assignmentUnit": "contact",
+            "status": "stopped",
+            "primaryMetric": "custom",
+            "guardrailMetrics": [
+              "bounce",
+              "complaint",
+              "unsubscribe",
+              "permanent_failure"
+            ],
+            "attributionWindowMs": 1209600000,
+            "minimumSampleSize": 200,
+            "minimumRuntimeMs": 604800000,
+            "createdByActorId": "00000000-0000-4000-8000-000000000002",
+            "createdAt": "2026-09-29T10:23:00.004Z",
+            "updatedAt": "2026-09-29T10:23:02.843Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:02.567Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "resumeMailExperiment--resume",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostExperimentsByExperimentKeyResumeResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "resumeMailExperiment",
+      "scenarioId": "resume",
+      "title": "Change only the inert experiment status; no cadence is enrolled",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments/{experimentKey}/resume",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments/reacon-sdk-documentation-experiment-cadence%3Asplit%3Afixture/resume",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "292",
+          "x-ratelimit-reset": "34"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "experiment": {
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+            "experimentId": "fixture",
+            "cadenceId": "reacon-sdk-documentation-experiment-cadence",
+            "stepId": "split",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+            "assignmentUnit": "contact",
+            "status": "running",
+            "primaryMetric": "custom",
+            "guardrailMetrics": [
+              "bounce",
+              "complaint",
+              "unsubscribe",
+              "permanent_failure"
+            ],
+            "attributionWindowMs": 1209600000,
+            "minimumSampleSize": 200,
+            "minimumRuntimeMs": 604800000,
+            "createdByActorId": "00000000-0000-4000-8000-000000000002",
+            "createdAt": "2026-09-29T10:23:00.004Z",
+            "updatedAt": "2026-09-29T10:23:03.245Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:02.965Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "pauseMailExperiment--pause-before-decision",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostExperimentsByExperimentKeyPauseResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "pauseMailExperiment",
+      "scenarioId": "pause-before-decision",
+      "title": "Change only the inert experiment status; no cadence is enrolled",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments/{experimentKey}/pause",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments/reacon-sdk-documentation-experiment-cadence%3Asplit%3Afixture/pause",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "291",
+          "x-ratelimit-reset": "34"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "experiment": {
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+            "experimentId": "fixture",
+            "cadenceId": "reacon-sdk-documentation-experiment-cadence",
+            "stepId": "split",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+            "assignmentUnit": "contact",
+            "status": "stopped",
+            "primaryMetric": "custom",
+            "guardrailMetrics": [
+              "bounce",
+              "complaint",
+              "unsubscribe",
+              "permanent_failure"
+            ],
+            "attributionWindowMs": 1209600000,
+            "minimumSampleSize": 200,
+            "minimumRuntimeMs": 604800000,
+            "createdByActorId": "00000000-0000-4000-8000-000000000002",
+            "createdAt": "2026-09-29T10:23:00.004Z",
+            "updatedAt": "2026-09-29T10:23:03.633Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:03.356Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "decideMailExperiment--inconclusive-guard",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": [
+        {
+          "path": [
+            "allowInconclusiveManualDecision"
+          ],
+          "value": false
+        }
+      ]
+    },
+    "requestModel": "MailPostExperimentsByExperimentKeyDecideRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/ApiError"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "decideMailExperiment",
+      "scenarioId": "inconclusive-guard",
+      "title": "Reject a manual winner without explicit consent to inconclusive evidence",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments/{experimentKey}/decide",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments/reacon-sdk-documentation-experiment-cadence%3Asplit%3Afixture/decide",
+        "query": {},
+        "body": {
+          "revision": 1,
+          "winnerVariantId": "A",
+          "method": "manual",
+          "reason": "Documentation fixture only: explicit manual override with no assignments or measured winner."
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 412,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "290",
+          "x-ratelimit-reset": "33"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "error": "PRECONDITION_EXPERIMENT_MANUAL_OVERRIDE_REQUIRED",
+          "code": "PRECONDITION_EXPERIMENT_MANUAL_OVERRIDE_REQUIRED",
+          "requestId": "req-a"
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:03.756Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "decideMailExperiment--explicit-inconclusive-override",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "requestModel": "MailPostExperimentsByExperimentKeyDecideRequest",
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostExperimentsByExperimentKeyDecideResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "decideMailExperiment",
+      "scenarioId": "explicit-inconclusive-override",
+      "title": "Explicit manual fixture override with no measured winner",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments/{experimentKey}/decide",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments/reacon-sdk-documentation-experiment-cadence%3Asplit%3Afixture/decide",
+        "query": {},
+        "body": {
+          "revision": 1,
+          "winnerVariantId": "A",
+          "method": "manual",
+          "reason": "Documentation fixture only: explicit manual override with no assignments or measured winner.",
+          "allowInconclusiveManualDecision": true
+        },
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "289",
+          "x-ratelimit-reset": "33"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "decision": {
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+            "revision": 1,
+            "id": "experiment_decision_00000000000040008000000000000100",
+            "winnerVariantId": "A",
+            "method": "manual",
+            "reason": "Documentation fixture only: explicit manual override with no assignments or measured winner.",
+            "decidedByActorId": "00000000-0000-4000-8000-000000000002",
+            "resultSnapshot": {
+              "exposed": 0,
+              "matured": 0,
+              "assigned": 0,
+              "variants": [
+                {
+                  "weight": 50,
+                  "exposed": 0,
+                  "matured": 0,
+                  "assigned": 0,
+                  "variantId": "A",
+                  "guardrails": {
+                    "bounce": 0,
+                    "complaint": 0,
+                    "unsubscribe": 0,
+                    "permanent_failure": 0
+                  },
+                  "conversions": 0,
+                  "matureExposureRate": 0,
+                  "confidenceInterval95": {
+                    "low": 0,
+                    "high": 1
+                  },
+                  "guardrailRegressions": [],
+                  "intentionToTreatRate": 0,
+                  "absoluteLiftFromControl": 0,
+                  "relativeLiftFromControl": null,
+                  "differenceConfidenceInterval95": {
+                    "low": 0,
+                    "high": 0
+                  }
+                },
+                {
+                  "weight": 50,
+                  "exposed": 0,
+                  "matured": 0,
+                  "assigned": 0,
+                  "variantId": "B",
+                  "guardrails": {
+                    "bounce": 0,
+                    "complaint": 0,
+                    "unsubscribe": 0,
+                    "permanent_failure": 0
+                  },
+                  "conversions": 0,
+                  "matureExposureRate": 0,
+                  "confidenceInterval95": {
+                    "low": 0,
+                    "high": 1
+                  },
+                  "guardrailRegressions": [],
+                  "intentionToTreatRate": 0,
+                  "absoluteLiftFromControl": 0,
+                  "relativeLiftFromControl": null,
+                  "differenceConfidenceInterval95": {
+                    "low": -1,
+                    "high": 1
+                  }
+                }
+              ],
+              "generatedAt": "2026-09-29T10:23:04.430Z",
+              "automaticDecisionBlockers": [
+                "minimum_sample_not_reached",
+                "minimum_runtime_not_reached",
+                "variant_without_mature_observations",
+                "no_statistically_reliable_winner"
+              ],
+              "automaticDecisionEligible": false,
+              "recommendedWinnerVariantId": null
+            },
+            "decidedAt": "2026-09-29T10:23:04.430Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:04.151Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
+          "sourceRevisionVerified": false
+        },
+        "validation": {
+          "original": true,
+          "sanitized": true
+        },
+        "transformations": [
+          "Fixture/actor UUIDs and generated mail-resource IDs are replaced consistently with example identifiers; timestamps and response structure are preserved.",
+          "Segment creation secrets are replaced only at the reviewed response field; the live identity is subsequently disabled and its vault material deleted through the API.",
+          "Tracking verification nonces are replaced with an example token in both the field and expected TXT value.",
+          "Lead cursors decoded as base64url JSON, sanitized recursively, and re-encoded; example cursors cannot select actual test records.",
+          "Only reviewed response headers retained; request credentials omitted."
+        ],
+        "releaseEligible": false
+      }
+    }
+  },
+  {
+    "id": "archiveMailExperiment--inert-experiment",
+    "apiClass": "MailApi",
+    "parameters": {
+      "teamId": "00000000-0000-4000-8000-000000000001",
+      "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture"
+    },
+    "requestEquivalence": {
+      "dates": [],
+      "defaults": []
+    },
+    "responseSchema": {
+      "$ref": "#/components/schemas/MailPostExperimentsByExperimentKeyArchiveResponse200"
+    },
+    "record": {
+      "formatVersion": 1,
+      "operationId": "archiveMailExperiment",
+      "scenarioId": "inert-experiment",
+      "title": "Archive the synthetic experiment after its explicit manual decision",
+      "pathTemplate": "/v1/teams/{teamId}/mail/experiments/{experimentKey}/archive",
+      "class": "seeded-api-recording",
+      "contractSha256": "1ca982b89988a655fe8ceaf8a067e8ef9fce3d761732de7c0a5d28448602c73c",
+      "request": {
+        "method": "POST",
+        "path": "/v1/teams/00000000-0000-4000-8000-000000000001/mail/experiments/reacon-sdk-documentation-experiment-cadence%3Asplit%3Afixture/archive",
+        "query": {},
+        "authentication": "X-API-Key (omitted)",
+        "validation": "validated"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "288",
+          "x-ratelimit-reset": "32"
+        },
+        "mediaType": "application/json",
+        "body": {
+          "experiment": {
+            "tenantId": "00000000-0000-4000-8000-000000000001",
+            "experimentKey": "reacon-sdk-documentation-experiment-cadence:split:fixture",
+            "experimentId": "fixture",
+            "cadenceId": "reacon-sdk-documentation-experiment-cadence",
+            "stepId": "split",
+            "name": "REACON SDK DOCUMENTATION FIXTURE - unmeasured workflow experiment",
+            "assignmentUnit": "contact",
+            "status": "archived",
+            "primaryMetric": "custom",
+            "guardrailMetrics": [
+              "bounce",
+              "complaint",
+              "unsubscribe",
+              "permanent_failure"
+            ],
+            "attributionWindowMs": 1209600000,
+            "minimumSampleSize": 200,
+            "minimumRuntimeMs": 604800000,
+            "createdByActorId": "00000000-0000-4000-8000-000000000002",
+            "createdAt": "2026-09-29T10:23:00.004Z",
+            "updatedAt": "2026-09-29T10:23:05.079Z"
+          }
+        }
+      },
+      "provenance": {
+        "environment": "private-development",
+        "capturedAt": "2026-09-29T10:23:04.805Z",
+        "recorderSha256": "ee16c74d45c9ce852536f67abadc80ab38aefbc776f5dc89bae2f6aa66707087",
+        "apiRevision": {
+          "kind": "observed-private-runtime",
+          "fingerprint": "86bafc2cdffe25052efd8e807e12a2b82a3f362c9f010003b35ae1d99b32b34e",
           "sourceRevisionVerified": false
         },
         "validation": {

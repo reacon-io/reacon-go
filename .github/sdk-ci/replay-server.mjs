@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+const { acquireFixtureProxy } = await import(existsSync(new URL('../fixed-origin/proxy.mjs', import.meta.url)) ? '../fixed-origin/proxy.mjs' : './fixed-origin/proxy.mjs');
 import http from 'node:http';
 import { canonicalRequest } from './request-equivalence.mjs';
 import assert from 'node:assert/strict';
@@ -12,7 +14,11 @@ export async function startRecordingServer(cases) {
     const seen = { caseId, method: request.method, path: '/'+path.join('/') };
     observations.get(language).push(seen);
     try {
-      const item = byId.get(caseId); assert.ok(item, 'Unknown recording case');
+      const scenario = byId.get(caseId); assert.ok(scenario, 'Unknown recording case');
+      const offset=observations.get(language).filter(value=>value.caseId===caseId).length-1;
+      const item=scenario.sequence?scenario.sequence[offset]:scenario;
+      assert.ok(item,'Unexpected extra page request');
+      seen.recordCaseId=item.id;
       const record = item.record;
       // Compare parameter values without treating equivalent percent encodings
       // as different routes. Split first so encoded slashes cannot add segments.
@@ -20,6 +26,7 @@ export async function startRecordingServer(cases) {
       assert.equal(request.method, record.request.method, 'SDK HTTP method');
       assert.equal(request.headers['x-api-key'], record.request.authentication === 'none' ? undefined : `recording-${language}`, 'SDK authentication');
       assert.equal(request.headers.cookie, undefined, 'Unexpected ambient cookie');
+      if(record.request.accept)assert.equal(request.headers.accept,record.request.accept,'SDK streaming negotiation');
       assert.deepEqual([...url.searchParams].sort(), Object.entries(record.request.query).map(([k,v])=>[k,String(v)]).sort(), 'SDK query serialization');
       let body = ''; for await (const chunk of request) { body += chunk; assert.ok(body.length < 2*1024*1024); }
       assert.deepEqual(canonicalRequest(body ? JSON.parse(body) : undefined, item.requestEquivalence), canonicalRequest(record.request.body, item.requestEquivalence), 'SDK request body serialization');
@@ -33,14 +40,17 @@ export async function startRecordingServer(cases) {
     }
   });
   server.listen(0, '127.0.0.1'); await once(server, 'listening');
+  const releaseProxy = await acquireFixtureProxy();
   return {
     url: `http://127.0.0.1:${server.address().port}`, observations,
     assertComplete(language) {
       const values = observations.get(language) ?? [];
-      assert.equal(values.length, cases.length, 'Expected exactly one SDK request per recording');
+      assert.equal(values.length, cases.reduce((count,item)=>count+(item.sequence?.length??1),0), 'Expected exactly one SDK request per recorded page');
       assert.equal(new Set(values.map(v=>v.caseId)).size,cases.length,'Duplicate/missing recording requests');
+      for(const item of cases)assert.deepEqual(values.filter(value=>value.caseId===item.id).map(value=>value.recordCaseId),
+        (item.sequence??[item]).map(page=>page.id),'Recorded page order differs');
       assert.ok(values.every(v=>v.passed), JSON.stringify(values.filter(v=>!v.passed)));
     },
-    async close() { server.closeAllConnections(); await new Promise(resolve=>server.close(resolve)); },
+    async close() { await releaseProxy(); server.closeAllConnections(); await new Promise(resolve=>server.close(resolve)); },
   };
 }
