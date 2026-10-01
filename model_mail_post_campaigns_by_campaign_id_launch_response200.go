@@ -15,58 +15,177 @@ import (
 	"fmt"
 )
 
+// checks if the MailPostCampaignsByCampaignIdLaunchResponse200 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MailPostCampaignsByCampaignIdLaunchResponse200{}
 
 // MailPostCampaignsByCampaignIdLaunchResponse200 struct for MailPostCampaignsByCampaignIdLaunchResponse200
 type MailPostCampaignsByCampaignIdLaunchResponse200 struct {
-	MailPostCampaignsByCampaignIdLaunchResponse200AnyOf *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
-	MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 *MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
+	Campaign MailPostCampaignsByCampaignIdLaunchResponse200Campaign `json:"campaign"`
+	Draft MailCampaignDraftRecord `json:"draft"`
+	Sequences []MailSequenceRunRecord `json:"sequences"`
+	AdditionalProperties map[string]interface{}
 }
 
-// Unmarshal JSON data into any of the pointers in the struct
-func (dst *MailPostCampaignsByCampaignIdLaunchResponse200) UnmarshalJSON(data []byte) error {
-	var err error
-	// try to unmarshal JSON data into MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
-	err = json.Unmarshal(data, &dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf);
-	if err == nil {
-		jsonMailPostCampaignsByCampaignIdLaunchResponse200AnyOf, _ := json.Marshal(dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf)
-		if string(jsonMailPostCampaignsByCampaignIdLaunchResponse200AnyOf) == "{}" { // empty struct
-			dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf = nil
-		} else {
-			return nil // data stored in dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf, return on the first match
+type _MailPostCampaignsByCampaignIdLaunchResponse200 MailPostCampaignsByCampaignIdLaunchResponse200
+
+// NewMailPostCampaignsByCampaignIdLaunchResponse200 instantiates a new MailPostCampaignsByCampaignIdLaunchResponse200 object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewMailPostCampaignsByCampaignIdLaunchResponse200(campaign MailPostCampaignsByCampaignIdLaunchResponse200Campaign, draft MailCampaignDraftRecord, sequences []MailSequenceRunRecord) *MailPostCampaignsByCampaignIdLaunchResponse200 {
+	this := MailPostCampaignsByCampaignIdLaunchResponse200{}
+	this.Campaign = campaign
+	this.Draft = draft
+	this.Sequences = sequences
+	return &this
+}
+
+// NewMailPostCampaignsByCampaignIdLaunchResponse200WithDefaults instantiates a new MailPostCampaignsByCampaignIdLaunchResponse200 object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewMailPostCampaignsByCampaignIdLaunchResponse200WithDefaults() *MailPostCampaignsByCampaignIdLaunchResponse200 {
+	this := MailPostCampaignsByCampaignIdLaunchResponse200{}
+	return &this
+}
+
+// GetCampaign returns the Campaign field value
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) GetCampaign() MailPostCampaignsByCampaignIdLaunchResponse200Campaign {
+	if o == nil {
+		var ret MailPostCampaignsByCampaignIdLaunchResponse200Campaign
+		return ret
+	}
+
+	return o.Campaign
+}
+
+// GetCampaignOk returns a tuple with the Campaign field value
+// and a boolean to check if the value has been set.
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) GetCampaignOk() (*MailPostCampaignsByCampaignIdLaunchResponse200Campaign, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Campaign, true
+}
+
+// SetCampaign sets field value
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) SetCampaign(v MailPostCampaignsByCampaignIdLaunchResponse200Campaign) {
+	o.Campaign = v
+}
+
+// GetDraft returns the Draft field value
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) GetDraft() MailCampaignDraftRecord {
+	if o == nil {
+		var ret MailCampaignDraftRecord
+		return ret
+	}
+
+	return o.Draft
+}
+
+// GetDraftOk returns a tuple with the Draft field value
+// and a boolean to check if the value has been set.
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) GetDraftOk() (*MailCampaignDraftRecord, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Draft, true
+}
+
+// SetDraft sets field value
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) SetDraft(v MailCampaignDraftRecord) {
+	o.Draft = v
+}
+
+// GetSequences returns the Sequences field value
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) GetSequences() []MailSequenceRunRecord {
+	if o == nil {
+		var ret []MailSequenceRunRecord
+		return ret
+	}
+
+	return o.Sequences
+}
+
+// GetSequencesOk returns a tuple with the Sequences field value
+// and a boolean to check if the value has been set.
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) GetSequencesOk() ([]MailSequenceRunRecord, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Sequences, true
+}
+
+// SetSequences sets field value
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) SetSequences(v []MailSequenceRunRecord) {
+	o.Sequences = v
+}
+
+func (o MailPostCampaignsByCampaignIdLaunchResponse200) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MailPostCampaignsByCampaignIdLaunchResponse200) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["campaign"] = o.Campaign
+	toSerialize["draft"] = o.Draft
+	toSerialize["sequences"] = o.Sequences
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
+	return toSerialize, nil
+}
+
+func (o *MailPostCampaignsByCampaignIdLaunchResponse200) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"campaign",
+		"draft",
+		"sequences",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
-	} else {
-		dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf = nil
 	}
 
-	// try to unmarshal JSON data into MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
-	err = json.Unmarshal(data, &dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1);
-	if err == nil {
-		jsonMailPostCampaignsByCampaignIdLaunchResponse200AnyOf1, _ := json.Marshal(dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1)
-		if string(jsonMailPostCampaignsByCampaignIdLaunchResponse200AnyOf1) == "{}" { // empty struct
-			dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 = nil
-		} else {
-			return nil // data stored in dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1, return on the first match
-		}
-	} else {
-		dst.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 = nil
+	varMailPostCampaignsByCampaignIdLaunchResponse200 := _MailPostCampaignsByCampaignIdLaunchResponse200{}
+
+	err = json.Unmarshal(data, &varMailPostCampaignsByCampaignIdLaunchResponse200)
+
+	if err != nil {
+		return err
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(MailPostCampaignsByCampaignIdLaunchResponse200)")
+	*o = MailPostCampaignsByCampaignIdLaunchResponse200(varMailPostCampaignsByCampaignIdLaunchResponse200)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "campaign")
+		delete(additionalProperties, "draft")
+		delete(additionalProperties, "sequences")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
-
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src MailPostCampaignsByCampaignIdLaunchResponse200) MarshalJSON() ([]byte, error) {
-	if src.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf != nil {
-		return json.Marshal(&src.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf)
-	}
-
-	if src.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 != nil {
-		return json.Marshal(&src.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1)
-	}
-
-	return nil, nil // no data in anyOf schemas
-}
-
 
 type NullableMailPostCampaignsByCampaignIdLaunchResponse200 struct {
 	value *MailPostCampaignsByCampaignIdLaunchResponse200
