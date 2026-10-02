@@ -15274,8 +15274,10 @@ components:
         details: details
         error: error
         issues:
-        - key: ""
-        - key: ""
+        - code: code
+          message: message
+        - code: code
+          message: message
         message: message
         remainingCredits: 5.962133916683182
         requestId: requestId
@@ -15290,8 +15292,7 @@ components:
           type: string
         issues:
           items:
-            additionalProperties: true
-            type: object
+            $ref: "#/components/schemas/ApiValidationIssue"
           type: array
         message:
           type: string
@@ -15320,6 +15321,20 @@ components:
       required:
       - keyId
       - teamId
+      type: object
+    ApiValidationIssue:
+      additionalProperties: true
+      description: "Validation issue details. code identifies the validation rule\
+        \ and message explains the failure. Additional rule-specific properties, including\
+        \ the field path, are preserved."
+      example:
+        code: code
+        message: message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
       type: object
     AutomationHookCreated:
       additionalProperties: true

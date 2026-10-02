@@ -1,4 +1,4 @@
-module github.com/reacon-io/reacon-go
+module github.com/reacon-io/reacon-go/v2
 
 go 1.23
 

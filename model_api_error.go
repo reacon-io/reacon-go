@@ -24,7 +24,7 @@ type ApiError struct {
 	Code *string `json:"code,omitempty"`
 	Details *string `json:"details,omitempty"`
 	Error string `json:"error"`
-	Issues []map[string]interface{} `json:"issues,omitempty"`
+	Issues []ApiValidationIssue `json:"issues,omitempty"`
 	Message *string `json:"message,omitempty"`
 	RemainingCredits *float32 `json:"remainingCredits,omitempty"`
 	RequestId *string `json:"requestId,omitempty"`
@@ -142,9 +142,9 @@ func (o *ApiError) SetError(v string) {
 }
 
 // GetIssues returns the Issues field value if set, zero value otherwise.
-func (o *ApiError) GetIssues() []map[string]interface{} {
+func (o *ApiError) GetIssues() []ApiValidationIssue {
 	if o == nil || IsNil(o.Issues) {
-		var ret []map[string]interface{}
+		var ret []ApiValidationIssue
 		return ret
 	}
 	return o.Issues
@@ -152,7 +152,7 @@ func (o *ApiError) GetIssues() []map[string]interface{} {
 
 // GetIssuesOk returns a tuple with the Issues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiError) GetIssuesOk() ([]map[string]interface{}, bool) {
+func (o *ApiError) GetIssuesOk() ([]ApiValidationIssue, bool) {
 	if o == nil || IsNil(o.Issues) {
 		return nil, false
 	}
@@ -168,8 +168,8 @@ func (o *ApiError) HasIssues() bool {
 	return false
 }
 
-// SetIssues gets a reference to the given []map[string]interface{} and assigns it to the Issues field.
-func (o *ApiError) SetIssues(v []map[string]interface{}) {
+// SetIssues gets a reference to the given []ApiValidationIssue and assigns it to the Issues field.
+func (o *ApiError) SetIssues(v []ApiValidationIssue) {
 	o.Issues = v
 }
 
