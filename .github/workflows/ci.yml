@@ -2,7 +2,7 @@ name: SDK conformance
 
 on:
   push:
-    branches: [main, 'codex/**']
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
