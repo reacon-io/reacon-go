@@ -28,6 +28,7 @@ model_airtable_mapping_options_response_options_tables_inner.go
 model_airtable_mapping_options_response_options_tables_inner_fields_inner.go
 model_api_error.go
 model_api_key_identity.go
+model_api_validation_issue.go
 model_automation_hook_created.go
 model_batch_verification_error.go
 model_batch_verification_item.go
