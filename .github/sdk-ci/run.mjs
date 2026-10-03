@@ -11,7 +11,7 @@ const resourceArgs = [];
 if (process.env.REACON_BUILD_CPUS || process.env.REACON_BUILD_MEMORY_BYTES) {
   const cpus = Number(process.env.REACON_BUILD_CPUS), memory = Number(process.env.REACON_BUILD_MEMORY_BYTES);
   if (!Number.isSafeInteger(cpus) || cpus < 1 || cpus > 32 || !Number.isSafeInteger(memory) || memory < 512 * 1024 ** 2) throw Error('Invalid scheduled compiler resources');
-  resourceArgs.push('--cpus', String(cpus), '--memory', String(memory));
+  resourceArgs.push('--cpus', String(cpus), '--memory', String(memory), '--memory-swap', String(memory));
 }
 
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
