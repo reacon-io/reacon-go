@@ -90,6 +90,22 @@ async function main() {
         cpus:process.env.REACON_BUILD_CPUS??null,memory:process.env.REACON_BUILD_MEMORY_BYTES??null}))};
     inputKey(input);
   }catch {console.log('Verification cache unavailable: running the full suite.');}
+  if(input && process.env.REACON_PREBUILT_DIRECTORY && manifest.files['approved-private-verification.mjs'] &&
+      process.env.REACON_FORCE_FRESH_TESTS!=='true') {
+    const temporary=await mkdtemp(join(tmpdir(),'reacon-approved-proof-'));
+    try {
+      const {sourceDigest,reuseApprovedPrivateVerification}=await import('./approved-private-verification.mjs');
+      const restored=join(temporary,'restored');
+      const reused=await reuseApprovedPrivateVerification({directory:resolve(process.env.REACON_PREBUILT_DIRECTORY),
+        output:restored,suiteBytes,sourceSha256:await sourceDigest(root),revision});
+      // The original private test time, not this attestation time, sets the TTL.
+      await retainProof(restored,{input,context,testedAt:reused.testedAt});
+      await rename(restored,output);
+      console.log(`Approved private verification reused; original tests ${reused.testedAt}; exact package, source, suite and pinned container inputs match.`);
+      return;
+    }catch {console.log('No matching current approved private proof: checking CI evidence or running fresh tests.');}
+    finally {await rm(temporary,{recursive:true,force:true});}
+  }
   const lookupDeadline=Date.now()+30000;
   const api=async path=>{
     if(Date.now()>=lookupDeadline)throw Error('Verification lookup deadline exceeded');
