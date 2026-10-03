@@ -5,9 +5,15 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      force_fresh_tests:
+        description: Run conformance even when an exact passing proof exists
+        type: boolean
+        default: false
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: sdk-ci-${{ github.ref }}
@@ -27,14 +33,17 @@ jobs:
           node-version: 24.11.0
       - name: Replay reviewed responses and streaming scenarios
         env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REACON_FORCE_FRESH_TESTS: ${{ inputs.force_fresh_tests || false }}
           REACON_SOURCE_REVISION: ${{ github.sha }}
-        run: node .github/sdk-ci/run.mjs
+        run: node .github/sdk-ci/verify-or-reuse.mjs
       - name: Retain conformance evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: sdk-conformance-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
+            sdk-ci-results/verification-cache.json
             sdk-ci-results/evidence.json
             sdk-ci-results/responses.json
             sdk-ci-results/run.log
