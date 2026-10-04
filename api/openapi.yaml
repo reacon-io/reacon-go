@@ -34293,10 +34293,16 @@ components:
       type: object
     PublicStats:
       example:
-        emails: 0
-        mentions: 6
+        apiProtocolVersion: 1
+        emails: 6
+        mentions: 1
         version: version
       properties:
+        apiProtocolVersion:
+          description: "Wire protocol major version, independent of SDK and actions-package\
+            \ versions."
+          minimum: 1
+          type: integer
         emails:
           type: integer
         mentions:
