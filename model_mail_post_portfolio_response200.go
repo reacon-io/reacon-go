@@ -21,7 +21,7 @@ var _ MappedNullable = &MailPostPortfolioResponse200{}
 // MailPostPortfolioResponse200 struct for MailPostPortfolioResponse200
 type MailPostPortfolioResponse200 struct {
 	Portfolio MailMailPortfolio `json:"portfolio"`
-	Suppressions []map[string]interface{} `json:"suppressions"`
+	Suppressions []MailMailPortfolioSuppression `json:"suppressions"`
 	Teams []MailMailPortfolioTeam `json:"teams"`
 	AdditionalProperties map[string]interface{}
 }
@@ -32,7 +32,7 @@ type _MailPostPortfolioResponse200 MailPostPortfolioResponse200
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailPostPortfolioResponse200(portfolio MailMailPortfolio, suppressions []map[string]interface{}, teams []MailMailPortfolioTeam) *MailPostPortfolioResponse200 {
+func NewMailPostPortfolioResponse200(portfolio MailMailPortfolio, suppressions []MailMailPortfolioSuppression, teams []MailMailPortfolioTeam) *MailPostPortfolioResponse200 {
 	this := MailPostPortfolioResponse200{}
 	this.Portfolio = portfolio
 	this.Suppressions = suppressions
@@ -73,9 +73,9 @@ func (o *MailPostPortfolioResponse200) SetPortfolio(v MailMailPortfolio) {
 }
 
 // GetSuppressions returns the Suppressions field value
-func (o *MailPostPortfolioResponse200) GetSuppressions() []map[string]interface{} {
+func (o *MailPostPortfolioResponse200) GetSuppressions() []MailMailPortfolioSuppression {
 	if o == nil {
-		var ret []map[string]interface{}
+		var ret []MailMailPortfolioSuppression
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *MailPostPortfolioResponse200) GetSuppressions() []map[string]interface{
 
 // GetSuppressionsOk returns a tuple with the Suppressions field value
 // and a boolean to check if the value has been set.
-func (o *MailPostPortfolioResponse200) GetSuppressionsOk() ([]map[string]interface{}, bool) {
+func (o *MailPostPortfolioResponse200) GetSuppressionsOk() ([]MailMailPortfolioSuppression, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *MailPostPortfolioResponse200) GetSuppressionsOk() ([]map[string]interfa
 }
 
 // SetSuppressions sets field value
-func (o *MailPostPortfolioResponse200) SetSuppressions(v []map[string]interface{}) {
+func (o *MailPostPortfolioResponse200) SetSuppressions(v []MailMailPortfolioSuppression) {
 	o.Suppressions = v
 }
 
