@@ -20,6 +20,8 @@ var _ MappedNullable = &PublicStats{}
 
 // PublicStats struct for PublicStats
 type PublicStats struct {
+	// Wire protocol major version, independent of SDK and actions-package versions.
+	ApiProtocolVersion *int32 `json:"apiProtocolVersion,omitempty"`
 	Emails int32 `json:"emails"`
 	Mentions int32 `json:"mentions"`
 	Version string `json:"version"`
@@ -46,6 +48,38 @@ func NewPublicStats(emails int32, mentions int32, version string) *PublicStats {
 func NewPublicStatsWithDefaults() *PublicStats {
 	this := PublicStats{}
 	return &this
+}
+
+// GetApiProtocolVersion returns the ApiProtocolVersion field value if set, zero value otherwise.
+func (o *PublicStats) GetApiProtocolVersion() int32 {
+	if o == nil || IsNil(o.ApiProtocolVersion) {
+		var ret int32
+		return ret
+	}
+	return *o.ApiProtocolVersion
+}
+
+// GetApiProtocolVersionOk returns a tuple with the ApiProtocolVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicStats) GetApiProtocolVersionOk() (*int32, bool) {
+	if o == nil || IsNil(o.ApiProtocolVersion) {
+		return nil, false
+	}
+	return o.ApiProtocolVersion, true
+}
+
+// HasApiProtocolVersion returns a boolean if a field has been set.
+func (o *PublicStats) HasApiProtocolVersion() bool {
+	if o != nil && !IsNil(o.ApiProtocolVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetApiProtocolVersion gets a reference to the given int32 and assigns it to the ApiProtocolVersion field.
+func (o *PublicStats) SetApiProtocolVersion(v int32) {
+	o.ApiProtocolVersion = &v
 }
 
 // GetEmails returns the Emails field value
@@ -130,6 +164,9 @@ func (o PublicStats) MarshalJSON() ([]byte, error) {
 
 func (o PublicStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ApiProtocolVersion) {
+		toSerialize["apiProtocolVersion"] = o.ApiProtocolVersion
+	}
 	toSerialize["emails"] = o.Emails
 	toSerialize["mentions"] = o.Mentions
 	toSerialize["version"] = o.Version
@@ -178,6 +215,7 @@ func (o *PublicStats) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "apiProtocolVersion")
 		delete(additionalProperties, "emails")
 		delete(additionalProperties, "mentions")
 		delete(additionalProperties, "version")
