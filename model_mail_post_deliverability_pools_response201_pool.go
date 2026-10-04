@@ -23,7 +23,7 @@ var _ MappedNullable = &MailPostDeliverabilityPoolsResponse201Pool{}
 type MailPostDeliverabilityPoolsResponse201Pool struct {
 	CreatedAt time.Time `json:"createdAt"`
 	Id string `json:"id"`
-	Members []map[string]interface{} `json:"members"`
+	Members []MailMailboxPoolMember `json:"members"`
 	Name string `json:"name"`
 	Strategy string `json:"strategy"`
 	TenantId string `json:"tenantId"`
@@ -37,7 +37,7 @@ type _MailPostDeliverabilityPoolsResponse201Pool MailPostDeliverabilityPoolsResp
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailPostDeliverabilityPoolsResponse201Pool(createdAt time.Time, id string, members []map[string]interface{}, name string, strategy string, tenantId string, updatedAt time.Time) *MailPostDeliverabilityPoolsResponse201Pool {
+func NewMailPostDeliverabilityPoolsResponse201Pool(createdAt time.Time, id string, members []MailMailboxPoolMember, name string, strategy string, tenantId string, updatedAt time.Time) *MailPostDeliverabilityPoolsResponse201Pool {
 	this := MailPostDeliverabilityPoolsResponse201Pool{}
 	this.CreatedAt = createdAt
 	this.Id = id
@@ -106,9 +106,9 @@ func (o *MailPostDeliverabilityPoolsResponse201Pool) SetId(v string) {
 }
 
 // GetMembers returns the Members field value
-func (o *MailPostDeliverabilityPoolsResponse201Pool) GetMembers() []map[string]interface{} {
+func (o *MailPostDeliverabilityPoolsResponse201Pool) GetMembers() []MailMailboxPoolMember {
 	if o == nil {
-		var ret []map[string]interface{}
+		var ret []MailMailboxPoolMember
 		return ret
 	}
 
@@ -117,7 +117,7 @@ func (o *MailPostDeliverabilityPoolsResponse201Pool) GetMembers() []map[string]i
 
 // GetMembersOk returns a tuple with the Members field value
 // and a boolean to check if the value has been set.
-func (o *MailPostDeliverabilityPoolsResponse201Pool) GetMembersOk() ([]map[string]interface{}, bool) {
+func (o *MailPostDeliverabilityPoolsResponse201Pool) GetMembersOk() ([]MailMailboxPoolMember, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *MailPostDeliverabilityPoolsResponse201Pool) GetMembersOk() ([]map[strin
 }
 
 // SetMembers sets field value
-func (o *MailPostDeliverabilityPoolsResponse201Pool) SetMembers(v []map[string]interface{}) {
+func (o *MailPostDeliverabilityPoolsResponse201Pool) SetMembers(v []MailMailboxPoolMember) {
 	o.Members = v
 }
 
