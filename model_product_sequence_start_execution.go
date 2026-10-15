@@ -21,7 +21,8 @@ var _ MappedNullable = &ProductSequenceStartExecution{}
 // ProductSequenceStartExecution struct for ProductSequenceStartExecution
 type ProductSequenceStartExecution struct {
 	ExecutionId string `json:"executionId"`
-	Output ProductSequenceStartOutput `json:"output"`
+	// Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns, returned unchanged.
+	Output map[string]interface{} `json:"output"`
 	Replay bool `json:"replay"`
 	Tool string `json:"tool"`
 	AdditionalProperties map[string]interface{}
@@ -33,7 +34,7 @@ type _ProductSequenceStartExecution ProductSequenceStartExecution
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProductSequenceStartExecution(executionId string, output ProductSequenceStartOutput, replay bool, tool string) *ProductSequenceStartExecution {
+func NewProductSequenceStartExecution(executionId string, output map[string]interface{}, replay bool, tool string) *ProductSequenceStartExecution {
 	this := ProductSequenceStartExecution{}
 	this.ExecutionId = executionId
 	this.Output = output
@@ -75,9 +76,9 @@ func (o *ProductSequenceStartExecution) SetExecutionId(v string) {
 }
 
 // GetOutput returns the Output field value
-func (o *ProductSequenceStartExecution) GetOutput() ProductSequenceStartOutput {
+func (o *ProductSequenceStartExecution) GetOutput() map[string]interface{} {
 	if o == nil {
-		var ret ProductSequenceStartOutput
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -86,15 +87,15 @@ func (o *ProductSequenceStartExecution) GetOutput() ProductSequenceStartOutput {
 
 // GetOutputOk returns a tuple with the Output field value
 // and a boolean to check if the value has been set.
-func (o *ProductSequenceStartExecution) GetOutputOk() (*ProductSequenceStartOutput, bool) {
+func (o *ProductSequenceStartExecution) GetOutputOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.Output, true
+	return o.Output, true
 }
 
 // SetOutput sets field value
-func (o *ProductSequenceStartExecution) SetOutput(v ProductSequenceStartOutput) {
+func (o *ProductSequenceStartExecution) SetOutput(v map[string]interface{}) {
 	o.Output = v
 }
 

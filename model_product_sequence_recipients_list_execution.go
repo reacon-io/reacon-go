@@ -21,7 +21,8 @@ var _ MappedNullable = &ProductSequenceRecipientsListExecution{}
 // ProductSequenceRecipientsListExecution struct for ProductSequenceRecipientsListExecution
 type ProductSequenceRecipientsListExecution struct {
 	ExecutionId NullableString `json:"executionId"`
-	Output ProductSequenceRecipientsListOutput `json:"output"`
+	// Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients, returned unchanged.
+	Output map[string]interface{} `json:"output"`
 	Replay bool `json:"replay"`
 	Tool string `json:"tool"`
 	AdditionalProperties map[string]interface{}
@@ -33,7 +34,7 @@ type _ProductSequenceRecipientsListExecution ProductSequenceRecipientsListExecut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProductSequenceRecipientsListExecution(executionId NullableString, output ProductSequenceRecipientsListOutput, replay bool, tool string) *ProductSequenceRecipientsListExecution {
+func NewProductSequenceRecipientsListExecution(executionId NullableString, output map[string]interface{}, replay bool, tool string) *ProductSequenceRecipientsListExecution {
 	this := ProductSequenceRecipientsListExecution{}
 	this.ExecutionId = executionId
 	this.Output = output
@@ -77,9 +78,9 @@ func (o *ProductSequenceRecipientsListExecution) SetExecutionId(v string) {
 }
 
 // GetOutput returns the Output field value
-func (o *ProductSequenceRecipientsListExecution) GetOutput() ProductSequenceRecipientsListOutput {
+func (o *ProductSequenceRecipientsListExecution) GetOutput() map[string]interface{} {
 	if o == nil {
-		var ret ProductSequenceRecipientsListOutput
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -88,15 +89,15 @@ func (o *ProductSequenceRecipientsListExecution) GetOutput() ProductSequenceReci
 
 // GetOutputOk returns a tuple with the Output field value
 // and a boolean to check if the value has been set.
-func (o *ProductSequenceRecipientsListExecution) GetOutputOk() (*ProductSequenceRecipientsListOutput, bool) {
+func (o *ProductSequenceRecipientsListExecution) GetOutputOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.Output, true
+	return o.Output, true
 }
 
 // SetOutput sets field value
-func (o *ProductSequenceRecipientsListExecution) SetOutput(v ProductSequenceRecipientsListOutput) {
+func (o *ProductSequenceRecipientsListExecution) SetOutput(v map[string]interface{}) {
 	o.Output = v
 }
 

@@ -21,7 +21,9 @@ var _ MappedNullable = &ProductSequenceRecipientsListInput{}
 
 // ProductSequenceRecipientsListInput struct for ProductSequenceRecipientsListInput
 type ProductSequenceRecipientsListInput struct {
-	SequenceId string `json:"sequenceId" validate:"regexp=^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"`
+	Limit *int32 `json:"limit,omitempty"`
+	Offset *int32 `json:"offset,omitempty"`
+	SequenceId string `json:"sequenceId" validate:"regexp=^[a-zA-Z0-9_-]+$"`
 }
 
 type _ProductSequenceRecipientsListInput ProductSequenceRecipientsListInput
@@ -32,6 +34,10 @@ type _ProductSequenceRecipientsListInput ProductSequenceRecipientsListInput
 // will change when the set of required properties is changed
 func NewProductSequenceRecipientsListInput(sequenceId string) *ProductSequenceRecipientsListInput {
 	this := ProductSequenceRecipientsListInput{}
+	var limit int32 = 25
+	this.Limit = &limit
+	var offset int32 = 0
+	this.Offset = &offset
 	this.SequenceId = sequenceId
 	return &this
 }
@@ -41,7 +47,75 @@ func NewProductSequenceRecipientsListInput(sequenceId string) *ProductSequenceRe
 // but it doesn't guarantee that properties required by API are set
 func NewProductSequenceRecipientsListInputWithDefaults() *ProductSequenceRecipientsListInput {
 	this := ProductSequenceRecipientsListInput{}
+	var limit int32 = 25
+	this.Limit = &limit
+	var offset int32 = 0
+	this.Offset = &offset
 	return &this
+}
+
+// GetLimit returns the Limit field value if set, zero value otherwise.
+func (o *ProductSequenceRecipientsListInput) GetLimit() int32 {
+	if o == nil || IsNil(o.Limit) {
+		var ret int32
+		return ret
+	}
+	return *o.Limit
+}
+
+// GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceRecipientsListInput) GetLimitOk() (*int32, bool) {
+	if o == nil || IsNil(o.Limit) {
+		return nil, false
+	}
+	return o.Limit, true
+}
+
+// HasLimit returns a boolean if a field has been set.
+func (o *ProductSequenceRecipientsListInput) HasLimit() bool {
+	if o != nil && !IsNil(o.Limit) {
+		return true
+	}
+
+	return false
+}
+
+// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
+func (o *ProductSequenceRecipientsListInput) SetLimit(v int32) {
+	o.Limit = &v
+}
+
+// GetOffset returns the Offset field value if set, zero value otherwise.
+func (o *ProductSequenceRecipientsListInput) GetOffset() int32 {
+	if o == nil || IsNil(o.Offset) {
+		var ret int32
+		return ret
+	}
+	return *o.Offset
+}
+
+// GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceRecipientsListInput) GetOffsetOk() (*int32, bool) {
+	if o == nil || IsNil(o.Offset) {
+		return nil, false
+	}
+	return o.Offset, true
+}
+
+// HasOffset returns a boolean if a field has been set.
+func (o *ProductSequenceRecipientsListInput) HasOffset() bool {
+	if o != nil && !IsNil(o.Offset) {
+		return true
+	}
+
+	return false
+}
+
+// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
+func (o *ProductSequenceRecipientsListInput) SetOffset(v int32) {
+	o.Offset = &v
 }
 
 // GetSequenceId returns the SequenceId field value
@@ -78,6 +152,12 @@ func (o ProductSequenceRecipientsListInput) MarshalJSON() ([]byte, error) {
 
 func (o ProductSequenceRecipientsListInput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Limit) {
+		toSerialize["limit"] = o.Limit
+	}
+	if !IsNil(o.Offset) {
+		toSerialize["offset"] = o.Offset
+	}
 	toSerialize["sequenceId"] = o.SequenceId
 	return toSerialize, nil
 }

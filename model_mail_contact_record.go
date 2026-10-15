@@ -28,6 +28,7 @@ type MailContactRecord struct {
 	Name *string `json:"name,omitempty"`
 	TenantId string `json:"tenantId"`
 	UpdatedAt time.Time `json:"updatedAt"`
+	Verification *MailContactRecordVerification `json:"verification,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -232,6 +233,38 @@ func (o *MailContactRecord) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = v
 }
 
+// GetVerification returns the Verification field value if set, zero value otherwise.
+func (o *MailContactRecord) GetVerification() MailContactRecordVerification {
+	if o == nil || IsNil(o.Verification) {
+		var ret MailContactRecordVerification
+		return ret
+	}
+	return *o.Verification
+}
+
+// GetVerificationOk returns a tuple with the Verification field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailContactRecord) GetVerificationOk() (*MailContactRecordVerification, bool) {
+	if o == nil || IsNil(o.Verification) {
+		return nil, false
+	}
+	return o.Verification, true
+}
+
+// HasVerification returns a boolean if a field has been set.
+func (o *MailContactRecord) HasVerification() bool {
+	if o != nil && !IsNil(o.Verification) {
+		return true
+	}
+
+	return false
+}
+
+// SetVerification gets a reference to the given MailContactRecordVerification and assigns it to the Verification field.
+func (o *MailContactRecord) SetVerification(v MailContactRecordVerification) {
+	o.Verification = &v
+}
+
 func (o MailContactRecord) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -251,6 +284,9 @@ func (o MailContactRecord) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["updatedAt"] = o.UpdatedAt
+	if !IsNil(o.Verification) {
+		toSerialize["verification"] = o.Verification
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -306,6 +342,7 @@ func (o *MailContactRecord) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "tenantId")
 		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "verification")
 		o.AdditionalProperties = additionalProperties
 	}
 
