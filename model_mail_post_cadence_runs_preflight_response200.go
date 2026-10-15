@@ -23,6 +23,7 @@ type MailPostCadenceRunsPreflightResponse200 struct {
 	AudienceCount float32 `json:"audienceCount"`
 	CadenceId string `json:"cadenceId"`
 	CadenceVersion float32 `json:"cadenceVersion"`
+	Eligibility *MailRecipientEligibilitySummary `json:"eligibility,omitempty"`
 	MissingVariables []MailCadenceEnrollmentVariableGap `json:"missingVariables"`
 	Ready bool `json:"ready"`
 	RequiredVariables []string `json:"requiredVariables"`
@@ -126,6 +127,38 @@ func (o *MailPostCadenceRunsPreflightResponse200) GetCadenceVersionOk() (*float3
 // SetCadenceVersion sets field value
 func (o *MailPostCadenceRunsPreflightResponse200) SetCadenceVersion(v float32) {
 	o.CadenceVersion = v
+}
+
+// GetEligibility returns the Eligibility field value if set, zero value otherwise.
+func (o *MailPostCadenceRunsPreflightResponse200) GetEligibility() MailRecipientEligibilitySummary {
+	if o == nil || IsNil(o.Eligibility) {
+		var ret MailRecipientEligibilitySummary
+		return ret
+	}
+	return *o.Eligibility
+}
+
+// GetEligibilityOk returns a tuple with the Eligibility field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailPostCadenceRunsPreflightResponse200) GetEligibilityOk() (*MailRecipientEligibilitySummary, bool) {
+	if o == nil || IsNil(o.Eligibility) {
+		return nil, false
+	}
+	return o.Eligibility, true
+}
+
+// HasEligibility returns a boolean if a field has been set.
+func (o *MailPostCadenceRunsPreflightResponse200) HasEligibility() bool {
+	if o != nil && !IsNil(o.Eligibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetEligibility gets a reference to the given MailRecipientEligibilitySummary and assigns it to the Eligibility field.
+func (o *MailPostCadenceRunsPreflightResponse200) SetEligibility(v MailRecipientEligibilitySummary) {
+	o.Eligibility = &v
 }
 
 // GetMissingVariables returns the MissingVariables field value
@@ -237,6 +270,9 @@ func (o MailPostCadenceRunsPreflightResponse200) ToMap() (map[string]interface{}
 	toSerialize["audienceCount"] = o.AudienceCount
 	toSerialize["cadenceId"] = o.CadenceId
 	toSerialize["cadenceVersion"] = o.CadenceVersion
+	if !IsNil(o.Eligibility) {
+		toSerialize["eligibility"] = o.Eligibility
+	}
 	toSerialize["missingVariables"] = o.MissingVariables
 	toSerialize["ready"] = o.Ready
 	toSerialize["requiredVariables"] = o.RequiredVariables
@@ -293,6 +329,7 @@ func (o *MailPostCadenceRunsPreflightResponse200) UnmarshalJSON(data []byte) (er
 		delete(additionalProperties, "audienceCount")
 		delete(additionalProperties, "cadenceId")
 		delete(additionalProperties, "cadenceVersion")
+		delete(additionalProperties, "eligibility")
 		delete(additionalProperties, "missingVariables")
 		delete(additionalProperties, "ready")
 		delete(additionalProperties, "requiredVariables")

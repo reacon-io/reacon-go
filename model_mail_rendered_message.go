@@ -20,6 +20,7 @@ var _ MappedNullable = &MailRenderedMessage{}
 
 // MailRenderedMessage struct for MailRenderedMessage
 type MailRenderedMessage struct {
+	Attachments []MailMailAttachmentReference `json:"attachments,omitempty"`
 	Html *string `json:"html,omitempty"`
 	Subject string `json:"subject"`
 	Text string `json:"text"`
@@ -45,6 +46,38 @@ func NewMailRenderedMessage(subject string, text string) *MailRenderedMessage {
 func NewMailRenderedMessageWithDefaults() *MailRenderedMessage {
 	this := MailRenderedMessage{}
 	return &this
+}
+
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
+func (o *MailRenderedMessage) GetAttachments() []MailMailAttachmentReference {
+	if o == nil || IsNil(o.Attachments) {
+		var ret []MailMailAttachmentReference
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailRenderedMessage) GetAttachmentsOk() ([]MailMailAttachmentReference, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *MailRenderedMessage) HasAttachments() bool {
+	if o != nil && !IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []MailMailAttachmentReference and assigns it to the Attachments field.
+func (o *MailRenderedMessage) SetAttachments(v []MailMailAttachmentReference) {
+	o.Attachments = v
 }
 
 // GetHtml returns the Html field value if set, zero value otherwise.
@@ -137,6 +170,9 @@ func (o MailRenderedMessage) MarshalJSON() ([]byte, error) {
 
 func (o MailRenderedMessage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Attachments) {
+		toSerialize["attachments"] = o.Attachments
+	}
 	if !IsNil(o.Html) {
 		toSerialize["html"] = o.Html
 	}
@@ -186,6 +222,7 @@ func (o *MailRenderedMessage) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attachments")
 		delete(additionalProperties, "html")
 		delete(additionalProperties, "subject")
 		delete(additionalProperties, "text")

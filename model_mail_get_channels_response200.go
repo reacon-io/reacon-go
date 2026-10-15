@@ -24,6 +24,7 @@ type MailGetChannelsResponse200 struct {
 	Execution MailGetChannelsResponse200Execution `json:"execution"`
 	Sms MailGetChannelsResponse200Sms `json:"sms"`
 	Whatsapp MailGetChannelsResponse200Whatsapp `json:"whatsapp"`
+	Worker MailMailExecutionWorkerStatus `json:"worker"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,12 +34,13 @@ type _MailGetChannelsResponse200 MailGetChannelsResponse200
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailGetChannelsResponse200(email MailGetChannelsResponse200Email, execution MailGetChannelsResponse200Execution, sms MailGetChannelsResponse200Sms, whatsapp MailGetChannelsResponse200Whatsapp) *MailGetChannelsResponse200 {
+func NewMailGetChannelsResponse200(email MailGetChannelsResponse200Email, execution MailGetChannelsResponse200Execution, sms MailGetChannelsResponse200Sms, whatsapp MailGetChannelsResponse200Whatsapp, worker MailMailExecutionWorkerStatus) *MailGetChannelsResponse200 {
 	this := MailGetChannelsResponse200{}
 	this.Email = email
 	this.Execution = execution
 	this.Sms = sms
 	this.Whatsapp = whatsapp
+	this.Worker = worker
 	return &this
 }
 
@@ -146,6 +148,30 @@ func (o *MailGetChannelsResponse200) SetWhatsapp(v MailGetChannelsResponse200Wha
 	o.Whatsapp = v
 }
 
+// GetWorker returns the Worker field value
+func (o *MailGetChannelsResponse200) GetWorker() MailMailExecutionWorkerStatus {
+	if o == nil {
+		var ret MailMailExecutionWorkerStatus
+		return ret
+	}
+
+	return o.Worker
+}
+
+// GetWorkerOk returns a tuple with the Worker field value
+// and a boolean to check if the value has been set.
+func (o *MailGetChannelsResponse200) GetWorkerOk() (*MailMailExecutionWorkerStatus, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Worker, true
+}
+
+// SetWorker sets field value
+func (o *MailGetChannelsResponse200) SetWorker(v MailMailExecutionWorkerStatus) {
+	o.Worker = v
+}
+
 func (o MailGetChannelsResponse200) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -160,6 +186,7 @@ func (o MailGetChannelsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize["execution"] = o.Execution
 	toSerialize["sms"] = o.Sms
 	toSerialize["whatsapp"] = o.Whatsapp
+	toSerialize["worker"] = o.Worker
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -177,6 +204,7 @@ func (o *MailGetChannelsResponse200) UnmarshalJSON(data []byte) (err error) {
 		"execution",
 		"sms",
 		"whatsapp",
+		"worker",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -210,6 +238,7 @@ func (o *MailGetChannelsResponse200) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "execution")
 		delete(additionalProperties, "sms")
 		delete(additionalProperties, "whatsapp")
+		delete(additionalProperties, "worker")
 		o.AdditionalProperties = additionalProperties
 	}
 

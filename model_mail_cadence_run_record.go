@@ -40,6 +40,7 @@ type MailCadenceRunRecord struct {
 	LeaseExpiresAt *time.Time `json:"leaseExpiresAt,omitempty"`
 	LeaseOwner *string `json:"leaseOwner,omitempty"`
 	MailboxId string `json:"mailboxId"`
+	MessageEditRevision *float32 `json:"messageEditRevision,omitempty"`
 	Outcome *string `json:"outcome,omitempty"`
 	PendingMessageId *string `json:"pendingMessageId,omitempty"`
 	PendingNextNodeId *string `json:"pendingNextNodeId,omitempty"`
@@ -605,6 +606,38 @@ func (o *MailCadenceRunRecord) SetMailboxId(v string) {
 	o.MailboxId = v
 }
 
+// GetMessageEditRevision returns the MessageEditRevision field value if set, zero value otherwise.
+func (o *MailCadenceRunRecord) GetMessageEditRevision() float32 {
+	if o == nil || IsNil(o.MessageEditRevision) {
+		var ret float32
+		return ret
+	}
+	return *o.MessageEditRevision
+}
+
+// GetMessageEditRevisionOk returns a tuple with the MessageEditRevision field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceRunRecord) GetMessageEditRevisionOk() (*float32, bool) {
+	if o == nil || IsNil(o.MessageEditRevision) {
+		return nil, false
+	}
+	return o.MessageEditRevision, true
+}
+
+// HasMessageEditRevision returns a boolean if a field has been set.
+func (o *MailCadenceRunRecord) HasMessageEditRevision() bool {
+	if o != nil && !IsNil(o.MessageEditRevision) {
+		return true
+	}
+
+	return false
+}
+
+// SetMessageEditRevision gets a reference to the given float32 and assigns it to the MessageEditRevision field.
+func (o *MailCadenceRunRecord) SetMessageEditRevision(v float32) {
+	o.MessageEditRevision = &v
+}
+
 // GetOutcome returns the Outcome field value if set, zero value otherwise.
 func (o *MailCadenceRunRecord) GetOutcome() string {
 	if o == nil || IsNil(o.Outcome) {
@@ -874,6 +907,9 @@ func (o MailCadenceRunRecord) ToMap() (map[string]interface{}, error) {
 		toSerialize["leaseOwner"] = o.LeaseOwner
 	}
 	toSerialize["mailboxId"] = o.MailboxId
+	if !IsNil(o.MessageEditRevision) {
+		toSerialize["messageEditRevision"] = o.MessageEditRevision
+	}
 	if !IsNil(o.Outcome) {
 		toSerialize["outcome"] = o.Outcome
 	}
@@ -966,6 +1002,7 @@ func (o *MailCadenceRunRecord) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "leaseExpiresAt")
 		delete(additionalProperties, "leaseOwner")
 		delete(additionalProperties, "mailboxId")
+		delete(additionalProperties, "messageEditRevision")
 		delete(additionalProperties, "outcome")
 		delete(additionalProperties, "pendingMessageId")
 		delete(additionalProperties, "pendingNextNodeId")

@@ -1866,6 +1866,17 @@ paths:
           - sequence_recipient_add
           - sequence_recipient_cancel
           - sequence_start
+          - mail_sequence_drafts_list
+          - mail_sequence_draft_save
+          - mail_sequence_add_audience
+          - mail_sequence_readiness
+          - mail_sequence_publish
+          - mail_sequence_launch
+          - mail_sequence_campaigns_list
+          - mail_sequence_recipients_list
+          - mail_sequence_add_ab
+          - mail_sequence_state
+          - mail_sequence_results
           - account_info
           - usage
           - usage_history
@@ -2375,6 +2386,142 @@ paths:
             responseTotal: output.total
           readOnly: true
           title: List leads
+        mail_sequence_add_ab:
+          catalogScope: campaigns:write
+          description: "Add a second variant to a future email without pausing the\
+            \ sequence. Prepared, accepted, uncertain and individually customized\
+            \ recipients retain their revision; unsubmitted future recipients use\
+            \ the immutable A/B revision. A reply follow-up inherits its subject when\
+            \ subject is empty. Busy workers require retrying the same idempotency\
+            \ key."
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceAddAbExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceAddAbInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceAddAbOutput"
+          readOnly: false
+          title: Add B to a running Mail sequence
+        mail_sequence_add_audience:
+          catalogScope: campaigns:write
+          description: Add an existing authorized audience through canonical bounded
+            enrollment; version and suppression guards apply.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceAddAudienceExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceAddAudienceInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceAddAudienceOutput"
+          readOnly: false
+          title: Add audience to Mail sequence
+        mail_sequence_campaigns_list:
+          catalogScope: campaigns:read
+          description: List actual canonical campaign identities and enrollment/execution
+            states.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceCampaignsListExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceCampaignsListInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceCampaignsListOutput"
+          readOnly: true
+          title: List Mail sequences in execution
+        mail_sequence_draft_save:
+          catalogScope: campaigns:write
+          description: Save an incomplete canonical email draft with revision comparison.
+            Never publishes or sends; recover an uncertain save by reading its resulting
+            revision.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceDraftSaveExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceDraftSaveInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceDraftSaveOutput"
+          readOnly: false
+          title: Save Mail draft
+        mail_sequence_drafts_list:
+          catalogScope: campaigns:read
+          description: List canonical shared workspace email drafts and their saved
+            revisions.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceDraftsListExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceDraftsListInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceDraftsListOutput"
+          readOnly: true
+          title: List Mail drafts
+        mail_sequence_launch:
+          catalogScope: campaigns:write
+          description: "Start canonical durable enrollment for a published Mail sequence.\
+            \ Sender readiness, suppression, quotas and reply stops apply."
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceLaunchExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceLaunchInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceLaunchOutput"
+          readOnly: false
+          title: Launch Mail sequence
+        mail_sequence_publish:
+          catalogScope: campaigns:write
+          description: Publish an immutable exact saved revision. Replay returns the
+            same publication; publication alone never sends.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequencePublishExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequencePublishInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequencePublishOutput"
+          readOnly: false
+          title: Publish Mail draft
+        mail_sequence_readiness:
+          catalogScope: campaigns:read
+          description: "Check the exact saved draft revision without sending, publishing\
+            \ or charging for verification."
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceReadinessExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceReadinessInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceReadinessOutput"
+          readOnly: true
+          title: Check Mail draft readiness
+        mail_sequence_recipients_list:
+          catalogScope: campaigns:read
+          description: Read a bounded page of actual Mail runs for one canonical campaign.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceRecipientsListExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceRecipientsListInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceRecipientsListOutput"
+          readOnly: true
+          title: List canonical sequence recipients
+        mail_sequence_results:
+          catalogScope: campaigns:read
+          description: Read canonical recipient outcomes; provider acceptance remains
+            distinct from final delivery.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceResultsExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceResultsInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceResultsOutput"
+          readOnly: true
+          title: Read Mail sequence results
+        mail_sequence_state:
+          catalogScope: campaigns:write
+          description: Apply a revision-checked canonical lifecycle command. Replay
+            cannot undo a later command; in-flight provider outcomes remain protected.
+          execution:
+            $ref: "#/components/schemas/ProductMailSequenceStateExecution"
+          input:
+            $ref: "#/components/schemas/ProductMailSequenceStateInput"
+          output:
+            $ref: "#/components/schemas/ProductMailSequenceStateOutput"
+          readOnly: false
+          title: "Pause, resume or cancel Mail sequence"
         person_enrich:
           catalogScope: product:read
           description: Return deterministic person enrichment for an email.
@@ -2388,8 +2535,9 @@ paths:
           title: Enrich person
         saved_searches_list:
           catalogScope: product:read
-          description: List deterministic saved Discover searches. The current implementation
-            always returns an empty items array.
+          description: "List deterministic saved Discover searches. Saved searches\
+            \ are not implemented on this surface: items is always empty and supported\
+            \ is false."
           execution:
             $ref: "#/components/schemas/ProductSavedSearchesListExecution"
           input:
@@ -2400,8 +2548,8 @@ paths:
           title: List saved searches
         sequence_recipient_add:
           catalogScope: campaigns:write
-          description: Add a recipient to an existing sequence. Returns an items array
-            with one recipient. Existing recipients are set back to scheduled.
+          description: "Add a recipient to an existing sequence. Replaced by canonical\
+            \ mail: always fails with LEGACY_SEQUENCE_OPERATION_REPLACED_USE_CANONICAL_MAIL."
           execution:
             $ref: "#/components/schemas/ProductSequenceRecipientAddExecution"
           input:
@@ -2412,7 +2560,8 @@ paths:
           title: Add sequence recipient
         sequence_recipient_cancel:
           catalogScope: campaigns:write
-          description: Cancel scheduled messages for one recipient.
+          description: "Cancel scheduled messages for one recipient. Replaced by canonical\
+            \ mail: always fails with LEGACY_SEQUENCE_OPERATION_REPLACED_USE_CANONICAL_MAIL."
           execution:
             $ref: "#/components/schemas/ProductSequenceRecipientCancelExecution"
           input:
@@ -2424,7 +2573,8 @@ paths:
         sequence_recipients_add:
           catalogScope: campaigns:write
           description: "Add one to 100 recipients to an existing sequence in one idempotent\
-            \ operation. Returns one item per supplied recipient, including repeats;\
+            \ operation. Replaced by canonical mail: always fails with LEGACY_SEQUENCE_OPERATION_REPLACED_USE_CANONICAL_MAIL.\
+            \ Previously: returns one item per supplied recipient, including repeats;\
             \ added is the number of returned items, not the number of newly inserted\
             \ rows. Existing recipients are set back to scheduled."
           execution:
@@ -2437,7 +2587,8 @@ paths:
           title: Add sequence recipients
         sequence_recipients_list:
           catalogScope: campaigns:read
-          description: List recipients for one sequence.
+          description: Read actual Mail runs; sequenceId is the canonical campaign
+            ID.
           execution:
             $ref: "#/components/schemas/ProductSequenceRecipientsListExecution"
           input:
@@ -2445,11 +2596,13 @@ paths:
           output:
             $ref: "#/components/schemas/ProductSequenceRecipientsListOutput"
           readOnly: true
-          title: List sequence recipients
+          title: List canonical sequence recipients
         sequence_start:
           catalogScope: campaigns:write
-          description: Activate a sequence. Marks the product sequence active and
-            records a canonical event; it does not confirm mail delivery.
+          description: "Launch an immutable Mail publication through canonical readiness\
+            \ and durable audience enrollment. Requires sender, audience and publication\
+            \ version; never toggles a legacy Active flag. Creates a canonical mail\
+            \ cadence campaign through the Mail API; it does not confirm mail delivery."
           execution:
             $ref: "#/components/schemas/ProductSequenceStartExecution"
           input:
@@ -2457,10 +2610,12 @@ paths:
           output:
             $ref: "#/components/schemas/ProductSequenceStartOutput"
           readOnly: false
-          title: Start sequence
+          title: Launch canonical sequence
         sequences_list:
           catalogScope: campaigns:read
-          description: List sequences available to the workspace.
+          description: "List sequences available to the workspace. Aggregates canonical\
+            \ mail drafts, cadences and campaigns; items repeats cadences for older\
+            \ clients."
           execution:
             $ref: "#/components/schemas/ProductSequencesListExecution"
           input:
@@ -11799,6 +11954,43 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          maxLength: 200
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - queued
+          - retry_scheduled
+          - sending
+          - provider_accepted
+          - delivered
+          - replied
+          - auto_replied
+          - bounced
+          - unsubscribed
+          - complained
+          - suppressed
+          - cancelled
+          - failed
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sequenceId
+        required: false
+        schema:
+          maxLength: 200
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -19590,6 +19782,7 @@ components:
       example:
         activatedAt: 2000-01-23T04:56:07.000+00:00
         actorId: actorId
+        archivedAt: 2000-01-23T04:56:07.000+00:00
         attemptCount: 0.8008281904610115
         audienceCount: 6.027456183070403
         audienceListId: audienceListId
@@ -19622,6 +19815,9 @@ components:
           format: date-time
           type: string
         actorId:
+          type: string
+        archivedAt:
+          format: date-time
           type: string
         attemptCount:
           type: number
@@ -19722,8 +19918,35 @@ components:
       type: object
     MailCadenceDefinition:
       example:
+        authoringRevision: 0.8008281904610115
         createdAt: 2000-01-23T04:56:07.000+00:00
         createdByActorId: createdByActorId
+        emailDelivery:
+          endMinute: 6.027456183070403
+          format: format
+          signature: signature
+          startMinute: 1.4658129805029452
+          timeZone: timeZone
+          trackClicks: true
+          trackOpens: true
+          unsubscribeText: unsubscribeText
+          verificationPolicy: verificationPolicy
+          weekdays:
+          - weekdays
+          - weekdays
+        emailExcludedContactIds:
+        - emailExcludedContactIds
+        - emailExcludedContactIds
+        emailRecipientOverrides:
+        - body: body
+          contactId: contactId
+          stepId: stepId
+          subject: subject
+        - body: body
+          contactId: contactId
+          stepId: stepId
+          subject: subject
+        emailRenderSeed: emailRenderSeed
         id: id
         name: name
         nodes:
@@ -19743,12 +19966,26 @@ components:
           positiveReply: positiveReply
           unknownHumanReply: unknownHumanReply
         tenantId: tenantId
-        version: 0.8008281904610115
+        version: 5.962133916683182
       properties:
+        authoringRevision:
+          type: number
         createdAt:
           format: date-time
           type: string
         createdByActorId:
+          type: string
+        emailDelivery:
+          $ref: "#/components/schemas/MailEmailSequenceDeliverySettings"
+        emailExcludedContactIds:
+          items:
+            type: string
+          type: array
+        emailRecipientOverrides:
+          items:
+            $ref: "#/components/schemas/MailEmailSequenceRecipientOverride"
+          type: array
+        emailRenderSeed:
           type: string
         id:
           type: string
@@ -19782,7 +20019,7 @@ components:
       type: object
     MailCadenceEnrollmentVariableGap:
       example:
-        contactCount: 1.4658129805029452
+        contactCount: 1.4894159098541704
         variable: variable
       properties:
         contactCount:
@@ -19946,6 +20183,7 @@ components:
         leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
         leaseOwner: leaseOwner
         mailboxId: mailboxId
+        messageEditRevision: 5.962133916683182
         outcome: outcome
         pendingMessageId: pendingMessageId
         pendingNextNodeId: pendingNextNodeId
@@ -19953,7 +20191,7 @@ components:
         taskId: taskId
         tenantId: tenantId
         updatedAt: 2000-01-23T04:56:07.000+00:00
-        version: 5.962133916683182
+        version: 5.637376656633329
       properties:
         actorId:
           type: string
@@ -19998,6 +20236,8 @@ components:
           type: string
         mailboxId:
           type: string
+        messageEditRevision:
+          type: number
         outcome:
           type: string
         pendingMessageId:
@@ -20480,6 +20720,9 @@ components:
         name: name
         tenantId: tenantId
         updatedAt: 2000-01-23T04:56:07.000+00:00
+        verification:
+          lastVerifiedAt: 2000-01-23T04:56:07.000+00:00
+          status: status
       properties:
         createdAt:
           format: date-time
@@ -20499,6 +20742,8 @@ components:
         updatedAt:
           format: date-time
           type: string
+        verification:
+          $ref: "#/components/schemas/MailContactRecord_verification"
       required:
       - createdAt
       - customFields
@@ -21006,6 +21251,108 @@ components:
       - checks
       - domain
       - status
+      type: object
+    MailEmailAssetReference:
+      example:
+        assetId: assetId
+        cid: cid
+        disposition: disposition
+      properties:
+        assetId:
+          type: string
+        cid:
+          type: string
+        disposition:
+          type: string
+          x-extensible-enum:
+          - attachment
+          - inline
+      required:
+      - assetId
+      - disposition
+      type: object
+    MailEmailSequenceDeliverySettings:
+      example:
+        endMinute: 6.027456183070403
+        format: format
+        signature: signature
+        startMinute: 1.4658129805029452
+        timeZone: timeZone
+        trackClicks: true
+        trackOpens: true
+        unsubscribeText: unsubscribeText
+        verificationPolicy: verificationPolicy
+        weekdays:
+        - weekdays
+        - weekdays
+      properties:
+        endMinute:
+          type: number
+        format:
+          type: string
+          x-extensible-enum:
+          - markdown
+          - text
+        signature:
+          type: string
+        startMinute:
+          type: number
+        timeZone:
+          type: string
+        trackClicks:
+          type: boolean
+        trackOpens:
+          type: boolean
+        unsubscribeText:
+          type: string
+        verificationPolicy:
+          type: string
+          x-extensible-enum:
+          - allow_unverified
+          - verified_only
+        weekdays:
+          items:
+            type: string
+            x-extensible-enum:
+            - fri
+            - mon
+            - sat
+            - sun
+            - thu
+            - tue
+            - wed
+          type: array
+      required:
+      - endMinute
+      - format
+      - signature
+      - startMinute
+      - timeZone
+      - trackClicks
+      - trackOpens
+      - unsubscribeText
+      - weekdays
+      type: object
+    MailEmailSequenceRecipientOverride:
+      example:
+        body: body
+        contactId: contactId
+        stepId: stepId
+        subject: subject
+      properties:
+        body:
+          type: string
+        contactId:
+          type: string
+        stepId:
+          type: string
+        subject:
+          type: string
+      required:
+      - body
+      - contactId
+      - stepId
+      - subject
       type: object
     MailEvidenceField:
       example:
@@ -21646,47 +21993,78 @@ components:
             mailboxId: mailboxId
             replied: 6.965117697638846
             total: 1.284659006116532
-          replyRate: 2.8841621266687802
+          recipients:
+            accepted: 2.8841621266687802
+            clicked: 6.778324963048013
+            clickRate: 6.878052220127876
+            clickTracked: 5.944895607614016
+            opened: 6.704019297950036
+            openRate: 3.353193347011243
+            openTracked: 3.0937452626664474
+            replied: 7.143538047012306
+            replyRate: 0.8851374739011653
+          replyRate: 7.058770351582356
+          sequences:
+          - accepted: 6.519180951018382
+            clicked: 0.10263654006109402
+            clickRate: 4.652396432933246
+            clickTracked: 8.969578798196912
+            opened: 7.740351818741173
+            openRate: 3.0205796992916243
+            openTracked: 3.0576100241049344
+            replied: 7.04836565559697
+            replyRate: 5.533258397034986
+            sequenceId: sequenceId
+          - accepted: 6.519180951018382
+            clicked: 0.10263654006109402
+            clickRate: 4.652396432933246
+            clickTracked: 8.969578798196912
+            opened: 7.740351818741173
+            openRate: 3.0205796992916243
+            openTracked: 3.0576100241049344
+            replied: 7.04836565559697
+            replyRate: 5.533258397034986
+            sequenceId: sequenceId
           to: 2000-01-23T04:56:07.000+00:00
-          total: 6.778324963048013
+          total: 3.2588565619047607
           variants:
-          - accepted: 6.878052220127876
-            bounced: 5.944895607614016
+          - accepted: 4.078845849666752
+            bounced: 0.2025324113236393
             campaignId: campaignId
-            complained: 6.704019297950036
+            complained: 6.628464275087742
             experimentId: experimentId
             experimentName: experimentName
-            replied: 3.353193347011243
+            replied: 4.258773108174356
             stepId: stepId
-            total: 3.0937452626664474
+            total: 1.041444916118296
             variantId: variantId
-          - accepted: 6.878052220127876
-            bounced: 5.944895607614016
+          - accepted: 4.078845849666752
+            bounced: 0.2025324113236393
             campaignId: campaignId
-            complained: 6.704019297950036
+            complained: 6.628464275087742
             experimentId: experimentId
             experimentName: experimentName
-            replied: 3.353193347011243
+            replied: 4.258773108174356
             stepId: stepId
-            total: 3.0937452626664474
+            total: 1.041444916118296
             variantId: variantId
         operational:
           cadenceSteps:
           - cadenceId: cadenceId
             eventType: eventType
             nodeId: nodeId
-            total: 7.143538047012306
+            total: 4.678947989005849
           - cadenceId: cadenceId
             eventType: eventType
             nodeId: nodeId
-            total: 7.143538047012306
+            total: 4.678947989005849
           replyLabels:
-            key: 0.8851374739011653
+            key: 7.260521264802104
           sampleLimited: true
           stages:
-            key: 7.058770351582356
+            key: 9.132027271330688
           taskOutcomes:
-            key: 6.519180951018382
+            key: 0.8774076871421566
       properties:
         messages:
           $ref: "#/components/schemas/MailMessageAnalyticsOverview"
@@ -21724,6 +22102,7 @@ components:
         results:
         - activatedAt: 2000-01-23T04:56:07.000+00:00
           actorId: actorId
+          archivedAt: 2000-01-23T04:56:07.000+00:00
           attemptCount: 0.8008281904610115
           audienceCount: 6.027456183070403
           audienceListId: audienceListId
@@ -21753,6 +22132,7 @@ components:
           version: 3.616076749251911
         - activatedAt: 2000-01-23T04:56:07.000+00:00
           actorId: actorId
+          archivedAt: 2000-01-23T04:56:07.000+00:00
           attemptCount: 0.8008281904610115
           audienceCount: 6.027456183070403
           audienceListId: audienceListId
@@ -21822,6 +22202,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -21829,7 +22210,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
         - actorId: actorId
           attemptCount: 0.8008281904610115
           audienceListId: audienceListId
@@ -21861,6 +22242,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -21868,7 +22250,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
       properties:
         results:
           items:
@@ -21880,8 +22262,35 @@ components:
     MailGetCadencesResponse200:
       example:
         results:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - authoringRevision: 0.8008281904610115
+          createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
+          emailDelivery:
+            endMinute: 6.027456183070403
+            format: format
+            signature: signature
+            startMinute: 1.4658129805029452
+            timeZone: timeZone
+            trackClicks: true
+            trackOpens: true
+            unsubscribeText: unsubscribeText
+            verificationPolicy: verificationPolicy
+            weekdays:
+            - weekdays
+            - weekdays
+          emailExcludedContactIds:
+          - emailExcludedContactIds
+          - emailExcludedContactIds
+          emailRecipientOverrides:
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          emailRenderSeed: emailRenderSeed
           id: id
           name: name
           nodes:
@@ -21901,9 +22310,36 @@ components:
             positiveReply: positiveReply
             unknownHumanReply: unknownHumanReply
           tenantId: tenantId
-          version: 0.8008281904610115
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+          version: 5.962133916683182
+        - authoringRevision: 0.8008281904610115
+          createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
+          emailDelivery:
+            endMinute: 6.027456183070403
+            format: format
+            signature: signature
+            startMinute: 1.4658129805029452
+            timeZone: timeZone
+            trackClicks: true
+            trackOpens: true
+            unsubscribeText: unsubscribeText
+            verificationPolicy: verificationPolicy
+            weekdays:
+            - weekdays
+            - weekdays
+          emailExcludedContactIds:
+          - emailExcludedContactIds
+          - emailExcludedContactIds
+          emailRecipientOverrides:
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          emailRenderSeed: emailRenderSeed
           id: id
           name: name
           nodes:
@@ -21923,7 +22359,7 @@ components:
             positiveReply: positiveReply
             unknownHumanReply: unknownHumanReply
           tenantId: tenantId
-          version: 0.8008281904610115
+          version: 5.962133916683182
       properties:
         results:
           items:
@@ -22311,6 +22747,12 @@ components:
           costCeilingRequired: true
           executionEnabled: true
           sequenceSupported: true
+        worker:
+          cadence: true
+          inbound: true
+          lastSeenAt: lastSeenAt
+          outbound: true
+          state: state
       properties:
         email:
           $ref: "#/components/schemas/MailGetChannelsResponse200_email"
@@ -22320,11 +22762,14 @@ components:
           $ref: "#/components/schemas/MailGetChannelsResponse200_sms"
         whatsapp:
           $ref: "#/components/schemas/MailGetChannelsResponse200_whatsapp"
+        worker:
+          $ref: "#/components/schemas/MailMailExecutionWorkerStatus"
       required:
       - email
       - execution
       - sms
       - whatsapp
+      - worker
       type: object
     MailGetCrmStatesResponse200:
       example:
@@ -23504,6 +23949,13 @@ components:
           providerMessageId: providerMessageId
           providerThreadId: providerThreadId
           rendered:
+            attachments:
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
             html: html
             subject: subject
             text: text
@@ -23588,6 +24040,13 @@ components:
           providerMessageId: providerMessageId
           providerThreadId: providerThreadId
           rendered:
+            attachments:
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
             html: html
             subject: subject
             text: text
@@ -23669,29 +24128,60 @@ components:
             mailboxId: mailboxId
             replied: 6.965117697638846
             total: 1.284659006116532
-          replyRate: 2.8841621266687802
+          recipients:
+            accepted: 2.8841621266687802
+            clicked: 6.778324963048013
+            clickRate: 6.878052220127876
+            clickTracked: 5.944895607614016
+            opened: 6.704019297950036
+            openRate: 3.353193347011243
+            openTracked: 3.0937452626664474
+            replied: 7.143538047012306
+            replyRate: 0.8851374739011653
+          replyRate: 7.058770351582356
+          sequences:
+          - accepted: 6.519180951018382
+            clicked: 0.10263654006109402
+            clickRate: 4.652396432933246
+            clickTracked: 8.969578798196912
+            opened: 7.740351818741173
+            openRate: 3.0205796992916243
+            openTracked: 3.0576100241049344
+            replied: 7.04836565559697
+            replyRate: 5.533258397034986
+            sequenceId: sequenceId
+          - accepted: 6.519180951018382
+            clicked: 0.10263654006109402
+            clickRate: 4.652396432933246
+            clickTracked: 8.969578798196912
+            opened: 7.740351818741173
+            openRate: 3.0205796992916243
+            openTracked: 3.0576100241049344
+            replied: 7.04836565559697
+            replyRate: 5.533258397034986
+            sequenceId: sequenceId
           to: 2000-01-23T04:56:07.000+00:00
-          total: 6.778324963048013
+          total: 3.2588565619047607
           variants:
-          - accepted: 6.878052220127876
-            bounced: 5.944895607614016
+          - accepted: 4.078845849666752
+            bounced: 0.2025324113236393
             campaignId: campaignId
-            complained: 6.704019297950036
+            complained: 6.628464275087742
             experimentId: experimentId
             experimentName: experimentName
-            replied: 3.353193347011243
+            replied: 4.258773108174356
             stepId: stepId
-            total: 3.0937452626664474
+            total: 1.041444916118296
             variantId: variantId
-          - accepted: 6.878052220127876
-            bounced: 5.944895607614016
+          - accepted: 4.078845849666752
+            bounced: 0.2025324113236393
             campaignId: campaignId
-            complained: 6.704019297950036
+            complained: 6.628464275087742
             experimentId: experimentId
             experimentName: experimentName
-            replied: 3.353193347011243
+            replied: 4.258773108174356
             stepId: stepId
-            total: 3.0937452626664474
+            total: 1.041444916118296
             variantId: variantId
         cadenceRuns:
         - actorId: actorId
@@ -23725,6 +24215,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -23732,7 +24223,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
         - actorId: actorId
           attemptCount: 0.8008281904610115
           audienceListId: audienceListId
@@ -23764,6 +24255,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -23771,7 +24263,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
         campaigns:
         - audienceListIds:
           - audienceListIds
@@ -24576,7 +25068,7 @@ components:
       properties:
         candidates:
           items:
-            $ref: "#/components/schemas/MailSignatureCandidate"
+            $ref: "#/components/schemas/MailGetSignaturesResponse200_candidates_inner"
           type: array
         nextCursor:
           type: string
@@ -24609,7 +25101,14 @@ components:
     MailGetTemplatesResponse200:
       example:
         results:
-        - body: body
+        - attachments:
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          body: body
           channel: channel
           createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
@@ -24627,7 +25126,14 @@ components:
             id: id
             language: language
             templateName: templateName
-        - body: body
+        - attachments:
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          body: body
           channel: channel
           createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
@@ -24874,6 +25380,25 @@ components:
           type: string
       required:
       - email
+      type: object
+    MailMailAttachmentReference:
+      example:
+        assetId: assetId
+        cid: cid
+        disposition: disposition
+      properties:
+        assetId:
+          type: string
+        cid:
+          type: string
+        disposition:
+          type: string
+          x-extensible-enum:
+          - attachment
+          - inline
+      required:
+      - assetId
+      - disposition
       type: object
     MailMailboxConnectionRecord:
       example:
@@ -25178,6 +25703,34 @@ components:
       - tenantId
       - updatedAt
       type: object
+    MailMailExecutionWorkerStatus:
+      example:
+        cadence: true
+        inbound: true
+        lastSeenAt: lastSeenAt
+        outbound: true
+        state: state
+      properties:
+        cadence:
+          type: boolean
+        inbound:
+          type: boolean
+        lastSeenAt:
+          type: string
+        outbound:
+          type: boolean
+        state:
+          type: string
+          x-extensible-enum:
+          - offline
+          - recent
+          - unknown
+      required:
+      - cadence
+      - inbound
+      - outbound
+      - state
+      type: object
     MailMailPortfolio:
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
@@ -25380,29 +25933,60 @@ components:
           mailboxId: mailboxId
           replied: 6.965117697638846
           total: 1.284659006116532
-        replyRate: 2.8841621266687802
+        recipients:
+          accepted: 2.8841621266687802
+          clicked: 6.778324963048013
+          clickRate: 6.878052220127876
+          clickTracked: 5.944895607614016
+          opened: 6.704019297950036
+          openRate: 3.353193347011243
+          openTracked: 3.0937452626664474
+          replied: 7.143538047012306
+          replyRate: 0.8851374739011653
+        replyRate: 7.058770351582356
+        sequences:
+        - accepted: 6.519180951018382
+          clicked: 0.10263654006109402
+          clickRate: 4.652396432933246
+          clickTracked: 8.969578798196912
+          opened: 7.740351818741173
+          openRate: 3.0205796992916243
+          openTracked: 3.0576100241049344
+          replied: 7.04836565559697
+          replyRate: 5.533258397034986
+          sequenceId: sequenceId
+        - accepted: 6.519180951018382
+          clicked: 0.10263654006109402
+          clickRate: 4.652396432933246
+          clickTracked: 8.969578798196912
+          opened: 7.740351818741173
+          openRate: 3.0205796992916243
+          openTracked: 3.0576100241049344
+          replied: 7.04836565559697
+          replyRate: 5.533258397034986
+          sequenceId: sequenceId
         to: 2000-01-23T04:56:07.000+00:00
-        total: 6.778324963048013
+        total: 3.2588565619047607
         variants:
-        - accepted: 6.878052220127876
-          bounced: 5.944895607614016
+        - accepted: 4.078845849666752
+          bounced: 0.2025324113236393
           campaignId: campaignId
-          complained: 6.704019297950036
+          complained: 6.628464275087742
           experimentId: experimentId
           experimentName: experimentName
-          replied: 3.353193347011243
+          replied: 4.258773108174356
           stepId: stepId
-          total: 3.0937452626664474
+          total: 1.041444916118296
           variantId: variantId
-        - accepted: 6.878052220127876
-          bounced: 5.944895607614016
+        - accepted: 4.078845849666752
+          bounced: 0.2025324113236393
           campaignId: campaignId
-          complained: 6.704019297950036
+          complained: 6.628464275087742
           experimentId: experimentId
           experimentName: experimentName
-          replied: 3.353193347011243
+          replied: 4.258773108174356
           stepId: stepId
-          total: 3.0937452626664474
+          total: 1.041444916118296
           variantId: variantId
       properties:
         acceptanceRate:
@@ -25429,8 +26013,15 @@ components:
           items:
             $ref: "#/components/schemas/MailMessageAnalyticsOverview_mailboxes_inner"
           type: array
+        recipients:
+          $ref: "#/components/schemas/MailRecipientEngagement"
         replyRate:
+          description: "Legacy message-based rate, retained for API compatibility."
           type: number
+        sequences:
+          items:
+            $ref: "#/components/schemas/MailSequenceRecipientEngagement"
+          type: array
         to:
           format: date-time
           type: string
@@ -25651,6 +26242,13 @@ components:
         providerMessageId: providerMessageId
         providerThreadId: providerThreadId
         rendered:
+          attachments:
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
           html: html
           subject: subject
           text: text
@@ -25779,6 +26377,13 @@ components:
       type: object
     MailMessageTemplateVersion:
       example:
+        attachments:
+        - assetId: assetId
+          cid: cid
+          disposition: disposition
+        - assetId: assetId
+          cid: cid
+          disposition: disposition
         body: body
         channel: channel
         createdAt: 2000-01-23T04:56:07.000+00:00
@@ -25798,6 +26403,10 @@ components:
           language: language
           templateName: templateName
       properties:
+        attachments:
+          items:
+            $ref: "#/components/schemas/MailEmailAssetReference"
+          type: array
         body:
           type: string
         channel:
@@ -25880,18 +26489,18 @@ components:
         - cadenceId: cadenceId
           eventType: eventType
           nodeId: nodeId
-          total: 7.143538047012306
+          total: 4.678947989005849
         - cadenceId: cadenceId
           eventType: eventType
           nodeId: nodeId
-          total: 7.143538047012306
+          total: 4.678947989005849
         replyLabels:
-          key: 0.8851374739011653
+          key: 7.260521264802104
         sampleLimited: true
         stages:
-          key: 7.058770351582356
+          key: 9.132027271330688
         taskOutcomes:
-          key: 6.519180951018382
+          key: 0.8774076871421566
       properties:
         cadenceSteps:
           items:
@@ -26573,6 +27182,7 @@ components:
         campaign:
           activatedAt: 2000-01-23T04:56:07.000+00:00
           actorId: actorId
+          archivedAt: 2000-01-23T04:56:07.000+00:00
           attemptCount: 0.8008281904610115
           audienceCount: 6.027456183070403
           audienceListId: audienceListId
@@ -26654,6 +27264,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -26661,7 +27272,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
       properties:
         run:
           $ref: "#/components/schemas/MailCadenceRunRecord"
@@ -26702,7 +27313,7 @@ components:
             maxLength: 200
             minLength: 1
             type: string
-          maxItems: 500
+          maxItems: 15000
           minItems: 1
           type: array
         mailboxId:
@@ -26722,16 +27333,31 @@ components:
         audienceCount: 0.8008281904610115
         cadenceId: cadenceId
         cadenceVersion: 6.027456183070403
+        eligibility:
+          alreadyEnrolled: 1.4658129805029452
+          eligible: 5.962133916683182
+          excluded: 5.637376656633329
+          excludedFromDraft: 2.3021358869347655
+          exclusions:
+            do_not_contact: 7.061401241503109
+            invalid_address: 9.301444243932576
+            suppressed: 3.616076749251911
+            verification_required: 2.027123023002322
+          missingAttributes: 4.145608029883936
+          verification:
+            freshValid: 7.386281948385884
+            invalid: 1.2315135367772556
+            unknownOrStale: 1.0246457001441578
         missingVariables:
-        - contactCount: 1.4658129805029452
+        - contactCount: 1.4894159098541704
           variable: variable
-        - contactCount: 1.4658129805029452
+        - contactCount: 1.4894159098541704
           variable: variable
         ready: true
         requiredVariables:
         - requiredVariables
         - requiredVariables
-        senderCount: 5.962133916683182
+        senderCount: 6.84685269835264
       properties:
         audienceCount:
           type: number
@@ -26739,6 +27365,8 @@ components:
           type: string
         cadenceVersion:
           type: number
+        eligibility:
+          $ref: "#/components/schemas/MailRecipientEligibilitySummary"
         missingVariables:
           items:
             $ref: "#/components/schemas/MailCadenceEnrollmentVariableGap"
@@ -26807,7 +27435,7 @@ components:
             maxLength: 200
             minLength: 1
             type: string
-          maxItems: 500
+          maxItems: 15000
           minItems: 1
           type: array
         enrollmentMode:
@@ -26870,6 +27498,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -26877,7 +27506,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
         - actorId: actorId
           attemptCount: 0.8008281904610115
           audienceListId: audienceListId
@@ -26909,6 +27538,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -26916,7 +27546,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
       properties:
         runs:
           items:
@@ -26946,8 +27576,35 @@ components:
     MailPostCadencesByCadenceIdCopyResponse200:
       example:
         cadence:
+          authoringRevision: 0.8008281904610115
           createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
+          emailDelivery:
+            endMinute: 6.027456183070403
+            format: format
+            signature: signature
+            startMinute: 1.4658129805029452
+            timeZone: timeZone
+            trackClicks: true
+            trackOpens: true
+            unsubscribeText: unsubscribeText
+            verificationPolicy: verificationPolicy
+            weekdays:
+            - weekdays
+            - weekdays
+          emailExcludedContactIds:
+          - emailExcludedContactIds
+          - emailExcludedContactIds
+          emailRecipientOverrides:
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          emailRenderSeed: emailRenderSeed
           id: id
           name: name
           nodes:
@@ -26967,10 +27624,17 @@ components:
             positiveReply: positiveReply
             unknownHumanReply: unknownHumanReply
           tenantId: tenantId
-          version: 0.8008281904610115
+          version: 5.962133916683182
         requiresReview: true
         templates:
-        - body: body
+        - attachments:
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          body: body
           channel: channel
           createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
@@ -26988,7 +27652,14 @@ components:
             id: id
             language: language
             templateName: templateName
-        - body: body
+        - attachments:
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          body: body
           channel: channel
           createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
@@ -27023,6 +27694,33 @@ components:
     MailPostCadencesRequest:
       additionalProperties: false
       example:
+        emailExcludedContactIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        emailRecipientOverrides:
+        - body: body
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          stepId: stepId
+          subject: subject
+        - body: body
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          stepId: stepId
+          subject: subject
+        - body: body
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          stepId: stepId
+          subject: subject
+        - body: body
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          stepId: stepId
+          subject: subject
+        - body: body
+          contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          stepId: stepId
+          subject: subject
         id: id
         name: name
         nodes:
@@ -27054,6 +27752,17 @@ components:
           positiveReply: stop
           unknownHumanReply: stop
       properties:
+        emailExcludedContactIds:
+          items:
+            format: uuid
+            type: string
+          maxItems: 15000
+          type: array
+        emailRecipientOverrides:
+          items:
+            $ref: "#/components/schemas/MailPostCadencesRequest_emailRecipientOverrides_inner"
+          maxItems: 500
+          type: array
         id:
           maxLength: 200
           minLength: 1
@@ -27084,8 +27793,35 @@ components:
     MailPostCadencesResponse200:
       example:
         cadence:
+          authoringRevision: 0.8008281904610115
           createdAt: 2000-01-23T04:56:07.000+00:00
           createdByActorId: createdByActorId
+          emailDelivery:
+            endMinute: 6.027456183070403
+            format: format
+            signature: signature
+            startMinute: 1.4658129805029452
+            timeZone: timeZone
+            trackClicks: true
+            trackOpens: true
+            unsubscribeText: unsubscribeText
+            verificationPolicy: verificationPolicy
+            weekdays:
+            - weekdays
+            - weekdays
+          emailExcludedContactIds:
+          - emailExcludedContactIds
+          - emailExcludedContactIds
+          emailRecipientOverrides:
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          - body: body
+            contactId: contactId
+            stepId: stepId
+            subject: subject
+          emailRenderSeed: emailRenderSeed
           id: id
           name: name
           nodes:
@@ -27105,7 +27841,7 @@ components:
             positiveReply: positiveReply
             unknownHumanReply: unknownHumanReply
           tenantId: tenantId
-          version: 0.8008281904610115
+          version: 5.962133916683182
       properties:
         cadence:
           $ref: "#/components/schemas/MailCadenceDefinition"
@@ -27904,6 +28640,9 @@ components:
           name: name
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
+          verification:
+            lastVerifiedAt: 2000-01-23T04:56:07.000+00:00
+            status: status
         - createdAt: 2000-01-23T04:56:07.000+00:00
           customFields:
             key: customFields
@@ -27912,6 +28651,9 @@ components:
           name: name
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
+          verification:
+            lastVerifiedAt: 2000-01-23T04:56:07.000+00:00
+            status: status
       properties:
         results:
           items:
@@ -28566,12 +29308,17 @@ components:
       additionalProperties: false
       example:
         clientRequestId: clientRequestId
+        draftRevision: 0
         text: text
       properties:
         clientRequestId:
           maxLength: 200
           minLength: 8
           type: string
+        draftRevision:
+          exclusiveMinimum: true
+          minimum: 0
+          type: integer
         text:
           maxLength: 200000
           minLength: 1
@@ -28648,6 +29395,13 @@ components:
           providerMessageId: providerMessageId
           providerThreadId: providerThreadId
           rendered:
+            attachments:
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
             html: html
             subject: subject
             text: text
@@ -28940,6 +29694,13 @@ components:
           providerMessageId: providerMessageId
           providerThreadId: providerThreadId
           rendered:
+            attachments:
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
             html: html
             subject: subject
             text: text
@@ -29033,6 +29794,13 @@ components:
           providerMessageId: providerMessageId
           providerThreadId: providerThreadId
           rendered:
+            attachments:
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
             html: html
             subject: subject
             text: text
@@ -29172,6 +29940,13 @@ components:
           providerMessageId: providerMessageId
           providerThreadId: providerThreadId
           rendered:
+            attachments:
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
+            - assetId: assetId
+              cid: cid
+              disposition: disposition
             html: html
             subject: subject
             text: text
@@ -29507,6 +30282,13 @@ components:
     MailPostTemplatesByTemplateIdCopyResponse200:
       example:
         template:
+          attachments:
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
           body: body
           channel: channel
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -29585,6 +30367,13 @@ components:
     MailPostTemplatesResponse200:
       example:
         template:
+          attachments:
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
+          - assetId: assetId
+            cid: cid
+            disposition: disposition
           body: body
           channel: channel
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -30017,12 +30806,109 @@ components:
       - maxAccepted
       - windowMs
       type: object
+    MailRecipientEligibilitySummary:
+      example:
+        alreadyEnrolled: 1.4658129805029452
+        eligible: 5.962133916683182
+        excluded: 5.637376656633329
+        excludedFromDraft: 2.3021358869347655
+        exclusions:
+          do_not_contact: 7.061401241503109
+          invalid_address: 9.301444243932576
+          suppressed: 3.616076749251911
+          verification_required: 2.027123023002322
+        missingAttributes: 4.145608029883936
+        verification:
+          freshValid: 7.386281948385884
+          invalid: 1.2315135367772556
+          unknownOrStale: 1.0246457001441578
+      properties:
+        alreadyEnrolled:
+          type: number
+        eligible:
+          type: number
+        excluded:
+          type: number
+        excludedFromDraft:
+          type: number
+        exclusions:
+          $ref: "#/components/schemas/MailRecipientEligibilitySummary_exclusions"
+        missingAttributes:
+          type: number
+        verification:
+          $ref: "#/components/schemas/MailRecipientEligibilitySummary_verification"
+      required:
+      - alreadyEnrolled
+      - eligible
+      - excluded
+      - excludedFromDraft
+      - exclusions
+      - missingAttributes
+      - verification
+      type: object
+    MailRecipientEngagement:
+      example:
+        accepted: 2.8841621266687802
+        clicked: 6.778324963048013
+        clickRate: 6.878052220127876
+        clickTracked: 5.944895607614016
+        opened: 6.704019297950036
+        openRate: 3.353193347011243
+        openTracked: 3.0937452626664474
+        replied: 7.143538047012306
+        replyRate: 0.8851374739011653
+      properties:
+        accepted:
+          description: Normalized email identities with an accepted message created
+            in the report interval.
+          type: number
+        clicked:
+          type: number
+        clickRate:
+          nullable: true
+          type: number
+        clickTracked:
+          type: number
+        opened:
+          type: number
+        openRate:
+          nullable: true
+          type: number
+        openTracked:
+          type: number
+        replied:
+          type: number
+        replyRate:
+          nullable: true
+          type: number
+      required:
+      - accepted
+      - clickRate
+      - clickTracked
+      - clicked
+      - openRate
+      - openTracked
+      - opened
+      - replied
+      - replyRate
+      type: object
     MailRenderedMessage:
       example:
+        attachments:
+        - assetId: assetId
+          cid: cid
+          disposition: disposition
+        - assetId: assetId
+          cid: cid
+          disposition: disposition
         html: html
         subject: subject
         text: text
       properties:
+        attachments:
+          items:
+            $ref: "#/components/schemas/MailMailAttachmentReference"
+          type: array
         html:
           type: string
         subject:
@@ -30162,6 +31048,56 @@ components:
       - startMinute
       - weekdays
       type: object
+    MailSequenceRecipientEngagement:
+      example:
+        accepted: 6.519180951018382
+        clicked: 0.10263654006109402
+        clickRate: 4.652396432933246
+        clickTracked: 8.969578798196912
+        opened: 7.740351818741173
+        openRate: 3.0205796992916243
+        openTracked: 3.0576100241049344
+        replied: 7.04836565559697
+        replyRate: 5.533258397034986
+        sequenceId: sequenceId
+      properties:
+        accepted:
+          description: Normalized email identities with an accepted message created
+            in the report interval.
+          type: number
+        clicked:
+          type: number
+        clickRate:
+          nullable: true
+          type: number
+        clickTracked:
+          type: number
+        opened:
+          type: number
+        openRate:
+          nullable: true
+          type: number
+        openTracked:
+          type: number
+        replied:
+          type: number
+        replyRate:
+          nullable: true
+          type: number
+        sequenceId:
+          type: string
+      required:
+      - accepted
+      - clickRate
+      - clickTracked
+      - clicked
+      - openRate
+      - openTracked
+      - opened
+      - replied
+      - replyRate
+      - sequenceId
+      type: object
     MailSequenceRunRecord:
       example:
         campaignId: campaignId
@@ -30221,153 +31157,6 @@ components:
       - status
       - tenantId
       - updatedAt
-      type: object
-    MailSignatureCandidate:
-      example:
-        confidence: 0.8008281904610115
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        extractorVersion: extractorVersion
-        fields:
-          address:
-            confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          company:
-            confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          emails:
-          - confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          - confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          jobTitle:
-            confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          personName:
-            confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          phones:
-          - confidence: 5.637376656633329
-            method: method
-            normalizedValue:
-              label: label
-              normalized: normalized
-              raw: raw
-            sourceEnd: 2.3021358869347655
-            sourceStart: 7.061401241503109
-            value:
-              label: label
-              normalized: normalized
-              raw: raw
-          - confidence: 5.637376656633329
-            method: method
-            normalizedValue:
-              label: label
-              normalized: normalized
-              raw: raw
-            sourceEnd: 2.3021358869347655
-            sourceStart: 7.061401241503109
-            value:
-              label: label
-              normalized: normalized
-              raw: raw
-          socialProfiles:
-          - confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          - confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          websites:
-          - confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-          - confidence: 6.027456183070403
-            method: method
-            normalizedValue: normalizedValue
-            sourceEnd: 1.4658129805029452
-            sourceStart: 5.962133916683182
-            value: value
-        id: id
-        signatureFingerprint: signatureFingerprint
-        signatureText: signatureText
-        signatureTextHash: signatureTextHash
-        sourceMessageId: sourceMessageId
-        status: status
-        tenantId: tenantId
-      properties:
-        confidence:
-          type: number
-        createdAt:
-          format: date-time
-          type: string
-        extractorVersion:
-          type: string
-        fields:
-          $ref: "#/components/schemas/MailSignatureCandidate_fields"
-        id:
-          type: string
-        signatureFingerprint:
-          type: string
-        signatureText:
-          type: string
-        signatureTextHash:
-          type: string
-        sourceMessageId:
-          type: string
-        status:
-          type: string
-          x-extensible-enum:
-          - approved
-          - candidate
-          - merged
-          - rejected
-        tenantId:
-          type: string
-      required:
-      - confidence
-      - createdAt
-      - extractorVersion
-      - fields
-      - id
-      - signatureFingerprint
-      - signatureText
-      - signatureTextHash
-      - sourceMessageId
-      - status
-      - tenantId
       type: object
     MailStoredImapSettings:
       example:
@@ -32171,37 +32960,6 @@ components:
       required:
       - items
       type: object
-    ProductDatedRecipient:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        email:
-          type: string
-        id:
-          format: uuid
-          type: string
-        leadId:
-          format: uuid
-          nullable: true
-          type: string
-        sequenceId:
-          format: uuid
-          type: string
-        status:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - createdAt
-      - email
-      - id
-      - leadId
-      - sequenceId
-      - status
-      - updatedAt
-      type: object
     ProductDiscoverCompaniesExecution:
       properties:
         executionId:
@@ -33432,6 +34190,579 @@ components:
       - updatedAt
       - verificationStatus
       type: object
+    ProductMailSequenceAddAbExecution:
+      properties:
+        executionId:
+          format: uuid
+          type: string
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_add_ab
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceAddAbInput:
+      additionalProperties: false
+      properties:
+        aWeight:
+          maximum: 99
+          minimum: 1
+          type: integer
+        campaignId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        expectedVersion:
+          exclusiveMinimum: true
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+        idempotencyKey:
+          maxLength: 200
+          minLength: 16
+          type: string
+        stepId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        variantB:
+          $ref: "#/components/schemas/ProductMailSequenceAddAbInput_variantB"
+      required:
+      - aWeight
+      - campaignId
+      - expectedVersion
+      - idempotencyKey
+      - stepId
+      - variantB
+      type: object
+    ProductMailSequenceAddAbOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceAddAudienceExecution:
+      properties:
+        executionId:
+          format: uuid
+          type: string
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_add_audience
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceAddAudienceInput:
+      additionalProperties: false
+      properties:
+        audienceListId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        campaignId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        expectedVersion:
+          exclusiveMinimum: true
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+        idempotencyKey:
+          maxLength: 200
+          minLength: 16
+          type: string
+      required:
+      - audienceListId
+      - campaignId
+      - expectedVersion
+      - idempotencyKey
+      type: object
+    ProductMailSequenceAddAudienceOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceCampaignsListExecution:
+      properties:
+        executionId:
+          not:
+            type: string
+          nullable: true
+          type: string
+          x-reacon-null-only: true
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-campaigns,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_campaigns_list
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceCampaignsListInput:
+      additionalProperties: false
+      properties: {}
+      type: object
+    ProductMailSequenceCampaignsListOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-campaigns,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceDraftSaveExecution:
+      properties:
+        executionId:
+          format: uuid
+          type: string
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/sequence-drafts,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_draft_save
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceDraftSaveInput:
+      additionalProperties: false
+      properties:
+        content:
+          additionalProperties: {}
+          type: object
+        expectedRevision:
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+        id:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        idempotencyKey:
+          maxLength: 200
+          minLength: 16
+          type: string
+        status:
+          enum:
+          - draft
+          type: string
+      required:
+      - content
+      - expectedRevision
+      - id
+      - idempotencyKey
+      - status
+      type: object
+    ProductMailSequenceDraftSaveOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/sequence-drafts,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceDraftsListExecution:
+      properties:
+        executionId:
+          not:
+            type: string
+          nullable: true
+          type: string
+          x-reacon-null-only: true
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/sequence-drafts,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_drafts_list
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceDraftsListInput:
+      additionalProperties: false
+      properties: {}
+      type: object
+    ProductMailSequenceDraftsListOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/sequence-drafts,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceLaunchExecution:
+      properties:
+        executionId:
+          format: uuid
+          type: string
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_launch
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceLaunchInput:
+      additionalProperties: false
+      properties:
+        audienceListId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        cadenceId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        cadenceVersion:
+          exclusiveMinimum: true
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+        enrollmentMode:
+          default: new_only
+          enum:
+          - new_only
+          - reenroll
+          type: string
+        idempotencyKey:
+          maxLength: 200
+          minLength: 16
+          type: string
+        mailboxId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        mailboxPoolId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        name:
+          description: "The server applies trim before validating {\"type\":\"string\"\
+            ,\"minLength\":1,\"maxLength\":200}."
+          type: string
+          x-reacon-normalized-input:
+            schema:
+              maxLength: 200
+              minLength: 1
+              type: string
+            transforms:
+            - trim
+        scheduledAt:
+          format: date-time
+          type: string
+      required:
+      - audienceListId
+      - cadenceId
+      - cadenceVersion
+      - idempotencyKey
+      - name
+      type: object
+    ProductMailSequenceLaunchOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequencePublishExecution:
+      properties:
+        executionId:
+          format: uuid
+          type: string
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/sequence-drafts/{draftId}/publish,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_publish
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequencePublishInput:
+      additionalProperties: false
+      properties:
+        draftId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        expectedRevision:
+          exclusiveMinimum: true
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+        idempotencyKey:
+          maxLength: 200
+          minLength: 16
+          type: string
+      required:
+      - draftId
+      - expectedRevision
+      - idempotencyKey
+      type: object
+    ProductMailSequencePublishOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/sequence-drafts/{draftId}/publish,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceReadinessExecution:
+      properties:
+        executionId:
+          not:
+            type: string
+          nullable: true
+          type: string
+          x-reacon-null-only: true
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/sequence-drafts/{draftId}/readiness,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_readiness
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceReadinessInput:
+      additionalProperties: false
+      properties:
+        draftId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        expectedRevision:
+          exclusiveMinimum: true
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+      required:
+      - draftId
+      - expectedRevision
+      type: object
+    ProductMailSequenceReadinessOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/sequence-drafts/{draftId}/readiness,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceRecipientsListExecution:
+      properties:
+        executionId:
+          not:
+            type: string
+          nullable: true
+          type: string
+          x-reacon-null-only: true
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_recipients_list
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceRecipientsListInput:
+      additionalProperties: false
+      properties:
+        campaignId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        limit:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        offset:
+          default: 0
+          maximum: 10000
+          minimum: 0
+          type: integer
+      required:
+      - campaignId
+      type: object
+    ProductMailSequenceRecipientsListOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceResultsExecution:
+      properties:
+        executionId:
+          not:
+            type: string
+          nullable: true
+          type: string
+          x-reacon-null-only: true
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/results,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_results
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceResultsInput:
+      additionalProperties: false
+      properties:
+        campaignId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+      required:
+      - campaignId
+      type: object
+    ProductMailSequenceResultsOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/results,\
+        \ returned unchanged."
+      type: object
+    ProductMailSequenceStateExecution:
+      properties:
+        executionId:
+          format: uuid
+          type: string
+        output:
+          additionalProperties: true
+          description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage,\
+            \ returned unchanged."
+          type: object
+        replay:
+          type: boolean
+        tool:
+          enum:
+          - mail_sequence_state
+          type: string
+      required:
+      - executionId
+      - output
+      - replay
+      - tool
+      type: object
+    ProductMailSequenceStateInput:
+      additionalProperties: false
+      properties:
+        action:
+          enum:
+          - pause
+          - resume
+          - cancel
+          type: string
+        campaignId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        expectedVersion:
+          exclusiveMinimum: true
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+        idempotencyKey:
+          maxLength: 200
+          minLength: 16
+          type: string
+      required:
+      - action
+      - campaignId
+      - expectedVersion
+      - idempotencyKey
+      type: object
+    ProductMailSequenceStateOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage,\
+        \ returned unchanged."
+      type: object
     ProductNamedResource:
       properties:
         createdAt:
@@ -33617,33 +34948,14 @@ components:
             type: object
           maxItems: 0
           type: array
+        reason:
+          type: string
+        supported:
+          type: boolean
       required:
       - items
-      type: object
-    ProductSequence:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        id:
-          format: uuid
-          type: string
-        name:
-          type: string
-        recipientCount:
-          type: integer
-        status:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - createdAt
-      - id
-      - name
-      - recipientCount
-      - status
-      - updatedAt
+      - reason
+      - supported
       type: object
     ProductSequenceRecipientAddExecution:
       properties:
@@ -33800,7 +35112,10 @@ components:
           type: string
           x-reacon-null-only: true
         output:
-          $ref: "#/components/schemas/ProductSequenceRecipientsListOutput"
+          additionalProperties: true
+          description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients,\
+            \ returned unchanged."
+          type: object
         replay:
           type: boolean
         tool:
@@ -33816,21 +35131,28 @@ components:
     ProductSequenceRecipientsListInput:
       additionalProperties: false
       properties:
+        limit:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        offset:
+          default: 0
+          maximum: 10000
+          minimum: 0
+          type: integer
         sequenceId:
-          format: uuid
-          pattern: "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
           type: string
       required:
       - sequenceId
       type: object
     ProductSequenceRecipientsListOutput:
-      properties:
-        items:
-          items:
-            $ref: "#/components/schemas/ProductDatedRecipient"
-          type: array
-      required:
-      - items
+      additionalProperties: true
+      description: "Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients,\
+        \ returned unchanged."
       type: object
     ProductSequencesListExecution:
       properties:
@@ -33860,12 +35182,36 @@ components:
       type: object
     ProductSequencesListOutput:
       properties:
+        cadences:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+        campaigns:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+        drafts:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
         items:
           items:
-            $ref: "#/components/schemas/ProductSequence"
+            additionalProperties: true
+            type: object
           type: array
+        source:
+          enum:
+          - canonical_mail
+          type: string
       required:
+      - cadences
+      - campaigns
+      - drafts
       - items
+      - source
       type: object
     ProductSequenceStartExecution:
       properties:
@@ -33873,7 +35219,10 @@ components:
           format: uuid
           type: string
         output:
-          $ref: "#/components/schemas/ProductSequenceStartOutput"
+          additionalProperties: true
+          description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns,\
+            \ returned unchanged."
+          type: object
         replay:
           type: boolean
         tool:
@@ -33889,31 +35238,66 @@ components:
     ProductSequenceStartInput:
       additionalProperties: false
       properties:
+        audienceListId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        cadenceId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
+          type: string
+        cadenceVersion:
+          exclusiveMinimum: true
+          maximum: 9007199254740991
+          minimum: 0
+          type: integer
+        enrollmentMode:
+          default: new_only
+          enum:
+          - new_only
+          - reenroll
+          type: string
         idempotencyKey:
           maxLength: 200
           minLength: 16
           type: string
-        sequenceId:
-          format: uuid
-          pattern: "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        mailboxId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
           type: string
-      required:
-      - idempotencyKey
-      - sequenceId
-      type: object
-    ProductSequenceStartOutput:
-      properties:
-        id:
-          format: uuid
+        mailboxPoolId:
+          maxLength: 200
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_-]+$"
           type: string
         name:
+          description: "The server applies trim before validating {\"type\":\"string\"\
+            ,\"minLength\":1,\"maxLength\":200}."
           type: string
-        status:
+          x-reacon-normalized-input:
+            schema:
+              maxLength: 200
+              minLength: 1
+              type: string
+            transforms:
+            - trim
+        scheduledAt:
+          format: date-time
           type: string
       required:
-      - id
+      - audienceListId
+      - cadenceId
+      - cadenceVersion
+      - idempotencyKey
       - name
-      - status
+      type: object
+    ProductSequenceStartOutput:
+      additionalProperties: true
+      description: "Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns,\
+        \ returned unchanged."
       type: object
     ProductTeamMember:
       properties:
@@ -34004,6 +35388,17 @@ components:
           lead_update: "#/components/schemas/ProductLeadUpdateExecution"
           lead_upsert: "#/components/schemas/ProductLeadUpsertExecution"
           leads_list: "#/components/schemas/ProductLeadsListExecution"
+          mail_sequence_add_ab: "#/components/schemas/ProductMailSequenceAddAbExecution"
+          mail_sequence_add_audience: "#/components/schemas/ProductMailSequenceAddAudienceExecution"
+          mail_sequence_campaigns_list: "#/components/schemas/ProductMailSequenceCampaignsListExecution"
+          mail_sequence_draft_save: "#/components/schemas/ProductMailSequenceDraftSaveExecution"
+          mail_sequence_drafts_list: "#/components/schemas/ProductMailSequenceDraftsListExecution"
+          mail_sequence_launch: "#/components/schemas/ProductMailSequenceLaunchExecution"
+          mail_sequence_publish: "#/components/schemas/ProductMailSequencePublishExecution"
+          mail_sequence_readiness: "#/components/schemas/ProductMailSequenceReadinessExecution"
+          mail_sequence_recipients_list: "#/components/schemas/ProductMailSequenceRecipientsListExecution"
+          mail_sequence_results: "#/components/schemas/ProductMailSequenceResultsExecution"
+          mail_sequence_state: "#/components/schemas/ProductMailSequenceStateExecution"
           person_enrich: "#/components/schemas/ProductPersonEnrichExecution"
           saved_searches_list: "#/components/schemas/ProductSavedSearchesListExecution"
           sequence_recipient_add: "#/components/schemas/ProductSequenceRecipientAddExecution"
@@ -34061,6 +35456,17 @@ components:
       - $ref: "#/components/schemas/ProductSequenceRecipientAddExecution"
       - $ref: "#/components/schemas/ProductSequenceRecipientCancelExecution"
       - $ref: "#/components/schemas/ProductSequenceStartExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceDraftsListExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceDraftSaveExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceAddAudienceExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceReadinessExecution"
+      - $ref: "#/components/schemas/ProductMailSequencePublishExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceLaunchExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceCampaignsListExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceRecipientsListExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceAddAbExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceStateExecution"
+      - $ref: "#/components/schemas/ProductMailSequenceResultsExecution"
       - $ref: "#/components/schemas/ProductAccountInfoExecution"
       - $ref: "#/components/schemas/ProductUsageExecution"
       - $ref: "#/components/schemas/ProductUsageHistoryExecution"
@@ -34112,6 +35518,17 @@ components:
           - sequence_recipient_add
           - sequence_recipient_cancel
           - sequence_start
+          - mail_sequence_drafts_list
+          - mail_sequence_draft_save
+          - mail_sequence_add_audience
+          - mail_sequence_readiness
+          - mail_sequence_publish
+          - mail_sequence_launch
+          - mail_sequence_campaigns_list
+          - mail_sequence_recipients_list
+          - mail_sequence_add_ab
+          - mail_sequence_state
+          - mail_sequence_results
           - account_info
           - usage
           - usage_history
@@ -37255,6 +38672,11 @@ components:
             - email
             - sms
             - whatsapp
+          emailThread:
+            type: string
+            x-extensible-enum:
+            - new
+            - reply
           experiment:
             $ref: "#/components/schemas/MailCadenceMessageExperiment"
           kind:
@@ -37437,6 +38859,22 @@ components:
           type: number
         unsubscribed:
           type: number
+      type: object
+    MailContactRecord_verification:
+      example:
+        lastVerifiedAt: 2000-01-23T04:56:07.000+00:00
+        status: status
+      properties:
+        lastVerifiedAt:
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+      required:
+      - lastVerifiedAt
+      - status
       type: object
     MailConversationEntry_from:
       example:
@@ -37903,6 +39341,318 @@ components:
       - suppressions
       - teams
       type: object
+    MailGetSignaturesResponse200_candidates_inner_fields_phones_inner:
+      example:
+        confidence: 5.637376656633329
+        method: method
+        normalizedValue:
+          label: label
+          normalized: normalized
+          raw: raw
+        sourceEnd: 2.3021358869347655
+        sourceStart: 7.061401241503109
+        value:
+          label: label
+          normalized: normalized
+          raw: raw
+      properties:
+        confidence:
+          type: number
+        method:
+          type: string
+          x-extensible-enum:
+          - exact
+          - inference
+          - line-classifier
+          - pattern
+        normalizedValue:
+          $ref: "#/components/schemas/MailPhoneNumberValue"
+        sourceEnd:
+          type: number
+        sourceStart:
+          type: number
+        value:
+          $ref: "#/components/schemas/MailPhoneNumberValue"
+      required:
+      - confidence
+      - method
+      - normalizedValue
+      - sourceEnd
+      - sourceStart
+      - value
+      type: object
+    MailGetSignaturesResponse200_candidates_inner_fields:
+      example:
+        address:
+          confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        company:
+          confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        emails:
+        - confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        - confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        jobTitle:
+          confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        personName:
+          confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        phones:
+        - confidence: 5.637376656633329
+          method: method
+          normalizedValue:
+            label: label
+            normalized: normalized
+            raw: raw
+          sourceEnd: 2.3021358869347655
+          sourceStart: 7.061401241503109
+          value:
+            label: label
+            normalized: normalized
+            raw: raw
+        - confidence: 5.637376656633329
+          method: method
+          normalizedValue:
+            label: label
+            normalized: normalized
+            raw: raw
+          sourceEnd: 2.3021358869347655
+          sourceStart: 7.061401241503109
+          value:
+            label: label
+            normalized: normalized
+            raw: raw
+        socialProfiles:
+        - confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        - confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        websites:
+        - confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+        - confidence: 6.027456183070403
+          method: method
+          normalizedValue: normalizedValue
+          sourceEnd: 1.4658129805029452
+          sourceStart: 5.962133916683182
+          value: value
+      properties:
+        address:
+          $ref: "#/components/schemas/MailEvidenceField"
+        company:
+          $ref: "#/components/schemas/MailEvidenceField"
+        emails:
+          items:
+            $ref: "#/components/schemas/MailEvidenceField"
+          type: array
+        jobTitle:
+          $ref: "#/components/schemas/MailEvidenceField"
+        personName:
+          $ref: "#/components/schemas/MailEvidenceField"
+        phones:
+          items:
+            $ref: "#/components/schemas/MailGetSignaturesResponse200_candidates_inner_fields_phones_inner"
+          type: array
+        socialProfiles:
+          items:
+            $ref: "#/components/schemas/MailEvidenceField"
+          type: array
+        websites:
+          items:
+            $ref: "#/components/schemas/MailEvidenceField"
+          type: array
+      required:
+      - emails
+      - phones
+      - socialProfiles
+      - websites
+      type: object
+    MailGetSignaturesResponse200_candidates_inner:
+      example:
+        confidence: 0.8008281904610115
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        extractorVersion: extractorVersion
+        fields:
+          address:
+            confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          company:
+            confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          emails:
+          - confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          - confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          jobTitle:
+            confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          personName:
+            confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          phones:
+          - confidence: 5.637376656633329
+            method: method
+            normalizedValue:
+              label: label
+              normalized: normalized
+              raw: raw
+            sourceEnd: 2.3021358869347655
+            sourceStart: 7.061401241503109
+            value:
+              label: label
+              normalized: normalized
+              raw: raw
+          - confidence: 5.637376656633329
+            method: method
+            normalizedValue:
+              label: label
+              normalized: normalized
+              raw: raw
+            sourceEnd: 2.3021358869347655
+            sourceStart: 7.061401241503109
+            value:
+              label: label
+              normalized: normalized
+              raw: raw
+          socialProfiles:
+          - confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          - confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          websites:
+          - confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+          - confidence: 6.027456183070403
+            method: method
+            normalizedValue: normalizedValue
+            sourceEnd: 1.4658129805029452
+            sourceStart: 5.962133916683182
+            value: value
+        id: id
+        signatureFingerprint: signatureFingerprint
+        signatureText: signatureText
+        signatureTextHash: signatureTextHash
+        sourceMessageId: sourceMessageId
+        status: status
+        tenantId: tenantId
+      properties:
+        confidence:
+          type: number
+        createdAt:
+          format: date-time
+          type: string
+        extractorVersion:
+          type: string
+        fields:
+          $ref: "#/components/schemas/MailGetSignaturesResponse200_candidates_inner_fields"
+        id:
+          type: string
+        signatureFingerprint:
+          type: string
+        signatureText:
+          type: string
+        signatureTextHash:
+          type: string
+        sourceMessageId:
+          type: string
+        status:
+          type: string
+          x-extensible-enum:
+          - approved
+          - candidate
+          - merged
+          - rejected
+        tenantId:
+          type: string
+      required:
+      - confidence
+      - createdAt
+      - extractorVersion
+      - fields
+      - id
+      - signatureFingerprint
+      - signatureText
+      - signatureTextHash
+      - sourceMessageId
+      - status
+      - tenantId
+      type: object
     MailGetTrackingDomainResponse200_domain:
       anyOf:
       - $ref: "#/components/schemas/MailTrackingDomainRecord"
@@ -38070,15 +39820,15 @@ components:
       type: object
     MailMessageAnalyticsOverview_variants_inner:
       example:
-        accepted: 6.878052220127876
-        bounced: 5.944895607614016
+        accepted: 4.078845849666752
+        bounced: 0.2025324113236393
         campaignId: campaignId
-        complained: 6.704019297950036
+        complained: 6.628464275087742
         experimentId: experimentId
         experimentName: experimentName
-        replied: 3.353193347011243
+        replied: 4.258773108174356
         stepId: stepId
-        total: 3.0937452626664474
+        total: 1.041444916118296
         variantId: variantId
       properties:
         accepted:
@@ -38136,7 +39886,7 @@ components:
         cadenceId: cadenceId
         eventType: eventType
         nodeId: nodeId
-        total: 7.143538047012306
+        total: 4.678947989005849
       properties:
         cadenceId:
           type: string
@@ -38518,6 +40268,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -38525,7 +40276,7 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
+          version: 5.637376656633329
         - actorId: actorId
           attemptCount: 0.8008281904610115
           audienceListId: audienceListId
@@ -38557,6 +40308,7 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
+          messageEditRevision: 5.962133916683182
           outcome: outcome
           pendingMessageId: pendingMessageId
           pendingNextNodeId: pendingNextNodeId
@@ -38564,9 +40316,9 @@ components:
           taskId: taskId
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 5.962133916683182
-        eligibleRuns: 5.637376656633329
-        totalRuns: 2.3021358869347655
+          version: 5.637376656633329
+        eligibleRuns: 2.3021358869347655
+        totalRuns: 7.061401241503109
       properties:
         action:
           type: string
@@ -38618,6 +40370,35 @@ components:
       - changedRuns
       - eligibleRuns
       - totalRuns
+      type: object
+    MailPostCadencesRequest_emailRecipientOverrides_inner:
+      additionalProperties: false
+      example:
+        body: body
+        contactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        stepId: stepId
+        subject: subject
+      properties:
+        body:
+          maxLength: 100000
+          minLength: 1
+          type: string
+        contactId:
+          format: uuid
+          type: string
+        stepId:
+          maxLength: 200
+          minLength: 1
+          type: string
+        subject:
+          maxLength: 998
+          minLength: 1
+          type: string
+      required:
+      - body
+      - contactId
+      - stepId
+      - subject
       type: object
     MailPostCadencesRequest_nodes_inner_anyOf:
       additionalProperties: false
@@ -39484,6 +41265,39 @@ components:
       - language
       - templateName
       type: object
+    MailRecipientEligibilitySummary_exclusions:
+      example:
+        do_not_contact: 7.061401241503109
+        invalid_address: 9.301444243932576
+        suppressed: 3.616076749251911
+        verification_required: 2.027123023002322
+      properties:
+        do_not_contact:
+          type: number
+        invalid_address:
+          type: number
+        suppressed:
+          type: number
+        verification_required:
+          type: number
+      type: object
+    MailRecipientEligibilitySummary_verification:
+      example:
+        freshValid: 7.386281948385884
+        invalid: 1.2315135367772556
+        unknownOrStale: 1.0246457001441578
+      properties:
+        freshValid:
+          type: number
+        invalid:
+          type: number
+        unknownOrStale:
+          type: number
+      required:
+      - freshValid
+      - invalid
+      - unknownOrStale
+      type: object
     MailReplyAutomationRule_actions_task:
       example:
         dueInMinutes: 0.8008281904610115
@@ -39525,170 +41339,26 @@ components:
       required:
       - stopCadences
       type: object
-    MailSignatureCandidate_fields_phones_inner:
-      example:
-        confidence: 5.637376656633329
-        method: method
-        normalizedValue:
-          label: label
-          normalized: normalized
-          raw: raw
-        sourceEnd: 2.3021358869347655
-        sourceStart: 7.061401241503109
-        value:
-          label: label
-          normalized: normalized
-          raw: raw
+    ProductMailSequenceAddAbInput_variantB:
+      additionalProperties: false
       properties:
-        confidence:
-          type: number
-        method:
+        body:
+          description: "The server applies trim before validating {\"type\":\"string\"\
+            ,\"minLength\":1,\"maxLength\":100000}."
           type: string
-          x-extensible-enum:
-          - exact
-          - inference
-          - line-classifier
-          - pattern
-        normalizedValue:
-          $ref: "#/components/schemas/MailPhoneNumberValue"
-        sourceEnd:
-          type: number
-        sourceStart:
-          type: number
-        value:
-          $ref: "#/components/schemas/MailPhoneNumberValue"
+          x-reacon-normalized-input:
+            schema:
+              maxLength: 100000
+              minLength: 1
+              type: string
+            transforms:
+            - trim
+        subject:
+          default: ""
+          maxLength: 998
+          type: string
       required:
-      - confidence
-      - method
-      - normalizedValue
-      - sourceEnd
-      - sourceStart
-      - value
-      type: object
-    MailSignatureCandidate_fields:
-      example:
-        address:
-          confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        company:
-          confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        emails:
-        - confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        - confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        jobTitle:
-          confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        personName:
-          confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        phones:
-        - confidence: 5.637376656633329
-          method: method
-          normalizedValue:
-            label: label
-            normalized: normalized
-            raw: raw
-          sourceEnd: 2.3021358869347655
-          sourceStart: 7.061401241503109
-          value:
-            label: label
-            normalized: normalized
-            raw: raw
-        - confidence: 5.637376656633329
-          method: method
-          normalizedValue:
-            label: label
-            normalized: normalized
-            raw: raw
-          sourceEnd: 2.3021358869347655
-          sourceStart: 7.061401241503109
-          value:
-            label: label
-            normalized: normalized
-            raw: raw
-        socialProfiles:
-        - confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        - confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        websites:
-        - confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-        - confidence: 6.027456183070403
-          method: method
-          normalizedValue: normalizedValue
-          sourceEnd: 1.4658129805029452
-          sourceStart: 5.962133916683182
-          value: value
-      properties:
-        address:
-          $ref: "#/components/schemas/MailEvidenceField"
-        company:
-          $ref: "#/components/schemas/MailEvidenceField"
-        emails:
-          items:
-            $ref: "#/components/schemas/MailEvidenceField"
-          type: array
-        jobTitle:
-          $ref: "#/components/schemas/MailEvidenceField"
-        personName:
-          $ref: "#/components/schemas/MailEvidenceField"
-        phones:
-          items:
-            $ref: "#/components/schemas/MailSignatureCandidate_fields_phones_inner"
-          type: array
-        socialProfiles:
-          items:
-            $ref: "#/components/schemas/MailEvidenceField"
-          type: array
-        websites:
-          items:
-            $ref: "#/components/schemas/MailEvidenceField"
-          type: array
-      required:
-      - emails
-      - phones
-      - socialProfiles
-      - websites
+      - body
       type: object
     ProductSequenceRecipientsAddInput_recipients_inner:
       additionalProperties: false
@@ -39736,6 +41406,14 @@ components:
       - $ref: "#/components/schemas/ProductSequenceRecipientAddInput"
       - $ref: "#/components/schemas/ProductSequenceRecipientCancelInput"
       - $ref: "#/components/schemas/ProductSequenceStartInput"
+      - $ref: "#/components/schemas/ProductMailSequenceDraftSaveInput"
+      - $ref: "#/components/schemas/ProductMailSequenceAddAudienceInput"
+      - $ref: "#/components/schemas/ProductMailSequenceReadinessInput"
+      - $ref: "#/components/schemas/ProductMailSequencePublishInput"
+      - $ref: "#/components/schemas/ProductMailSequenceRecipientsListInput"
+      - $ref: "#/components/schemas/ProductMailSequenceAddAbInput"
+      - $ref: "#/components/schemas/ProductMailSequenceStateInput"
+      - $ref: "#/components/schemas/ProductMailSequenceResultsInput"
       - $ref: "#/components/schemas/ProductConnectedAppPushInput"
       description: Use the input model matching the tool path parameter. Equivalent
         input shapes appear once in this anyOf union; the tool catalog retains every

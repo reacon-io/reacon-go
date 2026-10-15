@@ -30,7 +30,10 @@ type MailMessageAnalyticsOverview struct {
 	DeliveryRate float32 `json:"deliveryRate"`
 	From time.Time `json:"from"`
 	Mailboxes []MailMessageAnalyticsOverviewMailboxesInner `json:"mailboxes"`
+	Recipients *MailRecipientEngagement `json:"recipients,omitempty"`
+	// Legacy message-based rate, retained for API compatibility.
 	ReplyRate float32 `json:"replyRate"`
+	Sequences []MailSequenceRecipientEngagement `json:"sequences,omitempty"`
 	To time.Time `json:"to"`
 	Total float32 `json:"total"`
 	Variants []MailMessageAnalyticsOverviewVariantsInner `json:"variants"`
@@ -287,6 +290,38 @@ func (o *MailMessageAnalyticsOverview) SetMailboxes(v []MailMessageAnalyticsOver
 	o.Mailboxes = v
 }
 
+// GetRecipients returns the Recipients field value if set, zero value otherwise.
+func (o *MailMessageAnalyticsOverview) GetRecipients() MailRecipientEngagement {
+	if o == nil || IsNil(o.Recipients) {
+		var ret MailRecipientEngagement
+		return ret
+	}
+	return *o.Recipients
+}
+
+// GetRecipientsOk returns a tuple with the Recipients field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailMessageAnalyticsOverview) GetRecipientsOk() (*MailRecipientEngagement, bool) {
+	if o == nil || IsNil(o.Recipients) {
+		return nil, false
+	}
+	return o.Recipients, true
+}
+
+// HasRecipients returns a boolean if a field has been set.
+func (o *MailMessageAnalyticsOverview) HasRecipients() bool {
+	if o != nil && !IsNil(o.Recipients) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecipients gets a reference to the given MailRecipientEngagement and assigns it to the Recipients field.
+func (o *MailMessageAnalyticsOverview) SetRecipients(v MailRecipientEngagement) {
+	o.Recipients = &v
+}
+
 // GetReplyRate returns the ReplyRate field value
 func (o *MailMessageAnalyticsOverview) GetReplyRate() float32 {
 	if o == nil {
@@ -309,6 +344,38 @@ func (o *MailMessageAnalyticsOverview) GetReplyRateOk() (*float32, bool) {
 // SetReplyRate sets field value
 func (o *MailMessageAnalyticsOverview) SetReplyRate(v float32) {
 	o.ReplyRate = v
+}
+
+// GetSequences returns the Sequences field value if set, zero value otherwise.
+func (o *MailMessageAnalyticsOverview) GetSequences() []MailSequenceRecipientEngagement {
+	if o == nil || IsNil(o.Sequences) {
+		var ret []MailSequenceRecipientEngagement
+		return ret
+	}
+	return o.Sequences
+}
+
+// GetSequencesOk returns a tuple with the Sequences field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailMessageAnalyticsOverview) GetSequencesOk() ([]MailSequenceRecipientEngagement, bool) {
+	if o == nil || IsNil(o.Sequences) {
+		return nil, false
+	}
+	return o.Sequences, true
+}
+
+// HasSequences returns a boolean if a field has been set.
+func (o *MailMessageAnalyticsOverview) HasSequences() bool {
+	if o != nil && !IsNil(o.Sequences) {
+		return true
+	}
+
+	return false
+}
+
+// SetSequences gets a reference to the given []MailSequenceRecipientEngagement and assigns it to the Sequences field.
+func (o *MailMessageAnalyticsOverview) SetSequences(v []MailSequenceRecipientEngagement) {
+	o.Sequences = v
 }
 
 // GetTo returns the To field value
@@ -402,7 +469,13 @@ func (o MailMessageAnalyticsOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize["deliveryRate"] = o.DeliveryRate
 	toSerialize["from"] = o.From
 	toSerialize["mailboxes"] = o.Mailboxes
+	if !IsNil(o.Recipients) {
+		toSerialize["recipients"] = o.Recipients
+	}
 	toSerialize["replyRate"] = o.ReplyRate
+	if !IsNil(o.Sequences) {
+		toSerialize["sequences"] = o.Sequences
+	}
 	toSerialize["to"] = o.To
 	toSerialize["total"] = o.Total
 	toSerialize["variants"] = o.Variants
@@ -470,7 +543,9 @@ func (o *MailMessageAnalyticsOverview) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "deliveryRate")
 		delete(additionalProperties, "from")
 		delete(additionalProperties, "mailboxes")
+		delete(additionalProperties, "recipients")
 		delete(additionalProperties, "replyRate")
+		delete(additionalProperties, "sequences")
 		delete(additionalProperties, "to")
 		delete(additionalProperties, "total")
 		delete(additionalProperties, "variants")

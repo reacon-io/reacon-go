@@ -21,6 +21,7 @@ var _ MappedNullable = &MailMessageTemplateVersion{}
 
 // MailMessageTemplateVersion struct for MailMessageTemplateVersion
 type MailMessageTemplateVersion struct {
+	Attachments []MailEmailAssetReference `json:"attachments,omitempty"`
 	Body string `json:"body"`
 	Channel string `json:"channel"`
 	CreatedAt time.Time `json:"createdAt"`
@@ -63,6 +64,38 @@ func NewMailMessageTemplateVersion(body string, channel string, createdAt time.T
 func NewMailMessageTemplateVersionWithDefaults() *MailMessageTemplateVersion {
 	this := MailMessageTemplateVersion{}
 	return &this
+}
+
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
+func (o *MailMessageTemplateVersion) GetAttachments() []MailEmailAssetReference {
+	if o == nil || IsNil(o.Attachments) {
+		var ret []MailEmailAssetReference
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailMessageTemplateVersion) GetAttachmentsOk() ([]MailEmailAssetReference, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *MailMessageTemplateVersion) HasAttachments() bool {
+	if o != nil && !IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []MailEmailAssetReference and assigns it to the Attachments field.
+func (o *MailMessageTemplateVersion) SetAttachments(v []MailEmailAssetReference) {
+	o.Attachments = v
 }
 
 // GetBody returns the Body field value
@@ -379,6 +412,9 @@ func (o MailMessageTemplateVersion) MarshalJSON() ([]byte, error) {
 
 func (o MailMessageTemplateVersion) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Attachments) {
+		toSerialize["attachments"] = o.Attachments
+	}
 	toSerialize["body"] = o.Body
 	toSerialize["channel"] = o.Channel
 	toSerialize["createdAt"] = o.CreatedAt
@@ -447,6 +483,7 @@ func (o *MailMessageTemplateVersion) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attachments")
 		delete(additionalProperties, "body")
 		delete(additionalProperties, "channel")
 		delete(additionalProperties, "createdAt")

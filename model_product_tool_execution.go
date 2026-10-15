@@ -54,6 +54,17 @@ type ProductToolExecution struct {
 	ProductLeadUpdateExecution *ProductLeadUpdateExecution
 	ProductLeadUpsertExecution *ProductLeadUpsertExecution
 	ProductLeadsListExecution *ProductLeadsListExecution
+	ProductMailSequenceAddAbExecution *ProductMailSequenceAddAbExecution
+	ProductMailSequenceAddAudienceExecution *ProductMailSequenceAddAudienceExecution
+	ProductMailSequenceCampaignsListExecution *ProductMailSequenceCampaignsListExecution
+	ProductMailSequenceDraftSaveExecution *ProductMailSequenceDraftSaveExecution
+	ProductMailSequenceDraftsListExecution *ProductMailSequenceDraftsListExecution
+	ProductMailSequenceLaunchExecution *ProductMailSequenceLaunchExecution
+	ProductMailSequencePublishExecution *ProductMailSequencePublishExecution
+	ProductMailSequenceReadinessExecution *ProductMailSequenceReadinessExecution
+	ProductMailSequenceRecipientsListExecution *ProductMailSequenceRecipientsListExecution
+	ProductMailSequenceResultsExecution *ProductMailSequenceResultsExecution
+	ProductMailSequenceStateExecution *ProductMailSequenceStateExecution
 	ProductPersonEnrichExecution *ProductPersonEnrichExecution
 	ProductSavedSearchesListExecution *ProductSavedSearchesListExecution
 	ProductSequenceRecipientAddExecution *ProductSequenceRecipientAddExecution
@@ -326,6 +337,83 @@ func ProductLeadsListExecutionAsProductToolExecution(v *ProductLeadsListExecutio
 	}
 }
 
+// ProductMailSequenceAddAbExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceAddAbExecution wrapped in ProductToolExecution
+func ProductMailSequenceAddAbExecutionAsProductToolExecution(v *ProductMailSequenceAddAbExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceAddAbExecution: v,
+	}
+}
+
+// ProductMailSequenceAddAudienceExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceAddAudienceExecution wrapped in ProductToolExecution
+func ProductMailSequenceAddAudienceExecutionAsProductToolExecution(v *ProductMailSequenceAddAudienceExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceAddAudienceExecution: v,
+	}
+}
+
+// ProductMailSequenceCampaignsListExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceCampaignsListExecution wrapped in ProductToolExecution
+func ProductMailSequenceCampaignsListExecutionAsProductToolExecution(v *ProductMailSequenceCampaignsListExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceCampaignsListExecution: v,
+	}
+}
+
+// ProductMailSequenceDraftSaveExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceDraftSaveExecution wrapped in ProductToolExecution
+func ProductMailSequenceDraftSaveExecutionAsProductToolExecution(v *ProductMailSequenceDraftSaveExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceDraftSaveExecution: v,
+	}
+}
+
+// ProductMailSequenceDraftsListExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceDraftsListExecution wrapped in ProductToolExecution
+func ProductMailSequenceDraftsListExecutionAsProductToolExecution(v *ProductMailSequenceDraftsListExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceDraftsListExecution: v,
+	}
+}
+
+// ProductMailSequenceLaunchExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceLaunchExecution wrapped in ProductToolExecution
+func ProductMailSequenceLaunchExecutionAsProductToolExecution(v *ProductMailSequenceLaunchExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceLaunchExecution: v,
+	}
+}
+
+// ProductMailSequencePublishExecutionAsProductToolExecution is a convenience function that returns ProductMailSequencePublishExecution wrapped in ProductToolExecution
+func ProductMailSequencePublishExecutionAsProductToolExecution(v *ProductMailSequencePublishExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequencePublishExecution: v,
+	}
+}
+
+// ProductMailSequenceReadinessExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceReadinessExecution wrapped in ProductToolExecution
+func ProductMailSequenceReadinessExecutionAsProductToolExecution(v *ProductMailSequenceReadinessExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceReadinessExecution: v,
+	}
+}
+
+// ProductMailSequenceRecipientsListExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceRecipientsListExecution wrapped in ProductToolExecution
+func ProductMailSequenceRecipientsListExecutionAsProductToolExecution(v *ProductMailSequenceRecipientsListExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceRecipientsListExecution: v,
+	}
+}
+
+// ProductMailSequenceResultsExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceResultsExecution wrapped in ProductToolExecution
+func ProductMailSequenceResultsExecutionAsProductToolExecution(v *ProductMailSequenceResultsExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceResultsExecution: v,
+	}
+}
+
+// ProductMailSequenceStateExecutionAsProductToolExecution is a convenience function that returns ProductMailSequenceStateExecution wrapped in ProductToolExecution
+func ProductMailSequenceStateExecutionAsProductToolExecution(v *ProductMailSequenceStateExecution) ProductToolExecution {
+	return ProductToolExecution{
+		ProductMailSequenceStateExecution: v,
+	}
+}
+
 // ProductPersonEnrichExecutionAsProductToolExecution is a convenience function that returns ProductPersonEnrichExecution wrapped in ProductToolExecution
 func ProductPersonEnrichExecutionAsProductToolExecution(v *ProductPersonEnrichExecution) ProductToolExecution {
 	return ProductToolExecution{
@@ -451,6 +539,17 @@ func (dst *ProductToolExecution) UnmarshalJSON(data []byte) error {
   case "sequence_recipient_add": var value ProductSequenceRecipientAddExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductSequenceRecipientAddExecution = &value; return nil
   case "sequence_recipient_cancel": var value ProductSequenceRecipientCancelExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductSequenceRecipientCancelExecution = &value; return nil
   case "sequence_start": var value ProductSequenceStartExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductSequenceStartExecution = &value; return nil
+  case "mail_sequence_drafts_list": var value ProductMailSequenceDraftsListExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceDraftsListExecution = &value; return nil
+  case "mail_sequence_draft_save": var value ProductMailSequenceDraftSaveExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceDraftSaveExecution = &value; return nil
+  case "mail_sequence_add_audience": var value ProductMailSequenceAddAudienceExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceAddAudienceExecution = &value; return nil
+  case "mail_sequence_readiness": var value ProductMailSequenceReadinessExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceReadinessExecution = &value; return nil
+  case "mail_sequence_publish": var value ProductMailSequencePublishExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequencePublishExecution = &value; return nil
+  case "mail_sequence_launch": var value ProductMailSequenceLaunchExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceLaunchExecution = &value; return nil
+  case "mail_sequence_campaigns_list": var value ProductMailSequenceCampaignsListExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceCampaignsListExecution = &value; return nil
+  case "mail_sequence_recipients_list": var value ProductMailSequenceRecipientsListExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceRecipientsListExecution = &value; return nil
+  case "mail_sequence_add_ab": var value ProductMailSequenceAddAbExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceAddAbExecution = &value; return nil
+  case "mail_sequence_state": var value ProductMailSequenceStateExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceStateExecution = &value; return nil
+  case "mail_sequence_results": var value ProductMailSequenceResultsExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductMailSequenceResultsExecution = &value; return nil
   case "account_info": var value ProductAccountInfoExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductAccountInfoExecution = &value; return nil
   case "usage": var value ProductUsageExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductUsageExecution = &value; return nil
   case "usage_history": var value ProductUsageHistoryExecution; if err := json.Unmarshal(data, &value); err != nil { return err }; dst.ProductUsageHistoryExecution = &value; return nil
@@ -608,6 +707,50 @@ func (src ProductToolExecution) MarshalJSON() ([]byte, error) {
 
 	if src.ProductLeadsListExecution != nil {
 		return json.Marshal(&src.ProductLeadsListExecution)
+	}
+
+	if src.ProductMailSequenceAddAbExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceAddAbExecution)
+	}
+
+	if src.ProductMailSequenceAddAudienceExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceAddAudienceExecution)
+	}
+
+	if src.ProductMailSequenceCampaignsListExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceCampaignsListExecution)
+	}
+
+	if src.ProductMailSequenceDraftSaveExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceDraftSaveExecution)
+	}
+
+	if src.ProductMailSequenceDraftsListExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceDraftsListExecution)
+	}
+
+	if src.ProductMailSequenceLaunchExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceLaunchExecution)
+	}
+
+	if src.ProductMailSequencePublishExecution != nil {
+		return json.Marshal(&src.ProductMailSequencePublishExecution)
+	}
+
+	if src.ProductMailSequenceReadinessExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceReadinessExecution)
+	}
+
+	if src.ProductMailSequenceRecipientsListExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceRecipientsListExecution)
+	}
+
+	if src.ProductMailSequenceResultsExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceResultsExecution)
+	}
+
+	if src.ProductMailSequenceStateExecution != nil {
+		return json.Marshal(&src.ProductMailSequenceStateExecution)
 	}
 
 	if src.ProductPersonEnrichExecution != nil {
@@ -810,6 +953,50 @@ func (obj *ProductToolExecution) GetActualInstance() (interface{}) {
 		return obj.ProductLeadsListExecution
 	}
 
+	if obj.ProductMailSequenceAddAbExecution != nil {
+		return obj.ProductMailSequenceAddAbExecution
+	}
+
+	if obj.ProductMailSequenceAddAudienceExecution != nil {
+		return obj.ProductMailSequenceAddAudienceExecution
+	}
+
+	if obj.ProductMailSequenceCampaignsListExecution != nil {
+		return obj.ProductMailSequenceCampaignsListExecution
+	}
+
+	if obj.ProductMailSequenceDraftSaveExecution != nil {
+		return obj.ProductMailSequenceDraftSaveExecution
+	}
+
+	if obj.ProductMailSequenceDraftsListExecution != nil {
+		return obj.ProductMailSequenceDraftsListExecution
+	}
+
+	if obj.ProductMailSequenceLaunchExecution != nil {
+		return obj.ProductMailSequenceLaunchExecution
+	}
+
+	if obj.ProductMailSequencePublishExecution != nil {
+		return obj.ProductMailSequencePublishExecution
+	}
+
+	if obj.ProductMailSequenceReadinessExecution != nil {
+		return obj.ProductMailSequenceReadinessExecution
+	}
+
+	if obj.ProductMailSequenceRecipientsListExecution != nil {
+		return obj.ProductMailSequenceRecipientsListExecution
+	}
+
+	if obj.ProductMailSequenceResultsExecution != nil {
+		return obj.ProductMailSequenceResultsExecution
+	}
+
+	if obj.ProductMailSequenceStateExecution != nil {
+		return obj.ProductMailSequenceStateExecution
+	}
+
 	if obj.ProductPersonEnrichExecution != nil {
 		return obj.ProductPersonEnrichExecution
 	}
@@ -1006,6 +1193,50 @@ func (obj ProductToolExecution) GetActualInstanceValue() (interface{}) {
 
 	if obj.ProductLeadsListExecution != nil {
 		return *obj.ProductLeadsListExecution
+	}
+
+	if obj.ProductMailSequenceAddAbExecution != nil {
+		return *obj.ProductMailSequenceAddAbExecution
+	}
+
+	if obj.ProductMailSequenceAddAudienceExecution != nil {
+		return *obj.ProductMailSequenceAddAudienceExecution
+	}
+
+	if obj.ProductMailSequenceCampaignsListExecution != nil {
+		return *obj.ProductMailSequenceCampaignsListExecution
+	}
+
+	if obj.ProductMailSequenceDraftSaveExecution != nil {
+		return *obj.ProductMailSequenceDraftSaveExecution
+	}
+
+	if obj.ProductMailSequenceDraftsListExecution != nil {
+		return *obj.ProductMailSequenceDraftsListExecution
+	}
+
+	if obj.ProductMailSequenceLaunchExecution != nil {
+		return *obj.ProductMailSequenceLaunchExecution
+	}
+
+	if obj.ProductMailSequencePublishExecution != nil {
+		return *obj.ProductMailSequencePublishExecution
+	}
+
+	if obj.ProductMailSequenceReadinessExecution != nil {
+		return *obj.ProductMailSequenceReadinessExecution
+	}
+
+	if obj.ProductMailSequenceRecipientsListExecution != nil {
+		return *obj.ProductMailSequenceRecipientsListExecution
+	}
+
+	if obj.ProductMailSequenceResultsExecution != nil {
+		return *obj.ProductMailSequenceResultsExecution
+	}
+
+	if obj.ProductMailSequenceStateExecution != nil {
+		return *obj.ProductMailSequenceStateExecution
 	}
 
 	if obj.ProductPersonEnrichExecution != nil {

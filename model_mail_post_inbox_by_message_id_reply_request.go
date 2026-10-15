@@ -22,6 +22,7 @@ var _ MappedNullable = &MailPostInboxByMessageIdReplyRequest{}
 // MailPostInboxByMessageIdReplyRequest struct for MailPostInboxByMessageIdReplyRequest
 type MailPostInboxByMessageIdReplyRequest struct {
 	ClientRequestId string `json:"clientRequestId"`
+	DraftRevision *int32 `json:"draftRevision,omitempty"`
 	Text string `json:"text"`
 }
 
@@ -70,6 +71,38 @@ func (o *MailPostInboxByMessageIdReplyRequest) SetClientRequestId(v string) {
 	o.ClientRequestId = v
 }
 
+// GetDraftRevision returns the DraftRevision field value if set, zero value otherwise.
+func (o *MailPostInboxByMessageIdReplyRequest) GetDraftRevision() int32 {
+	if o == nil || IsNil(o.DraftRevision) {
+		var ret int32
+		return ret
+	}
+	return *o.DraftRevision
+}
+
+// GetDraftRevisionOk returns a tuple with the DraftRevision field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailPostInboxByMessageIdReplyRequest) GetDraftRevisionOk() (*int32, bool) {
+	if o == nil || IsNil(o.DraftRevision) {
+		return nil, false
+	}
+	return o.DraftRevision, true
+}
+
+// HasDraftRevision returns a boolean if a field has been set.
+func (o *MailPostInboxByMessageIdReplyRequest) HasDraftRevision() bool {
+	if o != nil && !IsNil(o.DraftRevision) {
+		return true
+	}
+
+	return false
+}
+
+// SetDraftRevision gets a reference to the given int32 and assigns it to the DraftRevision field.
+func (o *MailPostInboxByMessageIdReplyRequest) SetDraftRevision(v int32) {
+	o.DraftRevision = &v
+}
+
 // GetText returns the Text field value
 func (o *MailPostInboxByMessageIdReplyRequest) GetText() string {
 	if o == nil {
@@ -105,6 +138,9 @@ func (o MailPostInboxByMessageIdReplyRequest) MarshalJSON() ([]byte, error) {
 func (o MailPostInboxByMessageIdReplyRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["clientRequestId"] = o.ClientRequestId
+	if !IsNil(o.DraftRevision) {
+		toSerialize["draftRevision"] = o.DraftRevision
+	}
 	toSerialize["text"] = o.Text
 	return toSerialize, nil
 }

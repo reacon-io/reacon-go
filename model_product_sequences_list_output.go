@@ -20,7 +20,11 @@ var _ MappedNullable = &ProductSequencesListOutput{}
 
 // ProductSequencesListOutput struct for ProductSequencesListOutput
 type ProductSequencesListOutput struct {
-	Items []ProductSequence `json:"items"`
+	Cadences []map[string]interface{} `json:"cadences"`
+	Campaigns []map[string]interface{} `json:"campaigns"`
+	Drafts []map[string]interface{} `json:"drafts"`
+	Items []map[string]interface{} `json:"items"`
+	Source string `json:"source"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -30,9 +34,13 @@ type _ProductSequencesListOutput ProductSequencesListOutput
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProductSequencesListOutput(items []ProductSequence) *ProductSequencesListOutput {
+func NewProductSequencesListOutput(cadences []map[string]interface{}, campaigns []map[string]interface{}, drafts []map[string]interface{}, items []map[string]interface{}, source string) *ProductSequencesListOutput {
 	this := ProductSequencesListOutput{}
+	this.Cadences = cadences
+	this.Campaigns = campaigns
+	this.Drafts = drafts
 	this.Items = items
+	this.Source = source
 	return &this
 }
 
@@ -44,10 +52,82 @@ func NewProductSequencesListOutputWithDefaults() *ProductSequencesListOutput {
 	return &this
 }
 
-// GetItems returns the Items field value
-func (o *ProductSequencesListOutput) GetItems() []ProductSequence {
+// GetCadences returns the Cadences field value
+func (o *ProductSequencesListOutput) GetCadences() []map[string]interface{} {
 	if o == nil {
-		var ret []ProductSequence
+		var ret []map[string]interface{}
+		return ret
+	}
+
+	return o.Cadences
+}
+
+// GetCadencesOk returns a tuple with the Cadences field value
+// and a boolean to check if the value has been set.
+func (o *ProductSequencesListOutput) GetCadencesOk() ([]map[string]interface{}, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Cadences, true
+}
+
+// SetCadences sets field value
+func (o *ProductSequencesListOutput) SetCadences(v []map[string]interface{}) {
+	o.Cadences = v
+}
+
+// GetCampaigns returns the Campaigns field value
+func (o *ProductSequencesListOutput) GetCampaigns() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
+		return ret
+	}
+
+	return o.Campaigns
+}
+
+// GetCampaignsOk returns a tuple with the Campaigns field value
+// and a boolean to check if the value has been set.
+func (o *ProductSequencesListOutput) GetCampaignsOk() ([]map[string]interface{}, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Campaigns, true
+}
+
+// SetCampaigns sets field value
+func (o *ProductSequencesListOutput) SetCampaigns(v []map[string]interface{}) {
+	o.Campaigns = v
+}
+
+// GetDrafts returns the Drafts field value
+func (o *ProductSequencesListOutput) GetDrafts() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
+		return ret
+	}
+
+	return o.Drafts
+}
+
+// GetDraftsOk returns a tuple with the Drafts field value
+// and a boolean to check if the value has been set.
+func (o *ProductSequencesListOutput) GetDraftsOk() ([]map[string]interface{}, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Drafts, true
+}
+
+// SetDrafts sets field value
+func (o *ProductSequencesListOutput) SetDrafts(v []map[string]interface{}) {
+	o.Drafts = v
+}
+
+// GetItems returns the Items field value
+func (o *ProductSequencesListOutput) GetItems() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -56,7 +136,7 @@ func (o *ProductSequencesListOutput) GetItems() []ProductSequence {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *ProductSequencesListOutput) GetItemsOk() ([]ProductSequence, bool) {
+func (o *ProductSequencesListOutput) GetItemsOk() ([]map[string]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,8 +144,32 @@ func (o *ProductSequencesListOutput) GetItemsOk() ([]ProductSequence, bool) {
 }
 
 // SetItems sets field value
-func (o *ProductSequencesListOutput) SetItems(v []ProductSequence) {
+func (o *ProductSequencesListOutput) SetItems(v []map[string]interface{}) {
 	o.Items = v
+}
+
+// GetSource returns the Source field value
+func (o *ProductSequencesListOutput) GetSource() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value
+// and a boolean to check if the value has been set.
+func (o *ProductSequencesListOutput) GetSourceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Source, true
+}
+
+// SetSource sets field value
+func (o *ProductSequencesListOutput) SetSource(v string) {
+	o.Source = v
 }
 
 func (o ProductSequencesListOutput) MarshalJSON() ([]byte, error) {
@@ -78,7 +182,11 @@ func (o ProductSequencesListOutput) MarshalJSON() ([]byte, error) {
 
 func (o ProductSequencesListOutput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cadences"] = o.Cadences
+	toSerialize["campaigns"] = o.Campaigns
+	toSerialize["drafts"] = o.Drafts
 	toSerialize["items"] = o.Items
+	toSerialize["source"] = o.Source
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -92,7 +200,11 @@ func (o *ProductSequencesListOutput) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"cadences",
+		"campaigns",
+		"drafts",
 		"items",
+		"source",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -122,7 +234,11 @@ func (o *ProductSequencesListOutput) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cadences")
+		delete(additionalProperties, "campaigns")
+		delete(additionalProperties, "drafts")
 		delete(additionalProperties, "items")
+		delete(additionalProperties, "source")
 		o.AdditionalProperties = additionalProperties
 	}
 

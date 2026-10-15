@@ -40,6 +40,14 @@ type ProductToolRequestInput struct {
 	ProductLeadTagCreateInput *ProductLeadTagCreateInput
 	ProductLeadUpdateInput *ProductLeadUpdateInput
 	ProductLeadsListInput *ProductLeadsListInput
+	ProductMailSequenceAddAbInput *ProductMailSequenceAddAbInput
+	ProductMailSequenceAddAudienceInput *ProductMailSequenceAddAudienceInput
+	ProductMailSequenceDraftSaveInput *ProductMailSequenceDraftSaveInput
+	ProductMailSequencePublishInput *ProductMailSequencePublishInput
+	ProductMailSequenceReadinessInput *ProductMailSequenceReadinessInput
+	ProductMailSequenceRecipientsListInput *ProductMailSequenceRecipientsListInput
+	ProductMailSequenceResultsInput *ProductMailSequenceResultsInput
+	ProductMailSequenceStateInput *ProductMailSequenceStateInput
 	ProductPersonEnrichInput *ProductPersonEnrichInput
 	ProductSequenceRecipientAddInput *ProductSequenceRecipientAddInput
 	ProductSequenceRecipientCancelInput *ProductSequenceRecipientCancelInput
@@ -82,11 +90,19 @@ func (dst *ProductToolRequestInput) UnmarshalJSON(data []byte) error {
   if matches([]string{"companyId","employeeRange","idempotencyKey","industry","name"}, []string{"companyId","idempotencyKey"}) { var value ProductCompanyUpdateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompanyUpdateInput = &value; return nil } }
   if matches([]string{"companyId","idempotencyKey"}, []string{"companyId","idempotencyKey"}) { var value ProductCompanyDeleteInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompanyDeleteInput = &value; return nil } }
   if matches([]string{"companyId","idempotencyKey","listId"}, []string{"listId","companyId","idempotencyKey"}) { var value ProductCompanyListAddInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductCompanyListAddInput = &value; return nil } }
-  if matches([]string{"sequenceId"}, []string{"sequenceId"}) { var value ProductSequenceRecipientsListInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientsListInput = &value; return nil } }
+  if matches([]string{"limit","offset","sequenceId"}, []string{"sequenceId"}) { var value ProductSequenceRecipientsListInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientsListInput = &value; return nil } }
   if matches([]string{"idempotencyKey","recipients","sequenceId"}, []string{"sequenceId","recipients","idempotencyKey"}) { var value ProductSequenceRecipientsAddInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientsAddInput = &value; return nil } }
   if matches([]string{"email","idempotencyKey","leadId","sequenceId"}, []string{"sequenceId","email","idempotencyKey"}) { var value ProductSequenceRecipientAddInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientAddInput = &value; return nil } }
   if matches([]string{"idempotencyKey","recipientId"}, []string{"recipientId","idempotencyKey"}) { var value ProductSequenceRecipientCancelInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceRecipientCancelInput = &value; return nil } }
-  if matches([]string{"idempotencyKey","sequenceId"}, []string{"sequenceId","idempotencyKey"}) { var value ProductSequenceStartInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceStartInput = &value; return nil } }
+  if matches([]string{"audienceListId","cadenceId","cadenceVersion","enrollmentMode","idempotencyKey","mailboxId","mailboxPoolId","name","scheduledAt"}, []string{"name","cadenceId","cadenceVersion","audienceListId","idempotencyKey"}) { var value ProductSequenceStartInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductSequenceStartInput = &value; return nil } }
+  if matches([]string{"content","expectedRevision","id","idempotencyKey","status"}, []string{"id","expectedRevision","status","content","idempotencyKey"}) { var value ProductMailSequenceDraftSaveInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequenceDraftSaveInput = &value; return nil } }
+  if matches([]string{"audienceListId","campaignId","expectedVersion","idempotencyKey"}, []string{"campaignId","expectedVersion","audienceListId","idempotencyKey"}) { var value ProductMailSequenceAddAudienceInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequenceAddAudienceInput = &value; return nil } }
+  if matches([]string{"draftId","expectedRevision"}, []string{"draftId","expectedRevision"}) { var value ProductMailSequenceReadinessInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequenceReadinessInput = &value; return nil } }
+  if matches([]string{"draftId","expectedRevision","idempotencyKey"}, []string{"draftId","expectedRevision","idempotencyKey"}) { var value ProductMailSequencePublishInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequencePublishInput = &value; return nil } }
+  if matches([]string{"campaignId","limit","offset"}, []string{"campaignId"}) { var value ProductMailSequenceRecipientsListInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequenceRecipientsListInput = &value; return nil } }
+  if matches([]string{"aWeight","campaignId","expectedVersion","idempotencyKey","stepId","variantB"}, []string{"campaignId","expectedVersion","stepId","variantB","aWeight","idempotencyKey"}) { var value ProductMailSequenceAddAbInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequenceAddAbInput = &value; return nil } }
+  if matches([]string{"action","campaignId","expectedVersion","idempotencyKey"}, []string{"campaignId","expectedVersion","action","idempotencyKey"}) { var value ProductMailSequenceStateInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequenceStateInput = &value; return nil } }
+  if matches([]string{"campaignId"}, []string{"campaignId"}) { var value ProductMailSequenceResultsInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductMailSequenceResultsInput = &value; return nil } }
   if matches([]string{"connectionId","idempotencyKey","leadIds"}, []string{"connectionId","leadIds","idempotencyKey"}) { var value ProductConnectedAppPushInput; if err := json.Unmarshal(data, &value); err == nil { dst.ProductConnectedAppPushInput = &value; return nil } }
   return fmt.Errorf("product input does not match a declared object shape")
 }
@@ -120,6 +136,14 @@ func (src ProductToolRequestInput) MarshalJSON() ([]byte, error) {
   if src.ProductSequenceRecipientAddInput != nil { count++ }
   if src.ProductSequenceRecipientCancelInput != nil { count++ }
   if src.ProductSequenceStartInput != nil { count++ }
+  if src.ProductMailSequenceDraftSaveInput != nil { count++ }
+  if src.ProductMailSequenceAddAudienceInput != nil { count++ }
+  if src.ProductMailSequenceReadinessInput != nil { count++ }
+  if src.ProductMailSequencePublishInput != nil { count++ }
+  if src.ProductMailSequenceRecipientsListInput != nil { count++ }
+  if src.ProductMailSequenceAddAbInput != nil { count++ }
+  if src.ProductMailSequenceStateInput != nil { count++ }
+  if src.ProductMailSequenceResultsInput != nil { count++ }
   if src.ProductConnectedAppPushInput != nil { count++ }
   if src.MapmapOfStringAny != nil { count++ }
   if count != 1 { return nil, fmt.Errorf("product input requires exactly one selected alternative") }
@@ -210,6 +234,38 @@ func (src ProductToolRequestInput) MarshalJSON() ([]byte, error) {
 
 	if src.ProductLeadsListInput != nil {
 		return json.Marshal(&src.ProductLeadsListInput)
+	}
+
+	if src.ProductMailSequenceAddAbInput != nil {
+		return json.Marshal(&src.ProductMailSequenceAddAbInput)
+	}
+
+	if src.ProductMailSequenceAddAudienceInput != nil {
+		return json.Marshal(&src.ProductMailSequenceAddAudienceInput)
+	}
+
+	if src.ProductMailSequenceDraftSaveInput != nil {
+		return json.Marshal(&src.ProductMailSequenceDraftSaveInput)
+	}
+
+	if src.ProductMailSequencePublishInput != nil {
+		return json.Marshal(&src.ProductMailSequencePublishInput)
+	}
+
+	if src.ProductMailSequenceReadinessInput != nil {
+		return json.Marshal(&src.ProductMailSequenceReadinessInput)
+	}
+
+	if src.ProductMailSequenceRecipientsListInput != nil {
+		return json.Marshal(&src.ProductMailSequenceRecipientsListInput)
+	}
+
+	if src.ProductMailSequenceResultsInput != nil {
+		return json.Marshal(&src.ProductMailSequenceResultsInput)
+	}
+
+	if src.ProductMailSequenceStateInput != nil {
+		return json.Marshal(&src.ProductMailSequenceStateInput)
 	}
 
 	if src.ProductPersonEnrichInput != nil {

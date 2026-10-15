@@ -23,6 +23,7 @@ var _ MappedNullable = &MailCadenceCampaignRecord{}
 type MailCadenceCampaignRecord struct {
 	ActivatedAt *time.Time `json:"activatedAt,omitempty"`
 	ActorId string `json:"actorId"`
+	ArchivedAt *time.Time `json:"archivedAt,omitempty"`
 	AttemptCount float32 `json:"attemptCount"`
 	AudienceCount float32 `json:"audienceCount"`
 	AudienceListId string `json:"audienceListId"`
@@ -148,6 +149,38 @@ func (o *MailCadenceCampaignRecord) GetActorIdOk() (*string, bool) {
 // SetActorId sets field value
 func (o *MailCadenceCampaignRecord) SetActorId(v string) {
 	o.ActorId = v
+}
+
+// GetArchivedAt returns the ArchivedAt field value if set, zero value otherwise.
+func (o *MailCadenceCampaignRecord) GetArchivedAt() time.Time {
+	if o == nil || IsNil(o.ArchivedAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ArchivedAt
+}
+
+// GetArchivedAtOk returns a tuple with the ArchivedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceCampaignRecord) GetArchivedAtOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.ArchivedAt) {
+		return nil, false
+	}
+	return o.ArchivedAt, true
+}
+
+// HasArchivedAt returns a boolean if a field has been set.
+func (o *MailCadenceCampaignRecord) HasArchivedAt() bool {
+	if o != nil && !IsNil(o.ArchivedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetArchivedAt gets a reference to the given time.Time and assigns it to the ArchivedAt field.
+func (o *MailCadenceCampaignRecord) SetArchivedAt(v time.Time) {
+	o.ArchivedAt = &v
 }
 
 // GetAttemptCount returns the AttemptCount field value
@@ -860,6 +893,9 @@ func (o MailCadenceCampaignRecord) ToMap() (map[string]interface{}, error) {
 		toSerialize["activatedAt"] = o.ActivatedAt
 	}
 	toSerialize["actorId"] = o.ActorId
+	if !IsNil(o.ArchivedAt) {
+		toSerialize["archivedAt"] = o.ArchivedAt
+	}
 	toSerialize["attemptCount"] = o.AttemptCount
 	toSerialize["audienceCount"] = o.AudienceCount
 	toSerialize["audienceListId"] = o.AudienceListId
@@ -965,6 +1001,7 @@ func (o *MailCadenceCampaignRecord) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "activatedAt")
 		delete(additionalProperties, "actorId")
+		delete(additionalProperties, "archivedAt")
 		delete(additionalProperties, "attemptCount")
 		delete(additionalProperties, "audienceCount")
 		delete(additionalProperties, "audienceListId")

@@ -12,6 +12,7 @@ package reacon
 
 import (
 	"encoding/json"
+	"time"
 	"bytes"
 	"fmt"
 )
@@ -21,8 +22,16 @@ var _ MappedNullable = &ProductSequenceStartInput{}
 
 // ProductSequenceStartInput struct for ProductSequenceStartInput
 type ProductSequenceStartInput struct {
+	AudienceListId string `json:"audienceListId" validate:"regexp=^[a-zA-Z0-9_-]+$"`
+	CadenceId string `json:"cadenceId" validate:"regexp=^[a-zA-Z0-9_-]+$"`
+	CadenceVersion int32 `json:"cadenceVersion"`
+	EnrollmentMode *string `json:"enrollmentMode,omitempty"`
 	IdempotencyKey string `json:"idempotencyKey"`
-	SequenceId string `json:"sequenceId" validate:"regexp=^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"`
+	MailboxId *string `json:"mailboxId,omitempty" validate:"regexp=^[a-zA-Z0-9_-]+$"`
+	MailboxPoolId *string `json:"mailboxPoolId,omitempty" validate:"regexp=^[a-zA-Z0-9_-]+$"`
+	// The server applies trim before validating {\"type\":\"string\",\"minLength\":1,\"maxLength\":200}.
+	Name string `json:"name"`
+	ScheduledAt *time.Time `json:"scheduledAt,omitempty"`
 }
 
 type _ProductSequenceStartInput ProductSequenceStartInput
@@ -31,10 +40,15 @@ type _ProductSequenceStartInput ProductSequenceStartInput
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProductSequenceStartInput(idempotencyKey string, sequenceId string) *ProductSequenceStartInput {
+func NewProductSequenceStartInput(audienceListId string, cadenceId string, cadenceVersion int32, idempotencyKey string, name string) *ProductSequenceStartInput {
 	this := ProductSequenceStartInput{}
+	this.AudienceListId = audienceListId
+	this.CadenceId = cadenceId
+	this.CadenceVersion = cadenceVersion
+	var enrollmentMode string = "new_only"
+	this.EnrollmentMode = &enrollmentMode
 	this.IdempotencyKey = idempotencyKey
-	this.SequenceId = sequenceId
+	this.Name = name
 	return &this
 }
 
@@ -43,7 +57,113 @@ func NewProductSequenceStartInput(idempotencyKey string, sequenceId string) *Pro
 // but it doesn't guarantee that properties required by API are set
 func NewProductSequenceStartInputWithDefaults() *ProductSequenceStartInput {
 	this := ProductSequenceStartInput{}
+	var enrollmentMode string = "new_only"
+	this.EnrollmentMode = &enrollmentMode
 	return &this
+}
+
+// GetAudienceListId returns the AudienceListId field value
+func (o *ProductSequenceStartInput) GetAudienceListId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AudienceListId
+}
+
+// GetAudienceListIdOk returns a tuple with the AudienceListId field value
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceStartInput) GetAudienceListIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AudienceListId, true
+}
+
+// SetAudienceListId sets field value
+func (o *ProductSequenceStartInput) SetAudienceListId(v string) {
+	o.AudienceListId = v
+}
+
+// GetCadenceId returns the CadenceId field value
+func (o *ProductSequenceStartInput) GetCadenceId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CadenceId
+}
+
+// GetCadenceIdOk returns a tuple with the CadenceId field value
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceStartInput) GetCadenceIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CadenceId, true
+}
+
+// SetCadenceId sets field value
+func (o *ProductSequenceStartInput) SetCadenceId(v string) {
+	o.CadenceId = v
+}
+
+// GetCadenceVersion returns the CadenceVersion field value
+func (o *ProductSequenceStartInput) GetCadenceVersion() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CadenceVersion
+}
+
+// GetCadenceVersionOk returns a tuple with the CadenceVersion field value
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceStartInput) GetCadenceVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CadenceVersion, true
+}
+
+// SetCadenceVersion sets field value
+func (o *ProductSequenceStartInput) SetCadenceVersion(v int32) {
+	o.CadenceVersion = v
+}
+
+// GetEnrollmentMode returns the EnrollmentMode field value if set, zero value otherwise.
+func (o *ProductSequenceStartInput) GetEnrollmentMode() string {
+	if o == nil || IsNil(o.EnrollmentMode) {
+		var ret string
+		return ret
+	}
+	return *o.EnrollmentMode
+}
+
+// GetEnrollmentModeOk returns a tuple with the EnrollmentMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceStartInput) GetEnrollmentModeOk() (*string, bool) {
+	if o == nil || IsNil(o.EnrollmentMode) {
+		return nil, false
+	}
+	return o.EnrollmentMode, true
+}
+
+// HasEnrollmentMode returns a boolean if a field has been set.
+func (o *ProductSequenceStartInput) HasEnrollmentMode() bool {
+	if o != nil && !IsNil(o.EnrollmentMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnrollmentMode gets a reference to the given string and assigns it to the EnrollmentMode field.
+func (o *ProductSequenceStartInput) SetEnrollmentMode(v string) {
+	o.EnrollmentMode = &v
 }
 
 // GetIdempotencyKey returns the IdempotencyKey field value
@@ -70,28 +190,124 @@ func (o *ProductSequenceStartInput) SetIdempotencyKey(v string) {
 	o.IdempotencyKey = v
 }
 
-// GetSequenceId returns the SequenceId field value
-func (o *ProductSequenceStartInput) GetSequenceId() string {
+// GetMailboxId returns the MailboxId field value if set, zero value otherwise.
+func (o *ProductSequenceStartInput) GetMailboxId() string {
+	if o == nil || IsNil(o.MailboxId) {
+		var ret string
+		return ret
+	}
+	return *o.MailboxId
+}
+
+// GetMailboxIdOk returns a tuple with the MailboxId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceStartInput) GetMailboxIdOk() (*string, bool) {
+	if o == nil || IsNil(o.MailboxId) {
+		return nil, false
+	}
+	return o.MailboxId, true
+}
+
+// HasMailboxId returns a boolean if a field has been set.
+func (o *ProductSequenceStartInput) HasMailboxId() bool {
+	if o != nil && !IsNil(o.MailboxId) {
+		return true
+	}
+
+	return false
+}
+
+// SetMailboxId gets a reference to the given string and assigns it to the MailboxId field.
+func (o *ProductSequenceStartInput) SetMailboxId(v string) {
+	o.MailboxId = &v
+}
+
+// GetMailboxPoolId returns the MailboxPoolId field value if set, zero value otherwise.
+func (o *ProductSequenceStartInput) GetMailboxPoolId() string {
+	if o == nil || IsNil(o.MailboxPoolId) {
+		var ret string
+		return ret
+	}
+	return *o.MailboxPoolId
+}
+
+// GetMailboxPoolIdOk returns a tuple with the MailboxPoolId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceStartInput) GetMailboxPoolIdOk() (*string, bool) {
+	if o == nil || IsNil(o.MailboxPoolId) {
+		return nil, false
+	}
+	return o.MailboxPoolId, true
+}
+
+// HasMailboxPoolId returns a boolean if a field has been set.
+func (o *ProductSequenceStartInput) HasMailboxPoolId() bool {
+	if o != nil && !IsNil(o.MailboxPoolId) {
+		return true
+	}
+
+	return false
+}
+
+// SetMailboxPoolId gets a reference to the given string and assigns it to the MailboxPoolId field.
+func (o *ProductSequenceStartInput) SetMailboxPoolId(v string) {
+	o.MailboxPoolId = &v
+}
+
+// GetName returns the Name field value
+func (o *ProductSequenceStartInput) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.SequenceId
+	return o.Name
 }
 
-// GetSequenceIdOk returns a tuple with the SequenceId field value
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *ProductSequenceStartInput) GetSequenceIdOk() (*string, bool) {
+func (o *ProductSequenceStartInput) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SequenceId, true
+	return &o.Name, true
 }
 
-// SetSequenceId sets field value
-func (o *ProductSequenceStartInput) SetSequenceId(v string) {
-	o.SequenceId = v
+// SetName sets field value
+func (o *ProductSequenceStartInput) SetName(v string) {
+	o.Name = v
+}
+
+// GetScheduledAt returns the ScheduledAt field value if set, zero value otherwise.
+func (o *ProductSequenceStartInput) GetScheduledAt() time.Time {
+	if o == nil || IsNil(o.ScheduledAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ScheduledAt
+}
+
+// GetScheduledAtOk returns a tuple with the ScheduledAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductSequenceStartInput) GetScheduledAtOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.ScheduledAt) {
+		return nil, false
+	}
+	return o.ScheduledAt, true
+}
+
+// HasScheduledAt returns a boolean if a field has been set.
+func (o *ProductSequenceStartInput) HasScheduledAt() bool {
+	if o != nil && !IsNil(o.ScheduledAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetScheduledAt gets a reference to the given time.Time and assigns it to the ScheduledAt field.
+func (o *ProductSequenceStartInput) SetScheduledAt(v time.Time) {
+	o.ScheduledAt = &v
 }
 
 func (o ProductSequenceStartInput) MarshalJSON() ([]byte, error) {
@@ -104,8 +320,23 @@ func (o ProductSequenceStartInput) MarshalJSON() ([]byte, error) {
 
 func (o ProductSequenceStartInput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["audienceListId"] = o.AudienceListId
+	toSerialize["cadenceId"] = o.CadenceId
+	toSerialize["cadenceVersion"] = o.CadenceVersion
+	if !IsNil(o.EnrollmentMode) {
+		toSerialize["enrollmentMode"] = o.EnrollmentMode
+	}
 	toSerialize["idempotencyKey"] = o.IdempotencyKey
-	toSerialize["sequenceId"] = o.SequenceId
+	if !IsNil(o.MailboxId) {
+		toSerialize["mailboxId"] = o.MailboxId
+	}
+	if !IsNil(o.MailboxPoolId) {
+		toSerialize["mailboxPoolId"] = o.MailboxPoolId
+	}
+	toSerialize["name"] = o.Name
+	if !IsNil(o.ScheduledAt) {
+		toSerialize["scheduledAt"] = o.ScheduledAt
+	}
 	return toSerialize, nil
 }
 
@@ -114,8 +345,11 @@ func (o *ProductSequenceStartInput) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"audienceListId",
+		"cadenceId",
+		"cadenceVersion",
 		"idempotencyKey",
-		"sequenceId",
+		"name",
 	}
 
 	allProperties := make(map[string]interface{})

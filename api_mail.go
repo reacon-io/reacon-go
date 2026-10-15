@@ -14642,6 +14642,9 @@ type ApiListMailMessagesRequest struct {
 	teamId string
 	limit *int32
 	cursor *string
+	query *string
+	status *string
+	sequenceId *string
 }
 
 func (r ApiListMailMessagesRequest) Limit(limit int32) ApiListMailMessagesRequest {
@@ -14651,6 +14654,21 @@ func (r ApiListMailMessagesRequest) Limit(limit int32) ApiListMailMessagesReques
 
 func (r ApiListMailMessagesRequest) Cursor(cursor string) ApiListMailMessagesRequest {
 	r.cursor = &cursor
+	return r
+}
+
+func (r ApiListMailMessagesRequest) Query(query string) ApiListMailMessagesRequest {
+	r.query = &query
+	return r
+}
+
+func (r ApiListMailMessagesRequest) Status(status string) ApiListMailMessagesRequest {
+	r.status = &status
+	return r
+}
+
+func (r ApiListMailMessagesRequest) SequenceId(sequenceId string) ApiListMailMessagesRequest {
+	r.sequenceId = &sequenceId
 	return r
 }
 
@@ -14702,6 +14720,15 @@ func (a *MailAPIService) ListMailMessagesExecute(r ApiListMailMessagesRequest) (
 	}
 	if r.cursor != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "cursor", r.cursor, "form", "")
+	}
+	if r.query != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
+	}
+	if r.status != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "form", "")
+	}
+	if r.sequenceId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sequenceId", r.sequenceId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
