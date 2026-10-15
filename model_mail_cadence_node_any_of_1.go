@@ -23,6 +23,7 @@ type MailCadenceNodeAnyOf1 struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Channel string `json:"channel"`
+	EmailThread *string `json:"emailThread,omitempty"`
 	Experiment *MailCadenceMessageExperiment `json:"experiment,omitempty"`
 	Kind string `json:"kind"`
 	NextNodeId string `json:"nextNodeId"`
@@ -127,6 +128,38 @@ func (o *MailCadenceNodeAnyOf1) GetChannelOk() (*string, bool) {
 // SetChannel sets field value
 func (o *MailCadenceNodeAnyOf1) SetChannel(v string) {
 	o.Channel = v
+}
+
+// GetEmailThread returns the EmailThread field value if set, zero value otherwise.
+func (o *MailCadenceNodeAnyOf1) GetEmailThread() string {
+	if o == nil || IsNil(o.EmailThread) {
+		var ret string
+		return ret
+	}
+	return *o.EmailThread
+}
+
+// GetEmailThreadOk returns a tuple with the EmailThread field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceNodeAnyOf1) GetEmailThreadOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailThread) {
+		return nil, false
+	}
+	return o.EmailThread, true
+}
+
+// HasEmailThread returns a boolean if a field has been set.
+func (o *MailCadenceNodeAnyOf1) HasEmailThread() bool {
+	if o != nil && !IsNil(o.EmailThread) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailThread gets a reference to the given string and assigns it to the EmailThread field.
+func (o *MailCadenceNodeAnyOf1) SetEmailThread(v string) {
+	o.EmailThread = &v
 }
 
 // GetExperiment returns the Experiment field value if set, zero value otherwise.
@@ -270,6 +303,9 @@ func (o MailCadenceNodeAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["channel"] = o.Channel
+	if !IsNil(o.EmailThread) {
+		toSerialize["emailThread"] = o.EmailThread
+	}
 	if !IsNil(o.Experiment) {
 		toSerialize["experiment"] = o.Experiment
 	}
@@ -329,6 +365,7 @@ func (o *MailCadenceNodeAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "channel")
+		delete(additionalProperties, "emailThread")
 		delete(additionalProperties, "experiment")
 		delete(additionalProperties, "kind")
 		delete(additionalProperties, "nextNodeId")

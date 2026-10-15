@@ -20,7 +20,7 @@ var _ MappedNullable = &MailGetSignaturesResponse200{}
 
 // MailGetSignaturesResponse200 struct for MailGetSignaturesResponse200
 type MailGetSignaturesResponse200 struct {
-	Candidates []MailSignatureCandidate `json:"candidates"`
+	Candidates []MailGetSignaturesResponse200CandidatesInner `json:"candidates"`
 	NextCursor *string `json:"nextCursor,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -31,7 +31,7 @@ type _MailGetSignaturesResponse200 MailGetSignaturesResponse200
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailGetSignaturesResponse200(candidates []MailSignatureCandidate) *MailGetSignaturesResponse200 {
+func NewMailGetSignaturesResponse200(candidates []MailGetSignaturesResponse200CandidatesInner) *MailGetSignaturesResponse200 {
 	this := MailGetSignaturesResponse200{}
 	this.Candidates = candidates
 	return &this
@@ -46,9 +46,9 @@ func NewMailGetSignaturesResponse200WithDefaults() *MailGetSignaturesResponse200
 }
 
 // GetCandidates returns the Candidates field value
-func (o *MailGetSignaturesResponse200) GetCandidates() []MailSignatureCandidate {
+func (o *MailGetSignaturesResponse200) GetCandidates() []MailGetSignaturesResponse200CandidatesInner {
 	if o == nil {
-		var ret []MailSignatureCandidate
+		var ret []MailGetSignaturesResponse200CandidatesInner
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *MailGetSignaturesResponse200) GetCandidates() []MailSignatureCandidate 
 
 // GetCandidatesOk returns a tuple with the Candidates field value
 // and a boolean to check if the value has been set.
-func (o *MailGetSignaturesResponse200) GetCandidatesOk() ([]MailSignatureCandidate, bool) {
+func (o *MailGetSignaturesResponse200) GetCandidatesOk() ([]MailGetSignaturesResponse200CandidatesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *MailGetSignaturesResponse200) GetCandidatesOk() ([]MailSignatureCandida
 }
 
 // SetCandidates sets field value
-func (o *MailGetSignaturesResponse200) SetCandidates(v []MailSignatureCandidate) {
+func (o *MailGetSignaturesResponse200) SetCandidates(v []MailGetSignaturesResponse200CandidatesInner) {
 	o.Candidates = v
 }
 

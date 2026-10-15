@@ -22,6 +22,8 @@ var _ MappedNullable = &ProductSavedSearchesListOutput{}
 type ProductSavedSearchesListOutput struct {
 	// Currently always empty.
 	Items []map[string]interface{} `json:"items"`
+	Reason string `json:"reason"`
+	Supported bool `json:"supported"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,9 +33,11 @@ type _ProductSavedSearchesListOutput ProductSavedSearchesListOutput
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProductSavedSearchesListOutput(items []map[string]interface{}) *ProductSavedSearchesListOutput {
+func NewProductSavedSearchesListOutput(items []map[string]interface{}, reason string, supported bool) *ProductSavedSearchesListOutput {
 	this := ProductSavedSearchesListOutput{}
 	this.Items = items
+	this.Reason = reason
+	this.Supported = supported
 	return &this
 }
 
@@ -69,6 +73,54 @@ func (o *ProductSavedSearchesListOutput) SetItems(v []map[string]interface{}) {
 	o.Items = v
 }
 
+// GetReason returns the Reason field value
+func (o *ProductSavedSearchesListOutput) GetReason() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Reason
+}
+
+// GetReasonOk returns a tuple with the Reason field value
+// and a boolean to check if the value has been set.
+func (o *ProductSavedSearchesListOutput) GetReasonOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Reason, true
+}
+
+// SetReason sets field value
+func (o *ProductSavedSearchesListOutput) SetReason(v string) {
+	o.Reason = v
+}
+
+// GetSupported returns the Supported field value
+func (o *ProductSavedSearchesListOutput) GetSupported() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Supported
+}
+
+// GetSupportedOk returns a tuple with the Supported field value
+// and a boolean to check if the value has been set.
+func (o *ProductSavedSearchesListOutput) GetSupportedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Supported, true
+}
+
+// SetSupported sets field value
+func (o *ProductSavedSearchesListOutput) SetSupported(v bool) {
+	o.Supported = v
+}
+
 func (o ProductSavedSearchesListOutput) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -80,6 +132,8 @@ func (o ProductSavedSearchesListOutput) MarshalJSON() ([]byte, error) {
 func (o ProductSavedSearchesListOutput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
+	toSerialize["reason"] = o.Reason
+	toSerialize["supported"] = o.Supported
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -94,6 +148,8 @@ func (o *ProductSavedSearchesListOutput) UnmarshalJSON(data []byte) (err error) 
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"items",
+		"reason",
+		"supported",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -124,6 +180,8 @@ func (o *ProductSavedSearchesListOutput) UnmarshalJSON(data []byte) (err error) 
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "items")
+		delete(additionalProperties, "reason")
+		delete(additionalProperties, "supported")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -15,30 +15,30 @@ import (
 	"fmt"
 )
 
-// checks if the MailSignatureCandidateFields type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &MailSignatureCandidateFields{}
+// checks if the MailGetSignaturesResponse200CandidatesInnerFields type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MailGetSignaturesResponse200CandidatesInnerFields{}
 
-// MailSignatureCandidateFields struct for MailSignatureCandidateFields
-type MailSignatureCandidateFields struct {
+// MailGetSignaturesResponse200CandidatesInnerFields struct for MailGetSignaturesResponse200CandidatesInnerFields
+type MailGetSignaturesResponse200CandidatesInnerFields struct {
 	Address *MailEvidenceField `json:"address,omitempty"`
 	Company *MailEvidenceField `json:"company,omitempty"`
 	Emails []MailEvidenceField `json:"emails"`
 	JobTitle *MailEvidenceField `json:"jobTitle,omitempty"`
 	PersonName *MailEvidenceField `json:"personName,omitempty"`
-	Phones []MailSignatureCandidateFieldsPhonesInner `json:"phones"`
+	Phones []MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner `json:"phones"`
 	SocialProfiles []MailEvidenceField `json:"socialProfiles"`
 	Websites []MailEvidenceField `json:"websites"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _MailSignatureCandidateFields MailSignatureCandidateFields
+type _MailGetSignaturesResponse200CandidatesInnerFields MailGetSignaturesResponse200CandidatesInnerFields
 
-// NewMailSignatureCandidateFields instantiates a new MailSignatureCandidateFields object
+// NewMailGetSignaturesResponse200CandidatesInnerFields instantiates a new MailGetSignaturesResponse200CandidatesInnerFields object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailSignatureCandidateFields(emails []MailEvidenceField, phones []MailSignatureCandidateFieldsPhonesInner, socialProfiles []MailEvidenceField, websites []MailEvidenceField) *MailSignatureCandidateFields {
-	this := MailSignatureCandidateFields{}
+func NewMailGetSignaturesResponse200CandidatesInnerFields(emails []MailEvidenceField, phones []MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner, socialProfiles []MailEvidenceField, websites []MailEvidenceField) *MailGetSignaturesResponse200CandidatesInnerFields {
+	this := MailGetSignaturesResponse200CandidatesInnerFields{}
 	this.Emails = emails
 	this.Phones = phones
 	this.SocialProfiles = socialProfiles
@@ -46,16 +46,16 @@ func NewMailSignatureCandidateFields(emails []MailEvidenceField, phones []MailSi
 	return &this
 }
 
-// NewMailSignatureCandidateFieldsWithDefaults instantiates a new MailSignatureCandidateFields object
+// NewMailGetSignaturesResponse200CandidatesInnerFieldsWithDefaults instantiates a new MailGetSignaturesResponse200CandidatesInnerFields object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewMailSignatureCandidateFieldsWithDefaults() *MailSignatureCandidateFields {
-	this := MailSignatureCandidateFields{}
+func NewMailGetSignaturesResponse200CandidatesInnerFieldsWithDefaults() *MailGetSignaturesResponse200CandidatesInnerFields {
+	this := MailGetSignaturesResponse200CandidatesInnerFields{}
 	return &this
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise.
-func (o *MailSignatureCandidateFields) GetAddress() MailEvidenceField {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetAddress() MailEvidenceField {
 	if o == nil || IsNil(o.Address) {
 		var ret MailEvidenceField
 		return ret
@@ -65,7 +65,7 @@ func (o *MailSignatureCandidateFields) GetAddress() MailEvidenceField {
 
 // GetAddressOk returns a tuple with the Address field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetAddressOk() (*MailEvidenceField, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetAddressOk() (*MailEvidenceField, bool) {
 	if o == nil || IsNil(o.Address) {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *MailSignatureCandidateFields) GetAddressOk() (*MailEvidenceField, bool)
 }
 
 // HasAddress returns a boolean if a field has been set.
-func (o *MailSignatureCandidateFields) HasAddress() bool {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) HasAddress() bool {
 	if o != nil && !IsNil(o.Address) {
 		return true
 	}
@@ -82,12 +82,12 @@ func (o *MailSignatureCandidateFields) HasAddress() bool {
 }
 
 // SetAddress gets a reference to the given MailEvidenceField and assigns it to the Address field.
-func (o *MailSignatureCandidateFields) SetAddress(v MailEvidenceField) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetAddress(v MailEvidenceField) {
 	o.Address = &v
 }
 
 // GetCompany returns the Company field value if set, zero value otherwise.
-func (o *MailSignatureCandidateFields) GetCompany() MailEvidenceField {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetCompany() MailEvidenceField {
 	if o == nil || IsNil(o.Company) {
 		var ret MailEvidenceField
 		return ret
@@ -97,7 +97,7 @@ func (o *MailSignatureCandidateFields) GetCompany() MailEvidenceField {
 
 // GetCompanyOk returns a tuple with the Company field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetCompanyOk() (*MailEvidenceField, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetCompanyOk() (*MailEvidenceField, bool) {
 	if o == nil || IsNil(o.Company) {
 		return nil, false
 	}
@@ -105,7 +105,7 @@ func (o *MailSignatureCandidateFields) GetCompanyOk() (*MailEvidenceField, bool)
 }
 
 // HasCompany returns a boolean if a field has been set.
-func (o *MailSignatureCandidateFields) HasCompany() bool {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) HasCompany() bool {
 	if o != nil && !IsNil(o.Company) {
 		return true
 	}
@@ -114,12 +114,12 @@ func (o *MailSignatureCandidateFields) HasCompany() bool {
 }
 
 // SetCompany gets a reference to the given MailEvidenceField and assigns it to the Company field.
-func (o *MailSignatureCandidateFields) SetCompany(v MailEvidenceField) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetCompany(v MailEvidenceField) {
 	o.Company = &v
 }
 
 // GetEmails returns the Emails field value
-func (o *MailSignatureCandidateFields) GetEmails() []MailEvidenceField {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetEmails() []MailEvidenceField {
 	if o == nil {
 		var ret []MailEvidenceField
 		return ret
@@ -130,7 +130,7 @@ func (o *MailSignatureCandidateFields) GetEmails() []MailEvidenceField {
 
 // GetEmailsOk returns a tuple with the Emails field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetEmailsOk() ([]MailEvidenceField, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetEmailsOk() ([]MailEvidenceField, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -138,12 +138,12 @@ func (o *MailSignatureCandidateFields) GetEmailsOk() ([]MailEvidenceField, bool)
 }
 
 // SetEmails sets field value
-func (o *MailSignatureCandidateFields) SetEmails(v []MailEvidenceField) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetEmails(v []MailEvidenceField) {
 	o.Emails = v
 }
 
 // GetJobTitle returns the JobTitle field value if set, zero value otherwise.
-func (o *MailSignatureCandidateFields) GetJobTitle() MailEvidenceField {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetJobTitle() MailEvidenceField {
 	if o == nil || IsNil(o.JobTitle) {
 		var ret MailEvidenceField
 		return ret
@@ -153,7 +153,7 @@ func (o *MailSignatureCandidateFields) GetJobTitle() MailEvidenceField {
 
 // GetJobTitleOk returns a tuple with the JobTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetJobTitleOk() (*MailEvidenceField, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetJobTitleOk() (*MailEvidenceField, bool) {
 	if o == nil || IsNil(o.JobTitle) {
 		return nil, false
 	}
@@ -161,7 +161,7 @@ func (o *MailSignatureCandidateFields) GetJobTitleOk() (*MailEvidenceField, bool
 }
 
 // HasJobTitle returns a boolean if a field has been set.
-func (o *MailSignatureCandidateFields) HasJobTitle() bool {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) HasJobTitle() bool {
 	if o != nil && !IsNil(o.JobTitle) {
 		return true
 	}
@@ -170,12 +170,12 @@ func (o *MailSignatureCandidateFields) HasJobTitle() bool {
 }
 
 // SetJobTitle gets a reference to the given MailEvidenceField and assigns it to the JobTitle field.
-func (o *MailSignatureCandidateFields) SetJobTitle(v MailEvidenceField) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetJobTitle(v MailEvidenceField) {
 	o.JobTitle = &v
 }
 
 // GetPersonName returns the PersonName field value if set, zero value otherwise.
-func (o *MailSignatureCandidateFields) GetPersonName() MailEvidenceField {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetPersonName() MailEvidenceField {
 	if o == nil || IsNil(o.PersonName) {
 		var ret MailEvidenceField
 		return ret
@@ -185,7 +185,7 @@ func (o *MailSignatureCandidateFields) GetPersonName() MailEvidenceField {
 
 // GetPersonNameOk returns a tuple with the PersonName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetPersonNameOk() (*MailEvidenceField, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetPersonNameOk() (*MailEvidenceField, bool) {
 	if o == nil || IsNil(o.PersonName) {
 		return nil, false
 	}
@@ -193,7 +193,7 @@ func (o *MailSignatureCandidateFields) GetPersonNameOk() (*MailEvidenceField, bo
 }
 
 // HasPersonName returns a boolean if a field has been set.
-func (o *MailSignatureCandidateFields) HasPersonName() bool {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) HasPersonName() bool {
 	if o != nil && !IsNil(o.PersonName) {
 		return true
 	}
@@ -202,14 +202,14 @@ func (o *MailSignatureCandidateFields) HasPersonName() bool {
 }
 
 // SetPersonName gets a reference to the given MailEvidenceField and assigns it to the PersonName field.
-func (o *MailSignatureCandidateFields) SetPersonName(v MailEvidenceField) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetPersonName(v MailEvidenceField) {
 	o.PersonName = &v
 }
 
 // GetPhones returns the Phones field value
-func (o *MailSignatureCandidateFields) GetPhones() []MailSignatureCandidateFieldsPhonesInner {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetPhones() []MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner {
 	if o == nil {
-		var ret []MailSignatureCandidateFieldsPhonesInner
+		var ret []MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner
 		return ret
 	}
 
@@ -218,7 +218,7 @@ func (o *MailSignatureCandidateFields) GetPhones() []MailSignatureCandidateField
 
 // GetPhonesOk returns a tuple with the Phones field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetPhonesOk() ([]MailSignatureCandidateFieldsPhonesInner, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetPhonesOk() ([]MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -226,12 +226,12 @@ func (o *MailSignatureCandidateFields) GetPhonesOk() ([]MailSignatureCandidateFi
 }
 
 // SetPhones sets field value
-func (o *MailSignatureCandidateFields) SetPhones(v []MailSignatureCandidateFieldsPhonesInner) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetPhones(v []MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner) {
 	o.Phones = v
 }
 
 // GetSocialProfiles returns the SocialProfiles field value
-func (o *MailSignatureCandidateFields) GetSocialProfiles() []MailEvidenceField {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetSocialProfiles() []MailEvidenceField {
 	if o == nil {
 		var ret []MailEvidenceField
 		return ret
@@ -242,7 +242,7 @@ func (o *MailSignatureCandidateFields) GetSocialProfiles() []MailEvidenceField {
 
 // GetSocialProfilesOk returns a tuple with the SocialProfiles field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetSocialProfilesOk() ([]MailEvidenceField, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetSocialProfilesOk() ([]MailEvidenceField, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -250,12 +250,12 @@ func (o *MailSignatureCandidateFields) GetSocialProfilesOk() ([]MailEvidenceFiel
 }
 
 // SetSocialProfiles sets field value
-func (o *MailSignatureCandidateFields) SetSocialProfiles(v []MailEvidenceField) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetSocialProfiles(v []MailEvidenceField) {
 	o.SocialProfiles = v
 }
 
 // GetWebsites returns the Websites field value
-func (o *MailSignatureCandidateFields) GetWebsites() []MailEvidenceField {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetWebsites() []MailEvidenceField {
 	if o == nil {
 		var ret []MailEvidenceField
 		return ret
@@ -266,7 +266,7 @@ func (o *MailSignatureCandidateFields) GetWebsites() []MailEvidenceField {
 
 // GetWebsitesOk returns a tuple with the Websites field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidateFields) GetWebsitesOk() ([]MailEvidenceField, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) GetWebsitesOk() ([]MailEvidenceField, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -274,11 +274,11 @@ func (o *MailSignatureCandidateFields) GetWebsitesOk() ([]MailEvidenceField, boo
 }
 
 // SetWebsites sets field value
-func (o *MailSignatureCandidateFields) SetWebsites(v []MailEvidenceField) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) SetWebsites(v []MailEvidenceField) {
 	o.Websites = v
 }
 
-func (o MailSignatureCandidateFields) MarshalJSON() ([]byte, error) {
+func (o MailGetSignaturesResponse200CandidatesInnerFields) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -286,7 +286,7 @@ func (o MailSignatureCandidateFields) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o MailSignatureCandidateFields) ToMap() (map[string]interface{}, error) {
+func (o MailGetSignaturesResponse200CandidatesInnerFields) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
@@ -312,7 +312,7 @@ func (o MailSignatureCandidateFields) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *MailSignatureCandidateFields) UnmarshalJSON(data []byte) (err error) {
+func (o *MailGetSignaturesResponse200CandidatesInnerFields) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -337,15 +337,15 @@ func (o *MailSignatureCandidateFields) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varMailSignatureCandidateFields := _MailSignatureCandidateFields{}
+	varMailGetSignaturesResponse200CandidatesInnerFields := _MailGetSignaturesResponse200CandidatesInnerFields{}
 
-	err = json.Unmarshal(data, &varMailSignatureCandidateFields)
+	err = json.Unmarshal(data, &varMailGetSignaturesResponse200CandidatesInnerFields)
 
 	if err != nil {
 		return err
 	}
 
-	*o = MailSignatureCandidateFields(varMailSignatureCandidateFields)
+	*o = MailGetSignaturesResponse200CandidatesInnerFields(varMailGetSignaturesResponse200CandidatesInnerFields)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -364,38 +364,38 @@ func (o *MailSignatureCandidateFields) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableMailSignatureCandidateFields struct {
-	value *MailSignatureCandidateFields
+type NullableMailGetSignaturesResponse200CandidatesInnerFields struct {
+	value *MailGetSignaturesResponse200CandidatesInnerFields
 	isSet bool
 }
 
-func (v NullableMailSignatureCandidateFields) Get() *MailSignatureCandidateFields {
+func (v NullableMailGetSignaturesResponse200CandidatesInnerFields) Get() *MailGetSignaturesResponse200CandidatesInnerFields {
 	return v.value
 }
 
-func (v *NullableMailSignatureCandidateFields) Set(val *MailSignatureCandidateFields) {
+func (v *NullableMailGetSignaturesResponse200CandidatesInnerFields) Set(val *MailGetSignaturesResponse200CandidatesInnerFields) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableMailSignatureCandidateFields) IsSet() bool {
+func (v NullableMailGetSignaturesResponse200CandidatesInnerFields) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableMailSignatureCandidateFields) Unset() {
+func (v *NullableMailGetSignaturesResponse200CandidatesInnerFields) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableMailSignatureCandidateFields(val *MailSignatureCandidateFields) *NullableMailSignatureCandidateFields {
-	return &NullableMailSignatureCandidateFields{value: val, isSet: true}
+func NewNullableMailGetSignaturesResponse200CandidatesInnerFields(val *MailGetSignaturesResponse200CandidatesInnerFields) *NullableMailGetSignaturesResponse200CandidatesInnerFields {
+	return &NullableMailGetSignaturesResponse200CandidatesInnerFields{value: val, isSet: true}
 }
 
-func (v NullableMailSignatureCandidateFields) MarshalJSON() ([]byte, error) {
+func (v NullableMailGetSignaturesResponse200CandidatesInnerFields) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableMailSignatureCandidateFields) UnmarshalJSON(src []byte) error {
+func (v *NullableMailGetSignaturesResponse200CandidatesInnerFields) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

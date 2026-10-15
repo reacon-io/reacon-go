@@ -21,8 +21,13 @@ var _ MappedNullable = &MailCadenceDefinition{}
 
 // MailCadenceDefinition struct for MailCadenceDefinition
 type MailCadenceDefinition struct {
+	AuthoringRevision *float32 `json:"authoringRevision,omitempty"`
 	CreatedAt time.Time `json:"createdAt"`
 	CreatedByActorId string `json:"createdByActorId"`
+	EmailDelivery *MailEmailSequenceDeliverySettings `json:"emailDelivery,omitempty"`
+	EmailExcludedContactIds []string `json:"emailExcludedContactIds,omitempty"`
+	EmailRecipientOverrides []MailEmailSequenceRecipientOverride `json:"emailRecipientOverrides,omitempty"`
+	EmailRenderSeed *string `json:"emailRenderSeed,omitempty"`
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Nodes []MailCadenceNode `json:"nodes"`
@@ -58,6 +63,38 @@ func NewMailCadenceDefinition(createdAt time.Time, createdByActorId string, id s
 func NewMailCadenceDefinitionWithDefaults() *MailCadenceDefinition {
 	this := MailCadenceDefinition{}
 	return &this
+}
+
+// GetAuthoringRevision returns the AuthoringRevision field value if set, zero value otherwise.
+func (o *MailCadenceDefinition) GetAuthoringRevision() float32 {
+	if o == nil || IsNil(o.AuthoringRevision) {
+		var ret float32
+		return ret
+	}
+	return *o.AuthoringRevision
+}
+
+// GetAuthoringRevisionOk returns a tuple with the AuthoringRevision field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceDefinition) GetAuthoringRevisionOk() (*float32, bool) {
+	if o == nil || IsNil(o.AuthoringRevision) {
+		return nil, false
+	}
+	return o.AuthoringRevision, true
+}
+
+// HasAuthoringRevision returns a boolean if a field has been set.
+func (o *MailCadenceDefinition) HasAuthoringRevision() bool {
+	if o != nil && !IsNil(o.AuthoringRevision) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthoringRevision gets a reference to the given float32 and assigns it to the AuthoringRevision field.
+func (o *MailCadenceDefinition) SetAuthoringRevision(v float32) {
+	o.AuthoringRevision = &v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -106,6 +143,134 @@ func (o *MailCadenceDefinition) GetCreatedByActorIdOk() (*string, bool) {
 // SetCreatedByActorId sets field value
 func (o *MailCadenceDefinition) SetCreatedByActorId(v string) {
 	o.CreatedByActorId = v
+}
+
+// GetEmailDelivery returns the EmailDelivery field value if set, zero value otherwise.
+func (o *MailCadenceDefinition) GetEmailDelivery() MailEmailSequenceDeliverySettings {
+	if o == nil || IsNil(o.EmailDelivery) {
+		var ret MailEmailSequenceDeliverySettings
+		return ret
+	}
+	return *o.EmailDelivery
+}
+
+// GetEmailDeliveryOk returns a tuple with the EmailDelivery field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceDefinition) GetEmailDeliveryOk() (*MailEmailSequenceDeliverySettings, bool) {
+	if o == nil || IsNil(o.EmailDelivery) {
+		return nil, false
+	}
+	return o.EmailDelivery, true
+}
+
+// HasEmailDelivery returns a boolean if a field has been set.
+func (o *MailCadenceDefinition) HasEmailDelivery() bool {
+	if o != nil && !IsNil(o.EmailDelivery) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailDelivery gets a reference to the given MailEmailSequenceDeliverySettings and assigns it to the EmailDelivery field.
+func (o *MailCadenceDefinition) SetEmailDelivery(v MailEmailSequenceDeliverySettings) {
+	o.EmailDelivery = &v
+}
+
+// GetEmailExcludedContactIds returns the EmailExcludedContactIds field value if set, zero value otherwise.
+func (o *MailCadenceDefinition) GetEmailExcludedContactIds() []string {
+	if o == nil || IsNil(o.EmailExcludedContactIds) {
+		var ret []string
+		return ret
+	}
+	return o.EmailExcludedContactIds
+}
+
+// GetEmailExcludedContactIdsOk returns a tuple with the EmailExcludedContactIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceDefinition) GetEmailExcludedContactIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.EmailExcludedContactIds) {
+		return nil, false
+	}
+	return o.EmailExcludedContactIds, true
+}
+
+// HasEmailExcludedContactIds returns a boolean if a field has been set.
+func (o *MailCadenceDefinition) HasEmailExcludedContactIds() bool {
+	if o != nil && !IsNil(o.EmailExcludedContactIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailExcludedContactIds gets a reference to the given []string and assigns it to the EmailExcludedContactIds field.
+func (o *MailCadenceDefinition) SetEmailExcludedContactIds(v []string) {
+	o.EmailExcludedContactIds = v
+}
+
+// GetEmailRecipientOverrides returns the EmailRecipientOverrides field value if set, zero value otherwise.
+func (o *MailCadenceDefinition) GetEmailRecipientOverrides() []MailEmailSequenceRecipientOverride {
+	if o == nil || IsNil(o.EmailRecipientOverrides) {
+		var ret []MailEmailSequenceRecipientOverride
+		return ret
+	}
+	return o.EmailRecipientOverrides
+}
+
+// GetEmailRecipientOverridesOk returns a tuple with the EmailRecipientOverrides field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceDefinition) GetEmailRecipientOverridesOk() ([]MailEmailSequenceRecipientOverride, bool) {
+	if o == nil || IsNil(o.EmailRecipientOverrides) {
+		return nil, false
+	}
+	return o.EmailRecipientOverrides, true
+}
+
+// HasEmailRecipientOverrides returns a boolean if a field has been set.
+func (o *MailCadenceDefinition) HasEmailRecipientOverrides() bool {
+	if o != nil && !IsNil(o.EmailRecipientOverrides) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailRecipientOverrides gets a reference to the given []MailEmailSequenceRecipientOverride and assigns it to the EmailRecipientOverrides field.
+func (o *MailCadenceDefinition) SetEmailRecipientOverrides(v []MailEmailSequenceRecipientOverride) {
+	o.EmailRecipientOverrides = v
+}
+
+// GetEmailRenderSeed returns the EmailRenderSeed field value if set, zero value otherwise.
+func (o *MailCadenceDefinition) GetEmailRenderSeed() string {
+	if o == nil || IsNil(o.EmailRenderSeed) {
+		var ret string
+		return ret
+	}
+	return *o.EmailRenderSeed
+}
+
+// GetEmailRenderSeedOk returns a tuple with the EmailRenderSeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailCadenceDefinition) GetEmailRenderSeedOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailRenderSeed) {
+		return nil, false
+	}
+	return o.EmailRenderSeed, true
+}
+
+// HasEmailRenderSeed returns a boolean if a field has been set.
+func (o *MailCadenceDefinition) HasEmailRenderSeed() bool {
+	if o != nil && !IsNil(o.EmailRenderSeed) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailRenderSeed gets a reference to the given string and assigns it to the EmailRenderSeed field.
+func (o *MailCadenceDefinition) SetEmailRenderSeed(v string) {
+	o.EmailRenderSeed = &v
 }
 
 // GetId returns the Id field value
@@ -294,8 +459,23 @@ func (o MailCadenceDefinition) MarshalJSON() ([]byte, error) {
 
 func (o MailCadenceDefinition) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AuthoringRevision) {
+		toSerialize["authoringRevision"] = o.AuthoringRevision
+	}
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["createdByActorId"] = o.CreatedByActorId
+	if !IsNil(o.EmailDelivery) {
+		toSerialize["emailDelivery"] = o.EmailDelivery
+	}
+	if !IsNil(o.EmailExcludedContactIds) {
+		toSerialize["emailExcludedContactIds"] = o.EmailExcludedContactIds
+	}
+	if !IsNil(o.EmailRecipientOverrides) {
+		toSerialize["emailRecipientOverrides"] = o.EmailRecipientOverrides
+	}
+	if !IsNil(o.EmailRenderSeed) {
+		toSerialize["emailRenderSeed"] = o.EmailRenderSeed
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["nodes"] = o.Nodes
@@ -355,8 +535,13 @@ func (o *MailCadenceDefinition) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "authoringRevision")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "createdByActorId")
+		delete(additionalProperties, "emailDelivery")
+		delete(additionalProperties, "emailExcludedContactIds")
+		delete(additionalProperties, "emailRecipientOverrides")
+		delete(additionalProperties, "emailRenderSeed")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "nodes")

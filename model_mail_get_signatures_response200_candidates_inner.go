@@ -16,15 +16,15 @@ import (
 	"fmt"
 )
 
-// checks if the MailSignatureCandidate type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &MailSignatureCandidate{}
+// checks if the MailGetSignaturesResponse200CandidatesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MailGetSignaturesResponse200CandidatesInner{}
 
-// MailSignatureCandidate struct for MailSignatureCandidate
-type MailSignatureCandidate struct {
+// MailGetSignaturesResponse200CandidatesInner struct for MailGetSignaturesResponse200CandidatesInner
+type MailGetSignaturesResponse200CandidatesInner struct {
 	Confidence float32 `json:"confidence"`
 	CreatedAt time.Time `json:"createdAt"`
 	ExtractorVersion string `json:"extractorVersion"`
-	Fields MailSignatureCandidateFields `json:"fields"`
+	Fields MailGetSignaturesResponse200CandidatesInnerFields `json:"fields"`
 	Id string `json:"id"`
 	SignatureFingerprint string `json:"signatureFingerprint"`
 	SignatureText string `json:"signatureText"`
@@ -35,14 +35,14 @@ type MailSignatureCandidate struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _MailSignatureCandidate MailSignatureCandidate
+type _MailGetSignaturesResponse200CandidatesInner MailGetSignaturesResponse200CandidatesInner
 
-// NewMailSignatureCandidate instantiates a new MailSignatureCandidate object
+// NewMailGetSignaturesResponse200CandidatesInner instantiates a new MailGetSignaturesResponse200CandidatesInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMailSignatureCandidate(confidence float32, createdAt time.Time, extractorVersion string, fields MailSignatureCandidateFields, id string, signatureFingerprint string, signatureText string, signatureTextHash string, sourceMessageId string, status string, tenantId string) *MailSignatureCandidate {
-	this := MailSignatureCandidate{}
+func NewMailGetSignaturesResponse200CandidatesInner(confidence float32, createdAt time.Time, extractorVersion string, fields MailGetSignaturesResponse200CandidatesInnerFields, id string, signatureFingerprint string, signatureText string, signatureTextHash string, sourceMessageId string, status string, tenantId string) *MailGetSignaturesResponse200CandidatesInner {
+	this := MailGetSignaturesResponse200CandidatesInner{}
 	this.Confidence = confidence
 	this.CreatedAt = createdAt
 	this.ExtractorVersion = extractorVersion
@@ -57,16 +57,16 @@ func NewMailSignatureCandidate(confidence float32, createdAt time.Time, extracto
 	return &this
 }
 
-// NewMailSignatureCandidateWithDefaults instantiates a new MailSignatureCandidate object
+// NewMailGetSignaturesResponse200CandidatesInnerWithDefaults instantiates a new MailGetSignaturesResponse200CandidatesInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewMailSignatureCandidateWithDefaults() *MailSignatureCandidate {
-	this := MailSignatureCandidate{}
+func NewMailGetSignaturesResponse200CandidatesInnerWithDefaults() *MailGetSignaturesResponse200CandidatesInner {
+	this := MailGetSignaturesResponse200CandidatesInner{}
 	return &this
 }
 
 // GetConfidence returns the Confidence field value
-func (o *MailSignatureCandidate) GetConfidence() float32 {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetConfidence() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -77,7 +77,7 @@ func (o *MailSignatureCandidate) GetConfidence() float32 {
 
 // GetConfidenceOk returns a tuple with the Confidence field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetConfidenceOk() (*float32, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetConfidenceOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -85,12 +85,12 @@ func (o *MailSignatureCandidate) GetConfidenceOk() (*float32, bool) {
 }
 
 // SetConfidence sets field value
-func (o *MailSignatureCandidate) SetConfidence(v float32) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetConfidence(v float32) {
 	o.Confidence = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
-func (o *MailSignatureCandidate) GetCreatedAt() time.Time {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetCreatedAt() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -101,7 +101,7 @@ func (o *MailSignatureCandidate) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetCreatedAtOk() (*time.Time, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetCreatedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -109,12 +109,12 @@ func (o *MailSignatureCandidate) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // SetCreatedAt sets field value
-func (o *MailSignatureCandidate) SetCreatedAt(v time.Time) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
 }
 
 // GetExtractorVersion returns the ExtractorVersion field value
-func (o *MailSignatureCandidate) GetExtractorVersion() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetExtractorVersion() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *MailSignatureCandidate) GetExtractorVersion() string {
 
 // GetExtractorVersionOk returns a tuple with the ExtractorVersion field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetExtractorVersionOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetExtractorVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -133,14 +133,14 @@ func (o *MailSignatureCandidate) GetExtractorVersionOk() (*string, bool) {
 }
 
 // SetExtractorVersion sets field value
-func (o *MailSignatureCandidate) SetExtractorVersion(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetExtractorVersion(v string) {
 	o.ExtractorVersion = v
 }
 
 // GetFields returns the Fields field value
-func (o *MailSignatureCandidate) GetFields() MailSignatureCandidateFields {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetFields() MailGetSignaturesResponse200CandidatesInnerFields {
 	if o == nil {
-		var ret MailSignatureCandidateFields
+		var ret MailGetSignaturesResponse200CandidatesInnerFields
 		return ret
 	}
 
@@ -149,7 +149,7 @@ func (o *MailSignatureCandidate) GetFields() MailSignatureCandidateFields {
 
 // GetFieldsOk returns a tuple with the Fields field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetFieldsOk() (*MailSignatureCandidateFields, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetFieldsOk() (*MailGetSignaturesResponse200CandidatesInnerFields, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -157,12 +157,12 @@ func (o *MailSignatureCandidate) GetFieldsOk() (*MailSignatureCandidateFields, b
 }
 
 // SetFields sets field value
-func (o *MailSignatureCandidate) SetFields(v MailSignatureCandidateFields) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetFields(v MailGetSignaturesResponse200CandidatesInnerFields) {
 	o.Fields = v
 }
 
 // GetId returns the Id field value
-func (o *MailSignatureCandidate) GetId() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -173,7 +173,7 @@ func (o *MailSignatureCandidate) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetIdOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -181,12 +181,12 @@ func (o *MailSignatureCandidate) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *MailSignatureCandidate) SetId(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetId(v string) {
 	o.Id = v
 }
 
 // GetSignatureFingerprint returns the SignatureFingerprint field value
-func (o *MailSignatureCandidate) GetSignatureFingerprint() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSignatureFingerprint() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -197,7 +197,7 @@ func (o *MailSignatureCandidate) GetSignatureFingerprint() string {
 
 // GetSignatureFingerprintOk returns a tuple with the SignatureFingerprint field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetSignatureFingerprintOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSignatureFingerprintOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -205,12 +205,12 @@ func (o *MailSignatureCandidate) GetSignatureFingerprintOk() (*string, bool) {
 }
 
 // SetSignatureFingerprint sets field value
-func (o *MailSignatureCandidate) SetSignatureFingerprint(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetSignatureFingerprint(v string) {
 	o.SignatureFingerprint = v
 }
 
 // GetSignatureText returns the SignatureText field value
-func (o *MailSignatureCandidate) GetSignatureText() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSignatureText() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -221,7 +221,7 @@ func (o *MailSignatureCandidate) GetSignatureText() string {
 
 // GetSignatureTextOk returns a tuple with the SignatureText field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetSignatureTextOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSignatureTextOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -229,12 +229,12 @@ func (o *MailSignatureCandidate) GetSignatureTextOk() (*string, bool) {
 }
 
 // SetSignatureText sets field value
-func (o *MailSignatureCandidate) SetSignatureText(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetSignatureText(v string) {
 	o.SignatureText = v
 }
 
 // GetSignatureTextHash returns the SignatureTextHash field value
-func (o *MailSignatureCandidate) GetSignatureTextHash() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSignatureTextHash() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -245,7 +245,7 @@ func (o *MailSignatureCandidate) GetSignatureTextHash() string {
 
 // GetSignatureTextHashOk returns a tuple with the SignatureTextHash field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetSignatureTextHashOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSignatureTextHashOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -253,12 +253,12 @@ func (o *MailSignatureCandidate) GetSignatureTextHashOk() (*string, bool) {
 }
 
 // SetSignatureTextHash sets field value
-func (o *MailSignatureCandidate) SetSignatureTextHash(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetSignatureTextHash(v string) {
 	o.SignatureTextHash = v
 }
 
 // GetSourceMessageId returns the SourceMessageId field value
-func (o *MailSignatureCandidate) GetSourceMessageId() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSourceMessageId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -269,7 +269,7 @@ func (o *MailSignatureCandidate) GetSourceMessageId() string {
 
 // GetSourceMessageIdOk returns a tuple with the SourceMessageId field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetSourceMessageIdOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetSourceMessageIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -277,12 +277,12 @@ func (o *MailSignatureCandidate) GetSourceMessageIdOk() (*string, bool) {
 }
 
 // SetSourceMessageId sets field value
-func (o *MailSignatureCandidate) SetSourceMessageId(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetSourceMessageId(v string) {
 	o.SourceMessageId = v
 }
 
 // GetStatus returns the Status field value
-func (o *MailSignatureCandidate) GetStatus() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetStatus() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -293,7 +293,7 @@ func (o *MailSignatureCandidate) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetStatusOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -301,12 +301,12 @@ func (o *MailSignatureCandidate) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *MailSignatureCandidate) SetStatus(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetStatus(v string) {
 	o.Status = v
 }
 
 // GetTenantId returns the TenantId field value
-func (o *MailSignatureCandidate) GetTenantId() string {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetTenantId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -317,7 +317,7 @@ func (o *MailSignatureCandidate) GetTenantId() string {
 
 // GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
-func (o *MailSignatureCandidate) GetTenantIdOk() (*string, bool) {
+func (o *MailGetSignaturesResponse200CandidatesInner) GetTenantIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -325,11 +325,11 @@ func (o *MailSignatureCandidate) GetTenantIdOk() (*string, bool) {
 }
 
 // SetTenantId sets field value
-func (o *MailSignatureCandidate) SetTenantId(v string) {
+func (o *MailGetSignaturesResponse200CandidatesInner) SetTenantId(v string) {
 	o.TenantId = v
 }
 
-func (o MailSignatureCandidate) MarshalJSON() ([]byte, error) {
+func (o MailGetSignaturesResponse200CandidatesInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -337,7 +337,7 @@ func (o MailSignatureCandidate) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o MailSignatureCandidate) ToMap() (map[string]interface{}, error) {
+func (o MailGetSignaturesResponse200CandidatesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["confidence"] = o.Confidence
 	toSerialize["createdAt"] = o.CreatedAt
@@ -358,7 +358,7 @@ func (o MailSignatureCandidate) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *MailSignatureCandidate) UnmarshalJSON(data []byte) (err error) {
+func (o *MailGetSignaturesResponse200CandidatesInner) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -390,15 +390,15 @@ func (o *MailSignatureCandidate) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varMailSignatureCandidate := _MailSignatureCandidate{}
+	varMailGetSignaturesResponse200CandidatesInner := _MailGetSignaturesResponse200CandidatesInner{}
 
-	err = json.Unmarshal(data, &varMailSignatureCandidate)
+	err = json.Unmarshal(data, &varMailGetSignaturesResponse200CandidatesInner)
 
 	if err != nil {
 		return err
 	}
 
-	*o = MailSignatureCandidate(varMailSignatureCandidate)
+	*o = MailGetSignaturesResponse200CandidatesInner(varMailGetSignaturesResponse200CandidatesInner)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -420,38 +420,38 @@ func (o *MailSignatureCandidate) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableMailSignatureCandidate struct {
-	value *MailSignatureCandidate
+type NullableMailGetSignaturesResponse200CandidatesInner struct {
+	value *MailGetSignaturesResponse200CandidatesInner
 	isSet bool
 }
 
-func (v NullableMailSignatureCandidate) Get() *MailSignatureCandidate {
+func (v NullableMailGetSignaturesResponse200CandidatesInner) Get() *MailGetSignaturesResponse200CandidatesInner {
 	return v.value
 }
 
-func (v *NullableMailSignatureCandidate) Set(val *MailSignatureCandidate) {
+func (v *NullableMailGetSignaturesResponse200CandidatesInner) Set(val *MailGetSignaturesResponse200CandidatesInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableMailSignatureCandidate) IsSet() bool {
+func (v NullableMailGetSignaturesResponse200CandidatesInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableMailSignatureCandidate) Unset() {
+func (v *NullableMailGetSignaturesResponse200CandidatesInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableMailSignatureCandidate(val *MailSignatureCandidate) *NullableMailSignatureCandidate {
-	return &NullableMailSignatureCandidate{value: val, isSet: true}
+func NewNullableMailGetSignaturesResponse200CandidatesInner(val *MailGetSignaturesResponse200CandidatesInner) *NullableMailGetSignaturesResponse200CandidatesInner {
+	return &NullableMailGetSignaturesResponse200CandidatesInner{value: val, isSet: true}
 }
 
-func (v NullableMailSignatureCandidate) MarshalJSON() ([]byte, error) {
+func (v NullableMailGetSignaturesResponse200CandidatesInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableMailSignatureCandidate) UnmarshalJSON(src []byte) error {
+func (v *NullableMailGetSignaturesResponse200CandidatesInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

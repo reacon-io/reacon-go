@@ -21,6 +21,8 @@ var _ MappedNullable = &MailPostCadencesRequest{}
 
 // MailPostCadencesRequest struct for MailPostCadencesRequest
 type MailPostCadencesRequest struct {
+	EmailExcludedContactIds []string `json:"emailExcludedContactIds,omitempty"`
+	EmailRecipientOverrides []MailPostCadencesRequestEmailRecipientOverridesInner `json:"emailRecipientOverrides,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
 	Nodes []MailPostCadencesRequestNodesInner `json:"nodes"`
@@ -48,6 +50,70 @@ func NewMailPostCadencesRequest(name string, nodes []MailPostCadencesRequestNode
 func NewMailPostCadencesRequestWithDefaults() *MailPostCadencesRequest {
 	this := MailPostCadencesRequest{}
 	return &this
+}
+
+// GetEmailExcludedContactIds returns the EmailExcludedContactIds field value if set, zero value otherwise.
+func (o *MailPostCadencesRequest) GetEmailExcludedContactIds() []string {
+	if o == nil || IsNil(o.EmailExcludedContactIds) {
+		var ret []string
+		return ret
+	}
+	return o.EmailExcludedContactIds
+}
+
+// GetEmailExcludedContactIdsOk returns a tuple with the EmailExcludedContactIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailPostCadencesRequest) GetEmailExcludedContactIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.EmailExcludedContactIds) {
+		return nil, false
+	}
+	return o.EmailExcludedContactIds, true
+}
+
+// HasEmailExcludedContactIds returns a boolean if a field has been set.
+func (o *MailPostCadencesRequest) HasEmailExcludedContactIds() bool {
+	if o != nil && !IsNil(o.EmailExcludedContactIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailExcludedContactIds gets a reference to the given []string and assigns it to the EmailExcludedContactIds field.
+func (o *MailPostCadencesRequest) SetEmailExcludedContactIds(v []string) {
+	o.EmailExcludedContactIds = v
+}
+
+// GetEmailRecipientOverrides returns the EmailRecipientOverrides field value if set, zero value otherwise.
+func (o *MailPostCadencesRequest) GetEmailRecipientOverrides() []MailPostCadencesRequestEmailRecipientOverridesInner {
+	if o == nil || IsNil(o.EmailRecipientOverrides) {
+		var ret []MailPostCadencesRequestEmailRecipientOverridesInner
+		return ret
+	}
+	return o.EmailRecipientOverrides
+}
+
+// GetEmailRecipientOverridesOk returns a tuple with the EmailRecipientOverrides field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MailPostCadencesRequest) GetEmailRecipientOverridesOk() ([]MailPostCadencesRequestEmailRecipientOverridesInner, bool) {
+	if o == nil || IsNil(o.EmailRecipientOverrides) {
+		return nil, false
+	}
+	return o.EmailRecipientOverrides, true
+}
+
+// HasEmailRecipientOverrides returns a boolean if a field has been set.
+func (o *MailPostCadencesRequest) HasEmailRecipientOverrides() bool {
+	if o != nil && !IsNil(o.EmailRecipientOverrides) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailRecipientOverrides gets a reference to the given []MailPostCadencesRequestEmailRecipientOverridesInner and assigns it to the EmailRecipientOverrides field.
+func (o *MailPostCadencesRequest) SetEmailRecipientOverrides(v []MailPostCadencesRequestEmailRecipientOverridesInner) {
+	o.EmailRecipientOverrides = v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -196,6 +262,12 @@ func (o MailPostCadencesRequest) MarshalJSON() ([]byte, error) {
 
 func (o MailPostCadencesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EmailExcludedContactIds) {
+		toSerialize["emailExcludedContactIds"] = o.EmailExcludedContactIds
+	}
+	if !IsNil(o.EmailRecipientOverrides) {
+		toSerialize["emailRecipientOverrides"] = o.EmailRecipientOverrides
+	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
